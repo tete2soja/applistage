@@ -7,9 +7,9 @@ return array(
 'development' => array(
     'type'           => 'pdo',
     'connection'     => array(
-        'dsn'            => 'mysql:host=62.210.193.152;dbname=applistage',
-        'username'       => 'applistage',
-        'password'       => 'applistage ',
+        'dsn'            => 'mysql:host=localhost;dbname=asso_n3',
+        'username'       => 'asso_n3',
+        'password'       => '2xvjPfSpGH',
         'persistent'     => false,
         'compress'       => false,
     ),
