@@ -14,9 +14,9 @@ return array(
 	'default' => array(
 	    'type'           => 'pdo',
 	    'connection'     => array(
-	        'dsn'            => 'mysql:host=sd-59007.dedibox.fr;dbname=applistage',
-	        'username'       => 'applistage',
-	        'password'       => 'applistage ',
+	        'dsn'            => 'mysql:host=localhost;dbname=asso_n3',
+		    'username'       => 'asso_n3',
+		    'password'       => '2xvjPfSpGH',
 	        'persistent'     => false,
 	        'compress'       => false,
 	    ),
@@ -31,9 +31,9 @@ return array(
 	'development' => array(
 	    'type'           => 'pdo',
 	    'connection'     => array(
-	        'dsn'            => 'mysql:host=sd-59007.dedibox.fr;dbname=applistage',
-	        'username'       => 'applistage',
-	        'password'       => 'applistage ',
+	        'dsn'            => 'mysql:host=vivelesmoutons.me.uk;dbname=asso_n3',
+		    'username'       => 'asso_n3',
+		    'password'       => '2xvjPfSpGH',
 	        'persistent'     => false,
 	        'compress'       => false,
 	    ),
