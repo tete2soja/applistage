@@ -2,6 +2,10 @@
 
 class Controller_Admin extends Controller_Template
 {
+	public function before()
+	{
+		// check for admin
+	}
 
 	public function action_index()
 	{
