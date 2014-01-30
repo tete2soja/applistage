@@ -1,90 +1,55 @@
 <?php
-/**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
- *
- * @package    Fuel
- * @version    1.7
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
- * @link       http://fuelphp.com
- */
 
-/**
- * The Welcome Controller.
- *
- * A basic controller example.  Has examples of how to set the
- * response body and status.
- *
- * @package  app
- * @extends  Controller
- */
-class Controller_Etudiant extends Controller
+class Controller_Etudiant extends Controller_Template
 {
 
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_index()
-    {
-        return Response::forge(View::forge('etudiant/index'));
-    }
-    
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_recherche()
-    {
-        return Response::forge(View::forge('etudiant/recherche'));
-    }
-    
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_convention()
-    {
-        return Response::forge(View::forge('etudiant/convention'));
-    }
-    
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_realisation()
-    {
-        return Response::forge(View::forge('etudiant/realisation'));
-    }
-    
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_soutenance()
-    {
-        return Response::forge(View::forge('etudiant/soutenance'));
-    }
+	public function action_index()
+	{
+		$data["subnav"] = array('index'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Index';
+		$this->template->content = View::forge('etudiant/index', $data);
+	}
 
-    /**
-     * The 404 action for the application.
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_404()
-    {
-        return Response::forge(ViewModel::forge('welcome/404'), 404);
-    }
+	public function action_convention()
+	{
+		$data["subnav"] = array('convention'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Convention';
+		$this->template->content = View::forge('etudiant/convention', $data);
+	}
+
+	public function action_realisation()
+	{
+		$data["subnav"] = array('realisation'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Realisation';
+		$this->template->content = View::forge('etudiant/realisation', $data);
+	}
+
+	public function action_recherche()
+	{
+		$data["subnav"] = array('recherche'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Recherche';
+		$this->template->content = View::forge('etudiant/recherche', $data);
+	}
+
+	public function action_soutenance()
+	{
+		$data["subnav"] = array('soutenance'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Soutenance';
+		$this->template->content = View::forge('etudiant/soutenance', $data);
+	}
+
+	public function action_formulaire()
+	{
+		$data["subnav"] = array('formulaire'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Formulaire';
+		$this->template->content = View::forge('etudiant/formulaire', $data);
+	}
+
+	public function action_connexion()
+	{
+		$data["subnav"] = array('connexion'=> 'active' );
+		$this->template->title = 'Etudiant &raquo; Connexion';
+		$this->template->content = View::forge('etudiant/connexion', $data);
+	}
+
 }

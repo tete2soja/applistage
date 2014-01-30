@@ -4,4 +4,4 @@
 	<li class='<?php echo Arr::get($subnav, "formulaire" ); ?>'><?php echo Html::anchor('entreprise/formulaire','Formulaire');?></li>
 
 </ul>
-<p>Index</p>
+<p>Proposition</p>

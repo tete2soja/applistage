@@ -8,4 +8,4 @@
 	<li class='<?php echo Arr::get($subnav, "connexion" ); ?>'><?php echo Html::anchor('etudiant/connexion','Connexion');?></li>
 
 </ul>
-<p>Convention</p>
+<p>Formulaire</p>

@@ -1,58 +1,20 @@
 <?php
-/**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
- *
- * @package    Fuel
- * @version    1.7
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
- * @link       http://fuelphp.com
- */
 
-/**
- * The Welcome Controller.
- *
- * A basic controller example.  Has examples of how to set the
- * response body and status.
- *
- * @package  app
- * @extends  Controller
- */
-class Controller_Enseignant extends Controller
+class Controller_Enseignant extends Controller_Template
 {
 
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_index()
-    {
-        return Response::forge(View::forge('enseignant/index'));
-    }
+	public function action_index()
+	{
+		$data["subnav"] = array('index'=> 'active' );
+		$this->template->title = 'Enseignant &raquo; Index';
+		$this->template->content = View::forge('enseignant/index', $data);
+	}
 
-    /**
-     * A typical "Hello, Bob!" type example.  This uses a ViewModel to
-     * show how to use them.
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_hello()
-    {
-        return Response::forge(ViewModel::forge('welcome/hello'));
-    }
+	public function action_connexion()
+	{
+		$data["subnav"] = array('connexion'=> 'active' );
+		$this->template->title = 'Enseignant &raquo; Connexion';
+		$this->template->content = View::forge('enseignant/connexion', $data);
+	}
 
-    /**
-     * The 404 action for the application.
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_404()
-    {
-        return Response::forge(ViewModel::forge('welcome/404'), 404);
-    }
 }

@@ -1,26 +1,6 @@
-			<? include $_SERVER['DOCUMENT_ROOT'].'/applistage/fuel/app/views/header.php' ; ?>
-			
-			<div class="row">
-				<div class="col-md-4">
-					
-				</div>
-				<div class="col-md-4">
-					<form role="form">
-					  <div class="form-group">
-					    <label for="id">Identifiant</label>
-					    <input type="text" class="form-control" id="id" placeholder="Entrer votre identifiant">
-					  </div>
-					  <div class="form-group">
-					    <label for="password">Mot de passe</label>
-					    <input type="password" class="form-control" id="password" placeholder="Mot de passe">
-					  </div>
-					  <button type="submit" class="btn btn-default">Connexion</button>
-					</form>
+<ul class="nav nav-pills">
+	<li class='<?php echo Arr::get($subnav, "index" ); ?>'><?php echo Html::anchor('admin/index','Index');?></li>
+	<li class='<?php echo Arr::get($subnav, "connexion" ); ?>'><?php echo Html::anchor('admin/connexion','Connexion');?></li>
 
-				</div>
-				<div class="col-md-4">
-					
-			</div>
-		</div>
-		
-		<? include $_SERVER['DOCUMENT_ROOT'].'/applistage/fuel/app/views/footer.php' ; ?>
+</ul>
+<p>Connexion</p>

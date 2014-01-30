@@ -3,4 +3,4 @@
 	<li class='<?php echo Arr::get($subnav, "connexion" ); ?>'><?php echo Html::anchor('enseignant/connexion','Connexion');?></li>
 
 </ul>
-<p>Index</p>
+<p>Connexion</p>

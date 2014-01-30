@@ -1,69 +1,27 @@
 <?php
-/**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
- *
- * @package    Fuel
- * @version    1.7
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
- * @link       http://fuelphp.com
- */
 
-/**
- * The Welcome Controller.
- *
- * A basic controller example.  Has examples of how to set the
- * response body and status.
- *
- * @package  app
- * @extends  Controller
- */
-class Controller_Entreprise extends Controller
+class Controller_Entreprise extends Controller_Template
 {
 
-    /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_index()
-    {
-        return Response::forge(View::forge('entreprise/index'));
-    }
-    
-        /**
-     * The basic welcome message
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_proposition_stage()
-    {
-        return Response::forge(View::forge('entreprise/proposition_stage'));
-    }
+	public function action_index()
+	{
+		$data["subnav"] = array('index'=> 'active' );
+		$this->template->title = 'Entreprise &raquo; Index';
+		$this->template->content = View::forge('entreprise/index', $data);
+	}
 
-    /**
-     * A typical "Hello, Bob!" type example.  This uses a ViewModel to
-     * show how to use them.
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_hello()
-    {
-        return Response::forge(ViewModel::forge('welcome/hello'));
-    }
+	public function action_proposition()
+	{
+		$data["subnav"] = array('proposition'=> 'active' );
+		$this->template->title = 'Entreprise &raquo; Proposition';
+		$this->template->content = View::forge('entreprise/proposition', $data);
+	}
 
-    /**
-     * The 404 action for the application.
-     *
-     * @access  public
-     * @return  Response
-     */
-    public function action_404()
-    {
-        return Response::forge(ViewModel::forge('welcome/404'), 404);
-    }
+	public function action_formulaire()
+	{
+		$data["subnav"] = array('formulaire'=> 'active' );
+		$this->template->title = 'Entreprise &raquo; Formulaire';
+		$this->template->content = View::forge('entreprise/formulaire', $data);
+	}
+
 }
