@@ -9,4 +9,4 @@
 	<li class='<?php echo Arr::get($subnav, "_form" ); ?>'><?php echo Html::anchor('admin/_form',' form');?></li>
 
 </ul>
-<p>Connexion</p>
+<p>View</p>
