@@ -5,15 +5,25 @@
 	<title><?php echo $title; ?></title>
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<style>
-		body { margin: 40px; }
+		#logo{
+			display: block;
+			width: 179px;
+			height: 45px;
+			position: relative;
+			top: 15px;
+		}
+		.jumbotron{
+			color: #000;
+			height: 150px;
+			margin-top: 10px;
+		}
 	</style>
 </head>
 <body>
 	<div class="container">
-		<div class="col-md-12">
-			<h1><?php echo $title; ?></h1>
-			<hr>
-<?php if (Session::get_flash('success')): ?>
+		<div class="jumbotron">
+			<h1 style="margin-top: -20px;"><a style="text-decoration: none;color:black;"href="./index"><?php echo $main_title; ?></a></h1>
+			<?php if (Session::get_flash('success')): ?>
 			<div class="alert alert-success">
 				<strong>Success</strong>
 				<p>
@@ -29,15 +39,17 @@
 				</p>
 			</div>
 <?php endif; ?>
+			<p><?php echo $sub_title; ?></p>
 		</div>
-		<div class="col-md-12">
-<?php echo $content; ?>
-		</div>
+		<?php echo $content; ?>
+		<hr />
 		<footer>
-			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
+			<p class="pull-right">
+				<a href="/applistage/public/index" type="button" class="btn btn-link">Retour Accueil</a>
+				<a href="/applistage/public/admin/" type="button" class="btn btn-danger">Admin</a></p>
 			<p>
-				<a href="http://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>
-				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
+				<a href="http://www.iu-vannes.fr/" target="_blank">IUT Vannes</a><br>
+				<small>Propulsé par FuelPHP <?php echo Fuel::VERSION; ?></small>
 			</p>
 		</footer>
 	</div>
