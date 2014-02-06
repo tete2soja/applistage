@@ -9,11 +9,23 @@
 					</form>
 				</div>
 			<div class="row">
-				<div class="col-md-6 bs-callout bs-callout-success">
+				<div class="col-md-6 bs-callout bs-callout-info">
 					<h2>Exportations</h2>
 					<hr/>
-					<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Etudiants</button>
-					<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Entreprises</button>
-					<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
+					<div class="col-md-4">
+						<form enctype='multipart/form-data' action="" method="POST">
+							<button type="etudiant" name="etudiant" value="etudiant" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Etudiants</button>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form enctype='multipart/form-data' action="" method="POST">
+							<button type="entreprise" name="entreprise" value="entreprise" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Entreprises</button>
+						</form>
+					</div>
+					<div class="col-md-4">
+						<form enctype='multipart/form-data' action="" method="POST">
+							<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
+						</form>
+					</div>
 				</div>
 			</div>

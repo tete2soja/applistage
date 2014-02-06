@@ -6,9 +6,7 @@ class Model_Ville extends \Orm\Model
 		'id',
 		'nom',
 		'code_postal',
-		'pays'
-		'created_at',
-		'updated_at',
+		'pays',
 	);
 
 	protected static $_observers = array(

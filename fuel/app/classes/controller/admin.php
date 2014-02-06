@@ -49,6 +49,45 @@ class Controller_Admin extends Controller_Template
 			fclose($handle);
 			print "Import done";
 		}
+		elseif (isset($_POST['etudiant'])) {
+			$pays = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
+			$tmp = serialize($pays);
+		    if (file_exists(DOCROOT . 'assets/doc/etudiants.csv'))
+		    {
+		    	File::update(DOCROOT . 'assets/doc', 'etudiants.csv', $tmp);
+		    } else {
+		    	File::create(DOCROOT . 'assets/doc', 'etudiants.csv', $tmp);
+		    	chmod(DOCROOT . 'assets/doc/etudiants.csv', 0777);
+		    }
+			echo $tmp;
+			print "test done";
+		}
+		elseif (isset($_POST['entreprise'])) {
+			$pays = DB::query('SELECT * FROM `entreprise`')->execute()->as_array();
+			$tmp = serialize($pays);
+		    if (file_exists(DOCROOT . 'assets/doc/entreprise.csv'))
+		    {
+		    	File::update(DOCROOT . 'assets/doc', 'entreprise.csv', $tmp);
+		    } else {
+		    	File::create(DOCROOT . 'assets/doc', 'entreprise.csv', $tmp);
+		    	chmod(DOCROOT . 'assets/doc/entreprise.csv', 0777);
+		    }
+			echo $tmp;
+			print "test done";
+		}
+		elseif (isset($_POST['contact'])) {
+			$pays = DB::query('SELECT * FROM `contact`')->execute()->as_array();
+			$tmp = serialize($pays);
+		    if (file_exists(DOCROOT . 'assets/doc/contact.csv'))
+		    {
+		    	File::update(DOCROOT . 'assets/doc', 'contact.csv', $tmp);
+		    } else {
+		    	File::create(DOCROOT . 'assets/doc', 'contact.csv', $tmp);
+		    	chmod(DOCROOT . 'assets/doc/contact.csv', 0777);
+		    }
+			echo $tmp;
+			print "test done";
+		}
 	}
 
 	public function action_edit()

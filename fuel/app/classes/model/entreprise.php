@@ -10,9 +10,7 @@ class Model_Entreprise extends \Orm\Model
 		'adresse',
 		'ville',
 		'url_entreprise',
-		'stagiaire'
-		'created_at',
-		'updated_at',
+		'stagiaire',
 	);
 
 	protected static $_observers = array(

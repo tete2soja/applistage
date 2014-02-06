@@ -12,9 +12,7 @@ class Model_Fichestage extends \Orm\Model
 		'proposition',
 		'indemnite',
 		'public',
-		'entreprise'
-		'created_at',
-		'updated_at',
+		'entreprise',
 	);
 
 	protected static $_observers = array(

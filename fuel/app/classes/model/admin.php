@@ -9,8 +9,6 @@ class Model_Admin extends \Orm\Model
 		'user_id',
 		'login',
 		'password',
-		'created_at',
-		'updated_at',
 	);
 
 	protected static $_observers = array(

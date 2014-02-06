@@ -18,9 +18,7 @@ class Model_Etudiant extends \Orm\Model
 		'adresse2',
 		'ville2',
 		'telephone1',
-		'telephone2'
-		'created_at',
-		'updated_at',
+		'telephone2',
 	);
 
 	protected static $_observers = array(

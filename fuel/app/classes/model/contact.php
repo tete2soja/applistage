@@ -10,9 +10,7 @@ class Model_Contact extends \Orm\Model
 		'entreprise',
 		'encadre',
 		'signe',
-		'propose'
-		'created_at',
-		'updated_at',
+		'propose',
 	);
 
 	protected static $_observers = array(

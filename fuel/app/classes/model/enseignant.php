@@ -7,9 +7,7 @@ class Model_Enseignant extends \Orm\Model
 		'no_enseignant',
 		'nom',
 		'prenom',
-		'telephone'
-		'created_at',
-		'updated_at',
+		'telephone',
 	);
 
 	protected static $_observers = array(

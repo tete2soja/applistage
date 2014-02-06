@@ -6,9 +6,7 @@ class Model_Stage extends \Orm\Model
 		'id',
 		'etudiant',
 		'contact',
-		'enseignant'
-		'created_at',
-		'updated_at',
+		'enseignant',
 	);
 
 	protected static $_observers = array(
