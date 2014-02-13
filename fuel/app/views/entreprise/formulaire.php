@@ -1,3 +1,10 @@
+<!-- 					JAVASCRIPT FORMULAIRE					-->
+<script language="JavaScript" type="text/javascript">
+function checkform ( form )
+{
+	
+}
+</script>
 		<div style="width:70%;
 			margin:auto;
 			padding-left:30px;

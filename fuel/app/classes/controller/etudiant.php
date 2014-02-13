@@ -55,6 +55,20 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
 		$this->template->content = View::forge('etudiant/formulaire', $data);
+
+		if (isset($_POST['submit'])) {
+			$sujet = $_POST['sujetStage'];
+			$nomcontact = $_POST['resT_nom'];
+			$publicproposition = $_POST['albumimg'];
+			$contextestage = $_POST['description_sujet'];
+			$conditionstage = $_POST['annee'];
+			$proposition = $_POST['playlist'];
+			$indemnite = $_POST['retribution'];
+			$public = $_POST['playlist'];
+			//ENTREPRISE
+			$query = DB::query('INSERT INTO `fichestages` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
+			print "Formulaire envoyé avec succès";
+		}
 	}
 
 	public function action_connexion()
