@@ -4,11 +4,10 @@ class Model_Entreprise extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
-		'no_siret',
 		'nom',
-		'domaine',
 		'adresse',
 		'ville',
+		'pays',
 		'url_entreprise',
 		'stagiaire',
 	);
@@ -23,6 +22,6 @@ class Model_Entreprise extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'entreprises';
+	protected static $_table_name = 'entreprise';
 
 }

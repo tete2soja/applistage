@@ -7,6 +7,14 @@ class Model_Stage extends \Orm\Model
 		'etudiant',
 		'contact',
 		'enseignant',
+		'entreprise',
+		'sujet',
+		'visibilite',
+		'contexte',
+		'resultats',
+		'conditions',
+		'url_doc',
+		'public',
 	);
 
 	protected static $_observers = array(

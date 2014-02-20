@@ -7,6 +7,7 @@ class Model_Contact extends \Orm\Model
 		'nom',
 		'prenom',
 		'telephone',
+		'email',
 		'entreprise',
 		'encadre',
 		'signe',
@@ -23,6 +24,6 @@ class Model_Contact extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'contacts';
+	protected static $_table_name = 'contact';
 
 }

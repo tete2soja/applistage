@@ -4,6 +4,35 @@ function checkform ( form )
 {
 	
 }
+$(function() {
+    var availablePays = [
+    	"Afghanistan",
+	    "Afrique du Sud",
+	    "Albanie",
+	    "Algérie",
+	    "Allemagne",
+	    "Andorre",
+	    "Angola",
+	    "Anguilla",
+	    "Antarctique",
+	    "Antigua-et-Barbuda",
+	    "Antilles néerlandaises",
+	    "Arabie saoudite",
+	    "Argentine",
+	    "Arménie",
+	    "Aruba",
+	    "Australie",
+	    "Autriche",
+	    "Azerbaïdjan",
+	    "Bénin",
+	    "Bahamas",
+	    "Bahreïn",
+	    "Bangladesh"
+	    ];
+    $( "#ent_pays" ).autocomplete({
+    source: availablePays
+    });
+  });
 </script>
 		<div style="width:70%;
 			margin:auto;
@@ -17,7 +46,7 @@ function checkform ( form )
 			text-align:center;">
 			<h2>Formulaire de saisie d'une proposition de stage</h2>
 			<br />
-			<form class="form-horizontal" role="form" method="POST" action="test.php">
+			<form class="form-horizontal" role="form" method="POST" action="formulaire.php">
 				<div class="form-group">
 					<label for="sujet" class="col-sm-2 control-label" >Sujet</label>
 					<div class="col-sm-10">
@@ -28,7 +57,10 @@ function checkform ( form )
 					<label for="contact_nom" class="col-sm-2 control-label" >Contact</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="contact_nom" placeholder="Nom">
-						<input type="text" class="form-control" id="contact_prenom" placeholder="Ville">
+						<input type="text" class="form-control" id="contact_prenom" placeholder="Prénom">
+						<input type="text" class="form-control" id="contact_codepostal" placeholder="Code Postal">
+						<input type="text" class="form-control" id="contact_ville" placeholder="Ville">
+						<input type="text" class="form-control" id="contact_pays" placeholder="Pays">
 						<input type="text" class="form-control" id="contact_mail" placeholder="Adresse mail">
 						<input type="text" class="form-control" id="contact_tel" placeholder="Téléphone">
 					</div>
@@ -37,9 +69,10 @@ function checkform ( form )
 					<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" id="ent_nom" placeholder="Nom">
-						<input type="text" class="form-control" id="ent_prenom" placeholder="Ville">
-						<input type="text" class="form-control" id="ent_mail" placeholder="Département">
-						<input type="text" class="form-control" id="ent_mail" placeholder="Pays">
+						<input type="text" class="form-control" id="ent_adresse" placeholder="Adresse">
+						<input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal">
+						<input type="text" class="form-control" id="ent_ville" placeholder="Ville">
+						<input type="text" class="form-control" id="ent_pays" placeholder="Pays">
 						<input type="text" class="form-control" id="ent_tel" placeholder="URL">
 					</div>
 				</div>
@@ -85,7 +118,7 @@ function checkform ( form )
 				</div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-default">RAZ</button>
+			      <button type="reset" class="btn btn-default">Reset</button>
 			      <button type="submit" class="btn btn-default">Valider</button>
 			    </div>
 			  </div>

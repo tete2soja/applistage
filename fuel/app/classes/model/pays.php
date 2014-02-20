@@ -1,10 +1,12 @@
 <?php
 
-class Model_Pay extends \Orm\Model
+class Model_Pays extends \Orm\Model
 {
 	protected static $_properties = array(
 		'id',
+		'code',
 		'nom',
+		'nom_en',
 	);
 
 	protected static $_observers = array(

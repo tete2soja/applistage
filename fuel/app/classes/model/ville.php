@@ -19,6 +19,6 @@ class Model_Ville extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'villes';
+	protected static $_table_name = 'ville';
 
 }
