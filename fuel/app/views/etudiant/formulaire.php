@@ -1,4 +1,4 @@
-		<div style="width:70%;
+		<div style="width:90%;
 			margin:auto;
 			padding-left:30px;
 			padding-right:30px;
@@ -23,13 +23,13 @@
 			    	<input type="email" class="form-control" id="derniereModif" placeholder="" disabled>
 			    </div>
 			</div>
-			<div class="form-group" id="urgence" rel="popover">
+			<div class="form-group">
 				<label for="contact_urgence" class="col-sm-2 control-label">Contact en cas d'urgence</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="contact_urgence" placeholder="Nom et Prénom">
+					<div id="contact_urgence_div"><input type="text" class="form-control" id="contact_urgence" placeholder="Nom et Prénom"></div>
 				</div>
 			</div>
-			<div class="form-group" id="rep">
+			<div class="form-group">
 				<label for="rep_nom" class="col-sm-2 control-label" >Représentant légal</label>
 				<div class="col-sm-10">
 						<div id="rep_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="rep_nom" placeholder="Nom et Prénom"></div>
@@ -37,10 +37,10 @@
 						<div id="rep_tel_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="rep_tel" placeholder="Téléphone"></div>
 				</div>
 			</div>
-			<div class="form-group" id="sujetstage">
+			<div class="form-group">
 			    <label for="sujetStage" class="col-sm-2 control-label">Sujet du stage</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="sujetStage" placeholder="">
+			      <div id="sujetStage_div"><input type="text" class="form-control" id="sujetStage" placeholder=""></div>
 			    </div>
 			</div>
 			<div class="form-group">
@@ -52,14 +52,14 @@
 					</select>
 			    </div>
 			</div>
-			<div class="form-group" id="entreprise">
+			<div class="form-group">
 				<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
 				<div class="col-sm-10">
 					<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" placeholder="Nom"></div>
 					<div id="ent_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_adresse" placeholder="Adresse"></div>
 					<div id="ent_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal"></div>
 					<div id="ent_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_pays" placeholder="Pays"></div>
-					<div id="ent_url_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_url" placeholder="URL"></div>
+					<div id="ent_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_url" placeholder="URL"></div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -71,26 +71,26 @@
 					</select>
 			    </div>
 			  </div>
-			  <div class="form-group" id="resT">
+			  <div class="form-group">
 					<label for="resT_nom" class="col-sm-2 control-label" >Responsable technique</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="resT_nom" placeholder="Nom">
-						<input type="text" class="form-control" id="resT_email" placeholder="Email">
-						<input type="text" class="form-control" id="resT_tel" placeholder="Téléphone">
+						<div id="resT_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="resT_nom" placeholder="Nom"></div>
+						<div id="resT_email_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="resT_email" placeholder="Email"></div>
+						<div id="resT_tel_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="resT_tel" placeholder="Téléphone"></div>
 					</div>
 				</div>
-			  <div class="form-group" id="resA">
+			  <div class="form-group">
 					<label for="resA_nom" class="col-sm-2 control-label" >Responsable administratif</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="resA_nom" placeholder="Nom">
-						<input type="text" class="form-control" id="resA_email" placeholder="Email">
-						<input type="text" class="form-control" id="resA_tel" placeholder="Téléphone">
+						<div id="resA_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="resA_nom" placeholder="Nom"></div>
+						<div id="resA_email_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="resA_email" placeholder="Email"></div>
+						<div id="resA_tel_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="resA_tel" placeholder="Téléphone"></div>
 					</div>
 				</div>
-				<div class="form-group" id="adressestage">
+				<div class="form-group">
 			    <label for="adresse_stage" class="col-sm-2 control-label">Adresse du lieu du stage</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="adresse_stage" placeholder="">
+			      <div id="adresse_stage_div"><input type="text" class="form-control" id="adresse_stage" placeholder=""></div>
 			    </div>
 			  </div>
 			  <div class="form-group" id="adresse_stage">
@@ -102,22 +102,22 @@
 					</select>
 			    </div>
 			  </div>
-			  <div class="form-group" id="duree_stage_stage">
+			  <div class="form-group">
 			    <label for="duree_stage" class="col-sm-2 control-label">Durée du stage en semaines</label>
 			    <div class="col-sm-10">
-			      <input type="number" class="form-control" id="duree_stage" placeholder="10">
+			      <div id="duree_stage_div"><input type="number" class="form-control" id="duree_stage" placeholder="10"></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="date_debut_stage">
+			  <div class="form-group">
 			    <label for="date_debut" class="col-sm-2 control-label">Date de début de stage</label>
 			    <div class="col-sm-10">
-			      <input type="date" class="form-control" id="date_debut" placeholder="13/06/2014">
+			      <div id="date_debut_div"><input type="date" class="form-control" id="date_debut" placeholder="13/06/2014"></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="date_fin_stage">
+			  <div class="form-group">
 			    <label for="date_fin" class="col-sm-2 control-label">Date de fin de stage</label>
 			    <div class="col-sm-10">
-			      <input type="date" class="form-control" id="date_fin" placeholder="13/06/2014">
+			      <div id="date_fin_div"><input type="date" class="form-control" id="date_fin" placeholder="13/06/2014"></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -126,40 +126,40 @@
 			      <input type="checkbox" id="duree_allongee" value="option1">
 			    </div>
 			  </div>
-			  <div class="form-group" id="nb_jour">
+			  <div class="form-group">
 			    <label for="nb_jour_travailles" class="col-sm-2 control-label">Nombre de jours travaillés par semaine</label>
 			    <div class="col-sm-10">
-			      <input type="number" class="form-control" id="nb_jour_travailles" placeholder="">
+			      <div id="nb_jour_travailles_div"><input type="number" class="form-control" id="nb_jour_travailles" placeholder=""></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="nb_heure">
+			  <div class="form-group">
 			    <label for="horaire_hebdo" class="col-sm-2 control-label">Horaire hebdomadaire maximum</label>
 			    <div class="col-sm-10">
-			      <input type="number" class="form-control" id="horaire_hebdo" placeholder="">
+			      <div id="horaire_hebdo_div"><input type="number" class="form-control" id="horaire_hebdo" placeholder=""></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="retribution_propose">
+			  <div class="form-group">
 			    <label for="retribution" class="col-sm-2 control-label">Rétribution proposée</label>
 			    <div class="col-sm-10">
-			      <input type="number" class="form-control" id="retribution" placeholder="">
+			      <div id="retribution_div"><input type="number" class="form-control" id="retribution" placeholder=""></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="montant_mens">
+			  <div class="form-group">
 			    <label for="montant" class="col-sm-2 control-label">Montant mensuel prévu</label>
 			    <div class="col-sm-10" id="montant_div">
-			      <input type="number" class="form-control" id="montant" placeholder="">
+			      <div id="montantdiv"><input type="number" class="form-control" id="montant" placeholder=""></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="nature_bonus">
+			  <div class="form-group">
 			    <label for="nature" class="col-sm-2 control-label">En nature</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control" id="nature" placeholder="">
+			      <div id="nature_div"><input type="text" class="form-control" id="nature" placeholder=""></div>
 			    </div>
 			  </div>
-			  <div class="form-group" id="description_sujet_det">
+			  <div class="form-group">
 			    <label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage</label>
 			    <div class="col-sm-10">
-			      <textarea id="description_sujet" class="form-control" rows="3"></textarea>
+			      <div id="description_sujet_div"><textarea id="description_sujet" class="form-control" rows="3"></textarea></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -172,10 +172,10 @@
 			      <input type="checkbox" id="inlineCheckbox5" value="option5"> <label for="inlineCheckbox5">Mise en production</label>  
 			    </div>
 			  </div>
-			  <div class="form-group" id="environnement_dev">
+			  <div class="form-group">
 			    <label for="environnement" class="col-sm-2 control-label">Environnement de développement</label>
 			    <div class="col-sm-10">
-			      <textarea id="environnement" class="form-control" rows="3" value="Outils et Langages"></textarea>
+			      <div id="environnement_div"><textarea id="environnement" class="form-control" rows="3" value="Outils et Langages"></textarea></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
