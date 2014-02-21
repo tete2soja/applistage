@@ -3,9 +3,8 @@
 // -------------------------------------------------------------------------------------------
 function checkform()  
 {
-	var ret = false, ent = false, repL = false;
-	var repLeg = "Champs vide :";
-	alert(repLeg);
+	var ent = repL = resT = resA = false, ret = true;
+	var repLeg = entChamps = respTech = respAdmin = "Champs vide :";
 	// --------------------------------------------------------
 	//				CHAMPS VIDES
 	// --------------------------------------------------------
@@ -17,50 +16,44 @@ function checkform()
 		hideCheck("#urgence");
 	}
 	//-----------------------------------
-	if (!$("#rep_nom").val()) {
-		//showNullMulti("#rep");
-		repLeg += "\nNom";
-		repL = true;
-		ret = false;
-	}
-	else {
-		$('#rep').popover('hide');
-		$("#rep").removeClass('has-error has-feedback');
-	}
-	alert(repLeg);
-	//-----------------------------------
-	if (!$("#rep_adresse").val()) {
-		//showNullMulti("#rep");
-		repLeg += "\nAdresse";
-		repL = true;
-		ret = false;
-	}
-	else {
-		$('#rep').popover('hide');
-		$("#rep").removeClass('has-error has-feedback');
-	}
-	alert(repLeg);
-	//-----------------------------------
-	if (!$("#rep_tel").val()) {
-		//showNullMulti("#rep");
-		repLeg += "\nTel";
-		repL = true;
-		ret = false;
-	}
-	else {
-		hideCheck("#urgence");
-	}
-	alert(repLeg);
-
-	if (repL) {
-		if (repLeg.length > 20) {
-			showNullMulti("#rep",repLeg);
+	//			Representant legal
+		if (!$("#rep_nom").val()) {
+			repLeg += "\nNom";
+			repL = true;
+			ret = false;
 		}
 		else {
-			showNull("#rep");
+			$('#rep').popover('hide');
+			$("#rep").removeClass('has-error has-feedback');
 		}
-	}
-
+		//-----------------------------------
+		if (!$("#rep_adresse").val()) {
+			repLeg += "\nAdresse";
+			repL = true;
+			ret = false;
+		}
+		else {
+			$('#rep').popover('hide');
+			$("#rep").removeClass('has-error has-feedback');
+		}
+		//-----------------------------------
+		if (!$("#rep_tel").val()) {
+			repLeg += "\nTel";
+			repL = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#urgence");
+		}
+		//--- Test pour savoir si plusieurs champs sont vide ---
+		if (repL) {
+			if (repLeg.length > 20) {
+				showNullMulti("#rep",repLeg);
+			}
+			else {
+				showNull("#rep");
+			}
+		}
 	//-----------------------------------
 	if (!$("#sujetStage").val()) {
 		showNull("#sujetstage");
@@ -70,108 +63,134 @@ function checkform()
 		hideCheck("#sujetstage");
 	}
 	//-----------------------------------
-	if (!$("#ent_nom").val()) {
-		if (!ent) {
-			showNullMulti("#entreprise");
+	//				Entreprise
+		if (!$("#ent_nom").val()) {
+			entChamps += "\nNom";
 			ent = true;
 			ret = false;
 		}
-	}
-	else {
-		hideCheck("#entreprise");
-	}
-	//-----------------------------------
-	if (!$("#ent_adresse").val()) {
-		if (!ent) {
-			showNullMulti("#entreprise");
+		else {
+			hideCheck("#entreprise");
+		}
+		//-----------------------------------
+		if (!$("#ent_adresse").val()) {
+			entChamps += "\nAdresse";
 			ent = true;
 			ret = false;
 		}
-	}
-	else {
-		hideCheck("#entreprise");
-	}
-	//-----------------------------------
-	if (!$("#ent_codepostal").val()) {
-		if (!ent) {
-			showNullMulti("#entreprise");
+		else {
+			hideCheck("#entreprise");
+		}
+		//-----------------------------------
+		if (!$("#ent_codepostal").val()) {
+			entChamps += "\nCode Postale";
 			ent = true;
 			ret = false;
 		}
-	}
-	else {
-		hideCheck("#entreprise");
-	}
-	//-----------------------------------
-	if (!$("#ent_pays").val()) {
-		if (!ent) {
-			showNullMulti("#entreprise");
+		else {
+			hideCheck("#entreprise");
+		}
+		//-----------------------------------
+		if (!$("#ent_pays").val()) {
+			entChamps += "\nPays";
 			ent = true;
 			ret = false;
 		}
-	}
-	else {
-		hideCheck("#entreprise");
-	}
-	//-----------------------------------
-	if (!$("#ent_url").val()) {
-		if (!ent) {
-			showNullMulti("#entreprise");
+		else {
+			hideCheck("#entreprise");
+		}
+		//-----------------------------------
+		if (!$("#ent_url").val()) {
+			entChamps += "\nURL";
 			ent = true;
 			ret = false;
 		}
-	}
-	else {
-		hideCheck("#entreprise");
-	}
+		else {
+			hideCheck("#entreprise");
+		}
+		//--- Test pour savoir si plusieurs champs sont vide ---
+		if (entChamps.length > 13) {
+			if (entChamps.length > 20) {
+				showNullMulti("#entreprise",entChamps);
+			}
+			else {
+				showNull("#entreprise");
+			}
+		}
 	//-----------------------------------
-	if (!$("#resT_nom").val()) {
-		showNullMulti("#resT");
-		ret = false;
-	}
-	else {
-		hideCheck("#resT");
-	}
+	//				Responsable Technique
+		if (!$("#resT_nom").val()) {
+			respTech += "\nNom";
+			resT = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#resT");
+		}
+		//-----------------------------------
+		if (!$("#resT_email").val()) {
+			respTech += "\nEmail";
+			resT = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#resT");
+		}
+		//-----------------------------------
+		if (!$("#resT_tel").val()) {
+			respTech += "\nTélephone";
+			resT = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#resT");
+		}
+		//--- Test pour savoir si plusieurs champs sont vide ---
+		if (respTech.length > 13) {
+			if (respTech.length > 20) {
+				showNullMulti("#resT",respTech);
+			}
+			else {
+				showNull("#resT");
+			}
+		}
 	//-----------------------------------
-	if (!$("#resT_email").val()) {
-		showNullMulti("#resT");
-		ret = false;
-	}
-	else {
-		hideCheck("#resT");
-	}
-	//-----------------------------------
-	if (!$("#resT_tel").val()) {
-		showNullMulti("#resT");
-		ret = false;
-	}
-	else {
-		hideCheck("#resT");
-	}
-	//-----------------------------------
-	if (!$("#resA_nom").val()) {
-		showNullMulti("#resA");
-		ret = false;
-	}
-	else {
-		hideCheck("#resA");
-	}
-	//-----------------------------------
-	if (!$("#resA_email").val()) {
-		showNullMulti("#resA");
-		ret = false;
-	}
-	else {
-		hideCheck("#resA");
-	}
-	//-----------------------------------
-	if (!$("#resA_tel").val()) {
-		showNullMulti("#resA");
-		ret = false;
-	}
-	else {
-		hideCheck("#resA");;
-	}
+	//				Responsable Admin
+		if (!$("#resA_nom").val()) {
+			respAdmin += "\nNom";
+			resA = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#resA");
+		}
+		//-----------------------------------
+		if (!$("#resA_email").val()) {
+			respAdmin += "\nEmail";
+			resA = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#resA");
+		}
+		//-----------------------------------
+		if (!$("#resA_tel").val()) {
+			respAdmin += "\nTélephone";
+			resA = true;
+			ret = false;
+		}
+		else {
+			hideCheck("#resA");;
+		}
+		//--- Test pour savoir si plusieurs champs sont vide ---
+		if (respAdmin.length > 13) {
+			if (respAdmin.length > 20) {
+				showNullMulti("#resA",respAdmin);
+			}
+			else {
+				showNull("#resA");
+			}
+		}
 	//-----------------------------------
 	if (!$("#adresse_stage").val()) {
 		showNull("#adressestage");
@@ -264,16 +283,12 @@ function checkform()
 	// --------------------------------------------------------
 	//				EMAIL VALIDE
 	// --------------------------------------------------------
-	if( !isValidEmailAddress( $("#resT_email").val() ) ) {
-		$('#resT').popover({container: "body", content: "Email non valide"});
-		$('#resT').popover('show');
-		$("#resT").addClass('has-error has-feedback');
+	if((!isValidEmailAddress($("#resT_email").val()))&&(!resT)) {
+		showNullMulti("#resT","Email non valide");
 		ret = false;
 	}
-	if( !isValidEmailAddress( $("#resA_email").val() ) ) {
-		$('#resT').popover({container: "body", content: "Email non valide"});
-		$('#resT').popover('show');
-		$("#resT").addClass('has-error has-feedback');
+	if((!isValidEmailAddress($("#resA_email").val()))&&(!resA)) {
+		showNullMulti("#resA","Email non valide");
 		ret = false;
 	}
 
@@ -281,9 +296,7 @@ function checkform()
 	//				NOMBRES VALIDES
 	// --------------------------------------------------------
 	if ($.isNumeric($("#montant").val())) {
-		$('#montant').popover({container: "body", content: "Le montant n'est pas valide"});
-		$('#montant').popover('show');
-		$("#montant").addClass('has-error has-feedback');
+		showNullMulti("#montant","Montant non valide");
 		ret = false;
 	}
 	return ret;
@@ -297,20 +310,25 @@ function isValidEmailAddress(emailAddress) {
     return pattern.test(emailAddress);
 };
 
+function isValidURL(url) {
+	var pattern = new RegExp(/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i);
+	return pattern.test(url);
+}
+
 function hideCheck(div) {
 	$(div).popover('hide');
 	$(div).removeClass('has-error has-feedback');
 };
 
 function showNull(div) {
-	$(div).popover('destroy')
+	$(div).popover('destroy');
 	$(div).popover({container: "body", content: "Champ vide"});
 	$(div).popover('show');
 	$(div).addClass('has-error has-feedback');
 };
 
 function showNullMulti(div,string) {
-	$(div).popover('destroy')
+	$(div).popover('destroy');
 	$(div).popover({container: "body", content: string});
 	$(div).popover('show');
 	$(div).addClass('has-error has-feedback');
@@ -322,10 +340,12 @@ function showNullMulti(div,string) {
 // -------------------------------------------------------------------------------------------
 
 function effacer () {
-  $(':input','#formulaire_etudiant')
-   .not(':button, :submit, :reset, :hidden')
-   .val('')
-   .removeAttr('checked')
-   .removeAttr('selected');
-   return false;
+	$("*").popover('destroy'); 						// Supprime les popover
+	$("*").removeClass('has-error has-feedback');	// Supprime la mise en forme rouge
+	$(':input','#formulaire_etudiant')				// Vide tout les champs
+	 .not(':button, :submit, :reset, :hidden')
+	 .val('')
+	 .removeAttr('checked')
+	 .removeAttr('selected');
+   return false;									// Empeche de recharger la page
 }
