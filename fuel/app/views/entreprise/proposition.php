@@ -1,3 +1,10 @@
+		<div class="row">
+			<div class="col-md-12">
+				<a href="./liste" type="button" class="btn btn-default btn-success" style="padding-top:15px;font-size:15px;width:auto;">
+					<p>Liste des stages proposés</p>
+				</a>
+			</div>
+		</div>
 		<h2>Proposer un sujet de stage</h2><hr/>
 		<h3>Principes</h3><hr />
 		<ol>
