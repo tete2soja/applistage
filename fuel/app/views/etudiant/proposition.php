@@ -2,7 +2,7 @@
 <br>
 <?php if ($stages): ?>
 <div class="table-responsive">
-<table class="table-striped">
+<table class="table-bordered">
 	<thead>
 		<tr>
 			<th>Date</th>
