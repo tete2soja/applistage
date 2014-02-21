@@ -28,7 +28,9 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1 style="margin-top: -20px;"><a style="text-decoration: none;color:black;"href="./index"><?php echo $main_title; ?></a></h1>
-			<?php if (Session::get_flash('success')): ?>
+			<p><?php echo $sub_title; ?></p>
+		</div>
+		<?php if (Session::get_flash('success')): ?>
 			<div class="alert alert-success">
 				<strong>Success</strong>
 				<p>
@@ -44,22 +46,6 @@
 				</p>
 			</div>
 <?php endif; ?>
-			<p><?php echo $sub_title; ?></p>
-		</div>
-		<?php if (Session::get_flash('success')): ?>
-				<div class="alert-message success">
-					<p>
-					<?php echo implode('</p><p>', (array) Session::get_flash('success')); ?>
-					</p>
-				</div>
-		<?php endif; ?>
-		<?php if (Session::get_flash('error')): ?>
-				<div class="alert-message error">
-					<p>
-					<?php echo implode('</p><p>', (array) Session::get_flash('error')); ?>
-					</p>
-				</div>
-		<?php endif; ?>
 		<?php echo $content; ?>
 		<hr />
 		<footer>
