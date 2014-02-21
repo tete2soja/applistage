@@ -13,7 +13,7 @@ return array(
         'persistent'     => false,
         'compress'       => false,
     ),
-    'identifier'     => '"',
+    'identifier'     => '`',
     'table_prefix'   => '',
     'charset'        => 'utf8',
     'enable_cache'   => true,

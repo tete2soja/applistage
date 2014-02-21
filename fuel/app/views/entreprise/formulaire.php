@@ -73,13 +73,13 @@ $(function() {
 						<input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal">
 						<input type="text" class="form-control" id="ent_ville" placeholder="Ville">
 						<input type="text" class="form-control" id="ent_pays" placeholder="Pays">
-						<input type="text" class="form-control" id="ent_tel" placeholder="URL">
+						<input type="text" class="form-control" id="ent_url" placeholder="URL">
 					</div>
 				</div>
 				<div class="form-group">
 				    <label for="public" class="col-sm-2 control-label">Montrer cette offre au public</label>
 				    <div class="col-sm-10">
-				      <input type="checkbox" id="public" value="option1">
+				      <input type="checkbox" id="public" value="option1" checked="true">
 				    </div>
 				</div>
 				<div class="form-group">

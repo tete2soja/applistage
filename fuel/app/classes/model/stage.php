@@ -1,6 +1,6 @@
 <?php
 
-class Model_Stage extends \Orm\Model
+class Model_Stage extends \Model_Crud
 {
 	protected static $_properties = array(
 		'id',
@@ -27,6 +27,6 @@ class Model_Stage extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'stages';
+	protected static $_table_name = 'stage';
 
 }

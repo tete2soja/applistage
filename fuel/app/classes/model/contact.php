@@ -1,6 +1,6 @@
 <?php
 
-class Model_Contact extends \Orm\Model
+class Model_Contact extends \Model_Crud
 {
 	protected static $_properties = array(
 		'id',

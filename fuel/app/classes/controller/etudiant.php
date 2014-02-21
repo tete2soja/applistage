@@ -66,8 +66,8 @@ class Controller_Etudiant extends Controller_Template
 			$indemnite = $_POST['retribution'];
 			$public = $_POST['playlist'];
 			//ENTREPRISE
-			$query = DB::query('INSERT INTO `fichestages` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
-			print "Formulaire envoyé avec succès";
+			//$query = DB::query('INSERT INTO `fichestages` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
+			//print "Formulaire envoyé avec succès";
 		}
 	}
 
@@ -82,6 +82,7 @@ class Controller_Etudiant extends Controller_Template
 	
 	public function action_proposition()
 	{
+		$data['stages'] = Model_Stage::find_all();
 		$data["subnav"] = array('proposition'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Proposition de Stage';
 		$this->template->main_title = 'Applistage 2014';
