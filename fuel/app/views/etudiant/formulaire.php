@@ -32,9 +32,9 @@
 			<div class="form-group" id="rep">
 				<label for="rep_nom" class="col-sm-2 control-label" >Représentant légal</label>
 				<div class="col-sm-10">
-						<input type="text" class="form-control" id="rep_nom" placeholder="Nom et Prénom">
-						<input type="text" class="form-control" id="rep_adresse" placeholder="Adresse">
-						<input type="text" class="form-control" id="rep_tel" placeholder="Téléphone">
+						<div id="rep_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="rep_nom" placeholder="Nom et Prénom"></div>
+						<div id="rep_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="rep_adresse" placeholder="Adresse"></div>
+						<div id="rep_tel_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="rep_tel" placeholder="Téléphone"></div>
 				</div>
 			</div>
 			<div class="form-group" id="sujetstage">
@@ -55,11 +55,11 @@
 			<div class="form-group" id="entreprise">
 				<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control" id="ent_nom" placeholder="Nom">
-					<input type="text" class="form-control" id="ent_adresse" placeholder="Adresse">
-					<input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal">
-					<input type="text" class="form-control" id="ent_pays" placeholder="Pays">
-					<input type="text" class="form-control" id="ent_url" placeholder="URL">
+					<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" placeholder="Nom"></div>
+					<div id="ent_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_adresse" placeholder="Adresse"></div>
+					<div id="ent_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal"></div>
+					<div id="ent_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_pays" placeholder="Pays"></div>
+					<div id="ent_url_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_url" placeholder="URL"></div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -146,7 +146,7 @@
 			  </div>
 			  <div class="form-group" id="montant_mens">
 			    <label for="montant" class="col-sm-2 control-label">Montant mensuel prévu</label>
-			    <div class="col-sm-10">
+			    <div class="col-sm-10" id="montant_div">
 			      <input type="number" class="form-control" id="montant" placeholder="">
 			    </div>
 			  </div>

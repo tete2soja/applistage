@@ -18,42 +18,40 @@ function checkform()
 	//-----------------------------------
 	//			Representant legal
 		if (!$("#rep_nom").val()) {
-			repLeg += "\nNom";
+			showNull("#rep_nom_div");
 			repL = true;
 			ret = false;
 		}
 		else {
-			$('#rep').popover('hide');
-			$("#rep").removeClass('has-error has-feedback');
+			hideCheck("#rep_nom_div");
 		}
 		//-----------------------------------
 		if (!$("#rep_adresse").val()) {
-			repLeg += "\nAdresse";
+			showNull("#rep_adresse_div");
 			repL = true;
 			ret = false;
 		}
 		else {
-			$('#rep').popover('hide');
-			$("#rep").removeClass('has-error has-feedback');
+			hideCheck("#rep_adresse_div");
 		}
 		//-----------------------------------
 		if (!$("#rep_tel").val()) {
-			repLeg += "\nTel";
+			showNull("#rep_tel_div");
 			repL = true;
 			ret = false;
 		}
 		else {
-			hideCheck("#urgence");
+			hideCheck("#rep_tel_div");
 		}
 		//--- Test pour savoir si plusieurs champs sont vide ---
-		if (repL) {
+		/*if (repL) {
 			if (repLeg.length > 20) {
 				showNullMulti("#rep",repLeg);
 			}
 			else {
 				showNull("#rep");
 			}
-		}
+		}*/
 	//-----------------------------------
 	if (!$("#sujetStage").val()) {
 		showNull("#sujetstage");
@@ -65,8 +63,8 @@ function checkform()
 	//-----------------------------------
 	//				Entreprise
 		if (!$("#ent_nom").val()) {
+			showNull("#ent_nom_div");
 			entChamps += "\nNom";
-			ent = true;
 			ret = false;
 		}
 		else {
@@ -74,8 +72,8 @@ function checkform()
 		}
 		//-----------------------------------
 		if (!$("#ent_adresse").val()) {
+			showNull("#ent_adresse_div");
 			entChamps += "\nAdresse";
-			ent = true;
 			ret = false;
 		}
 		else {
@@ -83,8 +81,8 @@ function checkform()
 		}
 		//-----------------------------------
 		if (!$("#ent_codepostal").val()) {
+			showNull("#ent_codepostal_div");
 			entChamps += "\nCode Postale";
-			ent = true;
 			ret = false;
 		}
 		else {
@@ -92,31 +90,22 @@ function checkform()
 		}
 		//-----------------------------------
 		if (!$("#ent_pays").val()) {
+			showNull("#ent_pays_div");
 			entChamps += "\nPays";
-			ent = true;
-			ret = false;
-		}
-		else {
-			hideCheck("#entreprise");
-		}
-		//-----------------------------------
-		if (!$("#ent_url").val()) {
-			entChamps += "\nURL";
-			ent = true;
 			ret = false;
 		}
 		else {
 			hideCheck("#entreprise");
 		}
 		//--- Test pour savoir si plusieurs champs sont vide ---
-		if (entChamps.length > 13) {
+		/*if (entChamps.length > 13) {
 			if (entChamps.length > 20) {
 				showNullMulti("#entreprise",entChamps);
 			}
 			else {
 				showNull("#entreprise");
 			}
-		}
+		}*/
 	//-----------------------------------
 	//				Responsable Technique
 		if (!$("#resT_nom").val()) {
@@ -293,11 +282,33 @@ function checkform()
 	}
 
 	// --------------------------------------------------------
+	//				URL VALIDE
+	// --------------------------------------------------------
+	if ((!$("#ent_url").val())&&(!isValidURL($("#ent_url").val()))) {
+		showNullMulti("#ent_url_div","URL non valide");
+		ret = false;
+	}
+	else {
+		hideCheck("#ent_url_div");
+	}
+
+	// --------------------------------------------------------
 	//				NOMBRES VALIDES
 	// --------------------------------------------------------
-	if ($.isNumeric($("#montant").val())) {
-		showNullMulti("#montant","Montant non valide");
+	if (!$.isNumeric($("#montant").val())&&($("#montant").val() != "")) {
+		showNullMulti("#montant_div","Montant non valide");
 		ret = false;
+	}
+	else {
+		hideCheck("#ent_url_div");
+	}
+	
+	if (!$.isNumeric($("#rep_tel").val())&&($("#rep_tel").val() != "")) {
+		showNullMulti("#rep_tel_div","Téléphone non valide");
+		ret = false;
+	}
+	else {
+		hideCheck("#ent_url_div");
 	}
 	return ret;
 }
@@ -316,19 +327,17 @@ function isValidURL(url) {
 }
 
 function hideCheck(div) {
-	$(div).popover('hide');
+	$(div).popover('destroy');
 	$(div).removeClass('has-error has-feedback');
 };
 
 function showNull(div) {
-	$(div).popover('destroy');
 	$(div).popover({container: "body", content: "Champ vide"});
 	$(div).popover('show');
 	$(div).addClass('has-error has-feedback');
 };
 
 function showNullMulti(div,string) {
-	$(div).popover('destroy');
 	$(div).popover({container: "body", content: string});
 	$(div).popover('show');
 	$(div).addClass('has-error has-feedback');
