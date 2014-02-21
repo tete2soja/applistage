@@ -3,23 +3,21 @@
 // -------------------------------------------------------------------------------------------
 function checkform()  
 {
-	var ent = repL = resT = resA = false, ret = true;
-	var repLeg = entChamps = respTech = respAdmin = "Champs vide :";
+	var ret = true;
 	// --------------------------------------------------------
 	//				CHAMPS VIDES
 	// --------------------------------------------------------
 	if (!$("#contact_urgence").val()) {
-		showNull("#urgence");
+		showNull("#contact_urgence_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#urgence");
+		hideCheck("#contact_urgence_div");
 	}
 	//-----------------------------------
 	//			Representant legal
 		if (!$("#rep_nom").val()) {
 			showNull("#rep_nom_div");
-			repL = true;
 			ret = false;
 		}
 		else {
@@ -28,7 +26,6 @@ function checkform()
 		//-----------------------------------
 		if (!$("#rep_adresse").val()) {
 			showNull("#rep_adresse_div");
-			repL = true;
 			ret = false;
 		}
 		else {
@@ -37,279 +34,254 @@ function checkform()
 		//-----------------------------------
 		if (!$("#rep_tel").val()) {
 			showNull("#rep_tel_div");
-			repL = true;
 			ret = false;
 		}
 		else {
 			hideCheck("#rep_tel_div");
 		}
-		//--- Test pour savoir si plusieurs champs sont vide ---
-		/*if (repL) {
-			if (repLeg.length > 20) {
-				showNullMulti("#rep",repLeg);
-			}
-			else {
-				showNull("#rep");
-			}
-		}*/
 	//-----------------------------------
 	if (!$("#sujetStage").val()) {
-		showNull("#sujetstage");
+		showNull("#sujetStage_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#sujetstage");
+		hideCheck("#sujetStage_div");
 	}
 	//-----------------------------------
 	//				Entreprise
 		if (!$("#ent_nom").val()) {
 			showNull("#ent_nom_div");
-			entChamps += "\nNom";
 			ret = false;
 		}
 		else {
-			hideCheck("#entreprise");
+			hideCheck("#ent_nom_div");
 		}
 		//-----------------------------------
 		if (!$("#ent_adresse").val()) {
 			showNull("#ent_adresse_div");
-			entChamps += "\nAdresse";
 			ret = false;
 		}
 		else {
-			hideCheck("#entreprise");
+			hideCheck("#ent_adresse_div");
 		}
 		//-----------------------------------
 		if (!$("#ent_codepostal").val()) {
 			showNull("#ent_codepostal_div");
-			entChamps += "\nCode Postale";
 			ret = false;
 		}
 		else {
-			hideCheck("#entreprise");
+			hideCheck("#ent_codepostal_div");
 		}
 		//-----------------------------------
 		if (!$("#ent_pays").val()) {
 			showNull("#ent_pays_div");
-			entChamps += "\nPays";
 			ret = false;
 		}
 		else {
-			hideCheck("#entreprise");
+			hideCheck("#ent_pays_div");
 		}
-		//--- Test pour savoir si plusieurs champs sont vide ---
-		/*if (entChamps.length > 13) {
-			if (entChamps.length > 20) {
-				showNullMulti("#entreprise",entChamps);
-			}
-			else {
-				showNull("#entreprise");
-			}
-		}*/
+		//-----------------------------------
+		if (!$("#ent_url").val()) {
+			showNull("#ent_div");
+			ret = false;
+		}
+		else {
+			hideCheck("#ent_div");
+		}
 	//-----------------------------------
 	//				Responsable Technique
 		if (!$("#resT_nom").val()) {
-			respTech += "\nNom";
-			resT = true;
+			showNull("#resT_nom_div");
 			ret = false;
 		}
 		else {
-			hideCheck("#resT");
+			hideCheck("#resT_nom_div");
 		}
 		//-----------------------------------
 		if (!$("#resT_email").val()) {
-			respTech += "\nEmail";
-			resT = true;
+			showNull("#resT_email_div");
 			ret = false;
 		}
 		else {
-			hideCheck("#resT");
+			hideCheck("#resT_email_div");
 		}
 		//-----------------------------------
 		if (!$("#resT_tel").val()) {
-			respTech += "\nTélephone";
-			resT = true;
+			showNull("#resT_tel_div");
 			ret = false;
 		}
 		else {
-			hideCheck("#resT");
-		}
-		//--- Test pour savoir si plusieurs champs sont vide ---
-		if (respTech.length > 13) {
-			if (respTech.length > 20) {
-				showNullMulti("#resT",respTech);
-			}
-			else {
-				showNull("#resT");
-			}
+			hideCheck("#resT_tel_div");
 		}
 	//-----------------------------------
 	//				Responsable Admin
 		if (!$("#resA_nom").val()) {
-			respAdmin += "\nNom";
-			resA = true;
+			showNull("#resA_nom_div");
 			ret = false;
 		}
 		else {
-			hideCheck("#resA");
+			hideCheck("#resA_nom_div");
 		}
 		//-----------------------------------
 		if (!$("#resA_email").val()) {
-			respAdmin += "\nEmail";
-			resA = true;
+			showNull("#resA_email_div");
 			ret = false;
 		}
 		else {
-			hideCheck("#resA");
+			hideCheck("#resA_email_div");
 		}
 		//-----------------------------------
 		if (!$("#resA_tel").val()) {
-			respAdmin += "\nTélephone";
-			resA = true;
+			showNull("#resA_tel_div");
 			ret = false;
 		}
 		else {
-			hideCheck("#resA");;
-		}
-		//--- Test pour savoir si plusieurs champs sont vide ---
-		if (respAdmin.length > 13) {
-			if (respAdmin.length > 20) {
-				showNullMulti("#resA",respAdmin);
-			}
-			else {
-				showNull("#resA");
-			}
+			hideCheck("#resA_tel_div");;
 		}
 	//-----------------------------------
 	if (!$("#adresse_stage").val()) {
-		showNull("#adressestage");
+		showNull("#adresse_stage_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#adressestage");
+		hideCheck("#adresse_stage_div");
 	}
 	//-----------------------------------
 	if (!$("#duree_stage").val()) {
-		showNull("#duree_stage_stage");
+		showNull("#duree_stage_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#duree_stage_stage");
+		hideCheck("#duree_stage_div");
 	}
 	//-----------------------------------
 	if (!$("#date_debut").val()) {
-		showNull("#date_debut_stage");
+		showNull("#date_debut_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#date_debut_stage");
+		hideCheck("#date_debut_div");
 	}
 	//-----------------------------------
 	if (!$("#date_fin").val()) {
-		showNull("#date_fin_stage");
+		showNull("#date_fin_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#date_fin_stage");
+		hideCheck("#date_fin_div");
 	}
 	//-----------------------------------
 	if (!$("#nb_jour_travailles").val()) {
-		showNull("#nb_jour");
+		showNull("#nb_jour_travailles_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#nb_jour");
+		hideCheck("#nb_jour_travailles_div");
 	}
 	//-----------------------------------
 	if (!$("#horaire_hebdo").val()) {
-		showNull("#nb_heure");
+		showNull("#horaire_hebdo_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#nb_heure");
+		hideCheck("#horaire_hebdo_div");
 	}
 	//-----------------------------------
 	if (!$("#retribution").val()) {
-		showNull("#retribution_propose");
+		showNull("#retribution_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#retribution_propose");
+		hideCheck("#retribution_div");
 	}
 	//-----------------------------------
 	if (!$("#montant").val()) {
-		showNull("#montant_mens");
+		showNull("#montantdiv");
 		ret = false;
 	}
 	else {
-		hideCheck("#montant_mens");
+		hideCheck("#montantdiv");
 	}
 	//-----------------------------------
 	if (!$("#nature").val()) {
-		showNull("#nature_bonus");
+		showNull("#nature_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#nature_bonus");
+		hideCheck("#nature_div");
 	}
 	//-----------------------------------
 	if (!$("#description_sujet").val()) {
-		showNull("#description_sujet_det");
+		showNull("#description_sujet_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#description_sujet_det");
+		hideCheck("#description_sujet_div");
 	}
 	//-----------------------------------
 	if (!$("#environnement").val()) {
-		showNull("#environnement_dev");
+		showNull("#environnement_div");
 		ret = false;
 	}
 	else {
-		hideCheck("#environnement_dev");
+		hideCheck("#environnement_div");
 	}
 
+	alert(ret);
 	// --------------------------------------------------------
 	//				EMAIL VALIDE
 	// --------------------------------------------------------
-	if((!isValidEmailAddress($("#resT_email").val()))&&(!resT)) {
-		showNullMulti("#resT","Email non valide");
+	if((!isValidEmailAddress($("#resT_email").val()))&&($("#resT_email").val())) {
+		showNullMulti("#resT_email_div","Email non valide");
 		ret = false;
 	}
-	if((!isValidEmailAddress($("#resA_email").val()))&&(!resA)) {
-		showNullMulti("#resA","Email non valide");
+	if((!isValidEmailAddress($("#resA_email").val()))&&($("#resA_email").val())) {
+		showNullMulti("#resT_email_div","Email non valide");
 		ret = false;
 	}
 
+	alert(ret);
 	// --------------------------------------------------------
 	//				URL VALIDE
 	// --------------------------------------------------------
-	if ((!$("#ent_url").val())&&(!isValidURL($("#ent_url").val()))) {
-		showNullMulti("#ent_url_div","URL non valide");
+	if((!isValidURL($("#ent_url").val()))) {
+		showNullMulti("#ent_div","URL non valide");
 		ret = false;
-	}
-	else {
-		hideCheck("#ent_url_div");
 	}
 
 	// --------------------------------------------------------
 	//				NOMBRES VALIDES
 	// --------------------------------------------------------
 	if (!$.isNumeric($("#montant").val())&&($("#montant").val() != "")) {
-		showNullMulti("#montant_div","Montant non valide");
+		showNullMulti("#montant_divp","Montant non valide");
 		ret = false;
 	}
 	else {
-		hideCheck("#ent_url_div");
+		hideCheck("#montant_divp");
 	}
-	
-	if (!$.isNumeric($("#rep_tel").val())&&($("#rep_tel").val() != "")) {
-		showNullMulti("#rep_tel_div","Téléphone non valide");
+	if (!$.isNumeric($("#duree_stage").val())&&($("#duree_stage").val() != "")) {
+		showNullMulti("#duree_stage_div","Durée non valide");
 		ret = false;
 	}
 	else {
-		hideCheck("#ent_url_div");
+		hideCheck("#duree_stage_div");
 	}
+
+	// --------------------------------------------------------
+	//				TELEPHONE VALIDES
+	// --------------------------------------------------------
+	if (($("#rep_tel").val().length > 10)) {
+		showNullMulti("#rep_tel_div","Format trop long");
+		ret = false;		
+	}
+	else if (($("#rep_tel").val().length < 8)) {
+		showNullMulti("#rep_tel_div","Format trop court");
+		ret = false;		
+	}
+	else {
+		hideCheck("#rep_tel_div");
+	}
+	alert(ret);
 	return ret;
 }
 
