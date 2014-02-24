@@ -33,10 +33,10 @@ function showNullMulti(div,string) {
 //					FONCTION RESET DU FORMULAIRE
 // -------------------------------------------------------------------------------------------
 
-function effacer () {
+function effacer (form) {
 	$("*").popover('destroy'); 						// Supprime les popover
 	$("*").removeClass('has-error has-feedback');	// Supprime la mise en forme rouge
-	$(':input','#formulaire_etudiant')				// Vide tout les champs
+	$(':input',form)				// Vide tout les champs
 	 .not(':button, :submit, :reset, :hidden')
 	 .val('')
 	 .removeAttr('checked')

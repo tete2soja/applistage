@@ -193,7 +193,7 @@
 			  </div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="submit" class="btn btn-default" onclick="return effacer()">RAZ</button>
+			      <button type="submit" class="btn btn-default" onclick="return effacer('#formulaire_etudiant')">RAZ</button>
 			      <button id="valider" type="submit" class="btn btn-default">Valider</button>
 			    </div>
 			  </div>
