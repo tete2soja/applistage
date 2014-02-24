@@ -1,3 +1,4 @@
+		<?php echo Asset::js('checkform_etud.js'); ?>
 		<div style="width:90%;
 			margin:auto;
 			padding-left:30px;

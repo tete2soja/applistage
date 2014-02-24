@@ -226,10 +226,8 @@ function checkform()
 	else {
 		hideCheck("#environnement_div");
 	}
-
-	alert(ret);
 	// --------------------------------------------------------
-	//				EMAIL VALIDE
+	//				EMAIL VALIDE (cf fonction)
 	// --------------------------------------------------------
 	if((!isValidEmailAddress($("#resT_email").val()))&&($("#resT_email").val())) {
 		showNullMulti("#resT_email_div","Email non valide");
@@ -239,18 +237,15 @@ function checkform()
 		showNullMulti("#resT_email_div","Email non valide");
 		ret = false;
 	}
-
-	alert(ret);
 	// --------------------------------------------------------
-	//				URL VALIDE
+	//				URL VALIDE (cf fonction)
 	// --------------------------------------------------------
 	if((!isValidURL($("#ent_url").val()))) {
 		showNullMulti("#ent_div","URL non valide");
 		ret = false;
 	}
-
 	// --------------------------------------------------------
-	//				NOMBRES VALIDES
+	//				NOMBRES VALIDES (seulement des chiffres)
 	// --------------------------------------------------------
 	if (!$.isNumeric($("#montant").val())&&($("#montant").val() != "")) {
 		showNullMulti("#montant_divp","Montant non valide");
@@ -266,7 +261,6 @@ function checkform()
 	else {
 		hideCheck("#duree_stage_div");
 	}
-
 	// --------------------------------------------------------
 	//				TELEPHONE VALIDES
 	// --------------------------------------------------------
@@ -281,7 +275,8 @@ function checkform()
 	else {
 		hideCheck("#rep_tel_div");
 	}
-	alert(ret);
+
+	//Permet de pas recharger la page si FALSE
 	return ret;
 }
 
