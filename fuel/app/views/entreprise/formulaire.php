@@ -1,4 +1,4 @@
-<?php echo Asset::js('checkform_etud.js'); ?>
+<?php echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
     var availablePays = [
@@ -42,11 +42,11 @@ $(function() {
 			text-align:center;">
 			<h2>Formulaire de saisie d'une proposition de stage</h2>
 			<br />
-			<form class="form-horizontal" role="form" method="POST" action="formulaire.php" onsubmit="return checkform();">
+			<form class="form-horizontal" id="formulaire_entreprise" role="form" method="POST" action="formulaire.php" onsubmit="return checkform();">
 				<div class="form-group">
 					<label for="sujet" class="col-sm-2 control-label" >Sujet</label>
 					<div class="col-sm-10">
-						<div id="contact_urgence_div"><input type="text" class="form-control" id="sujet" placeholder=""></div>
+						<div id="sujet_div"><input type="text" class="form-control" id="sujet" placeholder=""></div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -114,7 +114,7 @@ $(function() {
 				</div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="reset" class="btn btn-default" onclick="return effacer()">RAZ</button>
+			      <button type="reset" class="btn btn-default" onclick="return effacer('#formulaire_entreprise')">RAZ</button>
 			      <button type="submit" class="btn btn-default">Valider</button>
 			    </div>
 			  </div>
