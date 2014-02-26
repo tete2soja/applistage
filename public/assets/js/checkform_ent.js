@@ -155,7 +155,7 @@ function checkform()
 	// --------------------------------------------------------
 	//				EMAIL VALIDE (cf fonction)
 	// --------------------------------------------------------
-	if((!isValidEmailAddress($("#contact_mail").val()))&&($("#contact_mail").val())) {
+	if(!isValidEmailAddress($("#contact_mail").val())) {
 		showNullMulti("#contact_mail_div","Email non valide");
 		ret = false;
 	}
@@ -186,6 +186,13 @@ function checkform()
 	}
 	else {
 		hideCheck("#contact_tel_div");
+	}
+	if (!$.isNumeric($("#contact_codepostal").val())) {
+		showNullMulti("#contact_codepostal_div","Code postal non valide");
+		ret = false;
+	}
+	else {
+		hideCheck("#contact_codepostal_div");
 	}
 	//Permet de pas recharger la page si FALSE
 	return ret;
