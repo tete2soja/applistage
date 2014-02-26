@@ -15,6 +15,10 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/index', $data);
+		if ( ! Auth::check())
+		{
+		    Response::redirect('/admin/connexion');
+		}
 	}
 
 	public function action_connexion()
@@ -24,6 +28,20 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/connexion', $data);
+		if (isset($_POST['submit'])) {
+			// validate the a username and password
+			$name = $_POST['id'];
+			$pass = $_POST['password'];
+			if (Auth::login($name, $pass))
+			{
+			    // the combination of $name and $pass validated, print the users screen name
+			    Response::redirect('/admin');
+			}
+			else {
+				$password_to_db = Auth::instance()->hash_password($pass);
+				print $password_to_db;
+			}
+		}
 	}
 
 	public function action_import()

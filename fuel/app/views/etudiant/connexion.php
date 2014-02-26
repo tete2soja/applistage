@@ -1,11 +1,29 @@
-<ul class="nav nav-pills">
-	<li class='<?php echo Arr::get($subnav, "index" ); ?>'><?php echo Html::anchor('etudiant/index','Index');?></li>
-	<li class='<?php echo Arr::get($subnav, "convention" ); ?>'><?php echo Html::anchor('etudiant/convention','Convention');?></li>
-	<li class='<?php echo Arr::get($subnav, "realisation" ); ?>'><?php echo Html::anchor('etudiant/realisation','Realisation');?></li>
-	<li class='<?php echo Arr::get($subnav, "recherche" ); ?>'><?php echo Html::anchor('etudiant/recherche','Recherche');?></li>
-	<li class='<?php echo Arr::get($subnav, "soutenance" ); ?>'><?php echo Html::anchor('etudiant/soutenance','Soutenance');?></li>
-	<li class='<?php echo Arr::get($subnav, "formulaire" ); ?>'><?php echo Html::anchor('etudiant/formulaire','Formulaire');?></li>
-	<li class='<?php echo Arr::get($subnav, "connexion" ); ?>'><?php echo Html::anchor('etudiant/connexion','Connexion');?></li>
-
-</ul>
-<p>Connexion</p>
+<h1>Connexion</h1>
+<form class="form-horizontal" role="form" action="" method="POST">
+  <div class="form-group">
+    <label for="id" class="col-sm-2 control-label">Identifiant</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="id" name="id" placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Mot de passe</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" name="password" placeholder="">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Se souvenir
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+    	<button type="submit" name="submit" value="submit" class="btn btn-default">Connexion</button>
+    </div>
+  </div>
+</form>
