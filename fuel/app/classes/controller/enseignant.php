@@ -2,6 +2,15 @@
 
 class Controller_Enseignant extends Controller_Template
 {
+	public function before()
+	{
+		// check for admin
+		parent::before();
+		if ( ! Auth::check())
+		{
+		    Response::redirect('/util/connexion');
+		}
+	}
 
 	public function action_index()
 	{

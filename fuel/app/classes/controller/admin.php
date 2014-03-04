@@ -6,6 +6,24 @@ class Controller_Admin extends Controller_Template
 	{
 		// check for admin
 		parent::before();
+		if ( ! Auth::check())
+		{
+		    Response::redirect('/util/connexion');
+		}
+		else {
+			$id_info = Auth::get_groups();
+    		foreach ($id_info as $info)
+    		{
+			    if ($info[1] == "1") {
+			    	Response::redirect('/admin/');
+			    	break;
+			    }
+			    else if ($info[1] == "2") {
+			    	Response::redirect('/util/connexion');
+			    	break;
+			    }
+    		}
+		}
 	}
 
 	public function action_index()
@@ -15,33 +33,10 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/index', $data);
-		if ( ! Auth::check())
+		/*if ( ! Auth::check())
 		{
 		    Response::redirect('/admin/connexion');
-		}
-	}
-
-	public function action_connexion()
-	{
-		$data["subnav"] = array('connexion'=> 'active' );
-		$this->template->title = 'Admin &raquo; Connexion';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('admin/connexion', $data);
-		if (isset($_POST['submit'])) {
-			// validate the a username and password
-			$name = $_POST['id'];
-			$pass = $_POST['password'];
-			if (Auth::login($name, $pass))
-			{
-			    // the combination of $name and $pass validated, print the users screen name
-			    Response::redirect('/admin');
-			}
-			else {
-				$password_to_db = Auth::instance()->hash_password($pass);
-				print $password_to_db;
-			}
-		}
+		}*/
 	}
 
 	public function action_import()
