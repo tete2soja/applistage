@@ -73,6 +73,19 @@ class Controller_Util extends Controller_Template
 		$this->template->content = View::forge('util/compte', $data);
 	}
 
+	public function action_information()
+	{
+		if ( ! Auth::check())
+		{
+		    Response::redirect('/util/connexion');
+		}
+		$data["subnav"] = array('Mon compte'=> 'active' );
+		$this->template->title = 'Mon compte';
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Mon compte';
+		$this->template->content = View::forge('util/information', $data);
+	}
+
 	public function action_logout()
 	{
 		Auth::logout();
@@ -81,5 +94,10 @@ class Controller_Util extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Mon compte';
 		$this->template->content = View::forge('util/logout', $data);
+	}
+
+	public function action_index()
+	{
+		Response::redirect('/index');
 	}
 }
