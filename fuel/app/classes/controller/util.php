@@ -54,4 +54,27 @@ class Controller_Util extends Controller_Template
 			}
 		}
 	}
+
+	public function action_compte()
+	{
+		if ( ! Auth::check())
+		{
+		    Response::redirect('/util/connexion');
+		}
+		$data["subnav"] = array('Mon compte'=> 'active' );
+		$this->template->title = 'Mon compte';
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Mon compte';
+		$this->template->content = View::forge('util/compte', $data);
+	}
+
+	public function action_logout()
+	{
+		Auth::logout();
+		$data["subnav"] = array('Mon compte'=> 'active' );
+		$this->template->title = 'Mon compte';
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Mon compte';
+		$this->template->content = View::forge('util/logout', $data);
+	}
 }
