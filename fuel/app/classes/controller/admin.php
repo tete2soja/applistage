@@ -14,11 +14,11 @@ class Controller_Admin extends Controller_Template
 			$id_info = Auth::get_groups();
     		foreach ($id_info as $info)
     		{
-			    if ($info[1] == "1") {
+			    if (($info[1] == "10")||($info[1] == "11")) {
 			    	Response::redirect('/admin/');
 			    	break;
 			    }
-			    else if ($info[1] == "2") {
+			    else {
 			    	Response::redirect('/util/connexion');
 			    	break;
 			    }

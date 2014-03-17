@@ -2,18 +2,30 @@
 
 class Controller_Etudiant extends Controller_Template
 {
-	public function before()
-	{
+	public function before() {
 		// check for admin
 		parent::before();
 		if ( ! Auth::check())
 		{
-		    Response::redirect('/util/connexion');
+			Response::redirect('/util/connexion');
+		}
+		else {
+			$id_info = Auth::get_groups();
+			foreach ($id_info as $info)
+			{
+				if ($info[1] == "1") {
+					Response::redirect('/etudiant/');
+					break;
+				}
+				else {
+					Response::redirect('/util/connexion');
+					break;
+				}
+			}
 		}
 	}
 
-	public function action_index()
-	{
+	public function action_index() {
 		$data["subnav"] = array('index'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
@@ -21,12 +33,11 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/index', $data);
 		if ( ! Auth::check())
 		{
-		    Response::redirect('/etudiant/connexion');
+			Response::redirect('/etudiant/connexion');
 		}
 	}
 
-	public function action_connexion()
-	{
+	public function action_connexion() {
 		$data["subnav"] = array('connexion'=> 'active' );
 		$this->template->title = 'Admin &raquo; Connexion';
 		$this->template->main_title = 'Applistage 2014';
@@ -36,10 +47,8 @@ class Controller_Etudiant extends Controller_Template
 			// validate the a username and password
 			$name = $_POST['id'];
 			$pass = $_POST['password'];
-			if (Auth::login($name, $pass))
-			{
-			    // the combination of $name and $pass validated, print the users screen name
-			    Response::redirect('/etudiant/');
+			if (Auth::login($name, $pass)) {
+				Response::redirect('/etudiant/');
 			}
 			else {
 				$password_to_db = Auth::instance()->hash_password($pass);
@@ -48,8 +57,7 @@ class Controller_Etudiant extends Controller_Template
 		}
 	}
 
-	public function action_convention()
-	{
+	public function action_convention() {
 		$data["subnav"] = array('convention'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Convention';
 		$this->template->main_title = 'Applistage 2014';
@@ -57,8 +65,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/convention', $data);
 	}
 
-	public function action_realisation()
-	{
+	public function action_realisation() {
 		$data["subnav"] = array('realisation'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Realisation';
 		$this->template->main_title = 'Applistage 2014';
@@ -66,8 +73,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/realisation', $data);
 	}
 
-	public function action_recherche()
-	{
+	public function action_recherche() {
 		$data["subnav"] = array('recherche'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Recherche';
 		$this->template->main_title = 'Applistage 2014';
@@ -75,8 +81,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/recherche', $data);
 	}
 
-	public function action_soutenance()
-	{
+	public function action_soutenance() {
 		$data["subnav"] = array('soutenance'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Soutenance';
 		$this->template->main_title = 'Applistage 2014';
@@ -84,8 +89,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/soutenance', $data);
 	}
 
-	public function action_formulaire()
-	{
+	public function action_formulaire() {
 		$data["subnav"] = array('formulaire'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Formulaire';
 		$this->template->main_title = 'Applistage 2014';
@@ -107,8 +111,7 @@ class Controller_Etudiant extends Controller_Template
 		}
 	}
 	
-	public function action_proposition()
-	{
+	public function action_proposition() {
 		$data['stages'] = Model_Stage::find_all();
 		$data["subnav"] = array('proposition'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Proposition de Stage';
