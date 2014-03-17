@@ -11,13 +11,8 @@ class Controller_Etudiant extends Controller_Template
 		}
 		else {
 			$id_info = Auth::get_groups();
-			foreach ($id_info as $info)
-			{
-				if ($info[1] == "1") {
-					Response::redirect('/etudiant/');
-					break;
-				}
-				else {
+			foreach ($id_info as $info) {
+				if ($info[1] != "2") {
 					Response::redirect('/util/connexion');
 					break;
 				}

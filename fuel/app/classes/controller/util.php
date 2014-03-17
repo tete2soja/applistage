@@ -11,18 +11,23 @@ class Controller_Util extends Controller_Template
 		$this->template->sub_title = 'Connexion';
 		$this->template->content = View::forge('util/connexion', $data);
 		if (isset($_POST['submit'])) {
+			print("iergioerh");
 			// validate the a username and password
 			$name = $_POST['id'];
 			$pass = $_POST['password'];
 			if (Auth::login($name, $pass)) {
 				$id_info = Auth::get_groups();
 				foreach ($id_info as $info) {
-					if ($info[1] == "1") {
+					if (($info[1] == "10")||($info[1] == "11")) {
 						Response::redirect('/admin/');
 						break;
 					}
 					else if ($info[1] == "2") {
 						Response::redirect('/etudiant/');
+						break;
+					}					
+					else if ($info[1] == "3") {
+						Response::redirect('/enseignant/');
 						break;
 					}
 				}

@@ -12,13 +12,8 @@ class Controller_Admin extends Controller_Template
 		}
 		else {
 			$id_info = Auth::get_groups();
-    		foreach ($id_info as $info)
-    		{
-			    if (($info[1] == "10")||($info[1] == "11")) {
-			    	Response::redirect('/admin/');
-			    	break;
-			    }
-			    else {
+    		foreach ($id_info as $info)	{
+			    if (($info[1] != "10")&&($info[1] != "11")) {
 			    	Response::redirect('/util/connexion');
 			    	break;
 			    }
@@ -33,10 +28,6 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/index', $data);
-		/*if ( ! Auth::check())
-		{
-		    Response::redirect('/admin/connexion');
-		}*/
 	}
 
 	public function action_import()

@@ -12,11 +12,7 @@ class Controller_Enseignant extends Controller_Template
 		else {
 			$id_info = Auth::get_groups();
 			foreach ($id_info as $info) {
-				if ($info[1] == "0") {
-					Response::redirect('/enseignant/');
-					break;
-				}
-				else {
+				if ($info[1] != "3") {
 					Response::redirect('/util/connexion');
 					break;
 				}
