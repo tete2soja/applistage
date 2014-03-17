@@ -51,7 +51,11 @@
 			<footer>
 				<p class="pull-right">
 					<a href="/applistage/public/index" type="button" class="btn btn-link">Retour Accueil</a>
-					<a href="/applistage/public/util/compte" type="button" class="btn btn-default" style="padding-top: 5px;">Mon compte</a>
+					<?php if (Auth::check())
+		{
+			echo '<a href="/applistage/public/util/compte" type="button" class="btn btn-default" style="padding-top: 5px;">Mon compte</a>';
+		}
+					?>
 					<a href="/applistage/public/admin/" type="button" class="btn btn-danger">Admin</a></p>
 				<p>
 					<a href="http://www.iu-vannes.fr/" target="_blank">IUT Vannes</a><br>
