@@ -1,5 +1,5 @@
 			<div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info">
+				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;">
 					<h2>Importations</h2>
 					<hr/>
 					<p>Sélection le fichier CSV à importer</p>
@@ -9,7 +9,7 @@
 					</form>
 				</div>
 			<div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info">
+				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;">
 					<h2>Exportations</h2>
 					<hr/>
 					<div class="col-md-4">
