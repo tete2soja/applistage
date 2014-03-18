@@ -24,29 +24,31 @@ class Controller_Entreprise extends Controller_Template
 	public function action_formulaire()
 	{
 		
-		if (Input::method() == 'POST') {
-		
-			/*$ville_contact = Model_Ville::forge(array(
-                'nom' => Input::post('contact_ville'),
-                'code_postal' => Input::post('contact_codepostal'),
-                //'pays' => Model_Pays::find_one_by('nom', Input::post('contact_pays'))->id,
-                'pays' => 67,
+		if (isset($_POST['submit'])) {
+			print_r("submit");
+			print_r("create");
+			$ville_contact = Model_Ville::forge(array(
+            'nom' => $_POST['contact_ville'],
+            'code_postal' => $_POST['contact_codepostal'],
+            'pays' => Model_Pays::find_one_by('nom', $_POST['contact_pays'])->id,
             ));
 
             if ($ville_contact and $ville_contact->save())
             {
                 Session::set_flash('success', 'Added ville contact #'.$ville_contact->id.'.');
+                Response::redirect('entreprise/liste');
             }
 
             else
             {
+            	print_r("N'a pas marché");
                 Session::set_flash('error', 'Could not save ville_contact.');
             }
-            
-            $ville_ent = Model_Ville::forge(array(
-                'nom' => Input::post('ent_ville'),
-                'code_postal' => Input::post('ent_codepostal'),
-                'pays' => Model_Pays::find_one_by('nom', Input::post('ent_pays'))->id,
+			print_r(" | sortie create");            
+            /*$ville_ent = Model_Ville::forge(array(
+                'nom' => $_POST['ent_ville'],
+                'code_postal' => $_POST['ent_codepostal'],
+                'pays' => Model_Pays::find_one_by('nom', $_POST['ent_pays'])->id,
             ));
             
             if ($ville_ent and $ville_ent->save())
@@ -60,11 +62,11 @@ class Controller_Entreprise extends Controller_Template
             }
             
             $entreprise = Model_Entreprise::forge(array(
-                'nom' => Input::post('ent_nom'),
-                'adresse' => Input::post('ent_adresse'),
+                'nom' => $_POST['ent_nom'],
+                'adresse' => $_POST['ent_adresse'],
                 'ville' => $ville_ent->id,
-                'pays' => Model_Pays::find_one_by('nom', Input::post('ent_pays'))->id,
-                'url_entreprise' => Input::post('ent_url'),
+                'pays' => Model_Pays::find_one_by('nom', $_POST['ent_pays'])->id,
+                'url_entreprise' => $_POST['ent_url'],
             ));
             
             if ($entreprise and $entreprise->save())
@@ -78,10 +80,10 @@ class Controller_Entreprise extends Controller_Template
             }
             
             $contact = Model_Contact::forge(array(
-                'nom' => Input::post('contact_nom'),
-                'prenom' => Input::post('contact_prenom'),
-                'telephone' => Input::post('contact_tel'),
-                'email' => Input::post('contact_email'),
+                'nom' => $_POST['contact_nom'],
+                'prenom' => $_POST['contact_prenom'],
+                'telephone' => $_POST['contact_tel'],
+                'email' => $_POST['contact_email'],
                 'entreprise' => $entreprise->id,
                 'propose' => 1,
             ));
@@ -99,12 +101,12 @@ class Controller_Entreprise extends Controller_Template
             $stage = Model_Stage::forge(array(
                 'contact' => $contact->id,
                 'entreprise' => $entreprise->id,
-                'sujet' => Input::post('sujet'),
+                'sujet' => $_POST['sujet'],
                 'visibilite' => 1,
-                'contexte' => Input::post('contexte'),
-                'resultats' => Input::post('resultats_attendus'),
-                'conditions' => Input::post('conditions_part'),
-                'url_doc' => Input::post('url_doc_prez'),
+                'contexte' => $_POST['contexte'],
+                'resultats' => $_POST['resultats_attendus'],
+                'conditions' => $_POST['conditions_part'],
+                'url_doc' => $_POST['url_doc_prez'],
                 'public' => 0,
             ));
             
@@ -117,7 +119,6 @@ class Controller_Entreprise extends Controller_Template
             {
                 Session::set_flash('error', 'Could not save contact.');
             }*/
-            
             
             //Creation de la ville de l'entreprise si elle n'existe pas
 			//$query = DB::query('INSERT INTO `ville` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();

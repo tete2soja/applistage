@@ -1,4 +1,4 @@
-<?php echo Asset::js('checkform_ent.js'); ?>
+
 <script language="JavaScript" type="text/javascript">
 $(function() {
     var availablePays = [
@@ -42,7 +42,7 @@ $(function() {
 			text-align:center;">
 			<h2>Formulaire de saisie d'une proposition de stage</h2>
 			<br />
-			<form class="form-horizontal" id="formulaire_entreprise" role="form" method="POST" action="formulaire.php" onsubmit="return checkform();">
+			<form class="form-horizontal" id="formulaire_entreprise" role="form" method="POST" action="">
 				<div class="form-group">
 					<label for="sujet" class="col-sm-2 control-label" >Sujet</label>
 					<div class="col-sm-10">
@@ -54,10 +54,10 @@ $(function() {
 					<div class="col-sm-10">
 						<div id="contact_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_nom" placeholder="Nom"></div>
 						<div id="contact_prenom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_prenom" placeholder="Prénom"></div>
-						<div id="contact_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_codepostal" placeholder="Code Postal"></div>
-						<div id="contact_ville_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_ville" placeholder="Ville"></div>
-						<div id="contact_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_pays" placeholder="Pays"></div>
-						<div id="contact_mail_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_mail" placeholder="Adresse mail"></div>
+						<div id="contact_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_codepostal" name="contact_codepostal" placeholder="Code Postal"></div>
+						<div id="contact_ville_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_ville" name="contact_ville" placeholder="Ville"></div>
+						<div id="contact_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_pays" name="contact_pays" placeholder="Pays"></div>
+						<div id="contact_mail_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_mail" name="contact_mail" placeholder="Adresse mail"></div>
 						<div id="contact_tel_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_tel" placeholder="Téléphone"></div>
 					</div>
 				</div>
@@ -115,7 +115,7 @@ $(function() {
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
 			      <button type="reset" class="btn btn-default" onclick="return effacer('#formulaire_entreprise')">RAZ</button>
-			      <button type="submit" class="btn btn-default">Valider</button>
+			      <button type="submit" name="submit" value="submit" class="btn btn-default">Valider</button>
 			    </div>
 			  </div>
 			</form>
