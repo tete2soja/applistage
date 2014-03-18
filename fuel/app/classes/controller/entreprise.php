@@ -27,10 +27,12 @@ class Controller_Entreprise extends Controller_Template
 		if (isset($_POST['submit'])) {
 			print_r("submit");
 			print_r("create");
+			//$_POST['contact_pays'];
+			$name_pays = Model_Pays::query()->select('id')->where('nom', "France");
 			$ville_contact = Model_Ville::forge(array(
             'nom' => $_POST['contact_ville'],
             'code_postal' => $_POST['contact_codepostal'],
-            'pays' => Model_Pays::find_one_by('nom', $_POST['contact_pays'])->id,
+            'pays' => $name_pays,
             ));
 
             if ($ville_contact and $ville_contact->save())

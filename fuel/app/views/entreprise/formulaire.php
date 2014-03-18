@@ -1,4 +1,4 @@
-
+<?php echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
     var availablePays = [
@@ -42,7 +42,7 @@ $(function() {
 			text-align:center;">
 			<h2>Formulaire de saisie d'une proposition de stage</h2>
 			<br />
-			<form class="form-horizontal" id="formulaire_entreprise" role="form" method="POST" action="">
+			<form class="form-horizontal" id="formulaire_entreprise" role="form" method="POST" action="" onsubmit="return checkform();">
 				<div class="form-group">
 					<label for="sujet" class="col-sm-2 control-label" >Sujet</label>
 					<div class="col-sm-10">
