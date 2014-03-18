@@ -11,7 +11,6 @@ class Controller_Util extends Controller_Template
 		$this->template->sub_title = 'Connexion';
 		$this->template->content = View::forge('util/connexion', $data);
 		if (isset($_POST['submit'])) {
-			print("iergioerh");
 			// validate the a username and password
 			$name = $_POST['id'];
 			$pass = $_POST['password'];
