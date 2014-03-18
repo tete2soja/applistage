@@ -94,40 +94,22 @@ class Controller_Admin extends Controller_Template
 		}
 	}
 
-	public function action_edit()
+	public function action_modifier()
 	{
-		$data["subnav"] = array('edit'=> 'active' );
-		$this->template->title = 'Admin &raquo; Edit';
+		$data["subnav"] = array('modifier'=> 'active' );
+		$this->template->title = 'Admin &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('admin/edit', $data);
+		$this->template->content = View::forge('admin/proposition/modifier', $data);
 	}
 
-	public function action_view()
+	public function action_valider()
 	{
-		$data["subnav"] = array('view'=> 'active' );
-		$this->template->title = 'Admin &raquo; View';
+		$data['stages'] = Model_Stage::find_all();
+		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->title = 'Admin &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('admin/view', $data);
+		$this->template->content = View::forge('admin/proposition/valider', $data);
 	}
-
-	public function action_create()
-	{
-		$data["subnav"] = array('create'=> 'active' );
-		$this->template->title = 'Admin &raquo; Create';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('admin/create', $data);
-	}
-
-	public function action__form()
-	{
-		$data["subnav"] = array('_form'=> 'active' );
-		$this->template->title = 'Admin &raquo;  form';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('admin/_form', $data);
-	}
-
 }
