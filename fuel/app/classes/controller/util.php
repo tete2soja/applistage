@@ -84,6 +84,21 @@ class Controller_Util extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Mon compte';
 		$this->template->content = View::forge('util/information', $data);
+		if (isset($_POST['submit'])) {
+			$nom = $_POST['nom'];
+			$prenom = $_POST['prenom'];
+			$email = $_POST['email'];
+			$telephone = $_POST['telephone'];
+			Auth::update_user(
+				array(
+					'nom'		=>	$nom,
+					'prenom'	=>	$prenom,
+					'email'        => $email,
+					'telephone'        => $telephone,
+				)
+			);
+			print "Import done";
+		}
 	}
 
 	public function action_logout()
