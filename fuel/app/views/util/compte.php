@@ -1,4 +1,4 @@
-<h2>Gestion de mon compte</h1>
+<h1>Gestion de mon compte</h1>
 <div class="row">
 	<div class="col-md-4">
 		<a href="information" type="button" class="btn btn-accueil btn-success"><p>Modifier mes informations</p></a>
