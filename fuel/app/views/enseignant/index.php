@@ -1,6 +1,22 @@
-<ul class="nav nav-pills">
-	<li class='<?php echo Arr::get($subnav, "index" ); ?>'><?php echo Html::anchor('enseignant/index','Index');?></li>
-	<li class='<?php echo Arr::get($subnav, "connexion" ); ?>'><?php echo Html::anchor('enseignant/connexion','Connexion');?></li>
-
-</ul>
-<p>Index</p>
+<style type="text/css">
+	.btn2 {
+		height: 150px;
+		width: 250px;
+		padding-top: 60px;
+	}
+</style>
+<h1>Index</h1>
+<div class="row">
+	<div class="col-md-3">
+		<a href="voeux" type="button" class="btn btn2 btn-accueil btn-success"><p>Mes voeux</p></a>
+	</div>
+	<div class="col-md-3">
+		<a href="stagiaires" type="button" class="btn btn2 btn-accueil btn-info"><p>Suivis de mes stagiaires</p></a>
+	</div>
+	<div class="col-md-3">
+		<a href="suivi" type="button" class="btn btn2 btn-accueil btn-warning"><p>Suivi</p></a>
+	</div>
+	<div class="col-md-3">
+		<a href="espace" type="button" class="btn btn2 btn-accueil btn-warning"><p>Espace partagé</p></a>
+	</div>
+</div>
