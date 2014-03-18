@@ -28,11 +28,13 @@ class Controller_Entreprise extends Controller_Template
 			print_r("submit");
 			print_r("create");
 			//$_POST['contact_pays'];
-			$name_pays = Model_Pays::query()->select('id')->where('nom', "France");
-			$ville_contact = Model_Ville::forge(array(
-            'nom' => $_POST['contact_ville'],
-            'code_postal' => $_POST['contact_codepostal'],
-            'pays' => $name_pays,
+			$name_pays = Model_Pays::query()->where('nom', 'France')->get();
+            $comma_separated = $name_pays->id;
+            print $comma_separated;
+            /*$ville_contact = Model_Ville::forge(array(
+                'nom' => $_POST['contact_ville'],
+                'code_postal' => $_POST['contact_codepostal'],
+                'pays' => $tmp['id'],
             ));
 
             if ($ville_contact and $ville_contact->save())
