@@ -227,3 +227,13 @@ WARNING - 2014-03-19 16:02:59 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2014-03-19 16:04:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2014-03-19 16:04:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2014-03-19 16:05:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 16:37:55 --> Notice - Use of undefined constant id - assumed 'id' in /Users/etiennedebost/AppliStage/applistage/fuel/app/classes/controller/entreprise.php on line 33
+ERROR - 2014-03-19 16:38:09 --> Notice - Use of undefined constant id - assumed 'id' in /Users/etiennedebost/AppliStage/applistage/fuel/app/classes/controller/entreprise.php on line 33
+ERROR - 2014-03-19 16:38:38 --> Notice - Use of undefined constant id - assumed 'id' in /Users/etiennedebost/AppliStage/applistage/fuel/app/classes/controller/entreprise.php on line 33
+ERROR - 2014-03-19 16:41:10 --> Notice - Undefined index: id in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/database/result/cached.php on line 64
+ERROR - 2014-03-19 16:41:35 --> Notice - Undefined index: id in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/database/result/cached.php on line 64
+ERROR - 2014-03-19 16:41:43 --> Notice - Undefined index: id in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/database/result/cached.php on line 64
+ERROR - 2014-03-19 16:41:53 --> Notice - Undefined index: id in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/database/result/cached.php on line 64
+ERROR - 2014-03-19 16:41:59 --> 42000 - SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 with query: "SELECT `id` FROM `ville` WHERE UPPER(`nom`) = '' AND UPPER(`code_postal`) =" in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/database/pdo/connection.php on line 234
+ERROR - 2014-03-19 17:07:41 --> Notice - Undefined index: passage in /Users/etiennedebost/AppliStage/applistage/fuel/app/classes/controller/admin.php on line 135
+ERROR - 2014-03-19 17:07:46 --> Notice - Undefined index: passage in /Users/etiennedebost/AppliStage/applistage/fuel/app/classes/controller/admin.php on line 135
