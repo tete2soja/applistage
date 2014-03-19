@@ -1,7 +1,7 @@
 <h2>Liste des propositions</h2>
 <br>
 <?php if ($stages): ?>
-<div class="table-responsive">
+<div class="table table-responsive">
 <table class="table-bordered">
 	<thead>
 		<tr>
