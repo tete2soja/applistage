@@ -1,7 +1,7 @@
 <?php
 class Model_Admin_Entreprise extends Model_Crud
 {
-	protected static $_table_name = 'admin_entreprises';
+	protected static $_table_name = 'entreprise';
 	
 	public static function validate($factory)
 	{
