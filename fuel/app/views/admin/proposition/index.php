@@ -29,9 +29,9 @@
 			<td><?php echo $item->public; ?></td>
 			<td><?php echo $item->entreprise; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/proposition/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/proposition/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/proposition/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php echo Html::anchor('admin/proposition/view/'.$item->id, 'Voir'); ?> |
+				<?php echo Html::anchor('admin/proposition/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/proposition/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Etes-vous sur ?')")); ?>
 
 			</td>
 		</tr>
@@ -43,5 +43,4 @@
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('admin/proposition/create', 'Add new Proposition', array('class' => 'btn btn-success')); ?>
-
 </p>

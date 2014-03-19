@@ -1,10 +1,3 @@
-<style type="text/css">
-	th {
-		text-align: center;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-</style>
 <h2>Passage des INFO1 en INFO2</h2>
 <br>
 <p>
@@ -52,7 +45,7 @@ if($etudiant->iut_annee==1) { ?>
 </div>
 
 <?php else: ?>
-<p>Pas d'étudiants dans la base de données actuellement.</p>
+<p>Pas d'étudiant dans la base de données actuellement.</p>
 
 <?php endif; ?><p>
 	<br />

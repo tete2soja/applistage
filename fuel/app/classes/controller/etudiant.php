@@ -12,7 +12,7 @@ class Controller_Etudiant extends Controller_Template
 		else {
 			$id_info = Auth::get_groups();
 			foreach ($id_info as $info) {
-				if ($info[1] != "2") {
+				if (($info[1] != "2")&&($info[1] != "10")) {
 					Response::redirect('/util/connexion');
 					break;
 				}

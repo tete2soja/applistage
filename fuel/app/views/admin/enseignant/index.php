@@ -17,9 +17,9 @@
 			<td><?php echo $item->prenom; ?></td>
 			<td><?php echo $item->email; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/enseignant/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/enseignant/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/enseignant/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php echo Html::anchor('admin/enseignant/view/'.$item->id, 'Voir'); ?> |
+				<?php echo Html::anchor('admin/enseignant/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/enseignant/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Etes-vous sur ?')")); ?>
 
 			</td>
 		</tr>
@@ -31,5 +31,4 @@
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('admin/enseignant/create', 'Add new Enseignant', array('class' => 'btn btn-success')); ?>
-
 </p>

@@ -33,5 +33,4 @@
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('admin/etudiant/create', 'Add new Etudiant', array('class' => 'btn btn-success')); ?>
-
 </p>

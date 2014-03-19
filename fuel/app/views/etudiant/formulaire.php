@@ -95,7 +95,7 @@
 			    </div>
 			  </div>
 			  <div class="form-group" id="adresse_stage">
-			    <label for="" class="col-sm-2 control-label">Langue du stage</label>
+			    <label for="" class="col-sm-2 control-label">Langue de la convention</label>
 			    <div class="col-sm-10">
 			      	<select class="form-control">
 					  <option>Francais</option>
