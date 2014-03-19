@@ -39,38 +39,33 @@ class Controller_Entreprise extends Controller_Template
             } catch (Exception $e) {
                 print $e->getMessage();
             }
-            $query = DB::query('SELECT `id` FROM `ville` WHERE UPPER(`nom`) = \''. $name_ville . '\' AND UPPER(`code_postal`) = ' . $code_p . '')->execute()->as_array();
-            $tmp2 = serialize($query);
-            print $tmp2;
-            try {
-                list($null, $tmp) = explode(';s:', $tmp, 2);
-                list($null, $tmp) = explode(':"', $tmp, 2);
-                list($tmp, $null) = explode('";', $tmp, 2);
-                print $tmp;
-            } catch (Exception $e) {
-                print $e->getMessage();
+            $query2 = DB::query('SELECT `id` FROM `ville` WHERE UPPER(`nom`) = \''. $name_ville . '\' AND UPPER(`code_postal`) = ' . $code_p . '')->execute()->as_array();
+            print_r($query2);
+            if(empty($query2)) {
+	            $ville_contact = Model_Ville::forge(array(
+	            'nom' => $_POST['contact_ville'],
+	            'code_postal' => $_POST['contact_codepostal'],
+	            'pays' => $tmp1,
+				));
+
+	            if ($ville_contact and $ville_contact->save())
+	            {
+	                Session::set_flash('success', 'Added ville contact #'.$ville_contact->id.'.');
+	                Response::redirect('entreprise/liste');
+	            }
+	
+	            else
+	            {
+	                Session::set_flash('error', 'Could not save ville_contact.');
+	            }
             }
+            
+			else {
+				Session::set_flash('error', 'Ville Contact déjà existante.');
+			}
             //$_POST['contact_pays'];
             //$name_pays = Model_Pays::find_id($_POST['contact_pays']);
-            //if ()
-            $ville_contact = Model_Ville::forge(array(
-            'nom' => $_POST['contact_ville'],
-            'code_postal' => $_POST['contact_codepostal'],
-            'pays' => $tmp1,
-            ));
-
-            if ($ville_contact and $ville_contact->save())
-            {
-                Session::set_flash('success', 'Added ville contact #'.$ville_contact->id.'.');
-                //Response::redirect('entreprise/liste');
-            }
-
-            else
-            {
-                print_r("N'a pas marché");
-                Session::set_flash('error', 'Could not save ville_contact.');
-            }
-            print_r(" | sortie create");            
+           
             /*$ville_ent = Model_Ville::forge(array(
                 'nom' => $_POST['ent_ville'],
                 'code_postal' => $_POST['ent_codepostal'],
