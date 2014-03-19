@@ -5,7 +5,7 @@
 	}
 </style>
 <div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;">
+				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;width: 49%;">
 					<h2>Importation des étudiants</h2>
 					<hr/>
 					<p>Sélection du fichier CSV à importer</p>
@@ -15,7 +15,7 @@
 					</form>
 				</div>
 			<div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;">
+				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;width: 49%;float: right;">
 					<h2>Exportations</h2>
 					<hr/>
 					<div class="col-md-4">
@@ -39,11 +39,11 @@
 	<h2>Gestion des promotions</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<a href="gestion" type="button" class="btn btn-danger">Deuxième année DUT info</a>
+			<a href="gestion" type="button" class="btn btn-danger">Deuxième année DUT info</a><br /><br />
 			<p>Vous permez de gérer les étudiants en deuxième année d'IUT concernant l'année <?php echo date("Y")-1; ?></p>
 		</div>
 		<div class="col-md-6">
-			<a href="passage" type="button" class="btn btn-danger">Passage en DUT info 2</a>
+			<a href="passage" type="button" class="btn btn-danger">Passage en DUT info 2</a><br /><br />
 			<p>Vous permez de gérer les étudiants en première année pour leur passage en deuxième année concernant l'année <?php echo date("Y")-1; ?></p>
 		</div>
 	</div>
@@ -52,11 +52,11 @@
 	<h2>Avancé</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<button type="button" class="btn btn-danger">Archivage</button>
+			<button type="button" class="btn btn-danger">Archivage</button><br /><br />
 			<p>Cela entrainera la sauvegarde des espaces de rendus (suivi de stage) et de toutes les conventions de stages dans une archive ZIP.</p>
 		</div>
 		<div class="col-md-6">
-			<button type="button" class="btn btn-danger">Remise à zéro</button>
+			<button type="button" class="btn btn-danger">Remise à zéro</button><br /><br />
 			<p>
 				Cela entrainera la suppression des données des propositions de stages et les documents qui y sont associés (PDF), des conventions de stages, du suivi des enseignants et de l'espace de rendu.<br />
 				La fiche personnelle de stage sera mise à jour avec les nouvelles données de l'année à venir (date de début et de fin et rénumération).
