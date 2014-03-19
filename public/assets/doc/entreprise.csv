@@ -1,1 +1,304 @@
-a:0:{}
+"id";"nom";"adresse";"ville";"pays";"url_entreprise";"stagiaire"
+"1";"Accenture";"40-44 Rue Jean Mermoz";"34032";"67";"http://www.accenture.com/fr-fr/Pages/index.aspx
+";""
+"2";"ACTIA SODIELEC Site ";"ZAC ES-Passants II-Rue Amiral Bérenger BP 90145
+";"15624";"67";"http://www.sodielec.fr
+";""
+"3";"WebDesign Limited";"5a Estuary Views, Shelly Park
+
+";"38608";"161";"http://www.webdesign.co.nz/
+";""
+"4";"SNAO";"Aéroport de Nantes Atlantique BP 74308
+
+";"18739";"67";"";""
+"5";"Diateam";"41, rue Yves Collet
+";"12966";"67";"http://www.diateam.net/ - http://www.hynesim.com/
+";""
+"6";"Orange Romania SA";"Bd Lascar Catargiu no 51-53, 1er arrondissement
+";"38609";"182";"";""
+"7";"Faurecia";"Le pont de Vère
+";"26242";"67";"http://www.faurecia.fr/Pages/Default.aspx
+";""
+"8";"Orange Business Serv";"9 rue du Chêne Germain
+";"15584";"67";"www.orange-business.com
+";""
+"9";"CANON RESEARCH";"Rue de la Touche Lambert
+";"15584";"67";"http://www.crf.canon.fr/
+";""
+"10";"Conflikt Arts";"12C rue des Landelles
+";"15584";"67";"http://www.confliktarts.com
+";""
+"11";"Niji";"38 ter rue de Rennes
+";"15584";"67";"";""
+"12";"Orange";"11 - rue du Chêne Germain
+";"15584";"67";"";""
+"13";"Cornouaille Laser";"La Boissière
+";"29900";"67";"";""
+"14";"Pecheur D'Images";"Zone Artisanale Mane Lenn
+";"23556";"67";"http://www.plisson.com
+";""
+"15";"sentinelles du Web";"34 rue du Dr Couëdic
+";"12993";"67";"http://www.sdw.bz/
+";""
+"16";"Centre de Génétique Moléculair";"Avenue de la Terrasse - Bâtiment 26
+";"38000";"67";"";""
+"17";"Techni-Soft";"5 rue famille Bouchard
+";"23576";"67";"www.techni-soft.fr
+";""
+"18";"MINIEXPRESS";"Zone d'activité de la Croix Blanche
+";"23580";"67";"http://www.otto-models.com/index.php?lang=fr
+";""
+"19";"Evernet";"90 rue de Nungesser
+";"13021";"67";"http://www.evernet.fr/
+";""
+"20";"Linkea";"Zone de Prat Pip Nord, 90, rue Charles Nungesser, Askell Parc - batiment C - 1er étage
+";"13021";"67";"www.linkea.com
+";""
+"21";"Mairie d'Hennebont";"13 Place Maréchal Foch, CS 80130
+";"23593";"67";"";""
+"22";"NKE";"ZI de Kérandré - rue Gutenberg
+";"23593";"67";"www.nke-corporate.fr
+";""
+"23";"Yves Rocher";"Société Yves Rocher - ZI La Croix des Archers
+";"23571";"67";"";""
+"24";"DCNS";"Centre DCNS de Nantes-Indret
+";"18822";"67";"";""
+"25";"Centre hospitalier Ferdinand G";"1, route de Pencran Lavallot
+";"13047";"67";"";""
+"26";"MGB SYSTEMES";"ZA de Lanveur
+";"23611";"67";"www.mgb-systemes.com
+";""
+"27";"Groupe Médis";"6, Impasse Jean Bertin
+";"20287";"67";"http://www.groupemedis.fr
+";""
+"28";"Mutuelles du Mans Assurances";"160 rue Henri Champion
+";"31803";"67";"";""
+"29";"Hôpital de Lons Le Saunier";"55 Rue du Docteur Jean Michel
+";"17236";"67";"http://www.ch-lons.fr/
+";""
+"30";"ARPE Lorient";"5, cours de Chazelles
+";"23631";"67";"http://arpe.paysdelorient.com/
+";""
+"31";"DCNS Lorient";"DCNS Rue Choiseul
+";"23631";"67";"http://fr.dcnsgroup.com/
+";""
+"32";"Lab-STICC";"Rue de St Maudé
+";"23631";"67";"http://www.lab-sticc.fr/
+";""
+"33";"Lorient Technopole Innovation";"Lorient Technopole Innovations - Eurolarge Innovation Rue d'Estienne d'Orves - Bâtiment Celtic Subma";"23631";"67";"";""
+"34";"Sydel";"31 Rue du Gaillec BP 2834
+";"23631";"67";"http://www.syleps.com/
+";""
+"35";"PSI Maore";"21 rue Babou Salama Cavani M'tsapéré
+";"38595";"67";"www.psi-maore.com
+";""
+"36";"Sagem - groupe Safran";"100 Avenue de Paris
+";"38026";"67";"";""
+"37";"Jouve";"1 Rue du Docteur Sauvé
+";"22280";"67";"www.jouve.com
+";""
+"38";"mnh";"331 avenue d'Antibes Amilly
+";"19140";"67";"http://www.mnh.fr/
+";""
+"39";"LIRMM - Université Montpellier";"161, rue Ada
+";"15366";"67";"";""
+"40";"Corporation des Entrepreneurs ";"6800 boulevard Pie IX
+";"14464";"42";"http://www.cegq.com
+";""
+"41";"Telegraphe";"6250, rue Hutchison, Suite 407
+";"14464";"42";"http://telegraphe.net/
+";""
+"42";"Kornog Computing";"26 Bis rue Aiguillon
+";"13092";"67";"";""
+"43";"Département de Loire-Atlantiqu";"Hôtel du Département 3 quai Ceineray - BP 94109
+";"18830";"67";"";""
+"44";"InextCom";"29 quai de Versaille
+";"18830";"67";"";""
+"45";"La Poste";"12 boulevard Auguste Pageot
+";"18830";"67";"http://www.laposte.net/
+";""
+"46";"La Fabrik";"12, bis rue du Général Mangin - Le Richelieu
+";"38612";"67";"http://www.lafabrik.nc
+";""
+"47";"Groupe Berto";"610 Avenue du Grand Gigognan 2 - BP 40910 
+";"15738";"67";"http://www.groupe-berto.com/
+";""
+"48";"Laboratoire LIMSI-CNRS";"Bât 508, Rue John Von Neumann BP133
+";"38050";"67";"http://www.limsi.fr/
+";""
+"49";"Université Paris-Sud 11 Instit";"Universite Paris-Sud Equipe de Bioinformatique Moleculaire Institut de Genetique et Microbiologie
+";"38050";"67";"";""
+"50";"Pythagore F.D.";"11, rue du faubourg Poissonnière
+";"32630";"67";"http://www.pythagore-fd.fr/
+";""
+"51";"Scalable Information";"30 bd Pasteur
+";"32630";"67";"http://scalableinfo.com/?langue=fr
+";""
+"52";"SNCF";"34 rue du Cdt Rene Mouchotte
+";"32630";"67";"http://www.sncf.com/
+";""
+"53";"Soledis";"SOLEDIS - Atlanparc - ZA de Kerluherne
+";"23668";"67";"www.groupe-soledis.com
+";""
+"54";"B-APPLI STUDIO";"B-APPLI Studio - 2 rue de la Soie
+";"23675";"67";"http://www.bappli.com
+";""
+"55";"IDHESA BRETAGNE OCEANE";"120 avenue A. de Rochon
+";"13147";"67";"";""
+"56";"Hillrom";"ZI du Talhouët - BP 14
+";"23687";"67";"";""
+"57";"BFI2";"26, rue du Général de Gaulle
+";"23689";"67";"";""
+"58";"Finley";"La Melleraye
+";"31866";"67";"";""
+"59";"Ceasy";"1, rue de la Mousson Cap Ouest
+";"9958";"67";"http://www.ceasy.fr
+";""
+"60";"BOLLORE";"BOLLORE ODET - ERGUE GABERIC
+";"13166";"67";"http://www.bollorefilms.com/
+";""
+"61";"CCI QUIMPER CORNOUAILLE";"145 AV DE KERADENNEC CS 76029
+";"13166";"67";"";""
+"62";"Centre hospitalier Cornouaille";"14 bis avenue Yves Thépot BP 1757
+";"13166";"67";"";""
+"63";"Aladom";"5 Quai de la Prévalaye
+";"15769";"67";"http://www.aladom.fr/
+";""
+"64";"CERTI de Bretagne-Normandie";"10 rue Jean le Hô, CS 56529
+";"15769";"67";"";""
+"65";"CRT Bretagne";"1 rue Raoul Ponchon
+";"15769";"67";"";""
+"66";"Geosciences Rennes";"Géosciences Rennes UMR 6118 Université de Rennes1 Campus de Beaulieu
+";"15769";"67";"";""
+"67";"Ouest-France";"10 rue du Breil
+";"15769";"67";"http://www.ouest-france.fr/
+";""
+"68";"École des études en santé publ";"Avenue du Professeur-Léon-Bernard - CS 74312
+";"15769";"67";"";""
+"69";"ERDF - DIRECTION REGIONALE BRE";"Site Monselet 2 - 83 bd Voltaire - BP 90937
+";"15769";"67";"";""
+"70";"GROUPE LEGENDRE";"5 rue Louis-Jacques Daguerre CS 60825
+";"15769";"67";"www.groupe-legendre.com
+";""
+"71";"Adequasys France";"1 rue Claude Bernard
+";"11766";"67";"http://www.adequasys.com/
+";""
+"72";"Ankama";"75 Boulevard d'Armentières
+";"25318";"67";"http://www.ankama.com/fr
+";""
+"73";"EPSM Morbihan";"22 rue de l'hôpital
+";"23717";"67";"";""
+"74";"Centre Hospitalier Saint-Brieu";"Etablissement de court séjour - 10, rue Marcel Proust
+";"9976";"67";"http://www.ch-stbrieuc.fr/
+";""
+"75";"Equant France";"1 Place des Droits de l'Homme, La Plaine Saint Denis
+";"38187";"67";"";""
+"76";"CEasy";"Rue de la Terre Adélie
+";"15811";"67";"www.ceasy.fr
+";""
+"77";"Atos";"Immeuble Pascal - 6 impasse Augustin Fresnel
+";"18886";"67";"www.atos.fr
+";""
+"78";"GFD Services";"140 rue Gutenberg
+";"18906";"67";"http://www.gfd-services.fr
+";""
+"79";"Tibco";"Le Bois Cholet - B.P 9
+";"18875";"67";"";""
+"80";"Syndicat Départemental d'Elect";"Syndicat Départemental d'Electricité, 53 Boulevard Carnot
+";"9976";"67";"http://www.sde22.fr/
+";""
+"81";"Altho";"Route de Saint Caradec
+";"23724";"67";"www.brets.fr
+";""
+"82";"CODARIANE";"4 Impasse Augustin Fresnel Nantes
+";"18886";"67";"";""
+"83";"Mairie de Saint-Nazaire";"Place François Blancho
+";"18906";"67";"http://www.mairie-saintnazaire.fr/
+";""
+"84";"KERISPER SAS";"Talhouët
+";"23742";"67";"";""
+"85";"Apologic Informatique Applicat";"Apologic Informatique Applications - 2 rue du Noroît - ZA Les Alleux - BP 77456
+";"10034";"67";"";""
+"86";"CECAB";"Saint-Léonard Nord
+";"23761";"67";"http://www.cecab.com/
+";""
+"87";"PRO-DEVELOPPEMENT";"Rue Ampère Zone de St Léonard
+";"23761";"67";"";""
+"88";"SDMT";"7 Rue des charrons
+";"23761";"67";"www.axline.fr
+";""
+"89";"STEF Information &Technologies";"ZA Atlantheix rue Jacques Cartier
+";"23761";"67";"http://www.stef.com/index.fr
+";""
+"90";"Biorance";"rue Jean Rozé
+";"15867";"67";"http://www.biorance.com
+";""
+"91";"FG Synerys";"14 rue paule raymondis zac de gabardie, BP2370
+";"14139";"67";"www.fgsynerys.fr
+";""
+"92";"AM TECH";"IMMEUBLE GOLFE AFFAIRES - 36 BD DE LA RESISTANCE
+";"23770";"67";"";""
+"93";"Celtipharm";"Kérino, Allée Nicolas Le Blanc, PIBS, CP 130
+";"23770";"67";"www.celtipharm.com";""
+"94";"CG56";"2 - Rue de Saint-Tropez
+";"23770";"67";"";""
+"95";"Chaire ACT-TER";"Chaire ACT-TER Faculté de Droit, de Sciences Economiques et de Gestion 1 rue de la Loi
+";"23770";"67";"";""
+"96";"Conseil général du Morbihan";"2, rue Saint-Tropez
+";"23770";"67";"http://morbihan.fr
+";""
+"97";"dbao";"24 boulevard de la résistance
+";"23770";"67";"http://db-ao.com
+";""
+"98";"E-Comouest";"PIBS - Bâtiment Prisme 2 - Place Albert Einstein
+
+";"23770";"67";"http://www.e-comouest.com/
+";""
+"99";"FB2L FACTO";"1 Rue des Goélands
+
+";"23770";"67";"http://www.fb2l-facto.com/home.php
+";""
+"100";"Intel";"Le prisme Parc d'Innovation Bretagne Sud
+";"23770";"67";"";""
+"101";"IRISA-UBS";"IRISA-UBS Université de Bretagne-Sud, Campus de Tohannic
+";"23770";"67";"http://www-irisa.univ-ubs.fr/
+";""
+"102";"IRISA-UBS";"ENSIBS - Campus de Tohannic
+";"23770";"67";"";""
+"103";"Jexlprod";"Immeuble PIREN rue Henri Becquerel
+";"23770";"67";"http://www.jexlprod.com/
+";""
+"104";"LDC Conseil";"LDC Conseil BP 200 70 cedex
+";"23770";"67";"http://www.seminaires.fr/
+";""
+"105";"MGDIS";"Parc d'Innovation Bretagne Sud - CP 10
+";"23770";"67";"";""
+"106";"MGS Consulting";"Pépinière d'Entreprises CREALIS Zone de Pentaparc rue Lefèvre Utile
+";"23770";"67";"http://www.mgsconsulting.fr/
+";""
+"107";"Miwim";"Parc Pompidou, Entrée 1
+";"23770";"67";"http://societe.miwim.fr
+";""
+"108";"Septentrion Communication";"36 bd de la résistance
+";"23770";"67";"";""
+"109";"Wallace Systems";"6 place Albert Einstein
+
+";"23770";"67";"http://www.wallace-systems.net/
+";""
+"110";"ID Interactive";"Parc Pompidou CP3448 Bâtiment D - Porte 2 - Etage 1
+";"23770";"67";"http://www.id-interactive.fr/
+";""
+"111";"Astellia";"ZA du Plessis - Rue du Plessis
+";"15882";"67";"www.astellia.com
+";""
+"112";"Luceo";"EDIXIA SAS-Z.A.R.T des Perrière - CS 27259
+";"15882";"67";"http://www.edixia.com/
+";""
+"113";"Ministère de la Défense - DCSI";"3, rue de l'indépendance américaine - CS806012
+";"34147";"67";"";""
+"114";"Renault Automobile";"42 route de Beynes
+";"34157";"67";"www.renault.fr
+";""
+"115";"Vitré communauté";"16 bis Boulevard des Rochers BP 20613
+";"15890";"67";"http://www.vitrecommunaute.org
+";""

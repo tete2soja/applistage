@@ -64,8 +64,7 @@ class Controller_Admin extends Controller_Template
 		    	chmod(DOCROOT . 'assets/doc/etudiants.csv', 0777);
 		    }
 			Session::set_flash('success', 'Export de la table `etudiant` avec succès !');
-			//header('Content-type: csv/plain');
-			//header('Content-disposition: attachment; filename="etudiants.csv"');
+			File::download(DOCROOT . 'assets/doc/etudiants.csv', 'etudiants.csv', 'text/csv');
 		}
 		elseif (isset($_POST['entreprise'])) {
 			$tmp = DB::query('SELECT * FROM `entreprise`')->execute()->as_array();
@@ -78,6 +77,7 @@ class Controller_Admin extends Controller_Template
 		    	chmod(DOCROOT . 'assets/doc/entreprise.csv', 0777);
 		    }
 			Session::set_flash('success', 'Export de la table `entreprise` avec succès !');
+			File::download(DOCROOT . 'assets/doc/entreprise.csv', 'entreprises.csv', 'text/csv');
 		}
 		elseif (isset($_POST['contact'])) {
 			$tmp = DB::query('SELECT * FROM `contact`')->execute()->as_array();
@@ -90,6 +90,7 @@ class Controller_Admin extends Controller_Template
 		    	chmod(DOCROOT . 'assets/doc/contact.csv', 0777);
 		    }
 			Session::set_flash('success', 'Export de la table `contact` avec succès !');
+			File::download(DOCROOT . 'assets/doc/contact.csv', 'contacts.csv', 'text/csv');
 		}
 	}
 
@@ -140,7 +141,6 @@ class Controller_Admin extends Controller_Template
 
 	public function action_gestion()
 	{
-		//$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
 		$data['etudiants'] = Model_Etudiant::find_all();
 		$data["subnav"] = array('valider'=> 'active' );
 		$this->template->title = 'Admin &raquo; Gestion';

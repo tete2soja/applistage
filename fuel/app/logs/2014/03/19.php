@@ -148,3 +148,82 @@ WARNING - 2014-03-19 15:08:29 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2014-03-19 15:08:46 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2014-03-19 15:08:48 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2014-03-19 15:08:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:13:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:13:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:13:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:14:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:14:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:15:44 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:15:44 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:15:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:15:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:15:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:15:53 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:24:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:24:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:24:40 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:24:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:24:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:24:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:25:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:25:24 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:25:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:25:43 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:25:43 --> Notice - Array to string conversion in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 84
+WARNING - 2014-03-19 15:26:03 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:26:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:26:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:26:33 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:26:33 --> Notice - Array to string conversion in C:\wamp\www\applistage\fuel\core\classes\format.php on line 265
+WARNING - 2014-03-19 15:26:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:26:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:28:21 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:28:22 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:28:31 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:29:30 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:30:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:46:07 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:48:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:48:01 --> Parsing Error - syntax error, unexpected 'header' (T_STRING) in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 67
+WARNING - 2014-03-19 15:48:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:48:10 --> Parsing Error - syntax error, unexpected 'elseif' (T_ELSEIF) in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 76
+WARNING - 2014-03-19 15:48:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:48:25 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:48:25 --> Notice - Undefined variable: chemin in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 75
+WARNING - 2014-03-19 15:50:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:50:32 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:50:32 --> Notice - Undefined variable: chemin in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 75
+WARNING - 2014-03-19 15:52:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:52:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:52:22 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:52:22 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:52:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:56:53 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:56:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:57:01 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:57:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:57:04 --> Fatal Error - Call to undefined method Fuel\Core\File_Handler_File::download() in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 68
+WARNING - 2014-03-19 15:57:37 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:57:39 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:57:39 --> Warning - Missing argument 1 for Fuel\Core\File::download(), called in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 68 and defined in C:\wamp\www\applistage\fuel\core\classes\file.php on line 786
+WARNING - 2014-03-19 15:57:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:57:53 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:57:53 --> Warning - is_dir() expects parameter 1 to be a valid path, object given in C:\wamp\www\applistage\fuel\core\classes\file\area.php on line 144
+WARNING - 2014-03-19 15:58:11 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 15:58:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 15:58:13 --> Fatal Error - Class 'finfo' not found in C:\wamp\www\applistage\fuel\core\classes\file.php on line 755
+WARNING - 2014-03-19 16:00:03 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:00:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:00:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:00:44 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:00:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-19 16:00:45 --> Notice - Use of undefined constant csv - assumed 'csv' in C:\wamp\www\applistage\fuel\app\classes\controller\admin.php on line 67
+WARNING - 2014-03-19 16:00:47 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:02:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:02:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:02:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:02:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:02:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:04:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:04:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-19 16:05:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.

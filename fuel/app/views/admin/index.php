@@ -1,3 +1,9 @@
+<style type="text/css">
+	.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+</style>
 <div class="row">
 	<div class="col-md-6 bs-callout bs-callout-info">
 		<h2>Gérer les propositions</h2>
