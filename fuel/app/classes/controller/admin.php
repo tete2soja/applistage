@@ -54,9 +54,8 @@ class Controller_Admin extends Controller_Template
 			print "Import done";
 		}
 		elseif (isset($_POST['etudiant'])) {
-			//$etudiant = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
-			$pays = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
-			$tmp = Format::forge($pays)->to_csv();
+			$tmp = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
+			$tmp = Format::forge($tmp)->to_csv();
 		    if (file_exists(DOCROOT . 'assets/doc/etudiants.csv'))
 		    {
 		    	File::update(DOCROOT . 'assets/doc', 'etudiants.csv', $tmp);
@@ -64,14 +63,13 @@ class Controller_Admin extends Controller_Template
 		    	File::create(DOCROOT . 'assets/doc', 'etudiants.csv', $tmp);
 		    	chmod(DOCROOT . 'assets/doc/etudiants.csv', 0777);
 		    }
-			echo $tmp;
+			Session::set_flash('success', 'Export de la table `etudiant` avec succès !');
 			//header('Content-type: csv/plain');
 			//header('Content-disposition: attachment; filename="etudiants.csv"');
-			print "test done";
 		}
 		elseif (isset($_POST['entreprise'])) {
-			$pays = DB::query('SELECT * FROM `entreprise`')->execute()->as_array();
-			$tmp = serialize($pays);
+			$tmp = DB::query('SELECT * FROM `entreprise`')->execute()->as_array();
+			$tmp = Format::forge($tmp)->to_csv();
 		    if (file_exists(DOCROOT . 'assets/doc/entreprise.csv'))
 		    {
 		    	File::update(DOCROOT . 'assets/doc', 'entreprise.csv', $tmp);
@@ -79,12 +77,11 @@ class Controller_Admin extends Controller_Template
 		    	File::create(DOCROOT . 'assets/doc', 'entreprise.csv', $tmp);
 		    	chmod(DOCROOT . 'assets/doc/entreprise.csv', 0777);
 		    }
-			echo $tmp;
-			print "test done";
+			Session::set_flash('success', 'Export de la table `entreprise` avec succès !');
 		}
 		elseif (isset($_POST['contact'])) {
-			$pays = DB::query('SELECT * FROM `contact`')->execute()->as_array();
-			$tmp = serialize($pays);
+			$tmp = DB::query('SELECT * FROM `contact`')->execute()->as_array();
+			$tmp = Format::forge($tmp)->to_csv();
 		    if (file_exists(DOCROOT . 'assets/doc/contact.csv'))
 		    {
 		    	File::update(DOCROOT . 'assets/doc', 'contact.csv', $tmp);
@@ -92,8 +89,7 @@ class Controller_Admin extends Controller_Template
 		    	File::create(DOCROOT . 'assets/doc', 'contact.csv', $tmp);
 		    	chmod(DOCROOT . 'assets/doc/contact.csv', 0777);
 		    }
-			echo $tmp;
-			print "test done";
+			Session::set_flash('success', 'Export de la table `contact` avec succès !');
 		}
 	}
 
@@ -144,7 +140,8 @@ class Controller_Admin extends Controller_Template
 
 	public function action_gestion()
 	{
-		$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
+		//$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
+		$data['etudiants'] = Model_Etudiant::find_all();
 		$data["subnav"] = array('valider'=> 'active' );
 		$this->template->title = 'Admin &raquo; Gestion';
 		$this->template->main_title = 'Applistage 2014';

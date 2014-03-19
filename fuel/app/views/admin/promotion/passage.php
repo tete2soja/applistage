@@ -15,7 +15,7 @@
 <?php if ($etudiants): ?>
 <form role="form" method="POST" action="">
 <div class="table-responsive">
-<table class="table-bordered">
+<table class="table table-hover">
 	<thead>
 		<tr>
 			<th>Numéro étudiant</th>

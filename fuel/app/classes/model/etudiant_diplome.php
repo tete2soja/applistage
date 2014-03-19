@@ -1,6 +1,6 @@
 <?php
 
-class Model_Etudiant extends \Model_Crud
+class Model_Etudiant_Diplome extends \Model_Crud
 {
 	protected static $_properties = array(
 		'id',
@@ -32,6 +32,6 @@ class Model_Etudiant extends \Model_Crud
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'etudiant';
+	protected static $_table_name = 'etudiant_diplome';
 
 }

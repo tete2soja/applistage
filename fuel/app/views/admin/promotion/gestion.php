@@ -1,10 +1,3 @@
-<style type="text/css">
-	th {
-		text-align: center;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-</style>
 <h2>Gestion des INFO2</h2>
 <br>
 <p>
@@ -14,7 +7,7 @@
 <?php if ($etudiants): ?>
 <form role="form" method="POST" action="">
 <div class="table-responsive">
-<table class="table-bordered">
+<table class="table table-hover">
 	<thead>
 		<tr>
 			<th>Numéro étudiant</th>
