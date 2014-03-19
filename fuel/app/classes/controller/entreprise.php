@@ -3,70 +3,60 @@
 class Controller_Entreprise extends Controller_Template
 {
 
-	public function action_index()
-	{
-		$data["subnav"] = array('index'=> 'active' );
-		$this->template->title = 'Entreprise &raquo; Index';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Entreprise';
-		$this->template->content = View::forge('entreprise/index', $data);
-	}
+    public function action_index()
+    {
+        $data["subnav"] = array('index'=> 'active' );
+        $this->template->title = 'Entreprise &raquo; Index';
+        $this->template->main_title = 'Applistage 2014';
+        $this->template->sub_title = 'Entreprise';
+        $this->template->content = View::forge('entreprise/index', $data);
+    }
 
-	public function action_proposition()
-	{
-		$data["subnav"] = array('proposition'=> 'active' );
-		$this->template->title = 'Entreprise &raquo; Proposition';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Entreprise';
-		$this->template->content = View::forge('entreprise/proposition', $data);
-	}
+    public function action_proposition()
+    {
+        $data["subnav"] = array('proposition'=> 'active' );
+        $this->template->title = 'Entreprise &raquo; Proposition';
+        $this->template->main_title = 'Applistage 2014';
+        $this->template->sub_title = 'Entreprise';
+        $this->template->content = View::forge('entreprise/proposition', $data);
+    }
 
-	public function action_formulaire()
-	{
-		
-		if (isset($_POST['submit'])) {
-			
-			$name_pays = $_POST['contact_pays'];
-			$name_ville = $_POST['contact_ville'];
-			$code_p = $_POST['contact_codepostal'];
-			$query = DB::query('SELECT `id` FROM `pays` WHERE UPPER(`nom`) = \''. $name_pays . '\'')->execute()->as_array();
-			$tmp1 = serialize($query);
-			try {
-				list($null, $tmp1) = explode(';s:', $tmp1, 2);
-				list($null, $tmp1) = explode(':"', $tmp1, 2);
-				list($tmp1, $null) = explode('";', $tmp1, 2);
-				print $tmp1;
-			} catch (Exception $e) {
-				print $e->getMessage();
-			}
-			$query = DB::query('SELECT `id` FROM `ville` WHERE UPPER(`nom`) = \''. $name_ville . '\' AND UPPER(`code_postal`) = ' . $code_p . '')->execute()->as_array();
-			$tmp2 = serialize($query);
-			print $tmp2;
-			try {
-				list($null, $tmp) = explode(';s:', $tmp, 2);
-				list($null, $tmp) = explode(':"', $tmp, 2);
-				list($tmp, $null) = explode('";', $tmp, 2);
-				print $tmp;
-			} catch (Exception $e) {
-				print $e->getMessage();
-			}
-			//$_POST['contact_pays'];
-<<<<<<< HEAD
-			//$name_pays = Model_Pays::find_id($_POST['contact_pays']);
-			//if ()
-			$ville_contact = Model_Ville::forge(array(
+    public function action_formulaire()
+    {
+        
+        if (isset($_POST['submit'])) {
+            
+            $name_pays = $_POST['contact_pays'];
+            $name_ville = $_POST['contact_ville'];
+            $code_p = $_POST['contact_codepostal'];
+            $query = DB::query('SELECT `id` FROM `pays` WHERE UPPER(`nom`) = \''. $name_pays . '\'')->execute()->as_array();
+            $tmp1 = serialize($query);
+            try {
+                list($null, $tmp1) = explode(';s:', $tmp1, 2);
+                list($null, $tmp1) = explode(':"', $tmp1, 2);
+                list($tmp1, $null) = explode('";', $tmp1, 2);
+                print $tmp1;
+            } catch (Exception $e) {
+                print $e->getMessage();
+            }
+            $query = DB::query('SELECT `id` FROM `ville` WHERE UPPER(`nom`) = \''. $name_ville . '\' AND UPPER(`code_postal`) = ' . $code_p . '')->execute()->as_array();
+            $tmp2 = serialize($query);
+            print $tmp2;
+            try {
+                list($null, $tmp) = explode(';s:', $tmp, 2);
+                list($null, $tmp) = explode(':"', $tmp, 2);
+                list($tmp, $null) = explode('";', $tmp, 2);
+                print $tmp;
+            } catch (Exception $e) {
+                print $e->getMessage();
+            }
+            //$_POST['contact_pays'];
+            //$name_pays = Model_Pays::find_id($_POST['contact_pays']);
+            //if ()
+            $ville_contact = Model_Ville::forge(array(
             'nom' => $_POST['contact_ville'],
             'code_postal' => $_POST['contact_codepostal'],
             'pays' => $tmp1,
-=======
-			$name_pays = Model_Pays::query()->where('nom', 'France')->get();
-            $comma_separated = $name_pays->id;
-            print $comma_separated;
-            /*$ville_contact = Model_Ville::forge(array(
-                'nom' => $_POST['contact_ville'],
-                'code_postal' => $_POST['contact_codepostal'],
-                'pays' => $tmp['id'],
->>>>>>> 6d0ae44f2720b34820dd5be3d77bffd246a99ede
             ));
 
             if ($ville_contact and $ville_contact->save())
@@ -77,10 +67,10 @@ class Controller_Entreprise extends Controller_Template
 
             else
             {
-            	print_r("N'a pas marché");
+                print_r("N'a pas marché");
                 Session::set_flash('error', 'Could not save ville_contact.');
             }
-			print_r(" | sortie create");            
+            print_r(" | sortie create");            
             /*$ville_ent = Model_Ville::forge(array(
                 'nom' => $_POST['ent_ville'],
                 'code_postal' => $_POST['ent_codepostal'],
@@ -157,23 +147,23 @@ class Controller_Entreprise extends Controller_Template
             }*/
             
             //Creation de la ville de l'entreprise si elle n'existe pas
-			//$query = DB::query('INSERT INTO `ville` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
-		}
-		$data["subnav"] = array('formulaire'=> 'active' );
-		$this->template->title = 'Entreprise &raquo; Formulaire';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Entreprise';
-		$this->template->content = View::forge('entreprise/formulaire', $data);
-	}
-	
-	public function action_liste()
-	{
-		$data['stages'] = Model_Stage::find_all();
-		$data["subnav"] = array('liste'=> 'active' );
-		$this->template->title = 'Entreprise &raquo; Proposition de Stage';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Entreprise';
-		$this->template->content = View::forge('entreprise/liste', $data);
-	}
+            //$query = DB::query('INSERT INTO `ville` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
+        }
+        $data["subnav"] = array('formulaire'=> 'active' );
+        $this->template->title = 'Entreprise &raquo; Formulaire';
+        $this->template->main_title = 'Applistage 2014';
+        $this->template->sub_title = 'Entreprise';
+        $this->template->content = View::forge('entreprise/formulaire', $data);
+    }
+    
+    public function action_liste()
+    {
+        $data['stages'] = Model_Stage::find_all();
+        $data["subnav"] = array('liste'=> 'active' );
+        $this->template->title = 'Entreprise &raquo; Proposition de Stage';
+        $this->template->main_title = 'Applistage 2014';
+        $this->template->sub_title = 'Entreprise';
+        $this->template->content = View::forge('entreprise/liste', $data);
+    }
 
 }
