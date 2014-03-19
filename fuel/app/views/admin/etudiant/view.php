@@ -1,4 +1,4 @@
-<h2>Viewing #<?php echo $etudiant->id; ?></h2>
+<h2><?php echo $etudiant->nom . " " . $etudiant->prenom; ?></h2>
 
 <p>
 	<strong>No etudiant:</strong>
@@ -11,7 +11,7 @@
 	<?php echo $etudiant->prenom; ?></p>
 <p>
 	<strong>Datedenaissance:</strong>
-	<?php echo $etudiant->datedenaissance; ?></p>
+	<?php echo $etudiant->datenaissance; ?></p>
 <p>
 	<strong>Sexe:</strong>
 	<?php echo $etudiant->sexe; ?></p>
@@ -20,7 +20,7 @@
 	<?php echo $etudiant->bac; ?></p>
 <p>
 	<strong>Mention:</strong>
-	<?php echo $etudiant->mention; ?></p>
+	<?php echo $etudiant->bac_mention; ?></p>
 <p>
 	<strong>Bac annee:</strong>
 	<?php echo $etudiant->bac_annee; ?></p>

@@ -4,7 +4,9 @@ class Controller_Admin_Enseignant extends Controller_Template{
 	public function action_index()
 	{
 		$data['enseignants'] = Model_Admin_Enseignant::find_all();
-		$this->template->title = "Enseignants";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/enseignant/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Enseignant extends Controller_Template{
 
 		$data['enseignant'] = Model_Admin_Enseignant::find_by_pk($id);
 
-		$this->template->title = "Enseignant";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/enseignant/view', $data);
 
 	}
@@ -50,7 +54,9 @@ class Controller_Admin_Enseignant extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Enseignants";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/enseignant/create');
 
 	}
@@ -88,7 +94,9 @@ class Controller_Admin_Enseignant extends Controller_Template{
 		}
 
 		$this->template->set_global('enseignant', $enseignant, false);
-		$this->template->title = "Enseignants";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/enseignant/edit');
 
 	}
@@ -110,6 +118,4 @@ class Controller_Admin_Enseignant extends Controller_Template{
 		Response::redirect('admin/enseignant');
 
 	}
-
-
 }

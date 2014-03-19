@@ -4,7 +4,9 @@ class Controller_Admin_Proposition extends Controller_Template{
 	public function action_index()
 	{
 		$data['propositions'] = Model_Admin_Proposition::find_all();
-		$this->template->title = "Propositions";
+		$this->template->title = "Proposition &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Proposition';
 		$this->template->content = View::forge('admin/proposition/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Proposition extends Controller_Template{
 
 		$data['proposition'] = Model_Admin_Proposition::find_by_pk($id);
 
-		$this->template->title = "Proposition";
+		$this->template->title = "Proposition &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Proposition';
 		$this->template->content = View::forge('admin/proposition/view', $data);
 
 	}
@@ -56,7 +60,9 @@ class Controller_Admin_Proposition extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Propositions";
+		$this->template->title = "Proposition &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Proposition';
 		$this->template->content = View::forge('admin/proposition/create');
 
 	}
@@ -100,7 +106,9 @@ class Controller_Admin_Proposition extends Controller_Template{
 		}
 
 		$this->template->set_global('proposition', $proposition, false);
-		$this->template->title = "Propositions";
+		$this->template->title = "Proposition &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Proposition';
 		$this->template->content = View::forge('admin/proposition/edit');
 
 	}
@@ -122,6 +130,4 @@ class Controller_Admin_Proposition extends Controller_Template{
 		Response::redirect('admin/proposition');
 
 	}
-
-
 }

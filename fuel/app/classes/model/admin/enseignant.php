@@ -1,7 +1,7 @@
 <?php
 class Model_Admin_Enseignant extends Model_Crud
 {
-	protected static $_table_name = 'admin_enseignants';
+	protected static $_table_name = 'enseignant';
 	
 	public static function validate($factory)
 	{

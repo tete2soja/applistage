@@ -4,7 +4,9 @@ class Controller_Admin_Etudiant extends Controller_Template{
 	public function action_index()
 	{
 		$data['etudiants'] = Model_Admin_Etudiant::find_all();
-		$this->template->title = "Etudiants";
+		$this->template->title = "Etudiants &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Etudiants';
 		$this->template->content = View::forge('admin/etudiant/index', $data);
 
 	}
@@ -15,7 +17,10 @@ class Controller_Admin_Etudiant extends Controller_Template{
 
 		$data['etudiant'] = Model_Admin_Etudiant::find_by_pk($id);
 
-		$this->template->title = "Etudiant";
+		
+		$this->template->title = "Etudiants &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Etudiants';
 		$this->template->content = View::forge('admin/etudiant/view', $data);
 
 	}
@@ -32,10 +37,10 @@ class Controller_Admin_Etudiant extends Controller_Template{
 					'no_etudiant' => Input::post('no_etudiant'),
 					'nom' => Input::post('nom'),
 					'prenom' => Input::post('prenom'),
-					'datedenaissance' => Input::post('datedenaissance'),
+					'datenaissance' => Input::post('datenaissance'),
 					'sexe' => Input::post('sexe'),
 					'bac' => Input::post('bac'),
-					'mention' => Input::post('mention'),
+					'bac_mention' => Input::post('bac_mention'),
 					'bac_annee' => Input::post('bac_annee'),
 					'email' => Input::post('email'),
 					'adresse1' => Input::post('adresse1'),
@@ -63,7 +68,10 @@ class Controller_Admin_Etudiant extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Etudiants";
+		
+		$this->template->title = "Etudiants &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Etudiants';
 		$this->template->content = View::forge('admin/etudiant/create');
 
 	}
@@ -83,10 +91,10 @@ class Controller_Admin_Etudiant extends Controller_Template{
 				$etudiant->no_etudiant = Input::post('no_etudiant');
 				$etudiant->nom = Input::post('nom');
 				$etudiant->prenom = Input::post('prenom');
-				$etudiant->datedenaissance = Input::post('datedenaissance');
+				$etudiant->datenaissance = Input::post('datenaissance');
 				$etudiant->sexe = Input::post('sexe');
 				$etudiant->bac = Input::post('bac');
-				$etudiant->mention = Input::post('mention');
+				$etudiant->bac_mention = Input::post('bac_mention');
 				$etudiant->bac_annee = Input::post('bac_annee');
 				$etudiant->email = Input::post('email');
 				$etudiant->adresse1 = Input::post('adresse1');
@@ -114,7 +122,10 @@ class Controller_Admin_Etudiant extends Controller_Template{
 		}
 
 		$this->template->set_global('etudiant', $etudiant, false);
-		$this->template->title = "Etudiants";
+		
+		$this->template->title = "Etudiants &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Etudiants';
 		$this->template->content = View::forge('admin/etudiant/edit');
 
 	}

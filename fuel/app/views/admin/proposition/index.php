@@ -1,7 +1,7 @@
 <h2>Listing Propositions</h2>
 <br>
 <?php if ($propositions): ?>
-<table class="table table-striped">
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Sujet</th>

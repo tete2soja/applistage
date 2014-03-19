@@ -20,9 +20,9 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Datedenaissance', 'datedenaissance', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Datenaissance', 'datenaissance', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('datedenaissance', Input::post('datedenaissance', isset($etudiant) ? $etudiant->datedenaissance : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Datedenaissance')); ?>
+				<?php echo Form::input('datedenaissance', Input::post('datenaissance', isset($etudiant) ? $etudiant->datenaissance : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Datedenaissance')); ?>
 
 		</div>
 		<div class="form-group">
@@ -38,9 +38,9 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Mention', 'mention', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Bac mention', 'bac_mention', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('mention', Input::post('mention', isset($etudiant) ? $etudiant->mention : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Mention')); ?>
+				<?php echo Form::input('mention', Input::post('bac_mention', isset($etudiant) ? $etudiant->bac_mention : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Mention')); ?>
 
 		</div>
 		<div class="form-group">

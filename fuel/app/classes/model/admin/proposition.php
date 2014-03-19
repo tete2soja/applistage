@@ -1,7 +1,7 @@
 <?php
 class Model_Admin_Proposition extends Model_Crud
 {
-	protected static $_table_name = 'admin_propositions';
+	protected static $_table_name = 'fichestages';
 	
 	public static function validate($factory)
 	{

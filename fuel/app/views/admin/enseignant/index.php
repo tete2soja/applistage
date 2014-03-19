@@ -1,7 +1,7 @@
 <h2>Listing Enseignants</h2>
 <br>
 <?php if ($enseignants): ?>
-<table class="table table-striped">
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Nom</th>
