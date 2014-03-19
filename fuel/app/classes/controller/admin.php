@@ -54,8 +54,8 @@ class Controller_Admin extends Controller_Template
 			print "Import done";
 		}
 		elseif (isset($_POST['etudiant'])) {
-			$pays = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
-			$tmp = serialize($pays);
+			$tmp = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
+			$tmp = Format::forge($tmp)->to_csv();
 		    if (file_exists(DOCROOT . 'assets/doc/etudiants.csv'))
 		    {
 		    	File::update(DOCROOT . 'assets/doc', 'etudiants.csv', $tmp);
@@ -63,12 +63,13 @@ class Controller_Admin extends Controller_Template
 		    	File::create(DOCROOT . 'assets/doc', 'etudiants.csv', $tmp);
 		    	chmod(DOCROOT . 'assets/doc/etudiants.csv', 0777);
 		    }
-			echo $tmp;
-			print "test done";
+			Session::set_flash('success', 'Export de la table `etudiant` avec succès !');
+			//header('Content-type: csv/plain');
+			//header('Content-disposition: attachment; filename="etudiants.csv"');
 		}
 		elseif (isset($_POST['entreprise'])) {
-			$pays = DB::query('SELECT * FROM `entreprise`')->execute()->as_array();
-			$tmp = serialize($pays);
+			$tmp = DB::query('SELECT * FROM `entreprise`')->execute()->as_array();
+			$tmp = Format::forge($tmp)->to_csv();
 		    if (file_exists(DOCROOT . 'assets/doc/entreprise.csv'))
 		    {
 		    	File::update(DOCROOT . 'assets/doc', 'entreprise.csv', $tmp);
@@ -76,12 +77,11 @@ class Controller_Admin extends Controller_Template
 		    	File::create(DOCROOT . 'assets/doc', 'entreprise.csv', $tmp);
 		    	chmod(DOCROOT . 'assets/doc/entreprise.csv', 0777);
 		    }
-			echo $tmp;
-			print "test done";
+			Session::set_flash('success', 'Export de la table `entreprise` avec succès !');
 		}
 		elseif (isset($_POST['contact'])) {
-			$pays = DB::query('SELECT * FROM `contact`')->execute()->as_array();
-			$tmp = serialize($pays);
+			$tmp = DB::query('SELECT * FROM `contact`')->execute()->as_array();
+			$tmp = Format::forge($tmp)->to_csv();
 		    if (file_exists(DOCROOT . 'assets/doc/contact.csv'))
 		    {
 		    	File::update(DOCROOT . 'assets/doc', 'contact.csv', $tmp);
@@ -89,8 +89,7 @@ class Controller_Admin extends Controller_Template
 		    	File::create(DOCROOT . 'assets/doc', 'contact.csv', $tmp);
 		    	chmod(DOCROOT . 'assets/doc/contact.csv', 0777);
 		    }
-			echo $tmp;
-			print "test done";
+			Session::set_flash('success', 'Export de la table `contact` avec succès !');
 		}
 	}
 
@@ -111,5 +110,55 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/proposition/valider', $data);
+	}
+
+	public function action_passage()
+	{
+		$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
+		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->title = 'Admin &raquo; Passage';
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Administration';
+		$this->template->content = View::forge('admin/promotion/passage', $data);
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['suppresion'])) {
+				foreach ($_POST['suppresion'] as $value) {
+					/*$etudiants = DB::query('SELECT * FROM `etudiant` WHERE `iut_annee` = 2')->as_object('Model_Etudiant')->execute()->as_array();
+					foreach ($etudiants as $etudiant) {
+						DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
+					}*/
+					print $value;
+				}
+			}
+			else {
+				foreach ($_POST['passage'] as $value) {
+					DB::query('UPDATE `etudiant` SET `iut_annee` = 2 WHERE `no_etudiant` =' . $value . '')->execute();
+				}
+			}
+		}
+	}
+
+	public function action_gestion()
+	{
+		//$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
+		$data['etudiants'] = Model_Etudiant::find_all();
+		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->title = 'Admin &raquo; Gestion';
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Administration';
+		$this->template->content = View::forge('admin/promotion/gestion', $data);
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['redoublement'])) {
+				foreach ($_POST['redoublement'] as $value) {
+					print $value;
+				}
+			}
+			else {
+				$etudiants = DB::query('SELECT * FROM `etudiant` WHERE `iut_annee` = 2')->as_object('Model_Etudiant')->execute()->as_array();
+				foreach ($etudiants as $etudiant) {
+					DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
+				}
+			}
+		}		
 	}
 }

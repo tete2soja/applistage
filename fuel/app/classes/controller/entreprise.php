@@ -51,12 +51,22 @@ class Controller_Entreprise extends Controller_Template
 				print $e->getMessage();
 			}
 			//$_POST['contact_pays'];
+<<<<<<< HEAD
 			//$name_pays = Model_Pays::find_id($_POST['contact_pays']);
 			//if ()
 			$ville_contact = Model_Ville::forge(array(
             'nom' => $_POST['contact_ville'],
             'code_postal' => $_POST['contact_codepostal'],
             'pays' => $tmp1,
+=======
+			$name_pays = Model_Pays::query()->where('nom', 'France')->get();
+            $comma_separated = $name_pays->id;
+            print $comma_separated;
+            /*$ville_contact = Model_Ville::forge(array(
+                'nom' => $_POST['contact_ville'],
+                'code_postal' => $_POST['contact_codepostal'],
+                'pays' => $tmp['id'],
+>>>>>>> 6d0ae44f2720b34820dd5be3d77bffd246a99ede
             ));
 
             if ($ville_contact and $ville_contact->save())

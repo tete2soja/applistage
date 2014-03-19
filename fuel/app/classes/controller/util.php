@@ -17,9 +17,13 @@ class Controller_Util extends Controller_Template
 			if (Auth::login($name, $pass)) {
 				$id_info = Auth::get_groups();
 				foreach ($id_info as $info) {
-					if (($info[1] == "10")||($info[1] == "11")) {
+					if ($info[1] == "10") {
 						Response::redirect('/admin/');
 						break;
+					}
+					else if ($info[1] == "11") {
+						Response::redirect('/admin/import');
+						break;						
 					}
 					else if ($info[1] == "2") {
 						Response::redirect('/etudiant/');
@@ -34,6 +38,7 @@ class Controller_Util extends Controller_Template
 			else {
 				$password_to_db = Auth::instance()->hash_password($pass);
 				print $password_to_db;
+				Session::set_flash('error', 'Les informations rentrées ne correspondent pas à un utilisateur valide.');
 			}
 		}
 	}
@@ -56,6 +61,7 @@ class Controller_Util extends Controller_Template
 			if ($pass_new_check == $pass_new) {
 				Auth::change_password($pass_back, $pass_new);
 			}
+			Session::set_flash('success', 'Mise à jour de vos informations avec succès');
 		}
 	}
 
@@ -78,6 +84,54 @@ class Controller_Util extends Controller_Template
 		{
 		    Response::redirect('/util/connexion');
 		}
+
+		$email = Auth::get_email();
+		$id_info = Auth::get_groups();
+		try {
+			foreach ($id_info as $info) {
+				if ($info[1] == "2") {
+					break;
+				}
+				else if ($info[1] == "3") {
+					break;
+				}
+			}
+			$tmp = serialize($query);
+			list($null, $tmp) = explode(';s:', $tmp, 2);
+			list($null, $tmp) = explode(':"', $tmp, 2);
+			list($tmp, $null) = explode('";', $tmp, 2);
+			foreach ($id_info as $info) {
+				if ($info[1] == "2") {
+					$query = DB::query('SELECT `nom` FROM `etudiant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();
+					$query2 = DB::query('SELECT `prenom` FROM `etudiant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();
+					$tmp = serialize($query);
+					$tmp2 = serialize($query2);
+					break;
+				}
+				else if ($info[1] == "3") {
+					$query = DB::query('SELECT `nom` FROM `enseignant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();
+					$query2 = DB::query('SELECT `prenom` FROM `enseignant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();			
+					$tmp = serialize($query);
+					$tmp2 = serialize($query2);
+					break;
+				}
+			}
+			list($null, $tmp) = explode(';s:', $tmp, 2);
+			list($null, $tmp) = explode(':"', $tmp, 2);
+			list($tmp, $null) = explode('";', $tmp, 2);
+			list($null, $tmp2) = explode(';s:', $tmp2, 2);
+			list($null, $tmp2) = explode(':"', $tmp2, 2);
+			list($tmp2, $null) = explode('";', $tmp2, 2);
+		} catch (Exception $e) {
+			$tmp = "";
+			$tmp2 = "";
+		}
+		$data["nom"] = $tmp;
+		$data["prenom"] = $tmp2;
+		$data["phone"] = Auth::get('telephone');
+		$data["email"] = Auth::get_email();
+		$last = Auth::get('last_login');
+		$data["datetime"] = date('H:i:s d-m-Y', $last);
 		$data["subnav"] = array('Mon compte'=> 'active' );
 		$this->template->title = 'Mon compte';
 		$this->template->main_title = 'Applistage 2014';
@@ -92,11 +146,11 @@ class Controller_Util extends Controller_Template
 				array(
 					'nom'		=>	$nom,
 					'prenom'	=>	$prenom,
-					'email'        => $email,
-					'telephone'        => $telephone,
+					'email'     => $email,
+					'telephone'	=> $telephone,
 				)
 			);
-			print "Import done";
+			Session::set_flash('success', 'Mise à jour de vos informations avec succès');
 		}
 	}
 
