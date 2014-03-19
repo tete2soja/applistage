@@ -1,6 +1,6 @@
 <?php
 
-class Model_Pays extends \Orm\Model
+class Model_Pays extends \Model_Crud
 {
 	protected static $_properties = array(
 		'id',
@@ -19,6 +19,16 @@ class Model_Pays extends \Orm\Model
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'pays';
+	
+	public static $_table_name = 'pays';
+	
+	public static function find_id($name) {
+		$req = DB::query('SELECT id FROM ? WHERE nom = ? ');
+		$req->execute(array('pays', strip_tags($name)));
+		$donnees = $req->fetch();
+		$req->closeCursor();
+		$ret_id = $donnees['id'];
+		return $ret_id;
+	}
 
 }

@@ -25,20 +25,44 @@ class Controller_Entreprise extends Controller_Template
 	{
 		
 		if (isset($_POST['submit'])) {
-			print_r("submit");
-			print_r("create");
+			
+			$name_pays = $_POST['contact_pays'];
+			$name_ville = $_POST['contact_ville'];
+			$code_p = $_POST['contact_codepostal'];
+			$query = DB::query('SELECT `id` FROM `pays` WHERE UPPER(`nom`) = \''. $name_pays . '\'')->execute()->as_array();
+			$tmp1 = serialize($query);
+			try {
+				list($null, $tmp1) = explode(';s:', $tmp1, 2);
+				list($null, $tmp1) = explode(':"', $tmp1, 2);
+				list($tmp1, $null) = explode('";', $tmp1, 2);
+				print $tmp1;
+			} catch (Exception $e) {
+				print $e->getMessage();
+			}
+			$query = DB::query('SELECT `id` FROM `ville` WHERE UPPER(`nom`) = \''. $name_ville . '\' AND UPPER(`code_postal`) = ' . $code_p . '')->execute()->as_array();
+			$tmp2 = serialize($query);
+			print $tmp2;
+			try {
+				list($null, $tmp) = explode(';s:', $tmp, 2);
+				list($null, $tmp) = explode(':"', $tmp, 2);
+				list($tmp, $null) = explode('";', $tmp, 2);
+				print $tmp;
+			} catch (Exception $e) {
+				print $e->getMessage();
+			}
 			//$_POST['contact_pays'];
-			$name_pays = Model_Pays::query()->select('id')->where('nom', "France");
+			//$name_pays = Model_Pays::find_id($_POST['contact_pays']);
+			//if ()
 			$ville_contact = Model_Ville::forge(array(
             'nom' => $_POST['contact_ville'],
             'code_postal' => $_POST['contact_codepostal'],
-            'pays' => $name_pays,
+            'pays' => $tmp1,
             ));
 
             if ($ville_contact and $ville_contact->save())
             {
                 Session::set_flash('success', 'Added ville contact #'.$ville_contact->id.'.');
-                Response::redirect('entreprise/liste');
+                //Response::redirect('entreprise/liste');
             }
 
             else
