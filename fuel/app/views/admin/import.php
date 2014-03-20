@@ -4,10 +4,18 @@
 		margin-left: 0px;
 	}
 </style>
+<div class="bs-callout bs-callout-warning">
+	<h2>Modification de la configuration</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<p>Avant de continuer à utiliser Applistage ou d'importer les données des étudiants, vous devez éditer la configuration.</p>
+			<a href="config/" class="btn btn-default" style="padding-top:3px;">Modifer la table `config`</a>
+		</div>
+	</div>
+</div>
 <div class="row">
 				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
 					<h2>Importation des étudiants</h2>
-					<a href="ordre" class="btn btn-default">Modifer l'odre des champs du CSV</a>
 					<br/><br/>
 					<p>Sélection du fichier CSV à importer</p>
 					<form enctype='multipart/form-data' action="" method="POST">

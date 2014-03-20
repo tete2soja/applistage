@@ -1,5 +1,10 @@
 <h2>Modifier la configuration</h2>
-<br>
+<hr>
+<p>
+	Vous pourrez ici modifier les informations concernant la structure du fichier CSV contenant la liste des étudiants afin de faire correspondre l'ordre des colonnes lors de l'importation dans la base
+	de données.<br />
+	Vous pouvez également modifier les informations concernant les conventions.
+</p>
 <?php if ($configs): ?>
 <h3>Partie import des étudiants</h3>
 <table class="table table-bordered">
