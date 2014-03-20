@@ -24,66 +24,6 @@ class Controller_Admin_Config extends Controller_Template{
 
 	}
 
-	public function action_create()
-	{
-		if (Input::method() == 'POST')
-		{
-			$val = Model_Admin_Config::validate('create');
-			
-			if ($val->run())
-			{
-				$config = Model_Admin_Config::forge(array(
-					'colonne_1' => Input::post('colonne_1'),
-					'colonne_2' => Input::post('colonne_2'),
-					'colonne_3' => Input::post('colonne_3'),
-					'colonne_4' => Input::post('colonne_4'),
-					'colonne_5' => Input::post('colonne_5'),
-					'colonne_6' => Input::post('colonne_6'),
-					'colonne_8' => Input::post('colonne_8'),
-					'colonne_9' => Input::post('colonne_9'),
-					'colonne_10' => Input::post('colonne_10'),
-					'colonne_11' => Input::post('colonne_11'),
-					'colonne_12' => Input::post('colonne_12'),
-					'colonne_13' => Input::post('colonne_13'),
-					'colonne_14' => Input::post('colonne_14'),
-					'colonne_15' => Input::post('colonne_15'),
-					'colonne_16' => Input::post('colonne_16'),
-					'colonne_17' => Input::post('colonne_17'),
-					'colonne_18' => Input::post('colonne_18'),
-					'colonne_20' => Input::post('colonne_20'),
-					'colonne_21' => Input::post('colonne_21'),
-					'colonne_22' => Input::post('colonne_22'),
-					'colonne_23' => Input::post('colonne_23'),
-					'colonne_24' => Input::post('colonne_24'),
-					'remuneration' => Input::post('remuneration'),
-					'date_debut' => Input::post('date_debut'),
-					'date_fin' => Input::post('date_fin'),
-					'annee_courante' => Input::post('annee_courante'),
-				));
-
-				if ($config and $config->save())
-				{
-					Session::set_flash('success', 'Added config #'.$config->id.'.');
-					Response::redirect('admin/config');
-				}
-				else
-				{
-					Session::set_flash('error', 'Could not save config.');
-				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
-		}
-
-		$this->template->title = "Configuration &raquo; Gestion";
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Configuration';
-		$this->template->content = View::forge('admin/config/create');
-
-	}
-
 	public function action_edit($id = null)
 	{
 		is_null($id) and Response::redirect('admin/config');
@@ -125,7 +65,7 @@ class Controller_Admin_Config extends Controller_Template{
 
 				if ($config->save())
 				{
-					Session::set_flash('success', 'Updated config #'.$id);
+					Session::set_flash('success', 'Mise à jour de la configuration avec suucès'.$id);
 					Response::redirect('admin/config');
 				}
 				else
@@ -146,24 +86,4 @@ class Controller_Admin_Config extends Controller_Template{
 		$this->template->content = View::forge('admin/config/edit');
 
 	}
-
-	public function action_delete($id = null)
-	{
-		if ($config = Model_Admin_Config::find_one_by_id($id))
-		{
-			$config->delete();
-
-			Session::set_flash('success', 'Deleted config #'.$id);
-		}
-
-		else
-		{
-			Session::set_flash('error', 'Could not delete config #'.$id);
-		}
-
-		Response::redirect('admin/config');
-
-	}
-
-
 }

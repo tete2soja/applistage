@@ -3,5 +3,4 @@
 
 <?php echo render('admin/config/_form'); ?>
 <p>
-	<?php echo Html::anchor('admin/config/view/'.$config->id, 'View'); ?> |
-	<?php echo Html::anchor('admin/config', 'Back'); ?></p>
+<?php echo Html::anchor('admin/config', 'Back'); ?></p>

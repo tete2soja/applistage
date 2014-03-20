@@ -1,7 +1,7 @@
 <h2>Listing Stages</h2>
 <br>
 <?php if ($stages): ?>
-<table class="table table-striped">
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Etudiant</th>

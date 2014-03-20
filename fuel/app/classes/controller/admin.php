@@ -136,9 +136,9 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/ordre', $data);
-		if (isset($_POST['submit'])) {
+		/*if (isset($_POST['submit'])) {
 			DB::query('INSERT INTO `config` VALUES ')
-		}
+		}*/
 	}
 
 	public function action_passage()

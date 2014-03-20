@@ -38,6 +38,12 @@
 
 		</div>
 		<div class="form-group">
+			<?php echo Form::label('Colonne 7', 'colonne_7', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('colonne_7', Input::post('colonne_7', isset($config) ? $config->colonne_8 : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Colonne 7')); ?>
+
+		</div>
+		<div class="form-group">
 			<?php echo Form::label('Colonne 8', 'colonne_8', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('colonne_8', Input::post('colonne_8', isset($config) ? $config->colonne_8 : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Colonne 8')); ?>
