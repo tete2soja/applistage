@@ -4,7 +4,9 @@ class Controller_Admin_Stage extends Controller_Template{
 	public function action_index()
 	{
 		$data['stages'] = Model_Admin_Stage::find_all();
-		$this->template->title = "Stages";
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Stage extends Controller_Template{
 
 		$data['stage'] = Model_Admin_Stage::find_by_pk($id);
 
-		$this->template->title = "Stage";
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/view', $data);
 
 	}
@@ -60,7 +64,9 @@ class Controller_Admin_Stage extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Stages";
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/create');
 
 	}
@@ -108,7 +114,9 @@ class Controller_Admin_Stage extends Controller_Template{
 		}
 
 		$this->template->set_global('stage', $stage, false);
-		$this->template->title = "Stages";
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/edit');
 
 	}

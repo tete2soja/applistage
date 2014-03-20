@@ -46,9 +46,8 @@ class Controller_Admin extends Controller_Template
 				for ($i=0; $i < $num; $i++) {
 					$tmp = $data[$i];
 					list($id,$nom,$code,$pays) = explode(";", $tmp);
-					$query = DB::query('INSERT INTO `ville` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
+					$query = DB::query('INSERT INTO `etudiant` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
 				}
-				$query = DB::query('SELECT * FROM `ville`')->execute();
 			}
 			fclose($handle);
 			print "Import done";
@@ -111,6 +110,22 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/proposition/valider', $data);
+		if (isset($_POST['submit'])) {
+			if (isset($_POST['suppresion'])) {
+				foreach ($_POST['suppresion'] as $value) {
+					/*$etudiants = DB::query('SELECT * FROM `etudiant` WHERE `iut_annee` = 2')->as_object('Model_Etudiant')->execute()->as_array();
+					foreach ($etudiants as $etudiant) {
+						DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
+					}*/
+					print $value;
+				}
+			}
+			else {
+				foreach ($_POST['passage'] as $value) {
+					DB::query('UPDATE `etudiant` SET `iut_annee` = 2 WHERE `no_etudiant` =' . $value . '')->execute();
+				}
+			}
+		}
 	}
 
 	public function action_ordre()
@@ -121,6 +136,9 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/ordre', $data);
+		if (isset($_POST['submit'])) {
+			DB::query('INSERT INTO `config` VALUES ')
+		}
 	}
 
 	public function action_passage()

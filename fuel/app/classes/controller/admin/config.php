@@ -4,7 +4,9 @@ class Controller_Admin_Config extends Controller_Template{
 	public function action_index()
 	{
 		$data['configs'] = Model_Admin_Config::find_all();
-		$this->template->title = "Configs";
+		$this->template->title = "Configuration &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Configuration';
 		$this->template->content = View::forge('admin/config/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Config extends Controller_Template{
 
 		$data['config'] = Model_Admin_Config::find_by_pk($id);
 
-		$this->template->title = "Config";
+		$this->template->title = "Configuration &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Configuration';
 		$this->template->content = View::forge('admin/config/view', $data);
 
 	}
@@ -73,7 +77,9 @@ class Controller_Admin_Config extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Configs";
+		$this->template->title = "Configuration &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Configuration';
 		$this->template->content = View::forge('admin/config/create');
 
 	}
@@ -134,7 +140,9 @@ class Controller_Admin_Config extends Controller_Template{
 		}
 
 		$this->template->set_global('config', $config, false);
-		$this->template->title = "Configs";
+		$this->template->title = "Configuration &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Configuration';
 		$this->template->content = View::forge('admin/config/edit');
 
 	}

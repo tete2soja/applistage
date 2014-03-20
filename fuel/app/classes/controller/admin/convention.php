@@ -4,7 +4,9 @@ class Controller_Admin_Convention extends Controller_Template{
 	public function action_index()
 	{
 		$data['conventions'] = Model_Admin_Convention::find_all();
-		$this->template->title = "Conventions";
+		$this->template->title = "Convention &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Convention';
 		$this->template->content = View::forge('admin/convention/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Convention extends Controller_Template{
 
 		$data['convention'] = Model_Admin_Convention::find_by_pk($id);
 
-		$this->template->title = "Convention";
+		$this->template->title = "Convention &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Convention';
 		$this->template->content = View::forge('admin/convention/view', $data);
 
 	}
@@ -72,7 +76,9 @@ class Controller_Admin_Convention extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Conventions";
+		$this->template->title = "Convention &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Convention';
 		$this->template->content = View::forge('admin/convention/create');
 
 	}
@@ -132,7 +138,9 @@ class Controller_Admin_Convention extends Controller_Template{
 		}
 
 		$this->template->set_global('convention', $convention, false);
-		$this->template->title = "Conventions";
+		$this->template->title = "Convention &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Convention';
 		$this->template->content = View::forge('admin/convention/edit');
 
 	}
