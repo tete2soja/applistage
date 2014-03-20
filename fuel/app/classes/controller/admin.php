@@ -34,19 +34,49 @@ class Controller_Admin extends Controller_Template
 	{
 
 		$data["subnav"] = array('import'=> 'active' );
-		$this->template->title = 'Admin &raquo; Import';
+		$this->template->title = 'Admin &raquo; Générale';
 		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Administration';
+		$this->template->sub_title = 'Administration générale';
 		$this->template->content = View::forge('admin/import', $data);
 		if (isset($_POST['submit'])) {
 			//Import uploaded file to Database
 			$handle = fopen($_FILES['filename']['tmp_name'], "r");
-			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+			while (($data = fgetcsv($handle, 1000, "\n")) !== FALSE) {
 				$num = count($data);
 				for ($i=0; $i < $num; $i++) {
 					$tmp = $data[$i];
-					list($id,$nom,$code,$pays) = explode(";", $tmp);
-					$query = DB::query('INSERT INTO `etudiant` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
+					list($null, $id, $nom, $prenom, $null2, $date_naissance, $sexe, $adresse1_1, $adresse1_2, $adresse1_3, $code_p1, $ville1, $null3, $null4, $telephone1, $adresse2_1, $adresse2_2, $adresse2_3, $code_p2, $ville2, $telephone2, $bac_annee, $bac, $bac_mention, $email) = explode(";", $tmp);
+					
+					//Récupération des clés étrangères
+					$ville1 = str_replace ( '-', ' ', $ville1);
+					$ville2 = str_replace ( '-', ' ', $ville2);
+					if ($ville1 != "") {
+						$id_ville1 = Model_Ville::find_id($ville1, $code_p1);
+					}
+					else {
+						$id_ville1 = 1;
+					}
+					if ($ville2 != "") {
+						$id_ville2 = Model_Ville::find_id($ville2, $code_p2);
+					}
+					else {
+						$id_ville2 = 1;
+					}
+
+					// Conversion date
+					list($j, $m, $a) = explode("/", $date_naissance);
+					$date_naissance = $a . "-" . $m . "-" . $j;
+
+					// Récupération de l'id
+					$id = substr($id, 1);
+					$id = "e" . $id;
+
+					// Réunion des parties des adresses
+					$adresse1 = $adresse1_1 . $adresse1_2 . $adresse1_3;
+					$adresse2 = $adresse2_1 . $adresse2_2 . $adresse2_3;
+
+					// Insertion dans la table avec les clés étrangères pour les villes
+					$query = DB::query('INSERT INTO `etudiant` VALUES (NULL, "' . $id . '","' . $nom . '","' . $prenom . '","' . $date_naissance .  '","' . $sexe .  '","' . $bac .  '","' . $bac_mention .  '","' . $bac_annee .  '","' . $email .  '","' . $adresse1 .  '","' . $id_ville1 .  '","' . $adresse2 .  '","' . $id_ville2 .  '","' . $telephone1 .  '","' . $telephone2 . '", "1")')->execute();
 				}
 			}
 			fclose($handle);
@@ -126,19 +156,6 @@ class Controller_Admin extends Controller_Template
 				}
 			}
 		}
-	}
-
-	public function action_ordre()
-	{
-		$data['stages'] = Model_Stage::find_all();
-		$data["subnav"] = array('valider'=> 'active' );
-		$this->template->title = 'Admin &raquo; Ordre';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('admin/ordre', $data);
-		/*if (isset($_POST['submit'])) {
-			DB::query('INSERT INTO `config` VALUES ')
-		}*/
 	}
 
 	public function action_passage()
