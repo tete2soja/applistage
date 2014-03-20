@@ -9,14 +9,13 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p>Avant de continuer à utiliser Applistage ou d'importer les données des étudiants, vous devez éditer la configuration.</p>
-			<a href="config/" class="btn btn-default" style="padding-top:3px;">Modifer la table `config`</a>
+			<a href="config/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `config`</a>
 		</div>
 	</div>
 </div>
 <div class="row">
 				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
 					<h2>Importation des étudiants</h2>
-					<br/><br/>
 					<p>Sélection du fichier CSV à importer</p>
 					<form enctype='multipart/form-data' action="" method="POST">
 						<input size='50' type='file' name='filename' /><br />
@@ -26,7 +25,8 @@
 			<div class="row">
 				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;float: right;">
 					<h2>Exportations</h2>
-					<hr/>
+					<p>Pour chacun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris). Il vous sera ensuite proposer de le télécharger via
+					une fenêtre de dialogue qui apparaitra alors.</p>
 					<div class="col-md-4">
 						<form enctype='multipart/form-data' action="" method="POST">
 							<button type="etudiant" name="etudiant" value="etudiant" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Etudiants</button>
@@ -40,22 +40,19 @@
 					<div class="col-md-4">
 						<form enctype='multipart/form-data' action="" method="POST">
 							<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
-						</form>
-					</div><br /><br />
-					<p>Pour chaqun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris). Il vous sera ensuite proposer de le télécharger via
-					une fenêtre de dialogue qui apparaitra alors.</p>
+						</div>
 				</div>
 			</div>
 <div class="bs-callout bs-callout-warning">
 	<h2>Gestion des promotions</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<a href="gestion" type="button" class="btn btn-danger">Deuxième année DUT info</a><br /><br />
 			<p>Vous permez de gérer les étudiants en deuxième année d'IUT concernant l'année <?php echo date("Y")-1; ?></p>
+			<a href="gestion" type="button" class="btn btn-danger">Deuxième année DUT info</a>
 		</div>
 		<div class="col-md-6">
-			<a href="passage" type="button" class="btn btn-danger">Passage en DUT info 2</a><br /><br />
 			<p>Vous permez de gérer les étudiants en première année pour leur passage en deuxième année concernant l'année <?php echo date("Y")-1; ?></p>
+			<a href="passage" type="button" class="btn btn-danger">Passage en DUT info 2</a>
 		</div>
 	</div>
 </div>
@@ -63,16 +60,16 @@
 	<h2>Avancé</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<a href="" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir archiver ?')">Archivage</a><br /><br />
 			<p>Cela entrainera la sauvegarde des espaces de rendus (suivi de stage) et de toutes les conventions de stages dans une archive ZIP.</p>
+			<a href="" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir archiver ?')">Archivage</a>
 		</div>
 		<div class="col-md-6">
-			<button type="button" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir remettre applistage à zéro ?')">Remise à zéro</button><br /><br />
 			<p>
 				Cela entrainera la suppression des données des propositions de stages et les documents qui y sont associés (PDF), des conventions de stages, du suivi des enseignants et de l'espace de rendu.<br />
 				La fiche personnelle de stage sera mise à jour avec les nouvelles données de l'année à venir (date de début et de fin et rénumération).
 				Enfin, cela entrainera également le lancement de la fonction pour la gestion des promotions.
 			</p>
+			<button type="button" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir remettre applistage à zéro ?')">Remise à zéro</button>
 		</div>
 	</div>
 </div>
