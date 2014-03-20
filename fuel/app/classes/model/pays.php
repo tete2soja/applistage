@@ -22,13 +22,9 @@ class Model_Pays extends \Model_Crud
 	
 	public static $_table_name = 'pays';
 	
-	public static function find_id($name) {
-		$req = DB::query('SELECT id FROM ? WHERE nom = ? ');
-		$req->execute(array('pays', strip_tags($name)));
-		$donnees = $req->fetch();
-		$req->closeCursor();
-		$ret_id = $donnees['id'];
-		return $ret_id;
+	public static function find_id($name_pays) {
+		$query = DB::select('id')->from('pays')->where('nom', $name_pays)->execute()->get('id');
+		return $query;
 	}
 
 }

@@ -29,23 +29,17 @@ class Controller_Entreprise extends Controller_Template
             $name_pays = $_POST['contact_pays'];
             $name_ville = $_POST['contact_ville'];
             $code_p = $_POST['contact_codepostal'];
-            $query = DB::query('SELECT `id` FROM `pays` WHERE UPPER(`nom`) = \''. $name_pays . '\'')->execute()->as_array();
-            $tmp1 = serialize($query);
-            try {
-                list($null, $tmp1) = explode(';s:', $tmp1, 2);
-                list($null, $tmp1) = explode(':"', $tmp1, 2);
-                list($tmp1, $null) = explode('";', $tmp1, 2);
-                print $tmp1;
-            } catch (Exception $e) {
-                print $e->getMessage();
-            }
-            $query2 = DB::query('SELECT `id` FROM `ville` WHERE UPPER(`nom`) = \''. $name_ville . '\' AND UPPER(`code_postal`) = ' . $code_p . '')->execute()->as_array();
-            print_r($query2);
-            if(empty($query2)) {
+            
+            $id_pays = Model_Pays::find_id($name_pays);
+            print($id_pays.'<br />');
+            $id_ville = Model_Ville::find_id($name_ville, $code_p);
+            print($id_ville.'<br />');
+            
+            if(empty($id_ville)) {
 	            $ville_contact = Model_Ville::forge(array(
 	            'nom' => $_POST['contact_ville'],
 	            'code_postal' => $_POST['contact_codepostal'],
-	            'pays' => $tmp1,
+	            'pays' => $id_pays,
 				));
 
 	            if ($ville_contact and $ville_contact->save())
@@ -63,9 +57,7 @@ class Controller_Entreprise extends Controller_Template
 			else {
 				Session::set_flash('error', 'Ville Contact déjà existante.');
 			}
-            //$_POST['contact_pays'];
-            //$name_pays = Model_Pays::find_id($_POST['contact_pays']);
-           
+            
             /*$ville_ent = Model_Ville::forge(array(
                 'nom' => $_POST['ent_ville'],
                 'code_postal' => $_POST['ent_codepostal'],
