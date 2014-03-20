@@ -21,12 +21,7 @@ class Model_Ville extends \Model_Crud
 	);
 	
 	protected static $_table_name = 'ville';
-	
-	public static function find_id($name_ville, $code_p) {
-		$query = DB::select('id')->from('ville')->where('nom', $name_ville)->and_where('code_postal', $code_p)->execute()->get('id');
-		return $query;
-	}
-	
+		
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);

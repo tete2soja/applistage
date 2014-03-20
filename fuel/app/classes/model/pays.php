@@ -21,10 +21,5 @@ class Model_Pays extends \Model_Crud
 	);
 	
 	public static $_table_name = 'pays';
-	
-	public static function find_id($name_pays) {
-		$query = DB::select('id')->from('pays')->where('nom', $name_pays)->execute()->get('id');
-		return $query;
-	}
 
 }

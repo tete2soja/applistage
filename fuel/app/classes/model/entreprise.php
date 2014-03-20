@@ -22,13 +22,8 @@ class Model_Entreprise extends \Model_Crud
 			'mysql_timestamp' => false,
 		),
 	);
-	protected static $_table_name = 'entreprise';
 	
-	public static function find_id($name_ent) {
-		$ville = 10;
-		$query = DB::query('SELECT `id` FROM `entreprise` WHERE UPPER(`nom`) = \''. $name_ent . '\' AND UPPER(`ville`) = ' . $ville . '')->execute()->as_array();
-		return $query;
-	}
+	protected static $_table_name = 'entreprise';
 	
 	public static function validate($factory)
 	{
