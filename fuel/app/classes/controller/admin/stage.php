@@ -3,7 +3,7 @@ class Controller_Admin_Stage extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['stages'] = Model_Admin_Stage::find_all();
+		$data['stages'] = Model_Stage::find_all();
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
@@ -15,7 +15,7 @@ class Controller_Admin_Stage extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/stage');
 
-		$data['stage'] = Model_Admin_Stage::find_by_pk($id);
+		$data['stage'] = Model_Stage::find_by_pk($id);
 
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
@@ -28,11 +28,11 @@ class Controller_Admin_Stage extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Stage::validate('create');
+			$val = Model_Stage::validate('create');
 			
 			if ($val->run())
 			{
-				$stage = Model_Admin_Stage::forge(array(
+				$stage = Model_Stage::forge(array(
 					'etudiant' => Input::post('etudiant'),
 					'contact' => Input::post('contact'),
 					'enseignant' => Input::post('enseignant'),
@@ -75,11 +75,11 @@ class Controller_Admin_Stage extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/stage');
 
-		$stage = Model_Admin_Stage::find_one_by_id($id);
+		$stage = Model_Stage::find_one_by_id($id);
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Stage::validate('edit');
+			$val = Model_Stage::validate('edit');
 
 			if ($val->run())
 			{
@@ -123,7 +123,7 @@ class Controller_Admin_Stage extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if ($stage = Model_Admin_Stage::find_one_by_id($id))
+		if ($stage = Model_Stage::find_one_by_id($id))
 		{
 			$stage->delete();
 

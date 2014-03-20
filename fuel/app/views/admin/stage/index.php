@@ -23,16 +23,24 @@
 	<tbody>
 <?php foreach ($stages as $item): ?>		<tr>
 
-			<td><?php echo $item->etudiant; ?></td>
+			<td><?php if(empty($item->etudiant)) {
+					echo 'aucun';
+				} else { echo $item->etudiant; } ?></td>
 			<td><?php echo $item->contact; ?></td>
-			<td><?php echo $item->enseignant; ?></td>
+			<td><?php if(empty($item->enseignant)) {
+					echo 'aucun';
+				} else { echo $item->enseignant; } ?></td>
 			<td><?php echo $item->entreprise; ?></td>
 			<td><?php echo $item->sujet; ?></td>
 			<td><?php echo $item->visibilite; ?></td>
 			<td><?php echo $item->contexte; ?></td>
 			<td><?php echo $item->resultats; ?></td>
-			<td><?php echo $item->conditions; ?></td>
-			<td><?php echo $item->url_doc; ?></td>
+			<td><?php if(empty($item->conditions)) {
+					echo 'aucun';
+				} else { echo $item->conditions; } ?></td>
+			<td><?php if(empty($item->url_doc)) {
+					echo 'aucun';
+				} else { echo $item->url_doc; } ?></td>
 			<td><?php echo $item->public; ?></td>
 			<td><?php echo $item->valide; ?></td>
 			<td><?php echo $item->date; ?></td>

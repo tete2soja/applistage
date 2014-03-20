@@ -182,7 +182,7 @@ class Controller_Entreprise extends Controller_Template
     
     public function action_liste()
     {
-        $data['stages'] = Model_Stage::find_all();
+        $data['stages'] = Model_Stage::post_find(Model_Stage::find_all());
         $data["subnav"] = array('liste'=> 'active' );
         $this->template->title = 'Entreprise &raquo; Proposition de Stage';
         $this->template->main_title = 'Applistage 2014';
