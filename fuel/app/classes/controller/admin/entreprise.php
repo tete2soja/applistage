@@ -4,7 +4,9 @@ class Controller_Admin_Entreprise extends Controller_Template{
 	public function action_index()
 	{
 		$data['entreprises'] = Model_Admin_Entreprise::find_all();
-		$this->template->title = "Entreprises";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/entreprise/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Entreprise extends Controller_Template{
 
 		$data['entreprise'] = Model_Admin_Entreprise::find_by_pk($id);
 
-		$this->template->title = "Entreprise";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/entreprise/view', $data);
 
 	}
@@ -53,7 +57,9 @@ class Controller_Admin_Entreprise extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Entreprises";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/entreprise/create');
 
 	}
@@ -94,7 +100,9 @@ class Controller_Admin_Entreprise extends Controller_Template{
 		}
 
 		$this->template->set_global('entreprise', $entreprise, false);
-		$this->template->title = "Entreprises";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/entreprise/edit');
 
 	}

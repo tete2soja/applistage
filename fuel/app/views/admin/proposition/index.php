@@ -41,6 +41,4 @@
 <?php else: ?>
 <p>No Propositions.</p>
 
-<?php endif; ?><p>
-	<?php echo Html::anchor('admin/proposition/create', 'Add new Proposition', array('class' => 'btn btn-success')); ?>
-</p>
+<?php endif; ?>

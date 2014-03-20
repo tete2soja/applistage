@@ -5,9 +5,10 @@
 	}
 </style>
 <div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;width: 49%;">
+				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
 					<h2>Importation des étudiants</h2>
-					<hr/>
+					<a href="ordre" class="btn btn-default">Modifer l'odre des champs du CSV</a>
+					<br/><br/>
 					<p>Sélection du fichier CSV à importer</p>
 					<form enctype='multipart/form-data' action="" method="POST">
 						<input size='50' type='file' name='filename' /><br />
@@ -15,7 +16,7 @@
 					</form>
 				</div>
 			<div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info" style="height: 250px;width: 49%;float: right;">
+				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;float: right;">
 					<h2>Exportations</h2>
 					<hr/>
 					<div class="col-md-4">
@@ -32,7 +33,9 @@
 						<form enctype='multipart/form-data' action="" method="POST">
 							<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
 						</form>
-					</div>
+					</div><br /><br />
+					<p>Pour chaqun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris). Il vous sera ensuite proposer de le télécharger via
+					une fenêtre de dialogue qui apparaitra alors.</p>
 				</div>
 			</div>
 <div class="bs-callout bs-callout-warning">
@@ -52,11 +55,11 @@
 	<h2>Avancé</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<button type="button" class="btn btn-danger">Archivage</button><br /><br />
+			<a href="" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir archiver ?')">Archivage</a><br /><br />
 			<p>Cela entrainera la sauvegarde des espaces de rendus (suivi de stage) et de toutes les conventions de stages dans une archive ZIP.</p>
 		</div>
 		<div class="col-md-6">
-			<button type="button" class="btn btn-danger">Remise à zéro</button><br /><br />
+			<button type="button" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir remettre applistage à zéro ?')">Remise à zéro</button><br /><br />
 			<p>
 				Cela entrainera la suppression des données des propositions de stages et les documents qui y sont associés (PDF), des conventions de stages, du suivi des enseignants et de l'espace de rendu.<br />
 				La fiche personnelle de stage sera mise à jour avec les nouvelles données de l'année à venir (date de début et de fin et rénumération).

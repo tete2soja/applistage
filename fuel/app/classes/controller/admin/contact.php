@@ -4,7 +4,9 @@ class Controller_Admin_Contact extends Controller_Template{
 	public function action_index()
 	{
 		$data['contacts'] = Model_Admin_Contact::find_all();
-		$this->template->title = "Contacts";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/contact/index', $data);
 
 	}
@@ -15,7 +17,9 @@ class Controller_Admin_Contact extends Controller_Template{
 
 		$data['contact'] = Model_Admin_Contact::find_by_pk($id);
 
-		$this->template->title = "Contact";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/contact/view', $data);
 
 	}
@@ -55,7 +59,9 @@ class Controller_Admin_Contact extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Contacts";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/contact/create');
 
 	}
@@ -98,7 +104,9 @@ class Controller_Admin_Contact extends Controller_Template{
 		}
 
 		$this->template->set_global('contact', $contact, false);
-		$this->template->title = "Contacts";
+		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('admin/contact/edit');
 
 	}

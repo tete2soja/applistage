@@ -113,6 +113,16 @@ class Controller_Admin extends Controller_Template
 		$this->template->content = View::forge('admin/proposition/valider', $data);
 	}
 
+	public function action_ordre()
+	{
+		$data['stages'] = Model_Stage::find_all();
+		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->title = 'Admin &raquo; Ordre';
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Administration';
+		$this->template->content = View::forge('admin/ordre', $data);
+	}
+
 	public function action_passage()
 	{
 		$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
@@ -149,13 +159,14 @@ class Controller_Admin extends Controller_Template
 		$this->template->content = View::forge('admin/promotion/gestion', $data);
 		if (isset($_POST['submit'])) {
 			if (isset($_POST['redoublement'])) {
-				foreach ($_POST['redoublement'] as $value) {
+				/*foreach ($_POST['redoublement'] as $value) {
 					print $value;
-				}
+				}*/
 			}
 			else {
 				$etudiants = DB::query('SELECT * FROM `etudiant` WHERE `iut_annee` = 2')->as_object('Model_Etudiant')->execute()->as_array();
 				foreach ($etudiants as $etudiant) {
+					DB::query('INSERT INTO `etudiant_diplome` SELECT * FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
 					DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
 				}
 			}

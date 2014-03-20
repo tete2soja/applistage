@@ -10,9 +10,9 @@
 		<hr/>
 		<ul>
 			<li><a href="../entreprise/formulaire">Saisir</a></li>
-			<li><a href="valider">Valider</a></li>
-			<li><a href="modifier">Modifier</a></li>
-			<li><a href="">Entreprise, Mailings</a></li>
+			<li><a href="proposition/">Valider</a></li>
+			<li><a href="proposition/">Modifier</a></li>
+			<li><a href="entreprise/">Entreprise, Mailings</a></li>
 		</ul>
 	</div>
 	<div class="col-md-6 bs-callout bs-callout-success">
@@ -37,27 +37,10 @@
 		<h2>Voir</h2>
 		<hr/>
 		<ul>
-			<li><a href="../entreprise/liste">Propositions affichées</a></li>
-			<li><a href="">Etudiants</a></li>
-			<li><a href="">Enseignants</a></li>
-			<li><a href="">Professionnels</a></li>
+			<li><a href="proposition/view">Propositions affichées</a></li>
+			<li><a href="etudiant/view">Etudiants</a></li>
+			<li><a href="enseignant/view">Enseignants</a></li>
+			<li><a href="contact/view">Professionnels</a></li>
 		</ul>
-	</div>
-</div>
-<div class="bs-callout bs-callout-danger">
-	<h2>Avancé</h2>
-	<div class="row">
-		<div class="col-md-6">
-			<button type="button" class="btn btn-danger">Archivage</button>
-			<p>Cela entrainera la sauvegarde des espaces de rendus (suivi de stage) et de toutes les conventions de stages dans une archive ZIP.</p>
-		</div>
-		<div class="col-md-6">
-			<button type="button" class="btn btn-danger">Remise à zéro</button>
-			<p>
-				Cela entrainera la suppression des données des propositions de stages et les documents qui y sont associés (PDF), des conventions de stages, du suivi des enseignants et de l'espace de rendu.<br />
-				La fiche personnelle de stage sera mise à jour avec les nouvelles données de l'année à venir (date de début et de fin et rénumération).
-				Enfin, cela entrainera également le lancement de la fonction pour la gestion des promotions.
-			</p>
-		</div>
 	</div>
 </div>

@@ -11,7 +11,7 @@ class Model_Admin_Entreprise extends Model_Crud
 		$val->add_field('ville', 'Ville', 'required|valid_string[numeric]');
 		$val->add_field('pays', 'Pays', 'required|valid_string[numeric]');
 		$val->add_field('url_entreprise', 'Url Entreprise', 'required|max_length[255]');
-		$val->add_field('stagiaire', 'Stagiaire', 'required|valid_string[numeric]');
+		$val->add_field('stagiaire', 'Stagiaire', 'valid_string[numeric]');
 
 		return $val;
 	}
