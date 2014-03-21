@@ -23,6 +23,7 @@
 	<tbody>
 <?php foreach ($stages as $item): ?>		<tr>
 
+			<td><?php echo $item->date; ?></td>
 			<td><?php if(empty($item->etudiant)) {
 					echo 'aucun';
 				} else { echo $item->etudiant; } ?></td>
@@ -32,7 +33,7 @@
 				} else { echo $item->enseignant; } ?></td>
 			<td><?php echo $item->entreprise; ?></td>
 			<td><?php echo $item->sujet; ?></td>
-			<td><?php echo $item->visibilite; ?></td>
+			<!--<td><?php echo $item->visibilite; ?></td>
 			<td><?php echo $item->contexte; ?></td>
 			<td><?php echo $item->resultats; ?></td>
 			<td><?php if(empty($item->conditions)) {
@@ -40,14 +41,14 @@
 				} else { echo $item->conditions; } ?></td>
 			<td><?php if(empty($item->url_doc)) {
 					echo 'aucun';
-				} else { echo $item->url_doc; } ?></td>
+				} else { echo $item->url_doc; } ?></td>-->
 			<td><?php echo $item->public; ?></td>
 			<td><?php echo $item->valide; ?></td>
-			<td><?php echo $item->date; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
+				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/stage/'.$item->id, 'Valider'); ?> |
+				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous s$ur ?')")); ?>
 
 			</td>
 		</tr>

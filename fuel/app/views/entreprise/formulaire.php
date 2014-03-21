@@ -1,4 +1,4 @@
-
+		<?php echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
     var availablePays = [
