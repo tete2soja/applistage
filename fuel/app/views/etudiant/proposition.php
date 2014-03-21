@@ -23,7 +23,7 @@
 			<td><?php echo $stage->ent_ville; ?></td>
 			<td><?php echo $stage->ent_pays; ?></td>
 			<td>
-				<?php echo Html::anchor('./etudiant/proposition/'.$stage->id, 'Voir'); ?>
+				<?php echo Html::anchor('./etudiant/detail/'.$stage->id, 'Voir'); ?>
 			</td>
 		</tr>
 <?php endforeach; ?>	</tbody>

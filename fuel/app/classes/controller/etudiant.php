@@ -115,4 +115,17 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/proposition', $data);
 	}
 
+	public function action_detail($id = null)
+	{
+		is_null($id) and Response::redirect('etudiant/proposition');
+
+		$data['stage'] = Model_Stage::find_by_pk($id);
+
+		$this->template->title = "Stage &raquo; Détails";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Etudiant';
+		$this->template->content = View::forge('etudiant/detail', $data);
+
+	}
+
 }

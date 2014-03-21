@@ -1,6 +1,25 @@
 <?php
 class Controller_Admin_Contact extends Controller_Template{
 
+	public function before()
+	{
+		// check for admin
+		parent::before();
+		if ( ! Auth::check())
+		{
+		    Response::redirect('/util/connexion');
+		}
+		else {
+			$id_info = Auth::get_groups();
+    		foreach ($id_info as $info)	{
+			    if (($info[1] != "10")&&($info[1] != "11")) {
+			    	Response::redirect('/util/connexion');
+			    	break;
+			    }
+    		}
+		}
+	}
+
 	public function action_index()
 	{
 		$data['contacts'] = Model_Admin_Contact::find_all();

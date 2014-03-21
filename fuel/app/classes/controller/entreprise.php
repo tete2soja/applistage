@@ -190,4 +190,17 @@ class Controller_Entreprise extends Controller_Template
         $this->template->content = View::forge('entreprise/liste', $data);
     }
 
+	public function action_detail($id = null)
+	{
+		is_null($id) and Response::redirect('entreprise/liste');
+
+		$data['stage'] = Model_Stage::find_by_pk($id);
+
+		$this->template->title = "Stage &raquo; Détails";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Entreprise';
+		$this->template->content = View::forge('entreprise/detail', $data);
+
+	}
+
 }
