@@ -23,7 +23,7 @@
 			<td><?php echo $stage->ent_ville; ?></td>
 			<td><?php echo $stage->ent_pays; ?></td>
 			<td>
-				<?php echo Html::anchor('./entreprise/liste.php?stage='.$stage->id, 'Voir'); ?>
+				<?php echo Html::anchor('./entreprise/liste/'.$stage->id, 'Voir'); ?>
 			</td>
 		</tr>
 <?php }	endforeach; ?>	</tbody>
@@ -34,7 +34,6 @@
 <p>Pas de stage proposé.</p>
 
 <?php endif; ?><p>
-	<br />
 	<div class="row">
 			<div class="col-md-12">
 				<a href="./formulaire" type="button" class="btn btn-default btn-success" style="padding-top:15px;font-size:15px;width:auto;">
