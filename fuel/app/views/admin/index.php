@@ -28,7 +28,7 @@
 		<h2>Suivre les stages</h2>
 		<hr/>
 		<ul>
-			<li><a href="">Seconde année</a> - <a href="">LP S2IMa</a></li>
+			<li><a href="stage/suivi">Seconde année</a> - <a href="">LP S2IMa</a></li>
 			<li>Suivi des tuteurs : <a href="">2A</a> - <a href="">LP S2IMa</a></li>
 		</ul>
 	</div>

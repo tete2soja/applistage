@@ -25,7 +25,7 @@
 				<?php if(empty($item->etudiant))
 					echo 'aucun';
 				else
-					echo $item->etudiant;
+					echo '<a href="../etudiant/view/' . $item->etudiant . '" />' . $item->etudiant;
 				?>
 			</td>
 			<td><?php echo $item->contact; ?></td>
