@@ -54,11 +54,11 @@ class Model_Stage extends \Model_Crud
 	    if($result !== null)
 	    {
 	        foreach ($result as $value) {
-	        	$entreprise = DB::select('nom', 'ville', 'pays', 'ent_url')->from('entreprise')->where('id', $value->entreprise)->execute();
+	        	$entreprise = DB::select('nom', 'ville', 'pays', 'url_entreprise')->from('entreprise')->where('id', $value->entreprise)->execute();
 	        	$ent_nom = $entreprise->get('nom');
 	        	$id_ville = $entreprise->get('ville');
 	        	$id_pays = $entreprise->get('pays');
-	        	$ent_url = $entreprise->get('ent_url');
+	        	$ent_url = $entreprise->get('url_entreprise');
 	        	if ((!empty($entreprise)) AND (!empty($ent_nom)) AND (!empty($id_ville)) AND (!empty($id_pays))) {
 	        		$ent_ville = Model_Ville::find_one_by_id($id_ville)->nom;
 					$ent_pays = Model_Pays::find_one_by_id($id_pays)->nom;
