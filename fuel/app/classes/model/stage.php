@@ -54,14 +54,46 @@ class Model_Stage extends \Model_Crud
 	    if($result !== null)
 	    {
 	        foreach ($result as $value) {
-	        	$tab = DB::select('nom')->from('entreprise')->where('id', $value->entreprise)->execute()->get('nom');
-	        	print($tab);
-	        	print('<br />');
-	        	$value->set(array(
-				    'entreprise' => 'Test'.$tab,
-				));
-	        	print_r($value);
-	        	print('<br />');
+	        	$entreprise = DB::select('nom', 'ville', 'pays')->from('entreprise')->where('id', $value->entreprise)->execute();
+	        	$ent_nom = $entreprise->get('nom');
+	        	$id_ville = $entreprise->get('ville');
+	        	$id_pays = $entreprise->get('pays');
+	        	if ((!empty($entreprise)) AND (!empty($ent_nom)) AND (!empty($id_ville)) AND (!empty($id_pays))) {
+	        		$ent_ville = Model_Ville::find_one_by_id($id_ville)->nom;
+					$ent_pays = Model_Pays::find_one_by_id($id_pays)->nom;
+	        		$value->set(array(
+				    	'entreprise' => $ent_nom,
+				    	'ent_ville' => $ent_ville,
+				    	'ent_pays' => $ent_pays,
+						));
+				}
+				if (!empty($value->etudiant)) {
+					$no_etudiant = DB::select('no_etudiant')->from('etudiant')->where('id', $value->etudiant)->execute()->get('no_etudiant');
+		        	if(!empty($no_etudiant)) {
+		        		$value->set(array(
+					    	'etudiant' => $no_etudiant,
+							));
+					}
+				}
+				$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->contact)->execute();
+				$contact_np = $contact->get('prenom')." ".$contact->get('nom');
+				$contact_tel = $contact->get('telephone');
+				$contact_email = $contact->get('email');
+	        	if((!empty($contact)) AND (!empty($contact_np)) AND (!empty($contact_tel)) AND (!empty($contact_email))) {
+	        		$value->set(array(
+				    	'contact' => $contact_np,
+				    	'contact_tel' => $contact_tel,
+				    	'contact_email' => $contact_email,
+						));
+				}
+				if (!empty($value->enseignant)) {
+					$enseignant = DB::select('nom')->from('enseignant')->where('id', $value->enseignant)->execute()->get('nom');
+		        	if(!empty($enseignant)) {
+		        		$value->set(array(
+					    	'enseignant' => $enseignant,
+							));
+					}
+				}
 	        }
 	    }
 	
