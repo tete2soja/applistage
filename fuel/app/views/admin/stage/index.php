@@ -61,7 +61,7 @@
 				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
 				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
 				<form method="POST">
-					<button type="submit" name="submit" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+					<button type="submit" name="submit" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
 				</form>|
 				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sur ?')")); ?>
 
@@ -75,5 +75,5 @@
 <p>No Stages.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/stage/create', 'Add new Stage', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('admin/stage/create', 'Ajouter un stage', array('class' => 'btn btn-success')); ?>
 </p>

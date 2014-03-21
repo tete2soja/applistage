@@ -64,3 +64,14 @@ ERROR - 2014-03-21 15:47:17 --> Error - Property "etudiant" not found for Model_
 ERROR - 2014-03-21 15:47:19 --> Error - Property "etudiant" not found for Model_Stage. in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/model/crud.php on line 441
 ERROR - 2014-03-21 15:47:21 --> Error - Property "etudiant" not found for Model_Stage. in /Users/etiennedebost/AppliStage/applistage/fuel/core/classes/model/crud.php on line 441
 ERROR - 2014-03-21 16:16:48 --> Notice - Trying to get property of non-object in /Users/etiennedebost/AppliStage/applistage/fuel/app/views/admin/stage/edit.php on line 6
+WARNING - 2014-03-21 21:30:25 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:36:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:36:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:37:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:39:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:39:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:41:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:41:35 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:41:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:41:42 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 21:41:45 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
