@@ -60,7 +60,9 @@
 			<td>
 				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
 				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
-				<?php echo Html::anchor('admin/stage/'.$item->id, 'Valider'); ?> |
+				<form method="POST">
+					<button type="submit" name="submit" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+				</form>|
 				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sur ?')")); ?>
 
 			</td>

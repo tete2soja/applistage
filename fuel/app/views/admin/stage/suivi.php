@@ -10,8 +10,6 @@
 			<th>Enseignant</th>
 			<th>Entreprise</th>
 			<th>Sujet</th>
-			<th>Status</th>
-			<th>Contexte</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -39,13 +37,8 @@
 			</td>
 			<td><?php echo $item->entreprise; ?></td>
 			<td><?php echo $item->sujet; ?></td>
-			<td><?php echo $item->public; ?></td>
-			<td><?php echo $item->valide; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
-				<?php echo Html::anchor('admin/stage/'.$item->id, 'Valider'); ?> |
-				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sur ?')")); ?>
+				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?>
 
 			</td>
 		</tr>

@@ -8,7 +8,13 @@ class Controller_Admin_Stage extends Controller_Template{
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/index', $data);
-
+		if (Input::method() == 'POST') {
+			$id = $_POST['submit'];
+			$query = DB::update('stage');
+			$query->value('valide', '1');
+			$query->where('id', $id);
+			$query->execute();
+		}
 	}
 
 	public function action_view($id = null)
