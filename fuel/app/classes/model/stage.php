@@ -43,7 +43,7 @@ class Model_Stage extends \Model_Crud
 		$val->add_field('conditions', 'Conditions', 'max_length[255]');
 		$val->add_field('url_doc', 'Url Doc', 'max_length[255]');
 		$val->add_field('public', 'Public', 'required|valid_string[numeric]');
-		$val->add_field('valide', 'Valide', 'required|valid_string[numeric]');
+		$val->add_field('valide', 'Valide', 'valid_string[numeric]');
 		$val->add_field('date', 'Date', 'required');
 
 		return $val;
@@ -54,7 +54,14 @@ class Model_Stage extends \Model_Crud
 	    if($result !== null)
 	    {
 	        foreach ($result as $value) {
-		        //$value['entreprise'] = Model_Entreprise::find_one_by('id', $value['id'])->nom;
+	        	$tab = DB::select('nom')->from('entreprise')->where('id', $value->entreprise)->execute()->get('nom');
+	        	print($tab);
+	        	print('<br />');
+	        	$value->set(array(
+				    'entreprise' => 'Test'.$tab,
+				));
+	        	print_r($value);
+	        	print('<br />');
 	        }
 	    }
 	

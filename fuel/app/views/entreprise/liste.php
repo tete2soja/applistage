@@ -8,6 +8,8 @@
 			<th>Date</th>
 			<th>Entreprise</th>
 			<th>Sujet</th>
+			<th>Ville</th>
+			<th>Pays</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -18,6 +20,8 @@
 			<td><?php echo $stage->date; ?></td>
 			<td><?php echo $stage->entreprise; ?></td>
 			<td><?php echo $stage->sujet; ?></td>
+			<td><?php //echo $stage->ent_ville; ?></td>
+			<td><?php //echo $stage->ent_pays; ?></td>
 			<td>
 				<?php echo Html::anchor('./entreprise/liste.php?stage='.$stage->id, 'Voir'); ?>
 			</td>
