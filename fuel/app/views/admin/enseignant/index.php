@@ -19,7 +19,7 @@
 			<td>
 				<?php echo Html::anchor('admin/enseignant/view/'.$item->id, 'Voir'); ?> |
 				<?php echo Html::anchor('admin/enseignant/edit/'.$item->id, 'Editer'); ?> |
-				<?php echo Html::anchor('admin/enseignant/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Etes-vous sur ?')")); ?>
+				<?php echo Html::anchor('admin/enseignant/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
 
 			</td>
 		</tr>
@@ -30,5 +30,5 @@
 <p>No Enseignants.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/enseignant/create', 'Add new Enseignant', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('admin/enseignant/create', 'Ajouter un enseignant', array('class' => 'btn btn-success')); ?>
 </p>

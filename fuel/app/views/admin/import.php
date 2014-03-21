@@ -10,6 +10,7 @@
 		<div class="col-md-6">
 			<p>Avant de continuer à utiliser Applistage ou d'importer les données des étudiants, vous devez éditer la configuration.</p>
 			<a href="config/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `config`</a>
+			<a href="enseignant/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `enseignant`</a>
 		</div>
 	</div>
 </div>

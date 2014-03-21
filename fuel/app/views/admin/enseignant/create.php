@@ -4,4 +4,4 @@
 <?php echo render('admin/enseignant/_form'); ?>
 
 
-<p><?php echo Html::anchor('admin/enseignant', 'Back'); ?></p>
+<p><?php echo Html::anchor('admin/enseignant', 'Retour'); ?></p>

@@ -1,6 +1,11 @@
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
-
-	<fieldset>
+<style type="text/css">
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+</style>
+	<div class="row">
 		<div class="form-group">
 			<?php echo Form::label('Etudiant', 'etudiant', array('class'=>'control-label')); ?>
 
@@ -82,5 +87,5 @@
 		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
 			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>		</div>
-	</fieldset>
+	</div>
 <?php echo Form::close(); ?>

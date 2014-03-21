@@ -2,13 +2,17 @@
 
 <p>
 	<strong>Etudiant:</strong>
-	<?php echo $stage->etudiant; ?></p>
+	<?php if(empty($stage->etudiant)) {
+					echo 'aucun';
+				} else { echo $stage->etudiant; } ?></p>
 <p>
 	<strong>Contact:</strong>
 	<?php echo $stage->contact; ?></p>
 <p>
 	<strong>Enseignant:</strong>
-	<?php echo $stage->enseignant; ?></p>
+	<?php if(empty($stage->enseignant)) {
+					echo 'aucun';
+				} else { echo $stage->enseignant; } ?></p>
 <p>
 	<strong>Entreprise:</strong>
 	<?php echo $stage->entreprise; ?></p>
@@ -26,10 +30,13 @@
 	<?php echo $stage->resultats; ?></p>
 <p>
 	<strong>Conditions:</strong>
-	<?php echo $stage->conditions; ?></p>
+	<?php if(empty($stage->conditions)) {
+					echo 'aucun';
+				} else { echo $stage->conditions; } ?></p>
 <p>
-	<strong>Url doc:</strong>
-	<?php echo $stage->url_doc; ?></p>
+	<strong>Url doc:</strong><?php if(empty($stage->url_doc)) {
+					echo ' aucun';
+				} else { echo ' ' . Html::anchor($stage->url_doc, $stage->url_doc); } ?>
 <p>
 	<strong>Public:</strong>
 	<?php echo $stage->public; ?></p>
@@ -40,5 +47,5 @@
 	<strong>Date:</strong>
 	<?php echo $stage->date; ?></p>
 
-<?php echo Html::anchor('admin/stage/edit/'.$stage->id, 'Edit'); ?> |
-<?php echo Html::anchor('admin/stage', 'Back'); ?>
+<?php echo Html::anchor('admin/stage/edit/'.$stage->id, 'Editer'); ?> |
+<?php echo Html::anchor('admin/stage', 'Retour'); ?>

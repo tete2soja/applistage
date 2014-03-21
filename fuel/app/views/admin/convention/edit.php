@@ -3,5 +3,5 @@
 
 <?php echo render('admin/convention/_form'); ?>
 <p>
-	<?php echo Html::anchor('admin/convention/view/'.$convention->id, 'View'); ?> |
-	<?php echo Html::anchor('admin/convention', 'Back'); ?></p>
+	<?php echo Html::anchor('admin/convention/view/'.$convention->id, 'Voir'); ?> |
+	<?php echo Html::anchor('admin/convention', 'Retour'); ?></p>

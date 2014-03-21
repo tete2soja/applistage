@@ -1,4 +1,4 @@
-<h2>Viewing #<?php echo $entreprise->id; ?></h2>
+<h2><?php echo $entreprise->nom; ?></h2>
 
 <p>
 	<strong>Nom:</strong>
@@ -14,10 +14,14 @@
 	<?php echo $entreprise->pays; ?></p>
 <p>
 	<strong>Url entreprise:</strong>
-	<?php echo $entreprise->url_entreprise; ?></p>
+	<?php if(empty($entreprise->url_entreprise)) {
+					echo 'Aucun';
+				} else { echo ' ' . Html::anchor($entreprise->url_entreprise, $entreprise->url_entreprise); } ?>
 <p>
 	<strong>Stagiaire:</strong>
-	<?php echo $entreprise->stagiaire; ?></p>
+	<?php if(empty($entreprise->stagiaire)) {
+					echo 'Aucun';
+				} else { echo $entreprise->stagiaire; } ?>
 
-<?php echo Html::anchor('admin/entreprise/edit/'.$entreprise->id, 'Edit'); ?> |
-<?php echo Html::anchor('admin/entreprise', 'Back'); ?>
+<?php echo Html::anchor('admin/entreprise/edit/'.$entreprise->id, 'Editer'); ?> |
+<?php echo Html::anchor('admin/entreprise', 'Retour'); ?>

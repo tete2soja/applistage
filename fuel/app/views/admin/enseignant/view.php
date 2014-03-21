@@ -1,4 +1,4 @@
-<h2>Viewing #<?php echo $enseignant->id; ?></h2>
+<h2><?php echo $enseignant->nom . " " . $enseignant->prenom; ?></h2>
 
 <p>
 	<strong>Nom:</strong>
@@ -10,5 +10,5 @@
 	<strong>Email:</strong>
 	<?php echo $enseignant->email; ?></p>
 
-<?php echo Html::anchor('admin/enseignant/edit/'.$enseignant->id, 'Edit'); ?> |
-<?php echo Html::anchor('admin/enseignant', 'Back'); ?>
+<?php echo Html::anchor('admin/enseignant/edit/'.$enseignant->id, 'Editer'); ?> |
+<?php echo Html::anchor('admin/enseignant', 'Retour'); ?>

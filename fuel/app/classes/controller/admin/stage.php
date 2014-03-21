@@ -24,6 +24,17 @@ class Controller_Admin_Stage extends Controller_Template{
 
 	}
 
+	public function action_suivi()
+	{
+		$data['stages'] = Model_Stage::find_all();
+
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
+		$this->template->content = View::forge('admin/stage/suivi', $data);
+
+	}
+
 	public function action_create()
 	{
 		if (Input::method() == 'POST')

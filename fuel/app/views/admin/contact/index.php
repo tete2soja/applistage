@@ -1,4 +1,4 @@
-<h2>Listing Contacts</h2>
+<h2>Liste des contacts</h2>
 <br>
 <?php if ($contacts): ?>
 <table class="table table-striped">
@@ -9,9 +9,7 @@
 			<th>Telephone</th>
 			<th>Email</th>
 			<th>Entreprise</th>
-			<th>Encadre</th>
-			<th>Signe</th>
-			<th>Propose</th>
+			<th>Status</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -23,13 +21,25 @@
 			<td><?php echo $item->telephone; ?></td>
 			<td><?php echo $item->email; ?></td>
 			<td><?php echo $item->entreprise; ?></td>
-			<td><?php echo $item->encadre; ?></td>
-			<td><?php echo $item->signe; ?></td>
-			<td><?php echo $item->propose; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/contact/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/contact/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/contact/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php
+					$status = "";
+					if ($item->encadre == 1) {
+						$status = $status . "Encadre ";
+					}
+					if ($item->signe == 1) {
+						$status = $status . "Signe ";
+					}
+					if ($item->propose == 1) {
+						$status = $status . "Propose";
+					}
+					echo $status;
+				?>
+			</td>
+			<td>
+				<?php echo Html::anchor('admin/contact/view/'.$item->id, 'Voir'); ?> |
+				<?php echo Html::anchor('admin/contact/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/contact/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
 
 			</td>
 		</tr>
@@ -37,9 +47,9 @@
 </table>
 
 <?php else: ?>
-<p>No Contacts.</p>
+<p>Aucun contact.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/contact/create', 'Add new Contact', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('admin/contact/create', 'Ajouter un contact', array('class' => 'btn btn-success')); ?>
 
 </p>

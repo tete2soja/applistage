@@ -8,8 +8,6 @@
 			<th>Adresse</th>
 			<th>Ville</th>
 			<th>Pays</th>
-			<th>Url entreprise</th>
-			<th>Stagiaire</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -21,9 +19,9 @@
 			<td><?php echo $item->ville; ?></td>
 			<td><?php echo $item->pays; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/entreprise/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/entreprise/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/entreprise/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php echo Html::anchor('admin/entreprise/view/'.$item->id, 'Voir'); ?> |
+				<?php echo Html::anchor('admin/entreprise/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/entreprise/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
 
 			</td>
 		</tr>
@@ -34,6 +32,6 @@
 <p>No Entreprises.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/entreprise/create', 'Add new Entreprise', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('admin/entreprise/create', 'Ajouter une entreprise', array('class' => 'btn btn-success')); ?>
 
 </p>

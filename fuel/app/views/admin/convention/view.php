@@ -1,4 +1,4 @@
-<h2>Viewing #<?php echo $convention->id; ?></h2>
+<h2>Convention #<?php echo $convention->id; ?></h2>
 
 <p>
 	<strong>Etudiant:</strong>
@@ -52,13 +52,13 @@
 	<strong>Duree:</strong>
 	<?php echo $convention->duree; ?></p>
 <p>
-	<strong>Date debut:</strong>
+	<strong>Date de debut:</strong>
 	<?php echo $convention->date_debut; ?></p>
 <p>
-	<strong>Date fin:</strong>
+	<strong>Date de fin:</strong>
 	<?php echo $convention->date_fin; ?></p>
 <p>
-	<strong>Allongee:</strong>
+	<strong>Durée allongé :</strong>
 	<?php echo $convention->allongee; ?></p>
 <p>
 	<strong>Nb jour semaine:</strong>
@@ -76,5 +76,5 @@
 	<strong>Etat:</strong>
 	<?php echo $convention->etat; ?></p>
 
-<?php echo Html::anchor('admin/convention/edit/'.$convention->id, 'Edit'); ?> |
-<?php echo Html::anchor('admin/convention', 'Back'); ?>
+<?php echo Html::anchor('admin/convention/edit/'.$convention->id, 'Editer'); ?> |
+<?php echo Html::anchor('admin/convention', 'Retour'); ?>

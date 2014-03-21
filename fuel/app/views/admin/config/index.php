@@ -103,9 +103,9 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
+			<th>Date debut</th>
 			<th>Date fin</th>
 			<th>Annee courante</th>
-			<th>Date debut</th>
 			<th>Remuneration</th>
 		</tr>
 	</thead>

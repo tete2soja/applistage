@@ -1,4 +1,4 @@
-<h2>Listing Conventions</h2>
+<h2>Liste des conventions</h2>
 <br>
 <?php if ($conventions): ?>
 <table class="table table-striped">
@@ -25,7 +25,7 @@
 			<th>Date fin</th>
 			<th>Allongee</th>
 			<th>Nb jour semaine</th>
-			<th>Horaire hebdo</th>
+			<th>Horaire hebdomadaire</th>
 			<th>Retribution</th>
 			<th>Nature</th>
 			<th>Etat</th>
@@ -61,19 +61,18 @@
 			<td><?php echo $item->nature; ?></td>
 			<td><?php echo $item->etat; ?></td>
 			<td>
-				<?php echo Html::anchor('admin/convention/view/'.$item->id, 'View'); ?> |
-				<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Edit'); ?> |
-				<?php echo Html::anchor('admin/convention/delete/'.$item->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
+				<?php echo Html::anchor('admin/convention/view/'.$item->id, 'Voir'); ?> |
+				<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/convention/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
 
 			</td>
 		</tr>
 <?php endforeach; ?>	</tbody>
 </table>
 
-<?php else: ?>
-<p>No Conventions.</p>
+<?php else: ?>Aucune convention.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/convention/create', 'Add new Convention', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('admin/convention/create', 'Ajouter une convention', array('class' => 'btn btn-success')); ?>
 
 </p>
