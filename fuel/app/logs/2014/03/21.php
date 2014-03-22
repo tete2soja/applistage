@@ -145,3 +145,89 @@ WARNING - 2014-03-21 22:43:22 --> Fuel\Core\Fuel::init - The configured locale e
 WARNING - 2014-03-21 22:44:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2014-03-21 22:44:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
 WARNING - 2014-03-21 22:44:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:46:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:46:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:47:32 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:47:54 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:47:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:48:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:48:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:50:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:50:28 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:50:37 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:52:15 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:52:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:52:32 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:54:11 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:54:33 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 22:54:33 --> Notice - Undefined variable: stage in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 44
+WARNING - 2014-03-21 22:55:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 22:55:50 --> Notice - Undefined variable: stage in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 44
+WARNING - 2014-03-21 22:55:51 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 22:55:52 --> Notice - Undefined variable: stage in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 44
+WARNING - 2014-03-21 22:56:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:56:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 22:56:10 --> Notice - Undefined variable: stage in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 44
+WARNING - 2014-03-21 22:56:39 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 22:56:39 --> Notice - Undefined variable: stage in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 45
+WARNING - 2014-03-21 22:57:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:58:06 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 22:59:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 22:59:12 --> Error - Property "ent_nom" not found for Model_Stage. in C:\wamp\www\applistage\fuel\core\classes\model\crud.php on line 441
+WARNING - 2014-03-21 22:59:57 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:00:12 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:00:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:03:49 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:03:58 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:04 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:09 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:04:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:04:19 --> Notice - Undefined index: id in C:\wamp\www\applistage\fuel\packages\auth\classes\auth\login\simpleauth.php on line 482
+WARNING - 2014-03-21 23:06:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:06:23 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:10:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:10:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:12:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:13:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:13:50 --> Error - Property "ent_nom" not found for Model_Stage. in C:\wamp\www\applistage\fuel\core\classes\model\crud.php on line 441
+WARNING - 2014-03-21 23:14:03 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:14:50 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:15:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:19:05 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:19:05 --> Fatal Error - Class 'Model_Config' not found in C:\wamp\www\applistage\fuel\app\classes\controller\etudiant.php on line 96
+WARNING - 2014-03-21 23:19:26 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:19:27 --> Error - Method "get_remuneration" does not exist. in C:\wamp\www\applistage\fuel\core\classes\model\crud.php on line 326
+WARNING - 2014-03-21 23:19:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:19:59 --> Error - Method "get_remuneration" does not exist. in C:\wamp\www\applistage\fuel\core\classes\model\crud.php on line 326
+WARNING - 2014-03-21 23:20:44 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:20:45 --> Error - Property "ent_url" not found for Model_Stage. in C:\wamp\www\applistage\fuel\core\classes\model\crud.php on line 441
+WARNING - 2014-03-21 23:21:02 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:21:02 --> Notice - Undefined variable: reremuneration in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 171
+WARNING - 2014-03-21 23:21:19 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:21:55 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:21:55 --> Error - SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ent_url' in 'field list' with query: "SELECT `nom`, `ville`, `pays`, `ent_url` FROM `entreprise` WHERE `id` = '2'" in C:\wamp\www\applistage\fuel\core\classes\database\pdo\connection.php on line 234
+WARNING - 2014-03-21 23:22:46 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:27:14 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:35:52 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:41:13 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:45:08 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:47:59 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:51:25 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:51:25 --> Parsing Error - syntax error, unexpected ';', expecting ')' in C:\wamp\www\applistage\fuel\app\classes\model\stage.php on line 73
+WARNING - 2014-03-21 23:51:38 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:52:18 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:55:10 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:55:15 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:55:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:56:29 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+ERROR - 2014-03-21 23:56:29 --> Notice - Undefined variable: contexte in C:\wamp\www\applistage\fuel\app\views\etudiant\formulaire.php on line 193
+WARNING - 2014-03-21 23:57:16 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:58:56 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:59:41 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.
+WARNING - 2014-03-21 23:59:55 --> Fuel\Core\Fuel::init - The configured locale en_US is not installed on your system.

@@ -15,7 +15,15 @@
 				<div class="form-group">
 					<label for="idEtudiant" class="col-sm-2 control-label" >Id Etudiant</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="idEtudiant" placeholder="" disabled>
+						<input type="text" class="form-control" id="idEtudiant" placeholder="" disabled value=<?php
+							$id_info = Auth::get_groups();
+							foreach ($id_info as $info) {
+								if ($info[1] == "2") {
+									echo Auth::get('username');
+									break;
+								}
+							}
+						?>>
 					</div>
 				</div>
 				<div class="form-group">
@@ -41,7 +49,10 @@
 			<div class="form-group">
 			    <label for="sujetStage" class="col-sm-2 control-label">Sujet du stage</label>
 			    <div class="col-sm-10">
-			      <div id="sujetStage_div"><input type="text" class="form-control" id="sujetStage" placeholder=""></div>
+			      <div id="sujetStage_div"><input type="text" class="form-control" id="sujetStage" placeholder="" value=<?php 
+			      if(isset($stage))
+			      	echo $stage->sujet;
+			      ?>></div>
 			    </div>
 			</div>
 			<div class="form-group">
@@ -56,11 +67,30 @@
 			<div class="form-group">
 				<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
 				<div class="col-sm-10">
-					<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" placeholder="Nom"></div>
-					<div id="ent_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_adresse" placeholder="Adresse"></div>
-					<div id="ent_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal"></div>
-					<div id="ent_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_pays" placeholder="Pays"></div>
-					<div id="ent_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_url" placeholder="URL"></div>
+					<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" placeholder="Nom" value=<?php 
+			      if(isset($stage))
+			      	echo '"' . $stage->entreprise . '"';
+			      ?>></div>
+					<div id="ent_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_adresse" placeholder="Adresse" value=<?php 
+			      if(isset($stage))
+			      	echo '"' . $stage->ent_adresse . '"';
+			      ?>></div>
+					<div id="ent_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal" value=<?php 
+			      if(isset($stage))
+			      	echo '"' . $stage->ent_code . '"';
+			      ?>></div>
+					<div id="ent_ville_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_ville" placeholder="Ville" value=<?php 
+			      if(isset($stage))
+			      	echo '"' . $stage->ent_ville . '"';
+			      ?>></div>
+					<div id="ent_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_pays" placeholder="Pays" value=<?php 
+			      if(isset($stage))
+			      	echo '"' . $stage->ent_pays . '"';
+			      ?>></div>
+					<div id="ent_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_url" placeholder="URL" value=<?php 
+			      if(isset($stage))
+			      	echo '"' . $stage->ent_url . '"';
+			      ?>></div>
 				</div>
 			</div>
 			<div class="form-group">
@@ -112,13 +142,13 @@
 			  <div class="form-group">
 			    <label for="date_debut" class="col-sm-2 control-label">Date de début de stage</label>
 			    <div class="col-sm-10">
-			      <div id="date_debut_div"><input type="date" class="form-control" id="date_debut" placeholder="13/06/2014"></div>
+			      <div id="date_debut_div"><input type="date" class="form-control" id="date_debut" value=<?php echo '"' . $date_debut .'"'; ?>></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label for="date_fin" class="col-sm-2 control-label">Date de fin de stage</label>
 			    <div class="col-sm-10">
-			      <div id="date_fin_div"><input type="date" class="form-control" id="date_fin" placeholder="13/06/2014"></div>
+			      <div id="date_fin_div"><input type="date" class="form-control" id="date_fin" value=<?php echo '"' . $date_fin .'"'; ?>></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -136,7 +166,7 @@
 			  <div class="form-group">
 			    <label for="horaire_hebdo" class="col-sm-2 control-label">Horaire hebdomadaire maximum</label>
 			    <div class="col-sm-10">
-			      <div id="horaire_hebdo_div"><input type="number" class="form-control" id="horaire_hebdo" placeholder=""></div>
+			      <div id="horaire_hebdo_div"><input type="number" class="form-control" id="horaire_hebdo" value="35"></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -148,7 +178,7 @@
 			  <div class="form-group">
 			    <label for="montant" class="col-sm-2 control-label">Montant mensuel prévu</label>
 			    <div class="col-sm-10" id="montant_div">
-			      <div id="montantdiv"><input type="number" class="form-control" id="montant" placeholder=""></div>
+			      <div id="montantdiv"><input type="number" class="form-control" id="montant" placeholder="" value=<?php echo '"' . $remuneration .'"'; ?>></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -160,7 +190,10 @@
 			  <div class="form-group">
 			    <label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage</label>
 			    <div class="col-sm-10">
-			      <div id="description_sujet_div"><textarea id="description_sujet" class="form-control" rows="3"></textarea></div>
+			      <div id="description_sujet_div"><textarea id="description_sujet" class="form-control" rows="3"><?php 
+			      if(isset($stage))
+			      	echo $stage->contexte . "\n" . $stage->resultats;
+			      ?></textarea></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -176,7 +209,10 @@
 			  <div class="form-group">
 			    <label for="environnement" class="col-sm-2 control-label">Environnement de développement</label>
 			    <div class="col-sm-10">
-			      <div id="environnement_div"><textarea id="environnement" class="form-control" rows="3" value="Outils et Langages"></textarea></div>
+			      <div id="environnement_div"><textarea id="environnement" class="form-control" rows="3" value="Outils et Langages"><?php 
+			      if(isset($stage))
+			      	echo $stage->conditions;
+			      ?></textarea></div>
 			    </div>
 			  </div>
 			  <div class="form-group">

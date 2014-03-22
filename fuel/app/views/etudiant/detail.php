@@ -31,4 +31,5 @@
 	<strong>Date:</strong>
 	<?php echo $stage->date; ?></p>
 <br />
+<a type="button" class="btn btn-success" href= <?php echo '"../formulaire/' . $stage->id . '"'; ?> >Prendre ce stage</a> |
 <?php echo Html::anchor('etudiant/proposition', 'Retour'); ?>

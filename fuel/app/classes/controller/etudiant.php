@@ -84,11 +84,19 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/soutenance', $data);
 	}
 
-	public function action_formulaire() {
+	public function action_formulaire($id = null) {
 		$data["subnav"] = array('formulaire'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Formulaire';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
+
+		if ($id != null) {
+			$data['stage'] = Model_Stage::find_by_pk($id);
+		}
+		$tmp = DB::select('remuneration', 'date_debut', 'date_fin')->from('config')->execute();
+		$data["date_debut"] = $tmp->get('date_debut');
+		$data["date_fin"] = $tmp->get('date_fin');
+		$data["remuneration"] = $tmp->get('remuneration');
 		$this->template->content = View::forge('etudiant/formulaire', $data);
 
 		if (isset($_POST['submit'])) {
