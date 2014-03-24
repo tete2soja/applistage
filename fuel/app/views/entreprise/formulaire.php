@@ -1,7 +1,7 @@
 		<?php echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
-    var availablePays = <?php echo json_encode($liste_pays) ?>;
+    var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
     $( "#ent_pays" ).autocomplete({
     source: availablePays
     });

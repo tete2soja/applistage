@@ -28,7 +28,7 @@ class Controller_Entreprise extends Controller_Template
     {
     	$tab_pays = DB::select('nom')->from('pays')->order_by('nom', 'asc')->execute()->as_array();
     	$pays = \Arr::pluck($tab_pays, 'nom');
-    	$data["liste_pays"] = $pays;
+    	$data["liste_pays"] = Format::forge($pays)->to_json();
     	
     	//print(json_encode($pays));
 
