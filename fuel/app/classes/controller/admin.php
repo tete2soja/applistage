@@ -51,13 +51,13 @@ class Controller_Admin extends Controller_Template
 					$ville1 = str_replace ( '-', ' ', $ville1);
 					$ville2 = str_replace ( '-', ' ', $ville2);
 					if ($ville1 != "") {
-						$id_ville1 = Model_Ville::find_id($ville1, $code_p1);
+						$id_ville1 = Model_Ville::find_one_by(array('nom' => $ville1, 'code_postal' => $code_p1))->id;
 					}
 					else {
 						$id_ville1 = 1;
 					}
 					if ($ville2 != "") {
-						$id_ville2 = Model_Ville::find_id($ville2, $code_p2);
+						$id_ville2 = Model_Ville::find_one_by(array('nom' => $ville2, 'code_postal' => $code_p2))->id;
 					}
 					else {
 						$id_ville2 = 1;
@@ -77,11 +77,12 @@ class Controller_Admin extends Controller_Template
 
 					// Insertion dans la table avec les clés étrangères pour les villes
 					$query = DB::query('INSERT INTO `etudiant` VALUES (NULL, "' . $id . '","' . $nom . '","' . $prenom . '","' . $date_naissance .  '","' . $sexe .  '","' . $bac .  '","' . $bac_mention .  '","' . $bac_annee .  '","' . $email .  '","' . $adresse1 .  '","' . $id_ville1 .  '","' . $adresse2 .  '","' . $id_ville2 .  '","' . $telephone1 .  '","' . $telephone2 . '", "1")')->execute();
+					//Auth::create_user($id, $id, $email, 2);
 				}
 			}
 			fclose($handle);
 			Session::set_flash('success', 'Import de la table `etudiant` avec succès !');
-			Response::redirect('import');
+			Response::redirect('admin/import');
 		}
 		elseif (isset($_POST['etudiant'])) {
 			$tmp = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
