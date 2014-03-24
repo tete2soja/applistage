@@ -1,3 +1,24 @@
+$( window ).load(function() {
+	$('form').css('visibility', 'hidden');
+		$('#date_debut_div').datepicker({
+			format: 'yyyy-mm-dd'
+		});
+		$('#date_fin_div').datepicker({
+			format: 'yyyy-mm-dd'
+		});
+});
+
+function byEnt () {
+	$('form').css('visibility', 'visible');
+	$("#type_conv").attr("disabled", "disabled");
+	$("#langue_conv").attr("disabled", "disabled");
+}
+
+function byEtd () {	
+	$('form').css('visibility', 'visible');
+	$("#type_conv").removeAttr("disabled");
+	$("#langue_conv").removeAttr("disabled");
+}
 // -------------------------------------------------------------------------------------------
 //					FONCTION CHECK DU FORMULAIRE
 // -------------------------------------------------------------------------------------------
