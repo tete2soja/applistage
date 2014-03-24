@@ -85,6 +85,10 @@ class Controller_Etudiant extends Controller_Template
 	}
 
 	public function action_formulaire($id = null) {
+    	$tab_pays = DB::select('nom')->from('pays')->order_by('nom', 'asc')->execute()->as_array();
+    	$pays = \Arr::pluck($tab_pays, 'nom');
+    	$data["liste_pays"] = Format::forge($pays)->to_json();
+    	
 		$data["subnav"] = array('formulaire'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Formulaire';
 		$this->template->main_title = 'Applistage 2014';

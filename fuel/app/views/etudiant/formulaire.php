@@ -1,7 +1,14 @@
-
 <?php echo Asset::js('bootstrap-datepicker.js'); ?>
 <?php echo Asset::css('datepicker.css'); ?>
 <?php echo Asset::js('checkform_etud.js'); ?>
+<script language="JavaScript" type="text/javascript">
+$(function() {
+    var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
+    $( "#ent_pays" ).autocomplete({
+    source: availablePays
+    });
+  });
+</script>
 <div style="width:90%;
 	margin:auto;
 	padding-left:30px;
