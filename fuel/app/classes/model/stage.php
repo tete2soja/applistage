@@ -43,7 +43,7 @@ class Model_Stage extends \Model_Crud
 		$val->add_field('conditions', 'Conditions', 'max_length[255]');
 		$val->add_field('url_doc', 'Url Doc', 'max_length[255]');
 		$val->add_field('public', 'Public', 'required|valid_string[numeric]');
-		$val->add_field('valide', 'Valide', 'valid_string[numeric]');
+		$val->add_field('etat', 'etat', 'valid_string[numeric]');
 		$val->add_field('date', 'Date', 'required');
 
 		return $val;
@@ -66,12 +66,7 @@ class Model_Stage extends \Model_Crud
 		        		$ent_code = Model_Ville::find_one_by_id($id_ville)->code_postal;
 						$ent_pays = Model_Pays::find_one_by_id($id_pays)->nom;
 		        		$value->set(array(
-					    	'entreprise' => $ent_nom,
-					    	'ent_ville' => $ent_ville,
-					    	'ent_pays' => $ent_pays,
-					    	'ent_url' => $ent_url,
-					    	'ent_adresse' => $ent_adresse,
-					    	'ent_code' => $ent_code,
+					    	'entreprise_nom' => $ent_nom,
 							));
 					}
 				}
@@ -79,7 +74,7 @@ class Model_Stage extends \Model_Crud
 					$no_etudiant = DB::select('no_etudiant')->from('etudiant')->where('id', $value->etudiant)->execute()->get('no_etudiant');
 		        	if(!empty($no_etudiant)) {
 		        		$value->set(array(
-					    	'etudiant' => $no_etudiant,
+					    	'no_etudiant' => $no_etudiant,
 							));
 					}
 				}
@@ -90,9 +85,7 @@ class Model_Stage extends \Model_Crud
 					$contact_email = $contact->get('email');
 		        	if((!empty($contact)) AND (!empty($contact_np)) AND (!empty($contact_tel)) AND (!empty($contact_email))) {
 		        		$value->set(array(
-					    	'contact' => $contact_np,
-					    	'contact_tel' => $contact_tel,
-					    	'contact_email' => $contact_email,
+					    	'contact_nom' => $contact_np,
 							));
 					}
 				}
@@ -100,7 +93,7 @@ class Model_Stage extends \Model_Crud
 					$enseignant = DB::select('nom')->from('enseignant')->where('id', $value->enseignant)->execute()->get('nom');
 		        	if(!empty($enseignant)) {
 		        		$value->set(array(
-					    	'enseignant' => $enseignant,
+					    	'enseignant_nom' => $enseignant,
 							));
 					}
 				}

@@ -25,18 +25,18 @@
 				<?php if(empty($item->etudiant))
 					echo 'aucun';
 				else
-					echo '<a href="../etudiant/view/' . $item->etudiant . '" />' . $item->etudiant;
+					echo '<a href="../etudiant/view/' . $item->etudiant . '" />' . $item->no_etudiant;
 				?>
 			</td>
-			<td><?php echo $item->contact; ?></td>
+			<td><?php echo '<a href="../contact/view/' . $item->contact . '" />' . $item->contact_nom; ?></td>
 			<td>
 				<?php if(empty($item->enseignant))
 						echo 'aucun';
 					else
-						echo $item->enseignant;
+						echo '<a href="../enseignant/view/' . $item->enseignant . '" />' . $item->enseignant_nom;
 				?>
 			</td>
-			<td><?php echo $item->entreprise; ?></td>
+			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->entreprise_nom;?></td>
 			<td><?php echo $item->sujet; ?></td>
 			<td><?php echo $item->contexte; ?></td>
 			<td><?php
@@ -50,19 +50,29 @@
 					echo "Licence pro";
 			?></td>
 			<td><?php
-				if ($item->valide == 0) {
-					echo "Non validé";
+				if ($item->etat == 0) {
+					echo "Saisi";
 				}
-				else {
+				else if ($item->etat == 1) {
 					echo "Validé";
 				}
+				else if ($item->etat == 2) {
+					echo "Refusé";
+				}
+				else if ($item->etat == 3) {
+					echo "Clos";
+				}
 			?></td>
-			<td>
+			<td style="width:201px;text-align:center;">
 				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
+				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
 				<form method="POST">
-					<button type="submit" name="submit" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
-				</form>|
+				<div class="btn-group">
+					<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+					<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refus</button>
+					<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clos</button>
+				    </div>
+				</form>
 				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sur ?')")); ?>
 
 			</td>

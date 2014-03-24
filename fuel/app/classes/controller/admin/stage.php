@@ -27,12 +27,29 @@ class Controller_Admin_Stage extends Controller_Template{
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/index', $data);
-		if (Input::method() == 'POST') {
-			$id = $_POST['submit'];
+		if (isset($_POST['valide'])) {
+			$id = $_POST['valide'];
 			$query = DB::update('stage');
-			$query->value('valide', '1');
+			$query->value('etat', '1');
 			$query->where('id', $id);
 			$query->execute();
+			Response::redirect('admin/stage');
+		}
+		else if (isset($_POST['refus'])) {
+			$id = $_POST['refus'];
+			$query = DB::update('stage');
+			$query->value('etat', '2');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/stage');
+		}
+		else if (isset($_POST['clos'])) {
+			$id = $_POST['clos'];
+			$query = DB::update('stage');
+			$query->value('etat', '3');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/stage');
 		}
 	}
 
@@ -80,7 +97,7 @@ class Controller_Admin_Stage extends Controller_Template{
 					'conditions' => Input::post('conditions'),
 					'url_doc' => Input::post('url_doc'),
 					'public' => Input::post('public'),
-					'valide' => Input::post('valide'),
+					'etat' => Input::post('etat'),
 					'date' => Input::post('date'),
 				));
 
@@ -130,7 +147,7 @@ class Controller_Admin_Stage extends Controller_Template{
 				$stage->conditions = Input::post('conditions');
 				$stage->url_doc = Input::post('url_doc');
 				$stage->public = Input::post('public');
-				$stage->valide = Input::post('valide');
+				$stage->etat = Input::post('etat');
 				$stage->date = Input::post('date');
 
 				if ($stage->save())

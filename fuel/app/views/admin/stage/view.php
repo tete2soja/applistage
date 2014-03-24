@@ -41,8 +41,8 @@
 	<strong>Public:</strong>
 	<?php echo $stage->public; ?></p>
 <p>
-	<strong>Valide:</strong>
-	<?php echo $stage->valide; ?></p>
+	<strong>Etat:</strong>
+	<?php echo $stage->etat; ?></p>
 <p>
 	<strong>Date:</strong>
 	<?php echo $stage->date; ?></p>

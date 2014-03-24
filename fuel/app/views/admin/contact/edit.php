@@ -1,3 +1,9 @@
+<style type="text/css">
+	form {
+    padding-left: 15px;
+    padding-right: 15px;
+	}
+</style>
 <h2>Editing Contact</h2>
 <br>
 

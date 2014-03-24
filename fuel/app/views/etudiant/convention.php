@@ -33,13 +33,11 @@
 					<table class="table table-bordered">
 						<tr>
 							<th>Stages de seconde année</th>
-							<td><a href="https://extranet.iut-info-vannes.net/etud/stages/stg_vue_2a">Liste des stages</a></td>
-							<td><a href="https://extranet.iut-info-vannes.net/etud/stages/stg_fiche_2a">fiche de stage individuelle</a></td>
+							<td><a href="proposition">Liste des stages</a></td>
 						</tr>
 						<tr>
 							<th>Stages Licence S2IM</th>
-							<td><a href="https://extranet.iut-info-vannes.net/etud/stages/stg_vue_lp">Liste des stages</a></td>
-							<td><a href="https://extranet.iut-info-vannes.net/etud/stages/stg_fiche_lp">fiche de stage individuelle</a></td>
+							<td><a href="proposition">Liste des stages</a></td>
 						</tr>
 					</table>
 				</div>

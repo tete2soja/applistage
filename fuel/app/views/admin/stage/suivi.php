@@ -48,7 +48,3 @@
 
 <?php else: ?>
 <p>No Stages.</p>
-
-<?php endif; ?><p>
-	<?php echo Html::anchor('admin/stage/create', 'Add new Stage', array('class' => 'btn btn-success')); ?>
-</p>
