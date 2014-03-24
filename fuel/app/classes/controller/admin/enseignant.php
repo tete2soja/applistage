@@ -22,7 +22,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['enseignants'] = Model_Admin_Enseignant::find_all();
+		$data['enseignants'] = Model_Enseignant::find_all();
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -34,7 +34,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/enseignant');
 
-		$data['enseignant'] = Model_Admin_Enseignant::find_by_pk($id);
+		$data['enseignant'] = Model_Enseignant::find_by_pk($id);
 
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
@@ -47,11 +47,11 @@ class Controller_Admin_Enseignant extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Enseignant::validate('create');
+			$val = Model_Enseignant::validate('create');
 			
 			if ($val->run())
 			{
-				$enseignant = Model_Admin_Enseignant::forge(array(
+				$enseignant = Model_Enseignant::forge(array(
 					'nom' => Input::post('nom'),
 					'prenom' => Input::post('prenom'),
 					'email' => Input::post('email'),
@@ -84,11 +84,11 @@ class Controller_Admin_Enseignant extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/enseignant');
 
-		$enseignant = Model_Admin_Enseignant::find_one_by_id($id);
+		$enseignant = Model_Enseignant::find_one_by_id($id);
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Enseignant::validate('edit');
+			$val = Model_Enseignant::validate('edit');
 
 			if ($val->run())
 			{
@@ -122,7 +122,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if ($enseignant = Model_Admin_Enseignant::find_one_by_id($id))
+		if ($enseignant = Model_Enseignant::find_one_by_id($id))
 		{
 			$enseignant->delete();
 

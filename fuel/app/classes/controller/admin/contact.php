@@ -22,7 +22,7 @@ class Controller_Admin_Contact extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['contacts'] = Model_Admin_Contact::find_all();
+		$data['contacts'] = Model_Contact::find_all();
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -34,7 +34,7 @@ class Controller_Admin_Contact extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/contact');
 
-		$data['contact'] = Model_Admin_Contact::find_by_pk($id);
+		$data['contact'] = Model_Contact::find_by_pk($id);
 
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
@@ -47,11 +47,11 @@ class Controller_Admin_Contact extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Contact::validate('create');
+			$val = Model_Contact::validate('create');
 			
 			if ($val->run())
 			{
-				$contact = Model_Admin_Contact::forge(array(
+				$contact = Model_Contact::forge(array(
 					'nom' => Input::post('nom'),
 					'prenom' => Input::post('prenom'),
 					'telephone' => Input::post('telephone'),
@@ -89,11 +89,11 @@ class Controller_Admin_Contact extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/contact');
 
-		$contact = Model_Admin_Contact::find_one_by_id($id);
+		$contact = Model_Contact::find_one_by_id($id);
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Contact::validate('edit');
+			$val = Model_Contact::validate('edit');
 
 			if ($val->run())
 			{
@@ -132,7 +132,7 @@ class Controller_Admin_Contact extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if ($contact = Model_Admin_Contact::find_one_by_id($id))
+		if ($contact = Model_Contact::find_one_by_id($id))
 		{
 			$contact->delete();
 

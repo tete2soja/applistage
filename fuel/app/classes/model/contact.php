@@ -44,5 +44,39 @@ class Model_Contact extends \Model_Crud
 
 		return $val;
 	}
+	
+	public static function post_find($result)
+	{
+	    if($result !== null)
+	    {
+	        foreach ($result as $value) {
+	        	if (!empty($value->ville)) {
+	        		$id_ville = $value->ville;
+	        		$ville = Model_Ville::find_one_by_id($id_ville)->nom;
+	        		$code_postal = Model_Ville::find_one_by_id($id_ville)->code_postal;
+	        		$value->set(array(
+				    	'ville' => $ville,
+				    	'code_postal' => $code_postal,
+						));
+				}
+				if (!empty($value->pays)) {
+					$pays = Model_Pays::find_one_by_id($value->pays)->nom;
+	        		$value->set(array(
+				    	'pays' => $pays,
+						));
+				}
+				if (!empty($value->entreprise)) {
+					$entreprise = Model_Entreprise::find_one_by_id($value->entreprise)->nom;
+	        		$value->set(array(
+				    	'entreprise' => $entreprise,
+						));
+				}
+			}
+		}
+		
+		// return the result
+	    return $result;
+		
+	}
 
 }

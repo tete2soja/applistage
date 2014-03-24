@@ -31,5 +31,24 @@ class Model_Ville extends \Model_Crud
 
 		return $val;
 	}
+	
+	public static function post_find($result)
+	{
+	    if($result !== null)
+	    {
+	    	foreach ($result as $value) {
+				if (!empty($value->pays)) {
+					$pays = Model_Pays::find_one_by_id($value->pays)->nom;
+					$value->set(array(
+			    		'pays' => $pays,
+						));
+				}
+			}
+	    }
+	    
+	    // return the result
+	    return $result;
+	    
+	}
 
 }

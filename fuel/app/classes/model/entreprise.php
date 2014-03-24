@@ -37,5 +37,41 @@ class Model_Entreprise extends \Model_Crud
 
 		return $val;
 	}
+	
+	public static function post_find($result)
+	{
+	    if($result !== null)
+	    {
+	    	foreach ($result as $value) {
+				if ((!empty($value->ville)) AND (!empty($value->pays))) {
+					$id_ville = $value->ville;
+					$id_pays = $value->pays;
+					$ville = Model_Ville::find_one_by_id($id_ville)->nom;
+	        		$pays = Model_Pays::find_one_by_id($id_pays)->nom;
+	        		$code_postal = Model_Ville::find_one_by_id($id_ville)->code_postal;
+	        		$value->set(array(
+				    	'ville' => $ville,
+				    	'pays' => $pays,
+				    	'code_postal' => $code_postal,
+						));
+				}
+				if (!empty($value->stagiaire)) {
+					$id_stagiaire = $value->stagiaire;
+	        		$nom_stagiaire = Model_Etudiant::find_one_by_id($id_stagiaire)->nom;
+					$prenom_stagiaire = Model_Etudiant::find_one_by_id($id_stagiaire)->prenom;
+					$no_stagiaire = Model_Etudiant::find_one_by_id($id_stagiaire)->no_etudiant;
+					$value->set(array(
+				    	'nom_stagiaire' => $nom_stagiaire,
+				    	'prenom_stagiaire' => $prenom_stagiaire,
+				    	'no_stagiaire' => $no_stagiaire,
+						));
+	        	}
+			}
+	    }
+	    
+	    // return the result
+	    return $result;
+	    
+	}
 
 }

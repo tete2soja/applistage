@@ -22,7 +22,7 @@ class Controller_Admin_Entreprise extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['entreprises'] = Model_Admin_Entreprise::find_all();
+		$data['entreprises'] = Model_Entreprise::find_all();
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -34,7 +34,7 @@ class Controller_Admin_Entreprise extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/entreprise');
 
-		$data['entreprise'] = Model_Admin_Entreprise::find_by_pk($id);
+		$data['entreprise'] = Model_Entreprise::find_by_pk($id);
 
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
@@ -47,11 +47,11 @@ class Controller_Admin_Entreprise extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Entreprise::validate('create');
+			$val = Model_Entreprise::validate('create');
 			
 			if ($val->run())
 			{
-				$entreprise = Model_Admin_Entreprise::forge(array(
+				$entreprise = Model_Entreprise::forge(array(
 					'nom' => Input::post('nom'),
 					'adresse' => Input::post('adresse'),
 					'ville' => Input::post('ville'),
@@ -87,11 +87,11 @@ class Controller_Admin_Entreprise extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/entreprise');
 
-		$entreprise = Model_Admin_Entreprise::find_one_by_id($id);
+		$entreprise = Model_Entreprise::find_one_by_id($id);
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Entreprise::validate('edit');
+			$val = Model_Entreprise::validate('edit');
 
 			if ($val->run())
 			{
@@ -128,7 +128,7 @@ class Controller_Admin_Entreprise extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if ($entreprise = Model_Admin_Entreprise::find_one_by_id($id))
+		if ($entreprise = Model_Entreprise::find_one_by_id($id))
 		{
 			$entreprise->delete();
 

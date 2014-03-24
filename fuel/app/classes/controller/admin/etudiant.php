@@ -22,7 +22,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['etudiants'] = Model_Admin_Etudiant::find_all();
+		$data['etudiants'] = Model_Etudiant::find_all();
 		$this->template->title = "Etudiants &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiants';
@@ -34,7 +34,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/etudiant');
 
-		$data['etudiant'] = Model_Admin_Etudiant::find_by_pk($id);
+		$data['etudiant'] = Model_Etudiant::find_by_pk($id);
 
 		
 		$this->template->title = "Etudiants &raquo; Gestion";
@@ -48,11 +48,11 @@ class Controller_Admin_Etudiant extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Etudiant::validate('create');
+			$val = Model_Etudiant::validate('create');
 			
 			if ($val->run())
 			{
-				$etudiant = Model_Admin_Etudiant::forge(array(
+				$etudiant = Model_Etudiant::forge(array(
 					'no_etudiant' => Input::post('no_etudiant'),
 					'nom' => Input::post('nom'),
 					'prenom' => Input::post('prenom'),
@@ -99,11 +99,11 @@ class Controller_Admin_Etudiant extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/etudiant');
 
-		$etudiant = Model_Admin_Etudiant::find_one_by_id($id);
+		$etudiant = Model_Etudiant::find_one_by_id($id);
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Etudiant::validate('edit');
+			$val = Model_Etudiant::validate('edit');
 
 			if ($val->run())
 			{
@@ -151,7 +151,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if ($etudiant = Model_Admin_Etudiant::find_one_by_id($id))
+		if ($etudiant = Model_Etudiant::find_one_by_id($id))
 		{
 			$etudiant->delete();
 

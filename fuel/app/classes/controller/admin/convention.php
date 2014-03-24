@@ -22,7 +22,7 @@ class Controller_Admin_Convention extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['conventions'] = Model_Admin_Convention::find_all();
+		$data['conventions'] = Model_Fichestage::find_all();
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
@@ -34,7 +34,7 @@ class Controller_Admin_Convention extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/convention');
 
-		$data['convention'] = Model_Admin_Convention::find_by_pk($id);
+		$data['convention'] = Model_Fichestage::find_by_pk($id);
 
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
@@ -47,11 +47,11 @@ class Controller_Admin_Convention extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Convention::validate('create');
+			$val = Model_Fichestage::validate('create');
 			
 			if ($val->run())
 			{
-				$convention = Model_Admin_Convention::forge(array(
+				$convention = Model_Fichestage::forge(array(
 					'etudiant' => Input::post('etudiant'),
 					'sujet' => Input::post('sujet'),
 					'description_stage' => Input::post('description_stage'),
@@ -106,11 +106,11 @@ class Controller_Admin_Convention extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('admin/convention');
 
-		$convention = Model_Admin_Convention::find_one_by_id($id);
+		$convention = Model_Fichestage::find_one_by_id($id);
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_Convention::validate('edit');
+			$val = Model_Fichestage::validate('edit');
 
 			if ($val->run())
 			{
@@ -166,7 +166,7 @@ class Controller_Admin_Convention extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if ($convention = Model_Admin_Convention::find_one_by_id($id))
+		if ($convention = Model_Fichestage::find_one_by_id($id))
 		{
 			$convention->delete();
 
