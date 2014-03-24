@@ -1,6 +1,6 @@
 <?php
 
-class Model_Fichestage extends \Orm\Model
+class Model_Fichestage extends \Model_Crud
 {
 	protected static $_properties = array(
 		'id',
