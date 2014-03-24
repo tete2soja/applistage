@@ -4,7 +4,7 @@
     padding-right: 15px;
 	}
 </style>
-<h2>Editing Contact</h2>
+<h2>Edition Contact</h2>
 <br>
 
 <?php echo render('admin/contact/_form'); ?>

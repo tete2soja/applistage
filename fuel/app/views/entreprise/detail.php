@@ -1,14 +1,16 @@
 <h2>Stage #<?php echo $stage->id; ?></h2>
-
+<p>
 	<strong>Entreprise:</strong>
 	<?php echo $stage->entreprise; ?></p>
 <p>
 	<strong>Ville:</strong>	
-	<?php echo $stage->ent_ville; ?>
+	<?php echo $stage->ent_ville; ?></p>
+<p>
+	<strong>Code Postal:</strong>	
+	<?php echo $stage->ent_code; ?></p>
 <p>
 	<strong>Pays:</strong>	
-	<?php echo $stage->ent_pays; ?>
-</p>
+	<?php echo $stage->ent_pays; ?></p>
 <p>
 	<strong>Sujet:</strong>
 	<?php echo $stage->sujet; ?></p>

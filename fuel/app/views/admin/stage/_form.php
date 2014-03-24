@@ -9,7 +9,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Etudiant', 'etudiant', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('etudiant', Input::post('etudiant', isset($stage) ? $stage->etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Etudiant')); ?>
+				<?php echo Form::input('etudiant', Input::post('etudiant', isset($stage->etudiant) ? $stage->etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Etudiant')); ?>
 
 		</div>
 		<div class="form-group">
@@ -21,7 +21,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Enseignant', 'enseignant', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('enseignant', Input::post('enseignant', isset($stage) ? $stage->enseignant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Enseignant')); ?>
+				<?php echo Form::input('enseignant', Input::post('enseignant', isset($stage->enseignant) ? $stage->enseignant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Enseignant')); ?>
 
 		</div>
 		<div class="form-group">
@@ -34,6 +34,24 @@
 			<?php echo Form::label('Sujet', 'sujet', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('sujet', Input::post('sujet', isset($stage) ? $stage->sujet : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Sujet')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Ville', 'ville', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('ville', Input::post('ville', isset($stage) ? $stage->ent_ville : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Ville')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Code Postal', 'code_postal', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('code_postal', Input::post('code_postal', isset($stage) ? $stage->ent_code : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Code Postal')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Pays', 'pays', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('pays', Input::post('pays', isset($stage) ? $stage->ent_pays : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Pays')); ?>
 
 		</div>
 		<div class="form-group">
@@ -75,7 +93,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Valide', 'valide', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('valide', Input::post('valide', isset($stage) ? $stage->valide : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Valide')); ?>
+				<?php echo Form::input('valide', Input::post('valide', isset($stage->valide) ? $stage->valide : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Valide')); ?>
 
 		</div>
 		<div class="form-group">

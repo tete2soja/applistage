@@ -6,11 +6,11 @@
 		<tr>
 			<th>Date</th>
 			<th>Etudiant</th>
-			<th>Contact</th>
 			<th>Enseignant</th>
 			<th>Entreprise</th>
 			<th>Sujet</th>
-			<th>Contexte</th>
+			<th>Ville</th>
+			<th>Pays</th>
 			<th>Public</th>
 			<th>Status</th>
 			<th></th>
@@ -28,7 +28,6 @@
 					echo '<a href="../etudiant/view/' . $item->etudiant . '" />' . $item->no_etudiant;
 				?>
 			</td>
-			<td><?php echo '<a href="../contact/view/' . $item->contact . '" />' . $item->contact_nom; ?></td>
 			<td>
 				<?php if(empty($item->enseignant))
 						echo 'aucun';
@@ -36,9 +35,10 @@
 						echo '<a href="../enseignant/view/' . $item->enseignant . '" />' . $item->enseignant_nom;
 				?>
 			</td>
-			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->entreprise_nom;?></td>
+			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->entreprise;?></td>
 			<td><?php echo $item->sujet; ?></td>
-			<td><?php echo $item->contexte; ?></td>
+			<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
+			<td><?php echo $item->ent_pays; ?></td>
 			<td><?php
 				if ($item->public == 0) {
 					echo "Tout public";
@@ -47,7 +47,7 @@
 					echo "DUT Info";
 				}
 				else
-					echo "Licence pro";
+					echo "Licence Pro";
 			?></td>
 			<td><?php
 				if ($item->etat == 0) {
@@ -69,8 +69,8 @@
 				<form method="POST">
 				<div class="btn-group">
 					<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
-					<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refus</button>
-					<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clos</button>
+					<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
+					<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
 				    </div>
 				</form>
 				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sur ?')")); ?>
@@ -82,7 +82,7 @@
 </table>
 
 <?php else: ?>
-<p>No Stages.</p>
+<p>Aucun stage.</p>
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('admin/stage/create', 'Ajouter un stage', array('class' => 'btn btn-success')); ?>

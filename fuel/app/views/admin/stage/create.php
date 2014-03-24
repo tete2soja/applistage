@@ -1,4 +1,4 @@
-<h2>New Stage</h2>
+<h2>Nouveau Stage</h2>
 <br>
 
 <?php echo render('admin/stage/_form'); ?>

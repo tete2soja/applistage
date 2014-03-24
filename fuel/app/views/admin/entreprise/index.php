@@ -1,7 +1,7 @@
-<h2>Listing Entreprises</h2>
+<h2>Liste des Entreprises</h2>
 <br>
 <?php if ($entreprises): ?>
-<table class="table table-striped">
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Nom</th>

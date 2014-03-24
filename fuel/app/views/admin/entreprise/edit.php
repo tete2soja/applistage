@@ -1,4 +1,4 @@
-<h2>Editing Entreprise</h2>
+<h2>Edition Entreprise</h2>
 <br>
 
 <?php echo render('admin/entreprise/_form'); ?>

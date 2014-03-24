@@ -1,7 +1,7 @@
 <h2>Liste des contacts</h2>
 <br>
 <?php if ($contacts): ?>
-<table class="table table-striped">
+<table class="table table-bordered">
 	<thead>
 		<tr>
 			<th>Nom</th>

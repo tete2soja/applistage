@@ -34,7 +34,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Stagiaire', 'stagiaire', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('stagiaire', Input::post('stagiaire', isset($entreprise) ? $entreprise->stagiaire : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Stagiaire')); ?>
+				<?php echo Form::input('stagiaire', Input::post('stagiaire', isset($entreprise->stagiaire) ? $entreprise->stagiaire : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Stagiaire')); ?>
 
 		</div>
 		<div class="form-group">

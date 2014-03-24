@@ -1,4 +1,4 @@
-<h2>Editing Stage</h2>
+<h2>Edition Stage</h2>
 <br>
 
 <?php echo render('admin/stage/_form'); ?>

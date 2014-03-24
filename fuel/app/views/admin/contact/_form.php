@@ -1,5 +1,10 @@
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
-
+<style type="text/css">
+.row {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+</style>
 	<fieldset>
 		<div class="form-group">
 			<?php echo Form::label('Nom', 'nom', array('class'=>'control-label')); ?>
@@ -16,13 +21,13 @@
 		<div class="form-group">
 			<?php echo Form::label('Telephone', 'telephone', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('telephone', Input::post('telephone', isset($contact) ? $contact->telephone : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Telephone')); ?>
+				<?php echo Form::input('telephone', Input::post('telephone', isset($contact->telephone) ? $contact->telephone : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Telephone')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Email', 'email', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('email', Input::post('email', isset($contact) ? $contact->email : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Email')); ?>
+				<?php echo Form::input('email', Input::post('email', isset($contact->telephone) ? $contact->email : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Email')); ?>
 
 		</div>
 		<div class="form-group">

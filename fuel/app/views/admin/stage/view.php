@@ -7,7 +7,17 @@
 				} else { echo $stage->etudiant; } ?></p>
 <p>
 	<strong>Contact:</strong>
-	<?php echo $stage->contact; ?></p>
+	<?php echo $stage->contact_nom; ?></p>
+<p>
+	<strong>Contact email:</strong>
+	<?php if(empty($stage->contact_email)) {
+					echo 'aucun';
+				} else { echo $stage->contact_email; } ?></p>
+<p>
+	<strong>Contact tél:</strong>
+	<?php if(empty($stage->contact_tel)) {
+					echo 'aucun';
+				} else { echo $stage->contact_tel; } ?></p>
 <p>
 	<strong>Enseignant:</strong>
 	<?php if(empty($stage->enseignant)) {

@@ -49,6 +49,12 @@ class Model_Stage extends \Model_Crud
 		return $val;
 	}
 	
+	protected static function pre_find(&$query)
+	{
+	    // alter the query
+	    $query->order_by('date', 'desc');
+	}
+	
 	public static function post_find($result)
 	{
 	    if($result !== null)
@@ -66,7 +72,10 @@ class Model_Stage extends \Model_Crud
 		        		$ent_code = Model_Ville::find_one_by_id($id_ville)->code_postal;
 						$ent_pays = Model_Pays::find_one_by_id($id_pays)->nom;
 		        		$value->set(array(
-					    	'entreprise_nom' => $ent_nom,
+					    	'entreprise' => $ent_nom,
+					    	'ent_ville' => $ent_ville,
+					    	'ent_code' => $ent_code,
+					    	'ent_pays' => $ent_pays,
 							));
 					}
 				}
@@ -84,9 +93,21 @@ class Model_Stage extends \Model_Crud
 					$contact_tel = $contact->get('telephone');
 					$contact_email = $contact->get('email');
 		        	if((!empty($contact)) AND (!empty($contact_np)) AND (!empty($contact_tel)) AND (!empty($contact_email))) {
+		        		if (!empty($contact_np)) {
 		        		$value->set(array(
 					    	'contact_nom' => $contact_np,
 							));
+						}
+						if (!empty($contact_tel)) {
+		        		$value->set(array(
+					    	'contact_tel' => $contact_tel,
+							));
+						}
+						if(!empty($contact_email)) {
+		        		$value->set(array(
+					    	'contact_email' => $contact_email,
+							));
+						}
 					}
 				}
 				if (!empty($value->enseignant)) {

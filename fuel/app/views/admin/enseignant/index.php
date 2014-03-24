@@ -1,4 +1,4 @@
-<h2>Listing Enseignants</h2>
+<h2>Liste des Enseignants</h2>
 <br>
 <?php if ($enseignants): ?>
 <table class="table table-bordered">

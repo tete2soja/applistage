@@ -1,4 +1,4 @@
-<h2>New Contact</h2>
+<h2>Nouveau Contact</h2>
 <br>
 
 <?php echo render('admin/contact/_form'); ?>

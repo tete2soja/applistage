@@ -20,7 +20,7 @@
 			<td><?php echo $stage->date; ?></td>
 			<td><?php echo $stage->entreprise; ?></td>
 			<td><?php echo $stage->sujet; ?></td>
-			<td><?php echo $stage->ent_ville; ?></td>
+			<td><?php echo $stage->ent_ville.' ('.$stage->ent_code.')'; ?></td>
 			<td><?php echo $stage->ent_pays; ?></td>
 			<td>
 				<?php echo Html::anchor('./entreprise/detail/'.$stage->id, 'Voir'); ?>

@@ -47,4 +47,5 @@
 </table>
 
 <?php else: ?>
-<p>No Stages.</p>
+<p>Aucun stage.</p>
+<?php endif; ?><p>
