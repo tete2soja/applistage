@@ -1,13 +1,18 @@
 		<?php echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
-    var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
+	var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
+    var availableEnt = <?php echo str_replace('&quot;', '"', $liste_ent) ?>;
     $( "#ent_pays" ).autocomplete({
     source: availablePays
     });
     $( "#contact_pays" ).autocomplete({
     source: availablePays
     });
+    $( "#ent_nom" ).autocomplete({
+    source: availableEnt
+    });
+    
   });
 </script>
 		<div style="width:90%;
