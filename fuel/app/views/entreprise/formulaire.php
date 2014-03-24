@@ -1,31 +1,11 @@
 		<?php echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
-    var availablePays = [
-    	"Afghanistan",
-	    "Afrique du Sud",
-	    "Albanie",
-	    "Algérie",
-	    "Allemagne",
-	    "Andorre",
-	    "Angola",
-	    "Anguilla",
-	    "Antarctique",
-	    "Antigua-et-Barbuda",
-	    "Antilles néerlandaises",
-	    "Arabie saoudite",
-	    "Argentine",
-	    "Arménie",
-	    "Aruba",
-	    "Australie",
-	    "Autriche",
-	    "Azerbaïdjan",
-	    "Bénin",
-	    "Bahamas",
-	    "Bahreïn",
-	    "Bangladesh"
-	    ];
+    var availablePays = <?php echo json_encode($liste_pays) ?>;
     $( "#ent_pays" ).autocomplete({
+    source: availablePays
+    });
+    $( "#contact_pays" ).autocomplete({
     source: availablePays
     });
   });

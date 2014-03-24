@@ -26,6 +26,12 @@ class Controller_Entreprise extends Controller_Template
 	//Contrôleur de la page formulaire.php
     public function action_formulaire()
     {
+    	$tab_pays = DB::select('nom')->from('pays')->order_by('nom', 'asc')->execute()->as_array();
+    	$pays = \Arr::pluck($tab_pays, 'nom');
+    	$data["liste_pays"] = $pays;
+    	
+    	//print(json_encode($pays));
+
         //Si formulaire soumis on entre
         if (Input::method() == 'POST') {
         	$val1 = '';

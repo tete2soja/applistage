@@ -13,6 +13,15 @@
 	<strong>Email:</strong>
 	<?php echo $contact->email; ?></p>
 <p>
+	<strong>Ville:</strong>
+	<?php echo $contact->ville; ?></p>
+<p>
+	<strong>Code Postal:</strong>
+	<?php echo $contact->code_postal; ?></p>
+<p>
+	<strong>Pays:</strong>
+	<?php echo $contact->pays; ?></p>
+<p>
 	<strong>Entreprise:</strong>
 	<?php echo $contact->entreprise; ?></p>
 <p>

@@ -23,9 +23,9 @@ class Controller_Admin_Contact extends Controller_Template{
 	public function action_index()
 	{
 		$data['contacts'] = Model_Contact::find_all();
-		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Enseignant';
+		$this->template->sub_title = 'Contact';
 		$this->template->content = View::forge('admin/contact/index', $data);
 
 	}
@@ -36,9 +36,9 @@ class Controller_Admin_Contact extends Controller_Template{
 
 		$data['contact'] = Model_Contact::find_by_pk($id);
 
-		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Enseignant';
+		$this->template->sub_title = 'Contact';
 		$this->template->content = View::forge('admin/contact/view', $data);
 
 	}
@@ -56,6 +56,8 @@ class Controller_Admin_Contact extends Controller_Template{
 					'prenom' => Input::post('prenom'),
 					'telephone' => Input::post('telephone'),
 					'email' => Input::post('email'),
+					'ville' => Input::post('ville'),
+					'pays' => Input::post('pays'),
 					'entreprise' => Input::post('entreprise'),
 					'encadre' => Input::post('encadre'),
 					'signe' => Input::post('signe'),
@@ -78,9 +80,9 @@ class Controller_Admin_Contact extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Enseignant';
+		$this->template->sub_title = 'Contact';
 		$this->template->content = View::forge('admin/contact/create');
 
 	}
@@ -101,6 +103,8 @@ class Controller_Admin_Contact extends Controller_Template{
 				$contact->prenom = Input::post('prenom');
 				$contact->telephone = Input::post('telephone');
 				$contact->email = Input::post('email');
+				$contact->ville = Input::post('ville');
+				$contact->pays = Input::post('pays');
 				$contact->entreprise = Input::post('entreprise');
 				$contact->encadre = Input::post('encadre');
 				$contact->signe = Input::post('signe');
@@ -123,9 +127,9 @@ class Controller_Admin_Contact extends Controller_Template{
 		}
 
 		$this->template->set_global('contact', $contact, false);
-		$this->template->title = "Enseignant &raquo; Gestion";
+		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Enseignant';
+		$this->template->sub_title = 'Contact';
 		$this->template->content = View::forge('admin/contact/edit');
 
 	}
