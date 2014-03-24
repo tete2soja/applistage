@@ -15,7 +15,7 @@
 	</thead>
 	<tbody>
 	<?php foreach ($stages as $item):
-		if ((!empty($item->etudiant))&&($item->valide == 1)) {
+		if ((!empty($item->etudiant))&&($item->etat == 1)) {
 	?>
 		<tr>
 
