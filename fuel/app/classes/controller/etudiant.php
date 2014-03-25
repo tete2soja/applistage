@@ -127,7 +127,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/proposition', $data);
 	}
 
-	public function action_detail($id = null)
+	public function action_details($id = null)
 	{
 		is_null($id) and Response::redirect('etudiant/proposition');
 
@@ -136,7 +136,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->title = "Stage &raquo; Détails";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
-		$this->template->content = View::forge('etudiant/detail', $data);
+		$this->template->content = View::forge('etudiant/details', $data);
 
 	}
 

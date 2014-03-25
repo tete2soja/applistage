@@ -4,7 +4,7 @@
 	<strong>Nom:</strong>
 	<?php echo $enseignant->nom; ?></p>
 <p>
-	<strong>Prenom:</strong>
+	<strong>Prénom:</strong>
 	<?php echo $enseignant->prenom; ?></p>
 <p>
 	<strong>Email:</strong>

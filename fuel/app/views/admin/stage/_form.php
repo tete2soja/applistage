@@ -9,25 +9,25 @@
 		<div class="form-group">
 			<?php echo Form::label('Etudiant', 'etudiant', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('etudiant', Input::post('etudiant', isset($stage->etudiant) ? $stage->etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Etudiant')); ?>
+				<?php echo Form::input('etudiant', Input::post('etudiant', isset($stage->no_etudiant) ? $stage->no_etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Etudiant')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Contact', 'contact', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('contact', Input::post('contact', isset($stage) ? $stage->contact : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Contact')); ?>
+				<?php echo Form::input('contact', Input::post('contact', isset($stage) ? $stage->contact_nom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Contact')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Enseignant', 'enseignant', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('enseignant', Input::post('enseignant', isset($stage->enseignant) ? $stage->enseignant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Enseignant')); ?>
+				<?php echo Form::input('enseignant', Input::post('enseignant', isset($stage->enseignant_nom) ? $stage->enseignant_nom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Enseignant')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Entreprise', 'entreprise', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('entreprise', Input::post('entreprise', isset($stage) ? $stage->entreprise : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>
+				<?php echo Form::input('entreprise', Input::post('entreprise', isset($stage) ? $stage->ent_nom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>
 
 		</div>
 		<div class="form-group">
@@ -104,6 +104,6 @@
 		</div>
 		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
-			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>		</div>
+			<?php echo Form::submit('submit', 'Sauver', array('class' => 'btn btn-primary')); ?>		</div>
 	</div>
 <?php echo Form::close(); ?>

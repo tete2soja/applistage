@@ -1,16 +1,16 @@
 <h2><?php echo $etudiant->nom . " " . $etudiant->prenom; ?></h2>
 
 <p>
-	<strong>No etudiant:</strong>
+	<strong>No étudiant:</strong>
 	<?php echo $etudiant->no_etudiant; ?></p>
 <p>
 	<strong>Nom:</strong>
 	<?php echo $etudiant->nom; ?></p>
 <p>
-	<strong>Prenom:</strong>
+	<strong>Prénom:</strong>
 	<?php echo $etudiant->prenom; ?></p>
 <p>
-	<strong>Datedenaissance:</strong>
+	<strong>Date de naissance:</strong>
 	<?php echo $etudiant->datenaissance; ?></p>
 <p>
 	<strong>Sexe:</strong>
@@ -22,7 +22,7 @@
 	<strong>Mention:</strong>
 	<?php echo $etudiant->bac_mention; ?></p>
 <p>
-	<strong>Bac annee:</strong>
+	<strong>Bac année:</strong>
 	<?php echo $etudiant->bac_annee; ?></p>
 <p>
 	<strong>Email:</strong>
@@ -46,8 +46,8 @@
 	<strong>Telephone2:</strong>
 	<?php echo $etudiant->telephone2; ?></p>
 <p>
-	<strong>Iut annee:</strong>
+	<strong>Iut année:</strong>
 	<?php echo $etudiant->iut_annee; ?></p>
 
-<?php echo Html::anchor('admin/etudiant/edit/'.$etudiant->id, 'Edit'); ?> |
-<?php echo Html::anchor('admin/etudiant', 'Back'); ?>
+<?php echo Html::anchor('admin/etudiant/edit/'.$etudiant->id, 'Editer'); ?> |
+<?php echo Html::anchor('admin/etudiant', 'Retour'); ?>

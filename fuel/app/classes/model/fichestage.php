@@ -11,7 +11,7 @@ class Model_Fichestage extends \Model_Crud
 		'observations_resp',
 		'indemnite',
 		'entreprise',
-		'responsable_legal',
+		'responsable_tech',
 		'responsable_adm',
 		'contact_urgence',
 		'rpz_np',
@@ -53,7 +53,7 @@ class Model_Fichestage extends \Model_Crud
 		$val->add_field('observations_resp', 'Observations Resp', 'required|max_length[255]');
 		$val->add_field('indemnite', 'Indemnite', 'required|valid_string[numeric]');
 		$val->add_field('entreprise', 'Entreprise', 'required|valid_string[numeric]');
-		$val->add_field('responsable_legal', 'Responsable Legal', 'required|valid_string[numeric]');
+		$val->add_field('responsable_tech', 'Responsable Tech', 'required|valid_string[numeric]');
 		$val->add_field('responsable_adm', 'Responsable Adm', 'required|valid_string[numeric]');
 		$val->add_field('contact_urgence', 'Contact Urgence', 'required|max_length[255]');
 		$val->add_field('rpz_np', 'Rpz Np', 'required|max_length[255]');
@@ -92,7 +92,7 @@ class Model_Fichestage extends \Model_Crud
 		        		$ent_code = Model_Ville::find_one_by_id($id_ville)->code_postal;
 						$ent_pays = Model_Pays::find_one_by_id($id_pays)->nom;
 		        		$value->set(array(
-					    	'entreprise_nom' => $ent_nom,
+					    	'ent_nom' => $ent_nom,
 					    	'ent_ville' => $ent_ville,
 					    	'ent_pays' => $ent_pays,
 					    	'ent_url' => $ent_url,
@@ -102,22 +102,37 @@ class Model_Fichestage extends \Model_Crud
 					}
 				}
 				if (!empty($value->etudiant)) {
-					$no_etudiant = DB::select('no_etudiant')->from('etudiant')->where('id', $value->etudiant)->execute()->get('no_etudiant');
+					$etudiant = DB::select('no_etudiant', 'nom', 'prenom')->from('etudiant')->where('id', $value->etudiant)->execute();
+					$no_etudiant = $etudiant->get('no_etudiant');
+					$etudiant_np = $etudiant->get('prenom')." ".$etudiant->get('nom');
 		        	if(!empty($no_etudiant)) {
 		        		$value->set(array(
 					    	'no_etudiant' => $no_etudiant,
+					    	'etudiant_np' => $etudiant_np,
 							));
 					}
 				}
-				if (!empty($value->responsable_legal)) {
+				if (!empty($value->responsable_tech)) {
 					$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->responsable_legal)->execute();
 					$contact_np = $contact->get('prenom')." ".$contact->get('nom');
 					$contact_tel = $contact->get('telephone');
 					$contact_email = $contact->get('email');
-		        	if((!empty($contact)) AND (!empty($contact_np)) AND (!empty($contact_tel)) AND (!empty($contact_email))) {
+					if (!empty($contact)) {
+		        		if (!empty($contact_np)) {
 		        		$value->set(array(
-					    	'responsable_legal_nom' => $contact_np,
+					    	'responsable_tech_np' => $contact_np,
 							));
+						}
+						if (!empty($contact_tel)) {
+		        		$value->set(array(
+					    	'responsable_tech_tel' => $contact_tel,
+							));
+						}
+						if(!empty($contact_email)) {
+		        		$value->set(array(
+					    	'responsable_tech_email' => $contact_email,
+							));
+						}
 					}
 				}
 				if (!empty($value->responsable_adm)) {
@@ -125,10 +140,22 @@ class Model_Fichestage extends \Model_Crud
 					$contact_np = $contact->get('prenom')." ".$contact->get('nom');
 					$contact_tel = $contact->get('telephone');
 					$contact_email = $contact->get('email');
-		        	if((!empty($contact)) AND (!empty($contact_np)) AND (!empty($contact_tel)) AND (!empty($contact_email))) {
+		        	if (!empty($contact)) {
+		        		if (!empty($contact_np)) {
 		        		$value->set(array(
-					    	'responsable_adm_nom' => $contact_np,
+					    	'responsable_adm_np' => $contact_np,
 							));
+						}
+						if (!empty($contact_tel)) {
+		        		$value->set(array(
+					    	'responsable_adm_tel' => $contact_tel,
+							));
+						}
+						if(!empty($contact_email)) {
+		        		$value->set(array(
+					    	'responsable_adm_email' => $contact_email,
+							));
+						}
 					}
 				}
 			}

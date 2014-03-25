@@ -1,13 +1,13 @@
-<h2>Viewing #<?php echo $stage->id; ?></h2>
+<h2>Détails #<?php echo $stage->id; ?></h2>
 
 <p>
 	<strong>Etudiant:</strong>
 	<?php if(empty($stage->etudiant)) {
 					echo 'aucun';
-				} else { echo $stage->etudiant; } ?></p>
+				} else { echo Html::anchor('admin/etudiant/view/'.$stage->etudiant, $stage->no_etudiant); } ?></p>
 <p>
 	<strong>Contact:</strong>
-	<?php echo $stage->contact_nom; ?></p>
+	<?php echo Html::anchor('admin/contact/view/'.$stage->contact, $stage->contact_nom); ?></p>
 <p>
 	<strong>Contact email:</strong>
 	<?php if(empty($stage->contact_email)) {
@@ -17,26 +17,26 @@
 	<strong>Contact tél:</strong>
 	<?php if(empty($stage->contact_tel)) {
 					echo 'aucun';
-				} else { echo $stage->contact_tel; } ?></p>
+				} else { echo $stage->contact_tel.'</a>'; } ?></p>
 <p>
 	<strong>Enseignant:</strong>
 	<?php if(empty($stage->enseignant)) {
 					echo 'aucun';
-				} else { echo $stage->enseignant; } ?></p>
+				} else { echo '<a href="admin/enseignant/view/' . $stage->enseignant . '">' . $stage->enseignant_nom.'</a>'; } ?></p>
 <p>
 	<strong>Entreprise:</strong>
-	<?php echo $stage->entreprise; ?></p>
+	<?php echo '<a href="admin/entreprise/view/' . $stage->entreprise . '">' . $stage->ent_nom.'</a>'; ?></p>
 <p>
 	<strong>Sujet:</strong>
 	<?php echo $stage->sujet; ?></p>
 <p>
-	<strong>Visibilite:</strong>
+	<strong>Visibilité:</strong>
 	<?php echo $stage->visibilite; ?></p>
 <p>
 	<strong>Contexte:</strong>
 	<?php echo $stage->contexte; ?></p>
 <p>
-	<strong>Resultats:</strong>
+	<strong>Résultats:</strong>
 	<?php echo $stage->resultats; ?></p>
 <p>
 	<strong>Conditions:</strong>
@@ -46,7 +46,7 @@
 <p>
 	<strong>Url doc:</strong><?php if(empty($stage->url_doc)) {
 					echo ' aucun';
-				} else { echo ' ' . Html::anchor($stage->url_doc, $stage->url_doc); } ?>
+				} else { echo ' ' . Html::anchor($stage->url_doc, $stage->url_doc); } ?></p>
 <p>
 	<strong>Public:</strong>
 	<?php echo $stage->public; ?></p>

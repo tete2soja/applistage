@@ -1,4 +1,4 @@
-<h2>Listing Etudiants</h2>
+<h2>Liste des Etudiants</h2>
 <br>
 <?php if ($etudiants): ?>
 <table class="table table-bordered">
@@ -6,9 +6,9 @@
 		<tr>
 			<th>No etudiant</th>
 			<th>Nom</th>
-			<th>Prenom</th>
-			<th>Datenaissance</th>
-			<th>Iut annee</th>
+			<th>Prénom</th>
+			<th>Date de naissance</th>
+			<th>Iut année</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -29,8 +29,8 @@
 </table>
 
 <?php else: ?>
-<p>No Etudiants.</p>
+<p>Au Etudiant.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/etudiant/create', 'Add new Etudiant', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('admin/etudiant/create', 'Ajouter un Etudiant', array('class' => 'btn btn-success')); ?>
 </p>

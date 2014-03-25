@@ -1,4 +1,4 @@
-<h2>Editing Convention</h2>
+<h2>Edition Convention</h2>
 <br>
 
 <?php echo render('admin/convention/_form'); ?>

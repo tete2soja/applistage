@@ -14,13 +14,13 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Prenom', 'prenom', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Prénom', 'prenom', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('prenom', Input::post('prenom', isset($etudiant) ? $etudiant->prenom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Prenom')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Datenaissance', 'datenaissance', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Date de naissance', 'datenaissance', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('datedenaissance', Input::post('datenaissance', isset($etudiant) ? $etudiant->datenaissance : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Datedenaissance')); ?>
 
@@ -44,7 +44,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Bac annee', 'bac_annee', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Bac année', 'bac_annee', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('bac_annee', Input::post('bac_annee', isset($etudiant) ? $etudiant->bac_annee : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Bac annee')); ?>
 
@@ -92,7 +92,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Iut annee', 'iut_annee', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Iut année', 'iut_annee', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('iut_annee', Input::post('iut_annee', isset($etudiant) ? $etudiant->iut_annee : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Iut annee')); ?>
 

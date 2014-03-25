@@ -16,12 +16,12 @@
 	<strong>Url entreprise:</strong>
 	<?php if(empty($entreprise->url_entreprise)) {
 					echo 'Aucun';
-				} else { echo ' ' . Html::anchor($entreprise->url_entreprise, $entreprise->url_entreprise); } ?>
+				} else { echo ' ' . Html::anchor($entreprise->url_entreprise, $entreprise->url_entreprise); } ?></p>
 <p>
 	<strong>Stagiaire:</strong>
 	<?php if(empty($entreprise->stagiaire)) {
 					echo 'Aucun';
-				} else { echo $entreprise->stagiaire; } ?>
+				} else { echo $entreprise->stagiaire; } ?></p>
 
 <?php echo Html::anchor('admin/entreprise/edit/'.$entreprise->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/entreprise', 'Retour'); ?>

@@ -7,15 +7,12 @@
 			<th>Etudiant</th>
 			<th>Sujet</th>
 			<th>Entreprise</th>
-			<th>Responsable legal</th>
+			<th>Responsable tech</th>
 			<th>Responsable adm</th>
 			<th>Origine</th>
 			<th>Type</th>
 			<th>Langue</th>
 			<th>Durée</th>
-			<th>Début</th>
-			<th>Fin</th>
-			<th>Allongé</th>
 			<th>Etat</th>
 			<th></th>
 		</tr>
@@ -26,19 +23,16 @@
 			<td><?php if(empty($item->etudiant))
 					echo 'aucun';
 				else
-					echo '<a href="../etudiant/view/' . $item->etudiant . '" />' . $item->no_etudiant;
+					echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
 				?></td>
 			<td><?php echo $item->sujet; ?></td>
-			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->entreprise_nom; ?></td>
-			<td><?php echo '<a href="../contact/view/' . $item->responsable_legal . '" />' . $item->responsable_legal_nom; ?></td>
-			<td><?php echo '<a href="../contact/view/' . $item->responsable_adm . '" />' . $item->responsable_adm_nom; ?></td>
+			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>
+			<td><?php echo Html::anchor('admin/contact/view/'.$item->responsable_tech, $item->responsable_tech_np); ?></td>
+			<td><?php echo Html::anchor('admin/contact/view/'.$item->responsable_adm, $item->responsable_adm_np); ?></td>
 			<td><?php echo $item->origine_offre; ?></td>
 			<td><?php echo $item->type; ?></td>
 			<td><?php echo $item->langue; ?></td>
 			<td><?php echo $item->duree; ?></td>
-			<td><?php echo $item->date_debut; ?></td>
-			<td><?php echo $item->date_fin; ?></td>
-			<td><?php echo $item->allongee; ?></td>
 			<td><?php echo $item->etat; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/convention/view/'.$item->id, 'Voir'); ?> |

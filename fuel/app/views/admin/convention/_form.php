@@ -4,7 +4,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Etudiant', 'etudiant', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('etudiant', Input::post('etudiant', isset($convention) ? $convention->etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Etudiant')); ?>
+				<?php echo Form::input('etudiant', Input::post('etudiant', isset($convention) ? $convention->no_etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Etudiant')); ?>
 
 		</div>
 		<div class="form-group">
@@ -14,7 +14,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Description stage', 'description_stage', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Déscription stage', 'description_stage', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('description_stage', Input::post('description_stage', isset($convention) ? $convention->description_stage : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Description stage')); ?>
 
@@ -32,7 +32,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Indemnite', 'indemnite', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Indémnite', 'indemnite', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('indemnite', Input::post('indemnite', isset($convention) ? $convention->indemnite : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Indemnite')); ?>
 
@@ -40,19 +40,19 @@
 		<div class="form-group">
 			<?php echo Form::label('Entreprise', 'entreprise', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('entreprise', Input::post('entreprise', isset($convention) ? $convention->entreprise : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>
+				<?php echo Form::input('entreprise', Input::post('entreprise', isset($convention) ? $convention->ent_nom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Responsable legal', 'responsable_legal', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Responsable légal', 'responsable_legal', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('responsable_legal', Input::post('responsable_legal', isset($convention) ? $convention->responsable_legal : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Responsable legal')); ?>
+				<?php echo Form::input('responsable_legal', Input::post('responsable_legal', isset($convention) ? $convention->responsable_tech_np : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Responsable legal')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Responsable adm', 'responsable_adm', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('responsable_adm', Input::post('responsable_adm', isset($convention) ? $convention->responsable_adm : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Responsable adm')); ?>
+				<?php echo Form::input('responsable_adm', Input::post('responsable_adm', isset($convention) ? $convention->responsable_adm_np : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Responsable adm')); ?>
 
 		</div>
 		<div class="form-group">
@@ -62,19 +62,19 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Rpz np', 'rpz_np', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Représentant légal', 'rpz_np', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('rpz_np', Input::post('rpz_np', isset($convention) ? $convention->rpz_np : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Rpz np')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Rpz adresse', 'rpz_adresse', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Représentant légal adresse', 'rpz_adresse', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('rpz_adresse', Input::post('rpz_adresse', isset($convention) ? $convention->rpz_adresse : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Rpz adresse')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Rpz tel', 'rpz_tel', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Représentant légal tel', 'rpz_tel', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('rpz_tel', Input::post('rpz_tel', isset($convention) ? $convention->rpz_tel : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Rpz tel')); ?>
 
@@ -98,13 +98,13 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Duree', 'duree', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Durée', 'duree', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('duree', Input::post('duree', isset($convention) ? $convention->duree : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Duree')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Date debut', 'date_debut', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Date début', 'date_debut', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('date_debut', Input::post('date_debut', isset($convention) ? $convention->date_debut : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Date debut')); ?>
 
@@ -116,7 +116,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Allongee', 'allongee', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Allongée', 'allongee', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('allongee', Input::post('allongee', isset($convention) ? $convention->allongee : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Allongee')); ?>
 
@@ -134,7 +134,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Retribution', 'retribution', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Rétribution', 'retribution', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('retribution', Input::post('retribution', isset($convention) ? $convention->retribution : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Retribution')); ?>
 

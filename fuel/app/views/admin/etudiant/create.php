@@ -1,4 +1,4 @@
-<h2>New Etudiant</h2>
+<h2>Nouvel Etudiant</h2>
 <br>
 
 <?php echo render('admin/etudiant/_form'); ?>

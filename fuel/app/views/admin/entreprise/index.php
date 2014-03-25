@@ -29,7 +29,7 @@
 </table>
 
 <?php else: ?>
-<p>No Entreprises.</p>
+<p>Aucune Entreprise.</p>
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('admin/entreprise/create', 'Ajouter une entreprise', array('class' => 'btn btn-success')); ?>

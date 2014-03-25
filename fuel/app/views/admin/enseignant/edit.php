@@ -1,4 +1,4 @@
-<h2>Editing Enseignant</h2>
+<h2>Edition Enseignant</h2>
 <br>
 
 <?php echo render('admin/enseignant/_form'); ?>

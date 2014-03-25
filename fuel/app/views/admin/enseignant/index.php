@@ -5,7 +5,7 @@
 	<thead>
 		<tr>
 			<th>Nom</th>
-			<th>Prenom</th>
+			<th>Prénom</th>
 			<th>Email</th>
 			<th></th>
 		</tr>
@@ -27,7 +27,7 @@
 </table>
 
 <?php else: ?>
-<p>No Enseignants.</p>
+<p>Aucun Enseignant.</p>
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('admin/enseignant/create', 'Ajouter un enseignant', array('class' => 'btn btn-success')); ?>

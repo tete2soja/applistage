@@ -1,13 +1,13 @@
-<h2>Viewing #<?php echo $contact->id; ?></h2>
+<h2>Détails #<?php echo $contact->id; ?></h2>
 
 <p>
 	<strong>Nom:</strong>
 	<?php echo $contact->nom; ?></p>
 <p>
-	<strong>Prenom:</strong>
+	<strong>Prénom:</strong>
 	<?php echo $contact->prenom; ?></p>
 <p>
-	<strong>Telephone:</strong>
+	<strong>Téléphone:</strong>
 	<?php echo $contact->telephone; ?></p>
 <p>
 	<strong>Email:</strong>
@@ -23,7 +23,7 @@
 	<?php echo $contact->pays; ?></p>
 <p>
 	<strong>Entreprise:</strong>
-	<?php echo $contact->entreprise; ?></p>
+	<?php echo Html::anchor('admin/entreprise/view/'.$contact->entreprise, $contact->ent_nom); ?></p>
 <p>
 	<strong>Encadre:</strong>
 	<?php echo $contact->encadre; ?></p>

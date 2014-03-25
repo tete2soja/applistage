@@ -1,8 +1,11 @@
-<h2>Convention #<?php echo $convention->id; ?></h2>
+<h2>Détails #<?php echo $convention->id; ?></h2>
 
 <p>
+	<strong>Numéro Etudiant:</strong>
+	<?php echo Html::anchor('admin/etudiant/view/'.$convention->id, $convention->etudiant); ?></p>
+<p>
 	<strong>Etudiant:</strong>
-	<?php echo $convention->etudiant; ?></p>
+	<?php echo $convention->etudiant_np; ?></p>
 <p>
 	<strong>Sujet:</strong>
 	<?php echo $convention->sujet; ?></p>
@@ -16,28 +19,28 @@
 	<strong>Observations resp:</strong>
 	<?php echo $convention->observations_resp; ?></p>
 <p>
-	<strong>Indemnite:</strong>
+	<strong>Indemnité:</strong>
 	<?php echo $convention->indemnite; ?></p>
 <p>
 	<strong>Entreprise:</strong>
-	<?php echo $convention->entreprise; ?></p>
+	<?php echo Html::anchor('admin/entreprise/view/'.$convention->entreprise, $convention->ent_nom); ?></p>
 <p>
-	<strong>Responsable legal:</strong>
-	<?php echo $convention->responsable_legal; ?></p>
+	<strong>Responsable légal:</strong>
+	<?php echo Html::anchor('admin/contact/view/'.$convention->responsable_tech, $convention->responsable_tech_np); ?></p>
 <p>
 	<strong>Responsable adm:</strong>
-	<?php echo $convention->responsable_adm; ?></p>
+	<?php echo Html::anchor('admin/contact/view/'.$convention->responsable_adm, $convention->responsable_adm_np); ?></p>
 <p>
 	<strong>Contact urgence:</strong>
 	<?php echo $convention->contact_urgence; ?></p>
 <p>
-	<strong>Rpz np:</strong>
+	<strong>Représentant légal:</strong>
 	<?php echo $convention->rpz_np; ?></p>
 <p>
-	<strong>Rpz adresse:</strong>
+	<strong>Représentant légal adresse:</strong>
 	<?php echo $convention->rpz_adresse; ?></p>
 <p>
-	<strong>Rpz tel:</strong>
+	<strong>Représentant légal tel:</strong>
 	<?php echo $convention->rpz_tel; ?></p>
 <p>
 	<strong>Origine offre:</strong>
@@ -49,7 +52,7 @@
 	<strong>Langue:</strong>
 	<?php echo $convention->langue; ?></p>
 <p>
-	<strong>Duree:</strong>
+	<strong>Durée:</strong>
 	<?php echo $convention->duree; ?></p>
 <p>
 	<strong>Date de debut:</strong>
@@ -58,16 +61,16 @@
 	<strong>Date de fin:</strong>
 	<?php echo $convention->date_fin; ?></p>
 <p>
-	<strong>Durée allongé :</strong>
+	<strong>Durée allongée :</strong>
 	<?php echo $convention->allongee; ?></p>
 <p>
-	<strong>Nb jour semaine:</strong>
+	<strong>Nombre jour/semaine:</strong>
 	<?php echo $convention->nb_jour_semaine; ?></p>
 <p>
 	<strong>Horaire hebdo:</strong>
 	<?php echo $convention->horaire_hebdo; ?></p>
 <p>
-	<strong>Retribution:</strong>
+	<strong>Rétribution:</strong>
 	<?php echo $convention->retribution; ?></p>
 <p>
 	<strong>Nature:</strong>

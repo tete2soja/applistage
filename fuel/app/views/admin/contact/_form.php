@@ -13,13 +13,13 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Prenom', 'prenom', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Prénom', 'prenom', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('prenom', Input::post('prenom', isset($contact) ? $contact->prenom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Prenom')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Telephone', 'telephone', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Téléphone', 'telephone', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('telephone', Input::post('telephone', isset($contact->telephone) ? $contact->telephone : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Telephone')); ?>
 
@@ -51,7 +51,7 @@
 		<div class="form-group">
 			<?php echo Form::label('Entreprise', 'entreprise', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('entreprise', Input::post('entreprise', isset($contact) ? $contact->entreprise : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>
+				<?php echo Form::input('entreprise', Input::post('entreprise', isset($contact) ? $contact->ent_nom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>
 
 		</div>
 		<div class="form-group">

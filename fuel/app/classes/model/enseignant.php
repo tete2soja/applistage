@@ -7,7 +7,6 @@ class Model_Enseignant extends \Model_Crud
 		'no_enseignant',
 		'nom',
 		'prenom',
-		'telephone',
 	);
 
 	protected static $_observers = array(

@@ -1,7 +1,20 @@
 <h2>Stage #<?php echo $stage->id; ?></h2>
 <p>
 	<strong>Entreprise:</strong>
-	<?php echo $stage->entreprise; ?></p>
+	<?php echo $stage->ent_nom; ?></p>
+<p>
+	<strong>Contact:</strong>
+	<?php echo $stage->contact_nom; ?></p>
+<p>
+	<strong>Contact email:</strong>
+	<?php if(empty($stage->contact_email)) {
+					echo 'aucun';
+				} else { echo $stage->contact_email; } ?></p>
+<p>
+	<strong>Contact tél:</strong>
+	<?php if(empty($stage->contact_tel)) {
+					echo 'aucun';
+				} else { echo $stage->contact_tel; } ?></p>
 <p>
 	<strong>Ville:</strong>	
 	<?php echo $stage->ent_ville; ?></p>
@@ -33,4 +46,5 @@
 	<strong>Date:</strong>
 	<?php echo $stage->date; ?></p>
 <br />
-<?php echo Html::anchor('entreprise/liste', 'Retour'); ?>
+<a type="button" class="btn btn-success" href= <?php echo '"../formulaire/' . $stage->id . '"'; ?> >Prendre ce stage</a> |
+<?php echo Html::anchor('etudiant/proposition', 'Retour'); ?>

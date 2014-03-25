@@ -8,7 +8,7 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Prenom', 'prenom', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Prénom', 'prenom', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('prenom', Input::post('prenom', isset($enseignant) ? $enseignant->prenom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Prenom')); ?>
 

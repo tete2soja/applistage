@@ -68,7 +68,7 @@ class Model_Contact extends \Model_Crud
 				if (!empty($value->entreprise)) {
 					$entreprise = Model_Entreprise::find_one_by_id($value->entreprise)->nom;
 	        		$value->set(array(
-				    	'entreprise' => $entreprise,
+				    	'ent_nom' => $entreprise,
 						));
 				}
 			}

@@ -90,7 +90,7 @@ class Controller_Entreprise extends Controller_Template
 	            if ($ville_ent and $ville_ent->save())
 	            {
 	            	$id_ville_ent = $ville_ent->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Ville entreprise ajouté #'.$ville_ent->id.'. ');
+	                Session::set_flash('success', $val1 = $val1 . 'Ville entreprise ajoutée #'.$ville_ent->id.'. ');
 	            }
 	
 	            else
@@ -121,7 +121,7 @@ class Controller_Entreprise extends Controller_Template
 	            if ($entreprise and $entreprise->save())
 	            {
 	            	$id_entreprise = $entreprise->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Entreprise ajouté #'.$entreprise->id.'. ');
+	                Session::set_flash('success', $val1 = $val1 . 'Entreprise ajoutée #'.$entreprise->id.'. ');
 	            }
 	
 	            else
@@ -206,7 +206,7 @@ class Controller_Entreprise extends Controller_Template
         $this->template->content = View::forge('entreprise/liste', $data);
     }
 
-	public function action_detail($id = null)
+	public function action_details($id = null)
 	{
 		is_null($id) and Response::redirect('entreprise/liste');
 
@@ -215,7 +215,7 @@ class Controller_Entreprise extends Controller_Template
 		$this->template->title = "Stage &raquo; Détails";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Entreprise';
-		$this->template->content = View::forge('entreprise/detail', $data);
+		$this->template->content = View::forge('entreprise/details', $data);
 
 	}
 

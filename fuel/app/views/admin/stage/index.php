@@ -25,17 +25,17 @@
 				<?php if(empty($item->etudiant))
 					echo 'aucun';
 				else
-					echo '<a href="../etudiant/view/' . $item->etudiant . '" />' . $item->no_etudiant;
+					echo '<a href="../etudiant/view/' . $item->etudiant . '">' . $item->no_etudiant.'</a>';
 				?>
 			</td>
 			<td>
 				<?php if(empty($item->enseignant))
 						echo 'aucun';
 					else
-						echo '<a href="../enseignant/view/' . $item->enseignant . '" />' . $item->enseignant_nom;
+						echo '<a href="../enseignant/view/' . $item->enseignant . '">' . $item->enseignant_nom.'</a>';
 				?>
 			</td>
-			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->entreprise;?></td>
+			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '">' . $item->ent_nom.'</a>';?></td>
 			<td><?php echo $item->sujet; ?></td>
 			<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
 			<td><?php echo $item->ent_pays; ?></td>

@@ -5,8 +5,8 @@
 	<thead>
 		<tr>
 			<th>Nom</th>
-			<th>Prenom</th>
-			<th>Telephone</th>
+			<th>Prénom</th>
+			<th>Téléphone</th>
 			<th>Email</th>
 			<th>Ville</th>
 			<th>Code Postal</th>
@@ -26,7 +26,7 @@
 			<td><?php echo $item->ville; ?></td>
 			<td><?php echo $item->code_postal; ?></td>
 			<td><?php echo $item->pays; ?></td>
-			<td><?php echo $item->entreprise; ?></td>
+			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->ent_nom;?></td>
 			<td>
 				<?php
 					$status = "";
