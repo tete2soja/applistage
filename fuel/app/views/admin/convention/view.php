@@ -81,8 +81,8 @@
 
 <form method="POST">
 	<div class="btn-group">
-		<button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimée</button>
 		<button type="submit" name="incomplete" class="btn btn-warning" value=<?php echo "\"" . $convention->id . "\""; ?> >Incomplète</button>
+		<button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimée</button>
 	</div>
 </form>
 <?php echo Html::anchor('admin/convention/edit/'.$convention->id, 'Editer'); ?> |

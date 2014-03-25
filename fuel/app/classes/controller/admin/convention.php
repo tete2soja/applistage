@@ -26,11 +26,23 @@ class Controller_Admin_Convention extends Controller_Template{
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
-		$this->template->content = View::forge('admin/convention/index', $data);
+		$this->template->content = View::forge('admin/convention/index', $data);		
 
-		if (Input::method() == 'POST')
-		{
-			$pdf = \Pdf::factory('tcpdf')->init();
+		if (isset($_POST['incomplete'])) {
+			$id = $_POST['incomplete'];
+			$query = DB::update('fichestages');
+			$query->value('etat', '1');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/convention/');
+		}
+		else if (isset($_POST['imprime'])) {
+			$id = $_POST['imprime'];
+			$query = DB::update('fichestages');
+			$query->value('etat', '2');
+			$query->where('id', $id);
+			$query->execute();
+			/*$pdf = \Pdf::factory('tcpdf')->init();
 	        $pdf->AddPage();
 	        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
 	        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
@@ -40,44 +52,16 @@ class Controller_Admin_Convention extends Controller_Template{
 	        <img src="http://i59.tinypic.com/keub1l.png" alt="" align="right" style="height:45px;width:228px;"/>
 	        <h1 style="text-align:center;">CONVENTION DE STAGE</h1>
 	        <p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
-			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>
-    <ol>
-    <li><b>bold text</b></li>
-    <li><i>italic text</i></li>
-    <li><u>underlined text</u></li>
-    <li><b>b<i>bi<u>biu</u>bi</i>b</b></li>
-    <li><a href="http://www.tecnick.com" dir="ltr">link to http://www.tecnick.com</a></li>
-    <li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<br />Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</li>
-    <li>SUBLIST
-        <ol>
-            <li>row one
-                <ul>
-                    <li>sublist</li>
-                </ul>
-            </li>
-            <li>row two</li>
-        </ol>
-    </li>
-    <li><b>T</b>E<i>S</i><u>T</u> <del>line through</del></li>
-    <li><font size="+3">font + 3</font></li>
-    <li><small>small text</small> normal <small>small text</small> normal <sub>subscript</sub> normal <sup>superscript</sup> normal</li>
-</ol>
-<dl>
-    <dt>Coffee</dt>
-    <dd>Black hot drink</dd>
-    <dt>Milk</dt>
-    <dd>White cold drink</dd>
-</dl>
-<div style="text-align:center">IMAGES<br />
-</div>';
+			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>';
 	        $pdf->writeHTML($html, true, false, true, false, 'center');
 	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 	        $pdf->AddPage();
 	        $html2 = '<p>Les horaires de travail sont ceux pratiqués au sein de l’organisme. L’étudiant est présent dans l’organisme {stgjheb} jours et {stghheb} heures au maximum par semaine. Pendant la durée du stage, l’étudiant stagiaire peut être autorisé à revenir à l’Université pour y suivre certains cours. Le calendrier est porté à la connaissance du tuteur de l’organisme avant le début du stage. Toute modification substantielle de l’organisation du stage dans le temps donne lieu à un avenant à la présente convention.</p>';
 	        $pdf->writeHTML($html2, true, false, true, false, 'center');
 	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-	        $pdf->Output();
-	    }
+	        $pdf->Output();*/
+			Response::redirect('admin/convention/');
+		}
 
 	}
 
@@ -90,7 +74,42 @@ class Controller_Admin_Convention extends Controller_Template{
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
-		$this->template->content = View::forge('admin/convention/view', $data);
+		$this->template->content = View::forge('admin/convention/view', $data);		
+
+		if (isset($_POST['incomplete'])) {
+			$id = $_POST['incomplete'];
+			$query = DB::update('fichestages');
+			$query->value('etat', '1');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/convention/');
+		}
+		else if (isset($_POST['imprime'])) {
+			$id = $_POST['imprime'];
+			$query = DB::update('fichestages');
+			$query->value('etat', '2');
+			$query->where('id', $id);
+			$query->execute();
+			/*$pdf = \Pdf::factory('tcpdf')->init();
+	        $pdf->AddPage();
+	        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+	        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+	        $pdf->SetFont('bookos', '', 10, '', 'false');
+	        $html = '
+	        <img src="http://i61.tinypic.com/29gofp1.jpg" alt="" style="height:86px;width:62px;"/>
+	        <img src="http://i59.tinypic.com/keub1l.png" alt="" align="right" style="height:45px;width:228px;"/>
+	        <h1 style="text-align:center;">CONVENTION DE STAGE</h1>
+	        <p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
+			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>';
+	        $pdf->writeHTML($html, true, false, true, false, 'center');
+	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+	        $pdf->AddPage();
+	        $html2 = '<p>Les horaires de travail sont ceux pratiqués au sein de l’organisme. L’étudiant est présent dans l’organisme {stgjheb} jours et {stghheb} heures au maximum par semaine. Pendant la durée du stage, l’étudiant stagiaire peut être autorisé à revenir à l’Université pour y suivre certains cours. Le calendrier est porté à la connaissance du tuteur de l’organisme avant le début du stage. Toute modification substantielle de l’organisation du stage dans le temps donne lieu à un avenant à la présente convention.</p>';
+	        $pdf->writeHTML($html2, true, false, true, false, 'center');
+	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+	        $pdf->Output();*/
+			Response::redirect('admin/convention/');
+		}
 
 	}
 

@@ -63,6 +63,30 @@ class Controller_Admin_Stage extends Controller_Template{
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/stage/view', $data);
+		if (isset($_POST['valide'])) {
+			$id = $_POST['valide'];
+			$query = DB::update('stage');
+			$query->value('etat', '1');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/stage');
+		}
+		else if (isset($_POST['refus'])) {
+			$id = $_POST['refus'];
+			$query = DB::update('stage');
+			$query->value('etat', '2');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/stage');
+		}
+		else if (isset($_POST['clos'])) {
+			$id = $_POST['clos'];
+			$query = DB::update('stage');
+			$query->value('etat', '3');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/stage');
+		}
 
 	}
 
