@@ -1,6 +1,39 @@
-<h2>Liste des stages</h2>
-<br>
+<script>
+  $(function() {
+    $('#myTabs a').click(function (e) {
+		e.preventDefault();
+	  
+		//var url = $(this).attr("data-url");
+	  	//var href = this.hash;
+	  	//var pane = $(this);
+		
+		// ajax load from data-url
+		//$(href).load(url,function(result){      
+		    pane.tab('show');
+		//});
+	});
+
+	// load first tab content
+	$('.active a').tab('show');
+  });
+</script>
+
+<h2>Liste des propositions de stage</h2>
+<br />
 <?php if ($stages): ?>
+<div class="container-fluid">
+<ul class="nav nav-tabs" id="myTabs">
+  <li class="active">
+    <a href="#tabs-1">Tous</a>
+  </li>
+  <li><a href="#tabs-2">Saisis</a></li>
+  <li><a href="#tabs-3">Validés</a></li>
+  <li><a href="#tabs-4">Refusés</a></li>
+  <li><a href="#tabs-5">Clos</a></li>
+</ul>
+<br />
+<div class="tab-content">
+<div class="tab-pane active" id="tabs-1">
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -79,6 +112,13 @@
 <?php endforeach; ?>
 </tbody>
 </table>
+</div>
+<div class="tab-pane" id="tabs-2"><p>2/ Aucun contenu pour l'instant.</p></div>
+<div class="tab-pane" id="tabs-3"><p>3/ Aucun contenu pour l'instant.</p></div>
+<div class="tab-pane" id="tabs-4"><p>4/ Aucun contenu pour l'instant.</p></div>
+<div class="tab-pane" id="tabs-5"><p>5/ Aucun contenu pour l'instant.</p></div>
+</div>
+</div>
 
 <?php else: ?>
 <p>Aucun stage.</p>
