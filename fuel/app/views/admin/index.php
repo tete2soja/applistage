@@ -66,3 +66,4 @@
 		</div>
 	</div>
 </div>
+<?php echo Html::anchor('admin/import', 'Modifier la configuration', array('type' => 'button', 'class' => 'btn btn-danger', 'style' => 'margin-left:40%;')); ?>
