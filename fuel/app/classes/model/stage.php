@@ -76,6 +76,8 @@ class Model_Stage extends \Model_Crud
 					    	'ent_ville' => $ent_ville,
 					    	'ent_code' => $ent_code,
 					    	'ent_pays' => $ent_pays,
+					    	'ent_adresse' => $ent_adresse,
+					    	'ent_url' => $ent_url,
 							));
 					}
 				}
