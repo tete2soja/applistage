@@ -24,18 +24,18 @@
 				<?php if(empty($item->etudiant))
 					echo 'aucun';
 				else
-					echo '<a href="admin/etudiant/view/' . $item->etudiant . '">' . $item->no_etudiant.'</a>';
+					echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
 				?>
 			</td>
-			<td><?php echo '<a href="admin/contact/view/' . $item->contact . '">' . $item->contact_nom.'</a>';?></td>
+			<td><?php echo Html::anchor('admin/contact/view/'.$item->contact, $item->contact_nom); ?></td>
 			<td>
 				<?php if(empty($item->enseignant))
 						echo 'aucun';
 					else
-						echo '<a href="admin/enseignant/view/' . $item->enseignant . '">' . $item->enseignant_nom.'</a>';
+						echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
 				?>
 			</td>
-			<td><?php echo '<a href="admin/entreprise/view/' . $item->entreprise . '">' . $item->ent_nom.'</a>';?></td>
+			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>
 			<td><?php echo $item->sujet; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?>

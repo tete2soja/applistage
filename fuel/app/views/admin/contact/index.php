@@ -26,7 +26,7 @@
 			<td><?php echo $item->ville; ?></td>
 			<td><?php echo $item->code_postal; ?></td>
 			<td><?php echo $item->pays; ?></td>
-			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '" />' . $item->ent_nom;?></td>
+			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>
 			<td>
 				<?php
 					$status = "";

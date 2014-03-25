@@ -17,15 +17,15 @@
 	<strong>Contact tél:</strong>
 	<?php if(empty($stage->contact_tel)) {
 					echo 'aucun';
-				} else { echo $stage->contact_tel.'</a>'; } ?></p>
+				} else { echo $stage->contact_tel; } ?></p>
 <p>
 	<strong>Enseignant:</strong>
 	<?php if(empty($stage->enseignant)) {
 					echo 'aucun';
-				} else { echo '<a href="admin/enseignant/view/' . $stage->enseignant . '">' . $stage->enseignant_nom.'</a>'; } ?></p>
+				} else { echo Html::anchor('admin/enseignant/view/'.$stage->enseignant, $stage->enseignant_nom); } ?></p>
 <p>
 	<strong>Entreprise:</strong>
-	<?php echo '<a href="admin/entreprise/view/' . $stage->entreprise . '">' . $stage->ent_nom.'</a>'; ?></p>
+	<?php echo Html::anchor('admin/entreprise/view/'.$stage->entreprise, $stage->ent_nom); ?></p>
 <p>
 	<strong>Sujet:</strong>
 	<?php echo $stage->sujet; ?></p>
@@ -56,6 +56,12 @@
 <p>
 	<strong>Date:</strong>
 	<?php echo $stage->date; ?></p>
-
+<form method="POST">
+				<div class="btn-group">
+					<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $stage->id . "\""; ?> >Valider</button>
+					<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $stage->id . "\""; ?> >Refuser</button>
+					<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $stage->id . "\""; ?> >Clore</button>
+				    </div>
+				</form>
 <?php echo Html::anchor('admin/stage/edit/'.$stage->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/stage', 'Retour'); ?>

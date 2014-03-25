@@ -1,4 +1,4 @@
-<h2>Editing Config</h2>
+<h2>Edition Config</h2>
 <br>
 
 <?php echo render('admin/config/_form'); ?>

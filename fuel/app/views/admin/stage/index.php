@@ -19,23 +19,22 @@
 	<tbody>
 	<?php foreach ($stages as $item): ?>
 		<tr>
-
 			<td><?php echo $item->date; ?></td>
 			<td>
 				<?php if(empty($item->etudiant))
 					echo 'aucun';
 				else
-					echo '<a href="../etudiant/view/' . $item->etudiant . '">' . $item->no_etudiant.'</a>';
+					echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
 				?>
 			</td>
 			<td>
 				<?php if(empty($item->enseignant))
 						echo 'aucun';
 					else
-						echo '<a href="../enseignant/view/' . $item->enseignant . '">' . $item->enseignant_nom.'</a>';
+						echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
 				?>
 			</td>
-			<td><?php echo '<a href="../entreprise/view/' . $item->entreprise . '">' . $item->ent_nom.'</a>';?></td>
+			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
 			<td><?php echo $item->sujet; ?></td>
 			<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
 			<td><?php echo $item->ent_pays; ?></td>
@@ -51,19 +50,19 @@
 			?></td>
 			<td><?php
 				if ($item->etat == 0) {
-					echo "Saisi";
+					echo '<span class="label">Saisi</span>';
 				}
 				else if ($item->etat == 1) {
-					echo "Validé";
+					echo '<span class="label label-success">Validé</span>';
 				}
 				else if ($item->etat == 2) {
-					echo "Refusé";
+					echo '<span class="label label-warning">Refusé</span>';
 				}
 				else if ($item->etat == 3) {
-					echo "Clos";
+					echo '<span class="label label-danger">Clos</span>';
 				}
 			?></td>
-			<td style="width:201px;text-align:center;">
+			<td style="width:220px;text-align:center;">
 				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
 				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
 				<form method="POST">

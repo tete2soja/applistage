@@ -9,6 +9,7 @@
 			<th>Prénom</th>
 			<th>Date de naissance</th>
 			<th>Iut année</th>
+			<th>Stage</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -19,6 +20,11 @@
 			<td><?php echo $item->prenom; ?></td>
 			<td><?php echo $item->datenaissance; ?></td>
 			<td><?php echo $item->iut_annee; ?></td>
+			<td>
+			<?php if(empty($item->stage)) {
+					echo '<span class="label label-danger">Important</span>';
+				} else { echo '<span class="label label-success">Success</span>'; } ?>
+			</td>
 			<td>
 				<?php echo Html::anchor('admin/etudiant/view/'.$item->id, 'Voir'); ?> |
 				<?php echo Html::anchor('admin/etudiant/edit/'.$item->id, 'Editer'); ?> |

@@ -1,6 +1,6 @@
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
 <style type="text/css">
-.row {
+fieldset {
     margin-right: 15px;
     margin-left: 15px;
 }

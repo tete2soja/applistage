@@ -62,7 +62,7 @@ class Model_Etudiant extends \Model_Crud
 	    if($result !== null)
 	    {
 	    	foreach ($result as $value) {
-	    		if(!empty($value->ville1)) {
+	    		/*if(!empty($value->ville1)) {
 					$id_ville1 = $value->ville1;
 					$ville1 = Model_Ville::find_one_by_id($id_ville1)->nom;
 	        		$code_postal1 = Model_Ville::find_one_by_id($id_ville1)->code_postal;
@@ -79,7 +79,12 @@ class Model_Etudiant extends \Model_Crud
 				    	'ville2' => $ville2,
 				    	'code_postal2' => $code_postal2,
 						));
-				}
+				}*/
+				$etud = DB::select('id')->from('fichestages')->where('etudiant', $value->id)->execute();
+				$stage_id = $etud->get('id');
+				$value->set(array(
+				    	'stage' => $stage_id,
+						));
 			}
 	    }
 	    

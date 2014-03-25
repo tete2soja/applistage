@@ -113,7 +113,7 @@ class Model_Fichestage extends \Model_Crud
 					}
 				}
 				if (!empty($value->responsable_tech)) {
-					$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->responsable_legal)->execute();
+					$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->responsable_tech)->execute();
 					$contact_np = $contact->get('prenom')." ".$contact->get('nom');
 					$contact_tel = $contact->get('telephone');
 					$contact_email = $contact->get('email');

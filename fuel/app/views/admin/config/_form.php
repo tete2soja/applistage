@@ -1,5 +1,10 @@
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
-
+<style type="text/css">
+fieldset {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+</style>
 	<fieldset>
 		<div class="form-group">
 			<?php echo Form::label('Colonne 1', 'colonne_1', array('class'=>'control-label')); ?>

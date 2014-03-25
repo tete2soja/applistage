@@ -33,11 +33,27 @@
 			<td><?php echo $item->type; ?></td>
 			<td><?php echo $item->langue; ?></td>
 			<td><?php echo $item->duree; ?></td>
-			<td><?php echo $item->etat; ?></td>
-			<td>
+			<td><?php
+				if ($item->etat == 0) {
+					echo '<span class="label label-info">Saisie</span>';
+				}
+				else if ($item->etat == 1) {
+					echo '<span class="label label-success">Imprimée</span>';
+				}
+				else if ($item->etat == 2) {
+					echo '<span class="label label-warning">Incomplète</span>';
+				}
+			?></td>
+			<td style="width:220px;text-align:center;">
 				<?php echo Html::anchor('admin/convention/view/'.$item->id, 'Voir'); ?> |
-				<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?> |
-				<?php echo Html::anchor('admin/convention/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
+				<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?>
+				<form method="POST">
+				<div class="btn-group">
+					<button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Imprimée</button>
+					<button type="submit" name="incomplete" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
+				    </div>
+				</form>
+				<!--<?php echo Html::anchor('admin/convention/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>-->
 
 			</td>
 		</tr>
