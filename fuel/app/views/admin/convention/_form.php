@@ -49,9 +49,9 @@ fieldset {
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Responsable légal', 'responsable_legal', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Responsable tech', 'responsable_tech', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('responsable_legal', Input::post('responsable_legal', isset($convention) ? $convention->responsable_tech_np : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Responsable legal')); ?>
+				<?php echo Form::input('responsable_tech', Input::post('responsable_tech', isset($convention) ? $convention->responsable_tech_np : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Responsable tech')); ?>
 
 		</div>
 		<div class="form-group">
