@@ -5,6 +5,7 @@
 	<thead>
 		<tr>
 			<th>Etudiant</th>
+			<th>Enseignant</th>
 			<th>Sujet</th>
 			<th>Entreprise</th>
 			<th>Responsable tech</th>
@@ -24,6 +25,11 @@
 					echo 'aucun';
 				else
 					echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
+				?></td>
+			<td><?php if(empty($item->enseignant))
+					echo 'aucun';
+				else
+					echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_np);
 				?></td>
 			<td><?php echo $item->sujet; ?></td>
 			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>

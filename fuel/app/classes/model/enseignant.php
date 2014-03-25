@@ -30,5 +30,4 @@ class Model_Enseignant extends \Model_Crud
 
 		return $val;
 	}
-
 }

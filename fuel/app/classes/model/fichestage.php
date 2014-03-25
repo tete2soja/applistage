@@ -5,6 +5,7 @@ class Model_Fichestage extends \Model_Crud
 	protected static $_properties = array(
 		'id',
 		'etudiant',
+		'enseignant',
 		'sujet',
 		'description_stage',
 		'environnement_dev',
@@ -47,6 +48,7 @@ class Model_Fichestage extends \Model_Crud
 	{
 		$val = Validation::forge($factory);
 		$val->add_field('etudiant', 'Etudiant', 'required|valid_string[numeric]');
+		$val->add_field('enseignant', 'Enseignant', 'required|valid_string[numeric]');
 		$val->add_field('sujet', 'Sujet', 'required|max_length[255]');
 		$val->add_field('description_stage', 'Description Stage', 'required|max_length[255]');
 		$val->add_field('environnement_dev', 'Environnement Dev', 'required|max_length[255]');
@@ -98,6 +100,15 @@ class Model_Fichestage extends \Model_Crud
 					    	'ent_url' => $ent_url,
 					    	'ent_adresse' => $ent_adresse,
 					    	'ent_code' => $ent_code,
+							));
+					}
+				}
+				if (!empty($value->enseignant)) {
+					$enseignant = DB::select('nom', 'prenom')->from('enseignant')->where('id', $value->enseignant)->execute();
+					$enseignant_np = $enseignant->get('prenom')." ".$enseignant->get('nom');
+		        	if(!empty($enseignant_np)) {
+		        		$value->set(array(
+					    	'enseignant_np' => $enseignant_np,
 							));
 					}
 				}
