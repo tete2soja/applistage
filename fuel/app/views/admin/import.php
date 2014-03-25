@@ -15,35 +15,36 @@
 	</div>
 </div>
 <div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
-					<h2>Importation des étudiants</h2>
-					<p>Sélection du fichier CSV à importer</p>
-					<form enctype='multipart/form-data' action="" method="POST">
-						<input size='50' type='file' name='filename' /><br />
-						<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Envoyer</button>
-					</form>
-				</div>
-			<div class="row">
-				<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;float: right;">
-					<h2>Exportations</h2>
-					<p>Pour chacun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris). Il vous sera ensuite proposer de le télécharger via
-					une fenêtre de dialogue qui apparaitra alors.</p>
-					<div class="col-md-4">
-						<form enctype='multipart/form-data' action="" method="POST">
-							<button type="etudiant" name="etudiant" value="etudiant" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Etudiants</button>
-						</form>
-					</div>
-					<div class="col-md-4">
-						<form enctype='multipart/form-data' action="" method="POST">
-							<button type="entreprise" name="entreprise" value="entreprise" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Entreprises</button>
-						</form>
-					</div>
-					<div class="col-md-4">
-						<form enctype='multipart/form-data' action="" method="POST">
-							<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
-						</div>
-				</div>
+	<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
+		<h2>Importation des étudiants</h2>
+		<p>Sélection du fichier CSV à importer</p>
+		<form enctype='multipart/form-data' action="" method="POST">
+			<input size='50' type='file' name='filename' /><br />
+			<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Envoyer</button>
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;float: right;">
+			<h2>Exportations</h2>
+			<p>Pour chacun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris). Il vous sera ensuite proposer de le télécharger via
+			une fenêtre de dialogue qui apparaitra alors.</p>
+			<div class="col-md-4">
+				<form enctype='multipart/form-data' action="" method="POST">
+					<button type="etudiant" name="etudiant" value="etudiant" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Etudiants</button>
+				</form>
 			</div>
+			<div class="col-md-4">
+				<form enctype='multipart/form-data' action="" method="POST">
+					<button type="entreprise" name="entreprise" value="entreprise" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Entreprises</button>
+				</form>
+			</div>
+			<div class="col-md-4">
+			<form enctype='multipart/form-data' action="" method="POST">
+				<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="bs-callout bs-callout-warning">
 	<h2>Gestion des promotions</h2>
 	<div class="row">
