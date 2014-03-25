@@ -96,32 +96,32 @@ $(function() {
 			<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
 			<div class="col-sm-10">
 				<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" placeholder="Nom" value=<?php 
-					if(isset($stage))
-						echo '"' . $stage->entreprise . '"';
+					if(isset($stage->ent_nom))
+						echo '"' . $stage->ent_nom . '"';
 					?>>
 				</div>
 				<div id="ent_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_adresse" placeholder="Adresse" value=<?php 
-					if(isset($stage))
+					if(isset($stage->ent_adresse))
 						echo '"' . $stage->ent_adresse . '"';
 					?>>
 				</div>
 				<div id="ent_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_codepostal" placeholder="Code Postal" value=<?php 
-					if(isset($stage))
+					if(isset($stage->ent_code))
 						echo '"' . $stage->ent_code . '"';
 					?>>
 				</div>
 				<div id="ent_ville_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_ville" placeholder="Ville" value=<?php 
-					if(isset($stage))
+					if(isset($stage->ent_ville))
 						echo '"' . $stage->ent_ville . '"';
 					?>>
 				</div>
 				<div id="ent_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_pays" placeholder="Pays" value=<?php 
-					if(isset($stage))
+					if(isset($stage->ent_ville))
 						echo '"' . $stage->ent_pays . '"';
 					?>>
 				</div>
 				<div id="ent_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_url" placeholder="URL" value=<?php 
-					if(isset($stage))
+					if(isset($stage->ent_url))
 						echo '"' . $stage->ent_url . '"';
 					?>>
 				</div>
@@ -243,8 +243,9 @@ $(function() {
 			<label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage</label>
 			<div class="col-sm-10">
 				<div id="description_sujet_div">
-					<textarea id="description_sujet" class="form-control" rows="3"><?php 
-						if(isset($stage))
+					<textarea id="description_sujet" class="form-control" rows="3">
+						<?php 
+						if((isset($stage->contexte)) AND (isset($stage->resultats)))
 							echo $stage->contexte . "\n" . $stage->resultats;
 						?>
 					</textarea>
@@ -266,7 +267,7 @@ $(function() {
 			<div class="col-sm-10">
 				<div id="environnement_div">
 					<textarea id="environnement" class="form-control" rows="3" value="Outils et Langages"><?php 
-						if(isset($stage))
+						if(isset($stage->conditions))
 							echo $stage->conditions;
 						?>
 					</textarea>
