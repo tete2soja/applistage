@@ -2,7 +2,7 @@
 
 <p>
 	<strong>Numéro Etudiant:</strong>
-	<?php echo Html::anchor('admin/etudiant/view/'.$convention->etudiant, $convention->nO_etudiant); ?></p>
+	<?php echo Html::anchor('admin/etudiant/view/'.$convention->etudiant, $convention->no_etudiant); ?></p>
 <p>
 	<strong>Etudiant:</strong>
 	<?php echo $convention->etudiant_np; ?></p>
