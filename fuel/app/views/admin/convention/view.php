@@ -25,10 +25,10 @@
 	<strong>Entreprise:</strong>
 	<?php echo Html::anchor('admin/entreprise/view/'.$convention->entreprise, $convention->ent_nom); ?></p>
 <p>
-	<strong>Responsable légal:</strong>
+	<strong>Responsable technique:</strong>
 	<?php echo Html::anchor('admin/contact/view/'.$convention->responsable_tech, $convention->responsable_tech_np); ?></p>
 <p>
-	<strong>Responsable adm:</strong>
+	<strong>Responsable administratif:</strong>
 	<?php echo Html::anchor('admin/contact/view/'.$convention->responsable_adm, $convention->responsable_adm_np); ?></p>
 <p>
 	<strong>Contact urgence:</strong>
@@ -77,13 +77,28 @@
 	<?php echo $convention->nature; ?></p>
 <p>
 	<strong>Etat:</strong>
-	<?php echo $convention->etat; ?></p>
-
+	<?php
+		if ($convention->etat == 0) {
+			echo '<span class="label label-info">Saisie</span>';
+		}
+		else if ($convention->etat == 1) {
+			echo '<span class="label label-warning">Incomplète</span>';
+		}
+		else if ($convention->etat == 2) {
+			echo '<span class="label label-success">Imprimée</span>';
+		}
+		else if ($convention->etat == 3) {
+			echo '<span class="label label-primary">Complète</span>';
+		}
+	?></p>
+<br />
 <form method="POST">
 	<div class="btn-group">
+		<button type="submit" name="complete" class="btn btn-primary" value=<?php echo "\"" . $convention->id . "\""; ?> >Complète</button>
 		<button type="submit" name="incomplete" class="btn btn-warning" value=<?php echo "\"" . $convention->id . "\""; ?> >Incomplète</button>
-		<button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimée</button>
-	</div>
+    </div>
+    <button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimer</button>
 </form>
+<br />
 <?php echo Html::anchor('admin/convention/edit/'.$convention->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/convention', 'Retour'); ?>

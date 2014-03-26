@@ -52,10 +52,24 @@
 	<?php echo $stage->public; ?></p>
 <p>
 	<strong>Etat:</strong>
-	<?php echo $stage->etat; ?></p>
+	<?php
+		if ($stage->etat == 0) {
+			echo '<span class="label">Saisi</span>';
+		}
+		else if ($stage->etat == 1) {
+			echo '<span class="label label-success">Validé</span>';
+		}
+		else if ($stage->etat == 2) {
+			echo '<span class="label label-warning">Refusé</span>';
+		}
+		else if ($stage->etat == 3) {
+			echo '<span class="label label-danger">Clos</span>';
+		}
+	?></p>
 <p>
 	<strong>Date:</strong>
 	<?php echo $stage->date; ?></p>
+<br />
 <form method="POST">
 				<div class="btn-group">
 					<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $stage->id . "\""; ?> >Valider</button>
