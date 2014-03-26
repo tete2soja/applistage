@@ -127,6 +127,15 @@ class Model_Fichestage extends \Model_Crud
 							));
 					}
 				}
+				if (!empty($value->stage)) {
+					$stage = DB::select('conditions')->from('stage')->where('id', $value->stage)->execute();
+					$stage_cond = $stage->get('conditions');
+		        	if(!empty($enseignant_np)) {
+		        		$value->set(array(
+					    	'stage_cond' => $stage_cond,
+							));
+					}
+				}
 				if (!empty($value->responsable_tech)) {
 					$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->responsable_tech)->execute();
 					$contact_np = $contact->get('prenom')." ".$contact->get('nom');
