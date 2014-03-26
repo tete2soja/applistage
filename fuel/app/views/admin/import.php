@@ -6,18 +6,21 @@
 </style>
 <div class="bs-callout bs-callout-warning">
 	<h2>Modification de la configuration</h2>
+	<p>Avant de continuer à utiliser Applistage ou d'importer les données des étudiants, vous devez éditer la configuration. Vous devrez faire cela pour chaque nouvelle année : les dates et la 
+	rémunération minimale au minimum.</p>
 	<div class="row">
 		<div class="col-md-6">
-			<p>Avant de continuer à utiliser Applistage ou d'importer les données des étudiants, vous devez éditer la configuration.</p>
 			<a href="config/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `config`</a>
 			<a href="enseignant/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `enseignant`</a>
 		</div>
 	</div>
 </div>
-<div class="row">
+<div class="row" style="margin-top: -20px;margin-bottom: -20px;">
 	<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
 		<h2>Importation des étudiants</h2>
-		<p>Sélection du fichier CSV à importer</p>
+		<p>Sélectionnez d'abord le fichier CSV contenant les étudiants de premières années. Vous l'obtiendrez en l'exportant du fichier Excel fourmit chaque année par la
+		scolarité.<br />
+		Veuillez cependant à respecter les règles concernant la strucute de ce fichier.</p>
 		<form enctype='multipart/form-data' action="" method="POST">
 			<input size='50' type='file' name='filename' /><br />
 			<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Envoyer</button>
@@ -26,8 +29,8 @@
 	<div class="row">
 		<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;float: right;">
 			<h2>Exportations</h2>
-			<p>Pour chacun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris). Il vous sera ensuite proposer de le télécharger via
-			une fenêtre de dialogue qui apparaitra alors.</p>
+			<p>Pour chacun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris).<br />
+			Il vous sera ensuite proposer de le télécharger via	une fenêtre de dialogue qui apparaitra alors.</p>
 			<div class="col-md-4">
 				<form enctype='multipart/form-data' action="" method="POST">
 					<button type="etudiant" name="etudiant" value="etudiant" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Etudiants</button>

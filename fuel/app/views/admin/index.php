@@ -1,5 +1,6 @@
 <div class="bs-callout bs-callout-warning">
 	<h2>Voir</h2>
+	<p>Chaque boutons vous renverra vers la liste en question sous forme de tableau. Vous pourrez alors, pour chaque entrée, afficher plus de détails, l'éditer ou la supprimer.</p>
 	<div class="row">
 		<div class="col-md-6">
 			<div class="row">
@@ -44,11 +45,11 @@
 	<h2>Gérer les conventions</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<p>Vous permez de gérer les étudiants en deuxième année d'IUT concernant l'année <?php echo date("Y")-1; ?></p>
+			<p>Vous trouverez ici les listes des conventions des deux filiaires avec le status pour chacune d'entre elles.</p>
 			<?php echo Html::anchor('admin/convention', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-6">
-			<p>Attribuer les tuteurs</p>
+			<p>Une fois les conventions validées et imprimées, vous pouvez attribuer les tuteurs pour chaque étudiant en stage.</p>
 			<?php echo Html::anchor('admin/convention', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin//#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
