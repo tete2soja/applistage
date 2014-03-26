@@ -31,6 +31,7 @@ class Model_Fichestage extends \Model_Crud
 		'retribution',
 		'nature',
 		'etat',
+		'last_edit',
 	);
 
 	protected static $_observers = array(
@@ -75,8 +76,15 @@ class Model_Fichestage extends \Model_Crud
 		$val->add_field('retribution', 'Retribution', 'required|valid_string[numeric]');
 		$val->add_field('nature', 'Nature', 'required|max_length[255]');
 		$val->add_field('etat', 'Etat', 'required|valid_string[numeric]');
+		$val->add_field('last_edit', 'Last Edit', 'date');
 
 		return $val;
+	}
+	
+	protected static function pre_find(&$query)
+	{
+	    // alter the query
+	    $query->order_by('last_edit', 'desc');
 	}
 
 	public static function post_find($result)
@@ -99,6 +107,7 @@ class Model_Fichestage extends \Model_Crud
 					    	'ent_nom' => $ent_nom,
 					    	'ent_ville' => $ent_ville,
 					    	'ent_pays' => $ent_pays,
+					    	'ent_pays_id' => $id_pays,
 					    	'ent_url' => $ent_url,
 					    	'ent_adresse' => $ent_adresse,
 					    	'ent_code' => $ent_code,
@@ -138,13 +147,19 @@ class Model_Fichestage extends \Model_Crud
 				}
 				if (!empty($value->responsable_tech)) {
 					$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->responsable_tech)->execute();
-					$contact_np = $contact->get('prenom')." ".$contact->get('nom');
+					$contact_nom = $contact->get('nom');
+					$contact_prenom = $contact->get('prenom');
 					$contact_tel = $contact->get('telephone');
 					$contact_email = $contact->get('email');
 					if (!empty($contact)) {
-		        		if (!empty($contact_np)) {
+		        		if (!empty($contact_nom)) {
 		        		$value->set(array(
-					    	'responsable_tech_np' => $contact_np,
+					    	'responsable_tech_nom' => $contact_nom,
+							));
+						}
+						if (!empty($contact_prenom)) {
+		        		$value->set(array(
+					    	'responsable_tech_prenom' => $contact_prenom,
 							));
 						}
 						if (!empty($contact_tel)) {
@@ -161,13 +176,19 @@ class Model_Fichestage extends \Model_Crud
 				}
 				if (!empty($value->responsable_adm)) {
 					$contact = DB::select('nom', 'prenom', 'telephone', 'email')->from('contact')->where('id', $value->responsable_adm)->execute();
-					$contact_np = $contact->get('prenom')." ".$contact->get('nom');
+					$contact_nom = $contact->get('nom');
+					$contact_prenom = $contact->get('prenom');
 					$contact_tel = $contact->get('telephone');
 					$contact_email = $contact->get('email');
 		        	if (!empty($contact)) {
-		        		if (!empty($contact_np)) {
+		        		if (!empty($contact_nom)) {
 		        		$value->set(array(
-					    	'responsable_adm_np' => $contact_np,
+					    	'responsable_adm_nom' => $contact_nom,
+							));
+						}
+						if (!empty($contact_prenom)) {
+		        		$value->set(array(
+					    	'responsable_adm_prenom' => $contact_prenom,
 							));
 						}
 						if (!empty($contact_tel)) {
