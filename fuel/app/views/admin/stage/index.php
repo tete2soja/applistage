@@ -2,15 +2,8 @@
   $(function() {
     $('#myTabs a').click(function (e) {
 		e.preventDefault();
-	  
-		//var url = $(this).attr("data-url");
-	  	//var href = this.hash;
-	  	//var pane = $(this);
-		
-		// ajax load from data-url
-		//$(href).load(url,function(result){      
-		    pane.tab('show');
-		//});
+		var pane = $(this);
+		pane.tab('show');
 	});
 
 	// load first tab content
@@ -22,102 +15,426 @@
 <br />
 <?php if ($stages): ?>
 <div class="container-fluid">
-<ul class="nav nav-tabs" id="myTabs">
-  <li class="active">
-    <a href="#tabs-1">Tous</a>
-  </li>
-  <li><a href="#tabs-2">Saisis</a></li>
-  <li><a href="#tabs-3">Validés</a></li>
-  <li><a href="#tabs-4">Refusés</a></li>
-  <li><a href="#tabs-5">Clos</a></li>
-</ul>
-<br />
-<div class="tab-content">
-<div class="tab-pane active" id="tabs-1">
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th>Date</th>
-			<th>Etudiant</th>
-			<th>Enseignant</th>
-			<th>Entreprise</th>
-			<th>Sujet</th>
-			<th>Ville</th>
-			<th>Pays</th>
-			<th>Public</th>
-			<th>Status</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php foreach ($stages as $item): ?>
-		<tr>
-			<td><?php echo $item->date; ?></td>
-			<td>
-				<?php if(empty($item->etudiant))
-					echo 'aucun';
-				else
-					echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
-				?>
-			</td>
-			<td>
-				<?php if(empty($item->enseignant))
-						echo 'aucun';
-					else
-						echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
-				?>
-			</td>
-			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
-			<td><?php echo $item->sujet; ?></td>
-			<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
-			<td><?php echo $item->ent_pays; ?></td>
-			<td><?php
-				if ($item->public == 0) {
-					echo "Tout public";
-				}
-				else if ($item->public == 1) {
-					echo "DUT Info";
-				}
-				else
-					echo "Licence Pro";
-			?></td>
-			<td><?php
-				if ($item->etat == 0) {
-					echo '<span class="label">Saisi</span>';
-				}
-				else if ($item->etat == 1) {
-					echo '<span class="label label-success">Validé</span>';
-				}
-				else if ($item->etat == 2) {
-					echo '<span class="label label-warning">Refusé</span>';
-				}
-				else if ($item->etat == 3) {
-					echo '<span class="label label-danger">Clos</span>';
-				}
-			?></td>
-			<td style="width:220px;text-align:center;">
-				<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-				<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
-				<form method="POST">
-				<div class="btn-group">
-					<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
-					<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
-					<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
-				    </div>
-				</form>
-				<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sur ?')")); ?>
-
-			</td>
-		</tr>
-<?php endforeach; ?>
-</tbody>
-</table>
-</div>
-<div class="tab-pane" id="tabs-2"><p>2/ Aucun contenu pour l'instant.</p></div>
-<div class="tab-pane" id="tabs-3"><p>3/ Aucun contenu pour l'instant.</p></div>
-<div class="tab-pane" id="tabs-4"><p>4/ Aucun contenu pour l'instant.</p></div>
-<div class="tab-pane" id="tabs-5"><p>5/ Aucun contenu pour l'instant.</p></div>
-</div>
+	<ul class="nav nav-tabs" id="myTabs">
+	  <li class="active">
+	    <a href="#tabs-1">Tous</a>
+	  </li>
+	  <li><a href="#tabs-2">Saisis</a></li>
+	  <li><a href="#tabs-3">Validés</a></li>
+	  <li><a href="#tabs-4">Refusés</a></li>
+	  <li><a href="#tabs-5">Clos</a></li>
+	</ul>
+	<br />
+	<div class="tab-content">
+		<div class="tab-pane active" id="tabs-1">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Etudiant</th>
+						<th>Enseignant</th>
+						<th>Entreprise</th>
+						<th>Sujet</th>
+						<th>Ville</th>
+						<th>Pays</th>
+						<th>Public</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($stages as $item): ?>
+					<tr>
+						<td><?php echo $item->date; ?></td>
+						<td>
+							<?php if(empty($item->etudiant))
+								echo 'aucun';
+							else
+								echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
+							?>
+						</td>
+						<td>
+							<?php if(empty($item->enseignant))
+									echo 'aucun';
+								else
+									echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
+							?>
+						</td>
+						<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
+						<td><?php echo $item->sujet; ?></td>
+						<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
+						<td><?php echo $item->ent_pays; ?></td>
+						<td><?php
+							if ($item->public == 0) {
+								echo "Tout public";
+							}
+							else if ($item->public == 1) {
+								echo "DUT Info";
+							}
+							else
+								echo "Licence Pro";
+						?></td>
+						<td><?php
+							if ($item->etat == 0) {
+								echo '<span class="label">Saisi</span>';
+							}
+							else if ($item->etat == 1) {
+								echo '<span class="label label-success">Validé</span>';
+							}
+							else if ($item->etat == 2) {
+								echo '<span class="label label-warning">Refusé</span>';
+							}
+							else if ($item->etat == 3) {
+								echo '<span class="label label-danger">Clos</span>';
+							}
+						?></td>
+						<td style="width:220px;text-align:center;">
+							<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
+							<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
+							<form method="POST">
+							<div class="btn-group">
+								<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+								<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
+								<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
+							    </div>
+							</form>
+							<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
+			
+						</td>
+					</tr>
+			<?php endforeach; ?>
+			</tbody>
+			</table>
+		</div>
+		<div class="tab-pane" id="tabs-2">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Etudiant</th>
+						<th>Enseignant</th>
+						<th>Entreprise</th>
+						<th>Sujet</th>
+						<th>Ville</th>
+						<th>Pays</th>
+						<th>Public</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($stages as $item): ?>
+					<?php if ($item->etat == 0) { ?>
+						<tr>
+							<td><?php echo $item->date; ?></td>
+							<td>
+								<?php if(empty($item->etudiant))
+									echo 'aucun';
+								else
+									echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
+								?>
+							</td>
+							<td>
+								<?php if(empty($item->enseignant))
+										echo 'aucun';
+									else
+										echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
+								?>
+							</td>
+							<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
+							<td><?php echo $item->sujet; ?></td>
+							<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
+							<td><?php echo $item->ent_pays; ?></td>
+							<td><?php
+								if ($item->public == 0) {
+									echo "Tout public";
+								}
+								else if ($item->public == 1) {
+									echo "DUT Info";
+								}
+								else
+									echo "Licence Pro";
+							?></td>
+							<td><?php
+								if ($item->etat == 0) {
+									echo '<span class="label">Saisi</span>';
+								}
+								else if ($item->etat == 1) {
+									echo '<span class="label label-success">Validé</span>';
+								}
+								else if ($item->etat == 2) {
+									echo '<span class="label label-warning">Refusé</span>';
+								}
+								else if ($item->etat == 3) {
+									echo '<span class="label label-danger">Clos</span>';
+								}
+							?></td>
+							<td style="width:220px;text-align:center;">
+								<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
+								<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
+								<form method="POST">
+								<div class="btn-group">
+									<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+									<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
+									<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
+								    </div>
+								</form>
+								<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
+				
+							</td>
+						</tr>
+					<?php } ?>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<div class="tab-pane" id="tabs-3">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Etudiant</th>
+						<th>Enseignant</th>
+						<th>Entreprise</th>
+						<th>Sujet</th>
+						<th>Ville</th>
+						<th>Pays</th>
+						<th>Public</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($stages as $item): ?>
+					<?php if ($item->etat == 1) { ?>
+						<tr>
+							<td><?php echo $item->date; ?></td>
+							<td>
+								<?php if(empty($item->etudiant))
+									echo 'aucun';
+								else
+									echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
+								?>
+							</td>
+							<td>
+								<?php if(empty($item->enseignant))
+										echo 'aucun';
+									else
+										echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
+								?>
+							</td>
+							<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
+							<td><?php echo $item->sujet; ?></td>
+							<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
+							<td><?php echo $item->ent_pays; ?></td>
+							<td><?php
+								if ($item->public == 0) {
+									echo "Tout public";
+								}
+								else if ($item->public == 1) {
+									echo "DUT Info";
+								}
+								else
+									echo "Licence Pro";
+							?></td>
+							<td><?php
+								if ($item->etat == 0) {
+									echo '<span class="label">Saisi</span>';
+								}
+								else if ($item->etat == 1) {
+									echo '<span class="label label-success">Validé</span>';
+								}
+								else if ($item->etat == 2) {
+									echo '<span class="label label-warning">Refusé</span>';
+								}
+								else if ($item->etat == 3) {
+									echo '<span class="label label-danger">Clos</span>';
+								}
+							?></td>
+							<td style="width:220px;text-align:center;">
+								<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
+								<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
+								<form method="POST">
+								<div class="btn-group">
+									<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+									<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
+									<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
+								    </div>
+								</form>
+								<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
+				
+							</td>
+						</tr>
+					<?php } ?>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<div class="tab-pane" id="tabs-4">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Etudiant</th>
+						<th>Enseignant</th>
+						<th>Entreprise</th>
+						<th>Sujet</th>
+						<th>Ville</th>
+						<th>Pays</th>
+						<th>Public</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($stages as $item): ?>
+					<?php if ($item->etat == 2) { ?>
+						<tr>
+							<td><?php echo $item->date; ?></td>
+							<td>
+								<?php if(empty($item->etudiant))
+									echo 'aucun';
+								else
+									echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
+								?>
+							</td>
+							<td>
+								<?php if(empty($item->enseignant))
+										echo 'aucun';
+									else
+										echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
+								?>
+							</td>
+							<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
+							<td><?php echo $item->sujet; ?></td>
+							<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
+							<td><?php echo $item->ent_pays; ?></td>
+							<td><?php
+								if ($item->public == 0) {
+									echo "Tout public";
+								}
+								else if ($item->public == 1) {
+									echo "DUT Info";
+								}
+								else
+									echo "Licence Pro";
+							?></td>
+							<td><?php
+								if ($item->etat == 0) {
+									echo '<span class="label">Saisi</span>';
+								}
+								else if ($item->etat == 1) {
+									echo '<span class="label label-success">Validé</span>';
+								}
+								else if ($item->etat == 2) {
+									echo '<span class="label label-warning">Refusé</span>';
+								}
+								else if ($item->etat == 3) {
+									echo '<span class="label label-danger">Clos</span>';
+								}
+							?></td>
+							<td style="width:220px;text-align:center;">
+								<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
+								<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
+								<form method="POST">
+								<div class="btn-group">
+									<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+									<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
+									<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
+								    </div>
+								</form>
+								<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
+				
+							</td>
+						</tr>
+					<?php } ?>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<div class="tab-pane" id="tabs-5">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Etudiant</th>
+						<th>Enseignant</th>
+						<th>Entreprise</th>
+						<th>Sujet</th>
+						<th>Ville</th>
+						<th>Pays</th>
+						<th>Public</th>
+						<th>Status</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach ($stages as $item): ?>
+					<?php if ($item->etat == 3) { ?>
+						<tr>
+							<td><?php echo $item->date; ?></td>
+							<td>
+								<?php if(empty($item->etudiant))
+									echo 'aucun';
+								else
+									echo Html::anchor('admin/etudiant/view/'.$item->etudiant, $item->no_etudiant);
+								?>
+							</td>
+							<td>
+								<?php if(empty($item->enseignant))
+										echo 'aucun';
+									else
+										echo Html::anchor('admin/enseignant/view/'.$item->enseignant, $item->enseignant_nom);
+								?>
+							</td>
+							<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom);?></td>
+							<td><?php echo $item->sujet; ?></td>
+							<td><?php echo $item->ent_ville.' ('.$item->ent_code.')'; ?></td>
+							<td><?php echo $item->ent_pays; ?></td>
+							<td><?php
+								if ($item->public == 0) {
+									echo "Tout public";
+								}
+								else if ($item->public == 1) {
+									echo "DUT Info";
+								}
+								else
+									echo "Licence Pro";
+							?></td>
+							<td><?php
+								if ($item->etat == 0) {
+									echo '<span class="label">Saisi</span>';
+								}
+								else if ($item->etat == 1) {
+									echo '<span class="label label-success">Validé</span>';
+								}
+								else if ($item->etat == 2) {
+									echo '<span class="label label-warning">Refusé</span>';
+								}
+								else if ($item->etat == 3) {
+									echo '<span class="label label-danger">Clos</span>';
+								}
+							?></td>
+							<td style="width:220px;text-align:center;">
+								<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
+								<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?>
+								<form method="POST">
+								<div class="btn-group">
+									<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $item->id . "\""; ?> >Valider</button>
+									<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $item->id . "\""; ?> >Refuser</button>
+									<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $item->id . "\""; ?> >Clore</button>
+								    </div>
+								</form>
+								<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
+				
+							</td>
+						</tr>
+					<?php } ?>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 
 <?php else: ?>
