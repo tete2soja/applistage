@@ -515,7 +515,7 @@ class Controller_Admin_Convention extends Controller_Template{
 						At the end of the placement, the trainee must deliver:
 						</p>
 						<ul>
-							<li>a digital copy of the placement report to his/her academic supervisor.</li>
+							<li>one paper copy of the placement report to the the secretary of the trainee’s academic pro-gramme,</li>
 							<li>a digital copy of the placement report to his/her academic supervisor.</li>
 						</ul>
 						<p style="font-weight:normal;text-align:justify;">The trainee’s tutor in the company gives the academic supervisor his/her opinion on the work done by the trainee.
@@ -714,13 +714,11 @@ class Controller_Admin_Convention extends Controller_Template{
 				Session::set_flash('error', $val->error());
 			}
 		}
-
 		$this->template->set_global('convention', $convention, false);
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
 		$this->template->content = View::forge('admin/convention/edit');
-
 	}
 
 	public function action_delete($id = null)
@@ -740,6 +738,4 @@ class Controller_Admin_Convention extends Controller_Template{
 		Response::redirect('admin/convention');
 
 	}
-
-
 }
