@@ -99,6 +99,7 @@ class Model_Fichestage extends \Model_Crud
 					    	'ent_nom' => $ent_nom,
 					    	'ent_ville' => $ent_ville,
 					    	'ent_pays' => $ent_pays,
+					    	'ent_pays_id' => $id_pays,
 					    	'ent_url' => $ent_url,
 					    	'ent_adresse' => $ent_adresse,
 					    	'ent_code' => $ent_code,
