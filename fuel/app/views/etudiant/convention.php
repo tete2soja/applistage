@@ -1,10 +1,6 @@
-			<div class="row">
-				<div class="col-md-12">
-					<a href="./formulaire" type="button" class="btn btn-default btn-info" style="padding-top:15px;font-size:15px;width:auto;">
-						<p>Remplir ma fiche de stage</p>
-					</a>
-				</div>
-			</div>
+			<p>
+				<?php echo Html::anchor('etudiant/formulaire', 'Remplir ma fiche de stage', array('class' => 'btn btn-info btn-lg')); ?>
+			</p>
 			<h1>Etablissement de la convention de stage</h1>
 			<hr/>
 			<h2>Principes</h2>

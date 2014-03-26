@@ -26,9 +26,17 @@ class Controller_Admin_Convention extends Controller_Template{
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
-		$this->template->content = View::forge('admin/convention/index', $data);		
-
-		if (isset($_POST['incomplete'])) {
+		$this->template->content = View::forge('admin/convention/index', $data);
+				
+		if (isset($_POST['complete'])) {
+			$id = $_POST['complete'];
+			$query = DB::update('fichestages');
+			$query->value('etat', '3');
+			$query->where('id', $id);
+			$query->execute();
+			Response::redirect('admin/convention/');
+		}
+		elseif (isset($_POST['incomplete'])) {
 			$id = $_POST['incomplete'];
 			$query = DB::update('fichestages');
 			$query->value('etat', '1');

@@ -1,11 +1,6 @@
-			<div class="row">
-				<div class="col-md-12">
-					<a href="./proposition" type="button" class="btn btn-default btn-info" style="padding-top:15px;font-size:15px;width:auto;">
-						<p>Liste des propositions de stage</p>
-					</a>
-				</div>
-			</div>
-		
+			<p>
+				<?php echo Html::anchor('etudiant/proposition', 'Liste des stages proposés', array('class' => 'btn btn-info btn-lg')); ?>
+			</p>
 			<h1>Recherche du stage</h1>
 			<hr/>
 			<div class="bs-callout bs-callout-warning">

@@ -1,10 +1,6 @@
-		<div class="row">
-			<div class="col-md-12">
-				<a href="./liste" type="button" class="btn btn-default btn-success" style="padding-top:15px;font-size:15px;width:auto;">
-					<p>Liste des stages proposés</p>
-				</a>
-			</div>
-		</div>
+		<p>
+				<?php echo Html::anchor('entreprise/liste', 'Liste des stages proposés', array('class' => 'btn btn-success btn-lg')); ?>
+		</p>
 		<h2>Proposer un sujet de stage</h2><hr/>
 		<h3>Principes</h3><hr />
 		<ol>
@@ -24,6 +20,8 @@
 		
 		<div class="row">
 			<div class="col-md-12 center-button">
-				<a href="./formulaire" type="button" class="btn btn-default btn-success" style="width:150px;"><p>Proposer un stage</p></a>
+				<p>
+				<?php echo Html::anchor('entreprise/proposition', 'Proposer un stage', array('class' => 'btn btn-success btn-lg')); ?>
+				</p>
 			</div>
 		</div>

@@ -1,10 +1,6 @@
-		<div class="row">
-			<div class="col-md-12">
-				<a href="./proposition" type="button" class="btn btn-default btn-success" style="padding-top:15px;font-size:15px;width:auto;">
-					<p>Soumettre une proposition de stage</p>
-				</a>
-			</div>
-		</div>
+		<p>
+			<?php echo Html::anchor('entreprise/proposition', 'Soumettre une proposition de stage', array('class' => 'btn btn-success btn-lg')); ?>
+		</p>
 		<h2>Informations principales</h2><hr/>
 		<p>
 			Pour l'année universitaire 2013-2014 les dates de stages sont :<br />
