@@ -71,11 +71,12 @@
 	<?php echo $stage->date; ?></p>
 <br />
 <form method="POST">
-				<div class="btn-group">
-					<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $stage->id . "\""; ?> >Valider</button>
-					<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $stage->id . "\""; ?> >Refuser</button>
-					<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $stage->id . "\""; ?> >Clore</button>
-				    </div>
-				</form>
+	<div class="btn-group">
+		<button type="submit" name="valide" class="btn btn-success" value=<?php echo "\"" . $stage->id . "\""; ?> >Valider</button>
+		<button type="submit" name="refus" class="btn btn-warning" value=<?php echo "\"" . $stage->id . "\""; ?> >Refuser</button>
+		<button type="submit" name="clos" class="btn btn-danger" value=<?php echo "\"" . $stage->id . "\""; ?> >Clore</button>
+	</div>
+</form>
+<br />
 <?php echo Html::anchor('admin/stage/edit/'.$stage->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/stage', 'Retour'); ?>
