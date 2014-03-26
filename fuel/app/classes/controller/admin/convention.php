@@ -50,25 +50,88 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->value('etat', '2');
 			$query->where('id', $id);
 			$query->execute();
-			/*$pdf = \Pdf::factory('tcpdf')->init();
-	        $pdf->AddPage();
-	        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-	        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-	        $pdf->SetFont('bookos', '', 10, '', 'false');
-	        $html = '
-	        <img src="http://i61.tinypic.com/29gofp1.jpg" alt="" style="height:86px;width:62px;"/>
-	        <img src="http://i59.tinypic.com/keub1l.png" alt="" align="right" style="height:45px;width:228px;"/>
-	        <h1 style="text-align:center;">CONVENTION DE STAGE</h1>
-	        <p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
-			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>';
-	        $pdf->writeHTML($html, true, false, true, false, 'center');
-	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-	        $pdf->AddPage();
-	        $html2 = '<p>Les horaires de travail sont ceux pratiqués au sein de l’organisme. L’étudiant est présent dans l’organisme {stgjheb} jours et {stghheb} heures au maximum par semaine. Pendant la durée du stage, l’étudiant stagiaire peut être autorisé à revenir à l’Université pour y suivre certains cours. Le calendrier est porté à la connaissance du tuteur de l’organisme avant le début du stage. Toute modification substantielle de l’organisation du stage dans le temps donne lieu à un avenant à la présente convention.</p>';
-	        $pdf->writeHTML($html2, true, false, true, false, 'center');
-	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-	        $pdf->Output();*/
-			Response::redirect('admin/convention/');
+			$pdf = \Pdf::factory('tcpdf')->init();
+			$pdf->setPrintHeader(false);
+			$pdf->AddPage();
+			$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+			$pdf->Image('http://i59.tinypic.com/keub1l.png', '', '', 114, 23, '', '', 'T', false, 300, 'R', false, false, 1, false, false, false);
+			$pdf->Image('http://i61.tinypic.com/29gofp1.jpg', '', '', 31, 43, '', '', 'N', false, 300, 'L', false, false, 1, false, false, false);
+			$pdf->SetFont('bookos', '', 10, '', 'false');
+			$html = '<br />
+			<h1 style="text-align:center;">CONVENTION DE STAGE</h1>
+			<p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
+			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>
+			<ol type="I" style="font-weight:bold;">
+				<li style="font-weight:bold;">Les parties</li>
+				<ol type="1">
+					<li>L\'Université de Bretagne-Sud :</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>L\'entreprise, l’association, l’EPIC ci-après-désigné par l’organisme d’accueil :</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>L\' étudiant(e) :</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+				</ol>
+				<li>Projet pédagogique et contenu du stage</li>
+				<ol type="1">
+					<li>Projet pédagogique, objectifs et finalités du stage</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>Missions confiées au stagiaire</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+				</ol>
+				<li>Modalités d\'organisation du stage</li>
+				<ol type="1">
+					<li>Durée et dates du stage</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>Déroulement du stage</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>Cas particuliers</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>Accueil et encadrement</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>Gratification et avantages</li>
+						<p style="font-weight:normal;text-align:justify;">test</p>
+					<li>Protection sociale et responsabilité civile</li>
+						<p style="font-weight:normal;text-align:justify;">Les modalités de la protection sociale sont précisées dans le tableau en annexe 2. En cas d’accident survenant au stagiaire 
+						soit durant sa présence dans au sein de l’organisme soit au cours du trajet entre son domicile et le lieu de stage ou entre l’université et le lieu de stage, l’organisme 
+						s’engage à alerter sans délai le secrétariat de la formation concernée au 02 97 62 64 31,  iutva.info@listes.univ-ubs.fr. En cas d’accident survenant au stagiaire pendant les 
+						périodes de fermeture de l’Université, l’étudiant ou l’organisme s’engage à avertir sous 48 heures par lettre recommandée avec accusé réception la caisse primaire d’assurance 
+						aladie du lieu d’habitation de l’étudiant ainsi que par courrier simple le Président de l’Université. En fonction du montant de la gratification (annexe 2), l’Université ou 
+						l’entreprise seront déclarées comme employeurs sur la dé-claration. L’étudiant doit obligatoirement souscrire, auprès de l’organisme d’assurance de son choix, une assurance 
+						garantissant sa responsabilité civile pour les dommages qu’il pourrait causer aux personnes ou aux biens dans le cadre du stage. L’organisme prend les dispositions nécessaires 
+						pour garantir sa responsabilité afin de couvrir les dommages résultant de la présence du stagiaire.</p>
+						<p style="font-weight:normal;text-align:justify;">Stages à l’étranger : si le stage se déroule dans un pays membre de l’Union européenne, de l’espace économique européen ou en Suisse, il appartient à l’étudiant de demander à sa mutuelle la carte européenne d’assurance maladie pour le remboursement de ses soins.  En cas d’accident la pro-cédure administrative à suivre est la même que pour un stage se déroulant en France. Si le stage se déroule à l’étranger dans un autre pays, la protection sociale des étudiants et les formalités à accomplir sont différentes selon le pays d’accueil. Il est conseillé à l’étudiant de se renseigner auprès de sa mu-tuelle  ou auprès de la caisse des français à l’étranger. Si le stage se déroule hors du territoire français, l’étudiant est  invité à souscrire une assurance personnelle rapatriement. En cas d’accident, il appartient à l’étudiant d’en faire la déclaration  à son assurance.</p>
+					<li>Discipline et confidentialité</li>
+						<p style="font-weight:normal;text-align:justify;">L’étudiant stagiaire est soumis aux dispositions du règlement intérieur de l’organisme rela-tive à l’hygiène et à la sécurité 
+						et à la discipline générale (modalités d’accès à l’organisme, utilisa-tion du matériel et des moyens de communication, confidentialité). Concernant la confidentialité, 
+						l’étudiant stagiaire prend l’engagement de n’utiliser aucune des informations recueillies par lui au sein de l’organisme en vue de la rédaction de son rapport de stage pour en 
+						faire communication à des tiers, sauf accord exprès de l’organisme.</p>
+					<li>Interruption, rupture et prolongation du stage</li>
+						<p style="font-weight:normal;text-align:justify;">En cas de manquement grave aux règles de discipline, l’organisme se réserve le droit de mettre fin au stage de l’étudiant 
+						fautif après avoir pris les avis conjoints des deux tuteurs du sta-giaire. Le stage peut être suspendu ou interrompu pour raison médicale grave. Dans ce cas, la par-tie la plus 
+						diligente ou le service de médecine préventive universitaire prévient les autres parties et propose un avenant comportant les aménagements requis ou la rupture de la convention 
+						de stage.</p>
+				</ol>
+				<li>Evaluation du stage</li>
+					<p style="font-weight:normal;text-align:justify;">L’activité du stagiaire fait l’objet d’une évaluation qui résulte de la double appréciation des responsables de l’encadrement du stage. En vue de la soutenance, le stagiaire remet :</p>
+					<ul>
+						<li>1 exemplaire papier du rapport de stage au secrétariat du département Informatique et</li>
+						<li>son rapport de stage, sous forme numérique, à son tuteur enseignant.</li>
+					</ul>
+					<p style="font-weight:normal;text-align:justify;">Le tuteur du stagiaire au sein de l\'organisme transmet au tuteur enseignant de l’Université son appréciation sur le travail effectué. La soutenance est publique, sauf dérogation accordée par le directeur de la composante concernée, sur demande des tuteurs du stagiaire, si les travaux pré-sentent un caractère confidentiel. Toute publication est soumise au visa conjoint de l’organisme, du tuteur du stagiaire au sein de l\'UBS et de l’étudiant. A l’issue du stage, l’organisme délivre à l’étudiant stagiaire un certificat précisant la nature et la durée du stage. Un dossier de stage est constitué et archivé dans la composante concernée pour chaque stage.</p>
+					<p style="font-weight:normal;text-align:justify;">Ce dossier comprend :</p>
+					<ul>
+						<li>un exemplaire de la convention de stage signée ;</li>
+						<li>le rapport de stage au format papier relié ;</li>
+						<li>l’appréciation du tuteur de l’organisme complétée de la note obtenue par le stagiaire.</li>
+					</ul>
+			</ol> ';
+			$pdf->writeHTML($html, true, false, true, false, 'center');
+			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+			$pdf->Output();
+			//$pdf->Output(DOCROOT . 'assets/doc/convention-' . $id . '.pdf', 'F');
+			//File::download(DOCROOT . 'assets/doc/convention-' . $id . '.pdf', 'convention-' . $id . '.pdf', 'application/pdf');
+			//Response::redirect('admin/convention/');
 		}
 
 	}
@@ -99,23 +162,23 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->where('id', $id);
 			$query->execute();
 			/*$pdf = \Pdf::factory('tcpdf')->init();
-	        $pdf->AddPage();
-	        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-	        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-	        $pdf->SetFont('bookos', '', 10, '', 'false');
-	        $html = '
-	        <img src="http://i61.tinypic.com/29gofp1.jpg" alt="" style="height:86px;width:62px;"/>
-	        <img src="http://i59.tinypic.com/keub1l.png" alt="" align="right" style="height:45px;width:228px;"/>
-	        <h1 style="text-align:center;">CONVENTION DE STAGE</h1>
-	        <p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
+			$pdf->AddPage();
+			$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+			$pdf->SetFont('bookos', '', 10, '', 'false');
+			$html = '
+			<img src="http://i61.tinypic.com/29gofp1.jpg" alt="" style="height:86px;width:62px;"/>
+			<img src="http://i59.tinypic.com/keub1l.png" alt="" align="right" style="height:45px;width:228px;"/>
+			<h1 style="text-align:center;">CONVENTION DE STAGE</h1>
+			<p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
 			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>';
-	        $pdf->writeHTML($html, true, false, true, false, 'center');
-	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-	        $pdf->AddPage();
-	        $html2 = '<p>Les horaires de travail sont ceux pratiqués au sein de l’organisme. L’étudiant est présent dans l’organisme {stgjheb} jours et {stghheb} heures au maximum par semaine. Pendant la durée du stage, l’étudiant stagiaire peut être autorisé à revenir à l’Université pour y suivre certains cours. Le calendrier est porté à la connaissance du tuteur de l’organisme avant le début du stage. Toute modification substantielle de l’organisation du stage dans le temps donne lieu à un avenant à la présente convention.</p>';
-	        $pdf->writeHTML($html2, true, false, true, false, 'center');
-	        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-	        $pdf->Output();*/
+			$pdf->writeHTML($html, true, false, true, false, 'center');
+			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+			$pdf->AddPage();
+			$html2 = '<p>Les horaires de travail sont ceux pratiqués au sein de l’organisme. L’étudiant est présent dans l’organisme {stgjheb} jours et {stghheb} heures au maximum par semaine. Pendant la durée du stage, l’étudiant stagiaire peut être autorisé à revenir à l’Université pour y suivre certains cours. Le calendrier est porté à la connaissance du tuteur de l’organisme avant le début du stage. Toute modification substantielle de l’organisation du stage dans le temps donne lieu à un avenant à la présente convention.</p>';
+			$pdf->writeHTML($html2, true, false, true, false, 'center');
+			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+			$pdf->Output();*/
 			Response::redirect('admin/convention/');
 		}
 
