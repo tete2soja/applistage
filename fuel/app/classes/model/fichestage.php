@@ -6,6 +6,7 @@ class Model_Fichestage extends \Model_Crud
 		'id',
 		'etudiant',
 		'enseignant',
+		'stage',
 		'sujet',
 		'description_stage',
 		'environnement_dev',
@@ -49,6 +50,7 @@ class Model_Fichestage extends \Model_Crud
 		$val = Validation::forge($factory);
 		$val->add_field('etudiant', 'Etudiant', 'required|valid_string[numeric]');
 		$val->add_field('enseignant', 'Enseignant', 'required|valid_string[numeric]');
+		$val->add_field('stage', 'Stage', 'required|valid_string[numeric]');
 		$val->add_field('sujet', 'Sujet', 'required|max_length[255]');
 		$val->add_field('description_stage', 'Description Stage', 'required|max_length[255]');
 		$val->add_field('environnement_dev', 'Environnement Dev', 'required|max_length[255]');
@@ -113,13 +115,15 @@ class Model_Fichestage extends \Model_Crud
 					}
 				}
 				if (!empty($value->etudiant)) {
-					$etudiant = DB::select('no_etudiant', 'nom', 'prenom')->from('etudiant')->where('id', $value->etudiant)->execute();
+					$etudiant = DB::select('no_etudiant', 'nom', 'prenom', 'adresse1', 'ville1')->from('etudiant')->where('id', $value->etudiant)->execute();
 					$no_etudiant = $etudiant->get('no_etudiant');
 					$etudiant_np = $etudiant->get('prenom')." ".$etudiant->get('nom');
+					$etudiant_adr = $etudiant->get('adresse1')." ".$etudiant->get('ville1');
 		        	if(!empty($no_etudiant)) {
 		        		$value->set(array(
 					    	'no_etudiant' => $no_etudiant,
 					    	'etudiant_np' => $etudiant_np,
+					    	'etudiant_adr' => $etudiant_adr,
 							));
 					}
 				}
