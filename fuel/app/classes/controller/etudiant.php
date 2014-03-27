@@ -112,7 +112,7 @@ class Controller_Etudiant extends Controller_Template
 		}
 		
 		//Si formulaire soumis on entre
-        /*if (Input::method() == 'POST') {
+        if (Input::method() == 'POST') {
         	$val1 = '';
         	$val2 = '';
         	
@@ -173,61 +173,178 @@ class Controller_Etudiant extends Controller_Template
 				Session::set_flash('error', $val2 = $val2 . 'Entreprise déjà existante. ');
 			}
 			
-			//On regarde si le contact existe en bdd
-            $tmp = Model_Contact::find_one_by(array('nom' => Input::post('contact_nom'), 'email' => Input::post('contact_mail')));
+			//On regarde si le responsable technique existe en bdd
+            $tmp = Model_Contact::find_one_by(array('nom' => Input::post('resT_nom'), 'email' => Input::post('resT_email')));
             
             //Si il n'existe pas, on le crée
             if(empty($tmp)) {
 	            $contact = Model_Contact::forge(array(
-	                'nom' => Input::post('contact_nom'),
-	                'prenom' => Input::post('contact_prenom'),
-	                'telephone' => Input::post('contact_tel'),
-	                'email' => Input::post('contact_mail'),
-	                'ville' => $id_ville_contact,
+	                'nom' => Input::post('resT_nom'),
+	                'prenom' => Input::post('resT_prenom'),
+	                'telephone' => Input::post('resT_tel'),
+	                'email' => Input::post('resT_email'),
+	                'ville' => $id_ville_ent,
 	                'pays' => $id_pays,
 	                'entreprise' => $id_entreprise,
-	                'propose' => 1,
+	                'encadre' => 1,
 	            ));
 	            
 	            if ($contact and $contact->save())
 	            {
-	            	$id_contact = $contact->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Contact ajouté #'.$contact->id.'. ');
+	            	$id_contact1 = $contact->id;
+	                Session::set_flash('success', $val1 = $val1 . 'Responsable tech ajouté #'.$contact->id.'. ');
 	            }	
 	
 	            else
 	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save contact. ');
+	                Session::set_flash('error', $val2 = $val2 . 'Could not save responsable tech. ');
 	            }
 			} else {
-				$id_contact = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Contact déjà existant. ');
+				$id_contact1 = $tmp->id;
+				Session::set_flash('error', $val2 = $val2 . 'Responsable tech déjà existant. ');
 			}
+			
+			//On regarde si le responsable administratif existe en bdd
+            $tmp = Model_Contact::find_one_by(array('nom' => Input::post('resA_nom'), 'email' => Input::post('resA_email')));
             
-            //Création de la proposition de stage
-            $stage = Model_Stage::forge(array(
-                'contact' => $id_contact,
-                'entreprise' => $id_entreprise,
-                'sujet' => Input::post('sujet'),
-                'visibilite' => 1,
-                'contexte' => Input::post('contexte'),
-                'resultats' => Input::post('resultats_attendus'),
-                'conditions' => Input::post('conditions_part'),
-                'url_doc' => Input::post('url_doc_prez'),
-                'public' => 0,
-            ));
+            //Si il n'existe pas, on le crée
+            if(empty($tmp)) {
+	            $contact2 = Model_Contact::forge(array(
+	                'nom' => Input::post('resA_nom'),
+	                'prenom' => Input::post('resA_prenom'),
+	                'telephone' => Input::post('resA_tel'),
+	                'email' => Input::post('resA_email'),
+	                'ville' => $id_ville_ent,
+	                'pays' => $id_pays,
+	                'entreprise' => $id_entreprise,
+	                'signe' => 1,
+	            ));
+	            
+	            if ($contact2 and $contact2->save())
+	            {
+	            	$id_contact2 = $contact2->id;
+	                Session::set_flash('success', $val1 = $val1 . 'Responsable adm ajouté #'.$contact2->id.'. ');
+	            }	
+	
+	            else
+	            {
+	                Session::set_flash('error', $val2 = $val2 . 'Could not save responsable adm. ');
+	            }
+			} else {
+				$id_contact2 = $tmp->id;
+				Session::set_flash('error', $val2 = $val2 . 'Responsable adm déjà existant. ');
+			}
+			
+			//On regarde si le stage existe en bdd
+            $tmp = Model_Stage::find_one_by(array('sujet' => Input::post('sujetStage'), 'entreprise' => $id_entreprise));
             
-            if ($stage and $stage->save())
-            {
-                Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. ');
-                Response::redirect('entreprise/liste');
-            }
-
-            else
-            {
-                Session::set_flash('error', $val2 = $val2 . 'Could not save stage. ');
-            }
-        }*/
+            //Si il n'existe pas, on le crée
+            if(empty($tmp)) {
+	            $stage = Model_Stage::forge(array(
+	            	'etudiant' => $etudiant->id,
+	                'contact' => $id_contact1,
+	                'entreprise' => $id_entreprise,
+	                'sujet' => Input::post('sujetStage'),
+	                'visibilite' => 1,
+	                'contexte' => Input::post('description_sujet'),
+	                'resultats' => Input::post('description_sujet'),
+	                'conditions' => Input::post('environnement'),
+	                'public' => 0,
+	                'etat' => 3,
+	            ));
+	            
+	            if ($stage and $stage->save())
+	            {
+	            	$id_stage = $stage->id;
+	                Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. ');
+	            }
+	
+	            else
+	            {
+	                Session::set_flash('error', $val2 = $val2 . 'Could not save stage. ');
+	            }
+	        } else {
+				$id_stage = $tmp->id;
+				Session::set_flash('error', $val2 = $val2 . 'Stage déjà existant. ');
+			}
+			
+			//Si l'étudiant n'a pas déjà de fiche de stage, on la crée, sinon on l'update
+			if(empty($fiche)) {
+            	$fichestage = Model_Fichestage::forge(array(
+	            	'etudiant' => $etudiant->id,
+	            	'stage' => $id_stage,
+	            	'sujet' => Input::post('sujetStage'),
+	            	'description_stage' => Input::post('description_sujet'),
+	            	'environnement_dev' => Input::post('environnement'),
+	                'indemnite' => Input::post('montant'),
+	                'entreprise' => $id_entreprise,
+	                'responsable_tech' => $id_contact1,
+	                'responsable_adm' => $id_contact2,
+	                'contact_urgence' => Input::post('contact_urgence'),
+	                'rpz_np' => Input::post('rep_nom'),
+					'rpz_adresse' => Input::post('rep_adresse'),
+					'rpz_tel' => Input::post('rep_tel'),
+					'origine_offre' => 0,
+					'type' => 0,
+					'langue' => 0,
+					'duree' => Input::post('duree_stage'),
+					'date_debut' => Input::post('date_debut'),
+					'date_fin' => Input::post('date_fin'),
+					'allongee' => 0,
+					'nb_jour_semaine' => Input::post('nb_jour_travailles'),
+					'horaire_hebdo' => Input::post('horaire_hebdo'),
+					'retribution' => Input::post('retribution'),
+					'nature' => Input::post('nature'),
+	            ));
+	            
+	            if ($fichestage and $fichestage->save())
+	            {
+	                Session::set_flash('success', $val1 = $val1 . 'Fiche stage ajoutée #'.$fichestage->id.'. ');
+	                Response::redirect('etudiant/convention');
+	            }
+	
+	            else
+	            {
+	                Session::set_flash('error', $val2 = $val2 . 'Could not save fichestage. ');
+	            }
+	        } else {
+	        	$fichestage = Model_Fichestage::find_by_pk($fiche->id);
+	        	
+	        	if (!empty($fichestage)) {
+	        		$query = DB::update('fichestages')->where('id', $fiche->id);
+	        		$query->set(array(
+		            	'stage' => $id_stage,
+		            	'sujet' => Input::post('sujetStage'),
+		            	'description_stage' => Input::post('description_sujet'),
+		            	'environnement_dev' => Input::post('environnement'),
+		                'indemnite' => Input::post('montant'),
+		                'entreprise' => $id_entreprise,
+		                'responsable_tech' => $id_contact1,
+		                'responsable_adm' => $id_contact2,
+		                'contact_urgence' => Input::post('contact_urgence'),
+		                'rpz_np' => Input::post('rep_nom'),
+						'rpz_adresse' => Input::post('rep_adresse'),
+						'rpz_tel' => Input::post('rep_tel'),
+						'duree' => Input::post('duree_stage'),
+						'date_debut' => Input::post('date_debut'),
+						'date_fin' => Input::post('date_fin'),
+						'nb_jour_semaine' => Input::post('nb_jour_travailles'),
+						'horaire_hebdo' => Input::post('horaire_hebdo'),
+						'retribution' => Input::post('retribution'),
+						'nature' => Input::post('nature'),
+	        		));
+	                
+	                if($query->execute()) {
+		                Session::set_flash('success', $val1 = $val1 . 'Fiche de stage mise à jour. ');
+		                Response::redirect('etudiant/convention');
+	                }
+	                else {
+		                Session::set_flash('error', $val2 = $val2 . 'Mise à jour de la fiche de stage impossible.  ');
+		                Response::redirect('etudiant/formulaire');
+	                }
+	        	}
+	       } 
+        }
 
     	$tab_pays = DB::select('nom')->from('pays')->order_by('nom', 'asc')->execute()->as_array();
     	$pays = \Arr::pluck($tab_pays, 'nom');
@@ -251,20 +368,7 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
 		$this->template->content = View::forge('etudiant/formulaire', $data);
-
-		/*if (isset($_POST['submit'])) {
-			$sujet = $_POST['sujetStage'];
-			$nomcontact = $_POST['resT_nom'];
-			$publicproposition = $_POST['albumimg'];
-			$contextestage = $_POST['description_sujet'];
-			$conditionstage = $_POST['annee'];
-			$proposition = $_POST['playlist'];
-			$indemnite = $_POST['retribution'];
-			$public = $_POST['playlist'];
-			//ENTREPRISE
-			//$query = DB::query('INSERT INTO `fichestages` VALUES ("' . $id . '","' . $nom . '","' . $code . '","' . $pays . '")')->execute();
-			//print "Formulaire envoyé avec succès";
-		}*/
+		
 	}
 	
 	public function action_proposition() {

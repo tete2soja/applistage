@@ -1,6 +1,6 @@
 <?php echo Asset::js('bootstrap-datepicker.js'); ?>
 <?php echo Asset::css('datepicker.css'); ?>
-<?php echo Asset::js('checkform_etud.js'); ?>
+<?php //echo Asset::js('checkform_etud.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
     var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
@@ -13,7 +13,7 @@ $(function() {
     source: availableEnt
     });
     $( "#sujetStage" ).autocomplete({
-    source: availableEnt
+    source: availableSujet
     });
   });
 </script>
@@ -255,6 +255,7 @@ $(function() {
 					<input type="number" class="form-control" id="duree_stage" name="duree_stage" placeholder="10" value=<?php 
 						if(isset($fiche->duree))
 							echo '"' . $fiche->duree . '"';
+						else echo "10";
 						?>>
 				</div>
 			</div>
@@ -322,7 +323,7 @@ $(function() {
 		<div class="form-group">
 			<label for="montant" class="col-sm-2 control-label">Montant mensuel prévu</label>
 			<div class="col-sm-10" id="montant_div">
-				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($indemnite)) echo '"' . $indemnite .'"'; ?>></div>
+				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($remuneration)) echo '"' . $remuneration .'"'; ?>></div>
 			</div>
 		</div>
 		<div class="form-group">
@@ -339,12 +340,7 @@ $(function() {
 			<label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage</label>
 			<div class="col-sm-10">
 				<div id="description_sujet_div">
-					<textarea id="description_sujet" name="description_sujet" class="form-control" rows="3"><?php
-						if(isset($fiche->description_stage))
-							echo $fiche->description_stage;
-						elseif((isset($stage->contexte)) AND (isset($stage->resultats)))
-							echo $stage->contexte . "\n" . $stage->resultats;
-						?>
+					<textarea id="description_sujet" name="description_sujet" class="form-control" rows="3"><?php if(isset($fiche->description_stage)) echo $fiche->description_stage; elseif((isset($stage->contexte)) AND (isset($stage->resultats))) echo $stage->contexte .'\n'. $stage->resultats; ?>
 					</textarea>
 				</div>
 			</div>
@@ -363,12 +359,7 @@ $(function() {
 			<label for="environnement" class="col-sm-2 control-label">Environnement de développement</label>
 			<div class="col-sm-10">
 				<div id="environnement_div">
-					<textarea id="environnement" name="environnement" class="form-control" rows="3" value="Outils et Langages"><?php
-						if(isset($fiche->environnement_dev))
-							echo $fiche->environnement_dev;
-						elseif(isset($stage->conditions))
-							echo $stage->conditions;
-						?>
+					<textarea id="environnement" name="environnement" class="form-control" rows="3" value="Outils et Langages"><?php if(isset($fiche->environnement_dev)) echo $fiche->environnement_dev; elseif(isset($stage->conditions)) echo $stage->conditions; ?>
 					</textarea>
 				</div>
 			</div>
@@ -382,10 +373,7 @@ $(function() {
 		<div class="form-group">
 			<label for="observations" class="col-sm-2 control-label">Observations du responsable</label>
 			<div class="col-sm-10">
-				<textarea id="observations" name="observations" class="form-control" rows="3" disabled value=<?php 
-						if(isset($fiche->observations_resp))
-							echo $fiche->observations_resp;
-						?>>
+				<textarea id="observations" name="observations" class="form-control" rows="3" disabled><?php if(isset($fiche->observations_resp)) echo $fiche->observations_resp; ?>
 				</textarea>
 			</div>
 		</div>

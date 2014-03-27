@@ -7,6 +7,9 @@
 	<strong>Etudiant:</strong>
 	<?php echo $convention->etudiant_np; ?></p>
 <p>
+	<strong>Stage:</strong>
+	<?php echo Html::anchor('admin/stage/view/'.$convention->stage, $convention->stage); ?></p>
+<p>
 	<strong>Sujet:</strong>
 	<?php echo $convention->sujet; ?></p>
 <p>
@@ -17,7 +20,7 @@
 	<?php echo $convention->environnement_dev; ?></p>
 <p>
 	<strong>Observations resp:</strong>
-	<?php echo $convention->observations_resp; ?></p>
+	<?php if(isset($convention->observations_resp)) echo $convention->observations_resp; ?></p>
 <p>
 	<strong>Indemnité:</strong>
 	<?php echo $convention->indemnite; ?></p>
@@ -71,10 +74,10 @@
 	<?php echo $convention->horaire_hebdo; ?></p>
 <p>
 	<strong>Rétribution:</strong>
-	<?php echo $convention->retribution; ?></p>
+	<?php if(isset($convention->retribution)) echo $convention->retribution; ?></p>
 <p>
 	<strong>Nature:</strong>
-	<?php echo $convention->nature; ?></p>
+	<?php if(isset($convention->nature)) echo $convention->nature; ?></p>
 <p>
 	<strong>Etat:</strong>
 	<?php

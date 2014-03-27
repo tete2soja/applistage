@@ -111,11 +111,6 @@
 									?></td>
 								<td><?php echo $item->sujet; ?></td>
 								<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>
-								<td><?php echo Html::anchor('admin/contact/view/'.$item->responsable_tech, $item->responsable_tech_np); ?></td>
-								<td><?php echo Html::anchor('admin/contact/view/'.$item->responsable_adm, $item->responsable_adm_np); ?></td>
-								<td><?php echo $item->origine_offre; ?></td>
-								<td><?php echo $item->type; ?></td>
-								<td><?php echo $item->langue; ?></td>
 								<td><?php
 									if ($item->etat == 0) {
 										echo '<span class="label label-info">Saisie</span>';

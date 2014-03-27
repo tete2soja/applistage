@@ -50,12 +50,12 @@ class Model_Fichestage extends \Model_Crud
 	{
 		$val = Validation::forge($factory);
 		$val->add_field('etudiant', 'Etudiant', 'required|valid_string[numeric]');
-		$val->add_field('enseignant', 'Enseignant', 'required|valid_string[numeric]');
+		$val->add_field('enseignant', 'Enseignant', 'valid_string[numeric]');
 		$val->add_field('stage', 'Stage', 'required|valid_string[numeric]');
 		$val->add_field('sujet', 'Sujet', 'required|max_length[255]');
-		$val->add_field('description_stage', 'Description Stage', 'required|max_length[255]');
-		$val->add_field('environnement_dev', 'Environnement Dev', 'required|max_length[255]');
-		$val->add_field('observations_resp', 'Observations Resp', 'required|max_length[255]');
+		$val->add_field('description_stage', 'Description Stage', 'required');
+		$val->add_field('environnement_dev', 'Environnement Dev', 'required');
+		$val->add_field('observations_resp', 'Observations Resp', '');
 		$val->add_field('indemnite', 'Indemnite', 'required|valid_string[numeric]');
 		$val->add_field('entreprise', 'Entreprise', 'required|valid_string[numeric]');
 		$val->add_field('responsable_tech', 'Responsable Tech', 'required|valid_string[numeric]');
@@ -73,9 +73,9 @@ class Model_Fichestage extends \Model_Crud
 		$val->add_field('allongee', 'Allongee', 'required|valid_string[numeric]');
 		$val->add_field('nb_jour_semaine', 'Nb Jour Semaine', 'required|valid_string[numeric]');
 		$val->add_field('horaire_hebdo', 'Horaire Hebdo', 'required|valid_string[numeric]');
-		$val->add_field('retribution', 'Retribution', 'required|valid_string[numeric]');
-		$val->add_field('nature', 'Nature', 'required|max_length[255]');
-		$val->add_field('etat', 'Etat', 'required|valid_string[numeric]');
+		$val->add_field('retribution', 'Retribution', 'valid_string[numeric]');
+		$val->add_field('nature', 'Nature', 'max_length[255]');
+		$val->add_field('etat', 'Etat', 'valid_string[numeric]');
 		$val->add_field('last_edit', 'Last Edit', 'date');
 
 		return $val;
@@ -162,6 +162,11 @@ class Model_Fichestage extends \Model_Crud
 					    	'responsable_tech_prenom' => $contact_prenom,
 							));
 						}
+						if ((!empty($contact_nom)) AND (!empty($contact_tel))) {
+		        		$value->set(array(
+					    	'responsable_tech_np' => $contact_nom.' '.$contact_prenom,
+							));
+						}
 						if (!empty($contact_tel)) {
 		        		$value->set(array(
 					    	'responsable_tech_tel' => $contact_tel,
@@ -191,6 +196,11 @@ class Model_Fichestage extends \Model_Crud
 					    	'responsable_adm_prenom' => $contact_prenom,
 							));
 						}
+						if ((!empty($contact_nom)) AND (!empty($contact_tel))) {
+		        		$value->set(array(
+					    	'responsable_adm_np' => $contact_nom.' '.$contact_prenom,
+							));
+						}
 						if (!empty($contact_tel)) {
 		        		$value->set(array(
 					    	'responsable_adm_tel' => $contact_tel,
@@ -209,5 +219,4 @@ class Model_Fichestage extends \Model_Crud
 		// return the result
 	    return $result;
 	}
-
 }

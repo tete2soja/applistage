@@ -15,6 +15,7 @@ class Model_Stage extends \Model_Crud
 		'conditions',
 		'url_doc',
 		'public',
+		'etat',
 	);
 
 	protected static $_observers = array(
@@ -36,11 +37,11 @@ class Model_Stage extends \Model_Crud
 		$val->add_field('contact', 'Contact', 'required|valid_string[numeric]');
 		$val->add_field('enseignant', 'Enseignant', 'valid_string[numeric]');
 		$val->add_field('entreprise', 'Entreprise', 'required|valid_string[numeric]');
-		$val->add_field('sujet', 'Sujet', 'required|max_length[255]');
+		$val->add_field('sujet', 'Sujet', 'required');
 		$val->add_field('visibilite', 'Visibilite', 'required|valid_string[numeric]');
-		$val->add_field('contexte', 'Contexte', 'required|max_length[255]');
-		$val->add_field('resultats', 'Resultats', 'required|max_length[255]');
-		$val->add_field('conditions', 'Conditions', 'max_length[255]');
+		$val->add_field('contexte', 'Contexte', 'required');
+		$val->add_field('resultats', 'Resultats', 'required');
+		$val->add_field('conditions', 'Conditions', '');
 		$val->add_field('url_doc', 'Url Doc', 'max_length[255]');
 		$val->add_field('public', 'Public', 'required|valid_string[numeric]');
 		$val->add_field('etat', 'etat', 'valid_string[numeric]');
