@@ -120,7 +120,7 @@ class Controller_Entreprise extends Controller_Template
 
 			//Lien vers le document PDF si présent
 			$config = array(
-				'path' => DOCROOT.'assets/doc/PDF_en/',
+				'path' => DOCROOT.'assets/doc/PDF_ent/',
 				'randomize' => true,
 				'ext_whitelist' => array('pdf', 'PDF'),
 			);
@@ -138,13 +138,16 @@ class Controller_Entreprise extends Controller_Template
 				print_r(Upload::get_files());
 				echo '<br>';
 				$tmp_name = current($filename);
+				echo $tmp_name.'<br>';
+				move_uploaded_file($_FILES["filename"]["tmp_name"], DOCROOT.'assets/doc/PDF_ent/' . $filename);
 				File::rename(DOCROOT.'assets/doc/PDF_ent/' . $tmp_name, DOCROOT.'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']));
 				$chemin_file = 'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']);
+				echo $chemin_file.'<br>';
 			}
 
 			
 			//Création de la proposition de stage
-			$stage = Model_Stage::forge(array(
+			/*$stage = Model_Stage::forge(array(
 				'contact' => $id_contact,
 				'entreprise' => $id_entreprise,
 				'sujet' => Input::post('sujet'),
@@ -166,7 +169,7 @@ class Controller_Entreprise extends Controller_Template
 			else
 			{
 				Session::set_flash('error', $val2 = $val2 . 'Could not save stage. ');
-			}
+			}*/
 		}
 		
 		//A réactiver quand table ville vidée
