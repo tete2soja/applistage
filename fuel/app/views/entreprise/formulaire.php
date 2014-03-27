@@ -1,4 +1,4 @@
-		<?php echo Asset::js('checkform_ent.js'); ?>
+<?php //echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
 	var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
@@ -27,7 +27,7 @@ $(function() {
 			text-align:center;">
 			<h2>Formulaire de saisie d'une proposition de stage</h2>
 			<br />
-			<form class="form-horizontal" id="formulaire_entreprise" role="form" method="POST" action="" onsubmit="return checkform();">
+			<form class="form-horizontal" id="formulaire_entreprise" enctype="multipart/form-data" role="form" method="POST" action="" onsubmit="return checkform();">
 				<div class="form-group">
 					<label for="sujet" class="col-sm-2 control-label" >Sujet</label>
 					<div class="col-sm-10">
@@ -39,9 +39,6 @@ $(function() {
 					<div class="col-sm-10">
 						<div id="contact_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_nom" name="contact_nom" placeholder="Nom"></div>
 						<div id="contact_prenom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_prenom" name="contact_prenom" placeholder="Prénom"></div>
-						<div id="contact_codepostal_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_codepostal" name="contact_codepostal" placeholder="Code Postal"></div>
-						<div id="contact_ville_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_ville" name="contact_ville" placeholder="Ville"></div>
-						<div id="contact_pays_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_pays" name="contact_pays" placeholder="Pays"></div>
 						<div id="contact_mail_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_mail" name="contact_mail" placeholder="Adresse mail"></div>
 						<div id="contact_tel_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_tel" name="contact_tel" placeholder="Téléphone"></div>
 					</div>
@@ -96,6 +93,10 @@ $(function() {
 					<div class="col-sm-10">
 						<div id="url_doc_prez_div"><input type="text" class="form-control" id="url_doc_prez" name="url_doc_prez" placeholder=""></div>
 					</div>
+				</div>
+			<div class="form-group">
+				<label>Document PDF de présentation</label>
+					<input size='50' type='file' accept="application/pdf" name='filename' style="margin-left:40%;"/><br />
 				</div>
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">

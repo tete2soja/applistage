@@ -14,6 +14,7 @@ class Model_Stage extends \Model_Crud
 		'resultats',
 		'conditions',
 		'url_doc',
+		'chemin_pdf',
 		'public',
 		'etat',
 	);
@@ -43,6 +44,7 @@ class Model_Stage extends \Model_Crud
 		$val->add_field('resultats', 'Resultats', 'required');
 		$val->add_field('conditions', 'Conditions', '');
 		$val->add_field('url_doc', 'Url Doc', 'max_length[255]');
+		$val->add_field('chemin_pdf', 'Url Doc', 'max_length[255]');
 		$val->add_field('public', 'Public', 'required|valid_string[numeric]');
 		$val->add_field('etat', 'etat', 'valid_string[numeric]');
 		$val->add_field('date', 'Date', 'required');

@@ -87,6 +87,9 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->execute();
 			Response::redirect('admin/stage');
 		}
+		else if (isset($_POST['doc'])) {
+			File::download(DOCROOT. $_POST['doc'] , 'doc.pdf');
+		}
 
 	}
 

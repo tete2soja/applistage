@@ -31,24 +31,6 @@ fieldset {
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Ville', 'ville', array('class'=>'control-label')); ?>
-
-				<?php echo Form::input('ville', Input::post('ville', isset($contact) ? $contact->ville : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Ville')); ?>
-
-		</div>
-		<div class="form-group">
-			<?php echo Form::label('Code Postal', 'code_postal', array('class'=>'control-label')); ?>
-
-				<?php echo Form::input('code_postal', Input::post('code_postal', isset($contact) ? $contact->code_postal : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Code Postal')); ?>
-
-		</div>
-		<div class="form-group">
-			<?php echo Form::label('Pays', 'pays', array('class'=>'control-label')); ?>
-
-				<?php echo Form::input('pays', Input::post('pays', isset($contact) ? $contact->pays : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Pays')); ?>
-
-		</div>
-		<div class="form-group">
 			<?php echo Form::label('Entreprise', 'entreprise', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('entreprise', Input::post('entreprise', isset($contact) ? $contact->ent_nom : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Entreprise')); ?>

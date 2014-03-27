@@ -16,6 +16,7 @@ class Model_Fichestage extends \Model_Crud
 		'responsable_tech',
 		'responsable_adm',
 		'contact_urgence',
+		'contact_urgence_tel',
 		'rpz_np',
 		'rpz_adresse',
 		'rpz_tel',
@@ -61,6 +62,7 @@ class Model_Fichestage extends \Model_Crud
 		$val->add_field('responsable_tech', 'Responsable Tech', 'required|valid_string[numeric]');
 		$val->add_field('responsable_adm', 'Responsable Adm', 'required|valid_string[numeric]');
 		$val->add_field('contact_urgence', 'Contact Urgence', 'required|max_length[255]');
+		$val->add_field('contact_urgence_tel', 'Contact urgence telephone', 'required|max_length[255]');
 		$val->add_field('rpz_np', 'Rpz Np', 'required|max_length[255]');
 		$val->add_field('rpz_adresse', 'Rpz Adresse', 'required|max_length[255]');
 		$val->add_field('rpz_tel', 'Rpz Tel', 'required|max_length[255]');

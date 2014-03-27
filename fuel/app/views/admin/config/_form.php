@@ -163,7 +163,7 @@ fieldset {
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Annee courante', 'annee_courante', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Année du stage', 'annee_courante', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('annee_courante', Input::post('annee_courante', isset($config) ? $config->annee_courante : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Annee courante')); ?>
 

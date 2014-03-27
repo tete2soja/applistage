@@ -8,8 +8,6 @@ class Model_Contact extends \Model_Crud
 		'prenom',
 		'telephone',
 		'email',
-		'ville',
-		'pays',
 		'entreprise',
 		'encadre',
 		'signe',
@@ -35,8 +33,6 @@ class Model_Contact extends \Model_Crud
 		$val->add_field('prenom', 'Prenom', 'required|max_length[255]');
 		$val->add_field('telephone', 'Telephone', 'required|max_length[255]');
 		$val->add_field('email', 'Email', 'required|valid_email|max_length[255]');
-		$val->add_field('ville', 'Ville', 'required|valid_string[numeric]');
-		$val->add_field('pays', 'Pays', 'required|valid_string[numeric]');
 		$val->add_field('entreprise', 'Entreprise', 'required|valid_string[numeric]');
 		$val->add_field('encadre', 'Encadre', 'required|valid_string[numeric]');
 		$val->add_field('signe', 'Signe', 'required|valid_string[numeric]');
@@ -50,21 +46,6 @@ class Model_Contact extends \Model_Crud
 	    if($result !== null)
 	    {
 	        foreach ($result as $value) {
-	        	if (!empty($value->ville)) {
-	        		$id_ville = $value->ville;
-	        		$ville = Model_Ville::find_one_by_id($id_ville)->nom;
-	        		$code_postal = Model_Ville::find_one_by_id($id_ville)->code_postal;
-	        		$value->set(array(
-				    	'ville' => $ville,
-				    	'code_postal' => $code_postal,
-						));
-				}
-				if (!empty($value->pays)) {
-					$pays = Model_Pays::find_one_by_id($value->pays)->nom;
-	        		$value->set(array(
-				    	'pays' => $pays,
-						));
-				}
 				if (!empty($value->entreprise)) {
 					$entreprise = Model_Entreprise::find_one_by_id($value->entreprise)->nom;
 	        		$value->set(array(

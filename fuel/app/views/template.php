@@ -33,7 +33,7 @@
 			</div>
 			<?php if (Session::get_flash('success')): ?>
 				<div class="alert alert-success">
-					<strong>Success</strong>
+					<strong>Succès</strong>
 					<p>
 					<?php echo implode('</p><p>', e((array) Session::get_flash('success'))); ?>
 					</p>
@@ -41,9 +41,17 @@
 	<?php endif; ?>
 	<?php if (Session::get_flash('error')): ?>
 				<div class="alert alert-error">
-					<strong>Error</strong>
+					<strong>Erreur</strong>
 					<p>
 					<?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
+					</p>
+				</div>
+	<?php endif; ?>
+	<?php if (Session::get_flash('info')): ?>
+				<div class="alert alert-info">
+					<strong>Information</strong>
+					<p>
+					<?php echo implode('</p><p>', e((array) Session::get_flash('info'))); ?>
 					</p>
 				</div>
 	<?php endif; ?>
@@ -53,7 +61,8 @@
 				<p class="pull-right">
 					<?php echo Html::anchor('/', 'Retour Accueil', array('class' => 'btn btn-link')); ?>
 					<?php if (Auth::check())
-						{
+						{							
+							echo Html::anchor('util/logout', 'Déconnexion', array('class' => 'btn btn-warning', 'style' => 'padding-top: 5px;'));
 							echo Html::anchor('util/compte', 'Mon compte', array('class' => 'btn btn-default', 'style' => 'padding-top: 5px;'));
 						}
 					?>

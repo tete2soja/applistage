@@ -105,7 +105,7 @@
 		<tr>
 			<th>Date debut</th>
 			<th>Date fin</th>
-			<th>Annee courante</th>
+			<th>Année du stage</th>
 			<th>Remuneration</th>
 		</tr>
 	</thead>

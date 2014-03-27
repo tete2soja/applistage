@@ -67,6 +67,12 @@ fieldset {
 
 		</div>
 		<div class="form-group">
+			<?php echo Form::label('Contact urgence téléphone', 'contact_urgence_tel', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('contact_urgence_tel', Input::post('contact_urgence_tel', isset($convention) ? $convention->contact_urgence_tel : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Contact urgence téléphone')); ?>
+
+		</div>
+		<div class="form-group">
 			<?php echo Form::label('Représentant légal', 'rpz_np', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('rpz_np', Input::post('rpz_np', isset($convention) ? $convention->rpz_np : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Rpz np')); ?>

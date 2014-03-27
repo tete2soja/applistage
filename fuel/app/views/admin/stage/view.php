@@ -48,6 +48,10 @@
 					echo ' aucun';
 				} else { echo ' ' . Html::anchor($stage->url_doc, $stage->url_doc); } ?></p>
 <p>
+	<strong>Doc joint:</strong><?php if(empty($stage->chemin_pdf)) {
+					echo ' aucun';
+				} else { echo ' ' . '<form method="POST"><button type="submit" name="doc" class="btn btn-success" value=' . "\"" . $stage->chemin_pdf . "\">Voir</button></form>"; } ?></p>
+<p>
 	<strong>Public:</strong>
 	<?php echo $stage->public; ?></p>
 <p>

@@ -37,6 +37,9 @@
 	<strong>Contact urgence:</strong>
 	<?php echo $convention->contact_urgence; ?></p>
 <p>
+	<strong>Contact urgence téléphone:</strong>
+	<?php echo $convention->contact_urgence_tel; ?></p>
+<p>
 	<strong>Représentant légal:</strong>
 	<?php echo $convention->rpz_np; ?></p>
 <p>

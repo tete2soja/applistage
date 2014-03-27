@@ -8,9 +8,6 @@
 			<th>Prénom</th>
 			<th>Téléphone</th>
 			<th>Email</th>
-			<th>Ville</th>
-			<th>Code Postal</th>
-			<th>Pays</th>
 			<th>Entreprise</th>
 			<th>Status</th>
 			<th></th>
@@ -23,9 +20,6 @@
 			<td><?php echo $item->prenom; ?></td>
 			<td><?php echo $item->telephone; ?></td>
 			<td><?php echo $item->email; ?></td>
-			<td><?php echo $item->ville; ?></td>
-			<td><?php echo $item->code_postal; ?></td>
-			<td><?php echo $item->pays; ?></td>
 			<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>
 			<td>
 				<?php

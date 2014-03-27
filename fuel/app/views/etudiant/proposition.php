@@ -36,6 +36,3 @@
 <p>Pas de stage proposé.</p>
 
 <?php endif; ?>
-<p>
-	<?php echo Html::anchor('entreprise/formulaire', 'Ajouter une proposition', array('class' => 'btn btn-info')); ?>
-</p>

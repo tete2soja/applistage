@@ -1,6 +1,6 @@
 <?php echo Asset::js('bootstrap-datepicker.js'); ?>
 <?php echo Asset::css('datepicker.css'); ?>
-<?php //echo Asset::js('checkform_etud.js'); ?>
+<?php echo Asset::js('checkform_etud.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
     var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
@@ -264,9 +264,9 @@ $(function() {
 			<label for="date_debut" class="col-sm-2 control-label">Date de début de stage</label>
 			<div class="col-sm-10">
 				<div class="input-append date" id="date_debut_div" data-date=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?> data-date-format="yyyy-mm-dd">
-					<input id="date_debut" name="date_debut" class="span2" size="16" type="text" value=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?> readonly>
+					<input id="date_debut" name="date_debut" class="span2" size="16" type="text" value=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?> disabled>
 					<span class="add-on">
-						<i class="glyphicon glyphicon-leaf"></i>
+						<i class="glyphicon glyphicon-th"></i>
 					</span>
 				</div>
 			</div>
@@ -275,9 +275,9 @@ $(function() {
 			<label for="date_fin" class="col-sm-2 control-label">Date de fin de stage</label>
 			<div class="col-sm-10">
 				<div class="input-append date" id="date_fin_div" data-date=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?> data-date-format="yyyy-mm-dd">
-					<input id="date_fin" name="date_fin" class="span2" size="16" type="text" value=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?> readonly>
+					<input id="date_fin" name="date_fin" class="span2" size="16" type="text" value=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?> disabled>
 					<span class="add-on">
-						<i class="glyphicon glyphicon-leaf"></i>
+						<i class="glyphicon glyphicon-th"></i>
 					</span>
 				</div>
 			</div>
