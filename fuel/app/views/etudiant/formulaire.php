@@ -18,10 +18,10 @@ $(function() {
   });
 </script>
 <?php
-		if(isset($fiche->observations_resp)) {
-			echo '<p><div class="alert alert-warning"><strong>Observations du responsable :</strong> '.$fiche->observations_resp.'</div></p>';
-		}
-	?>
+	if(isset($fiche->observations_resp)) {
+		echo '<p><div class="alert alert-warning"><strong>Observations du responsable :</strong> '.$fiche->observations_resp.'</div></p>';
+	}
+?>
 <div style="width:90%;
 	margin:auto;
 	padding-left:30px;

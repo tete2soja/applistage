@@ -23,24 +23,18 @@ class Controller_Admin extends Controller_Template
 
 	public function action_index()
 	{
-		$stage_saisi = Model_Stage::count('id', true, array('etat' => 0));
-		$convention_saisi = Model_Fichestage::count('id', true, array('etat' => 0));
+		$data["stage_saisi"] = Model_Stage::count('id', true, array('etat' => 0));
+		$data["convention_saisi"] = Model_Fichestage::count('id', true, array('etat' => 0));
 		$data["subnav"] = array('index'=> 'active' );
 		$this->template->title = 'Admin &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/index', $data);
-		if ($stage_saisi != 0) {
-			Session::set_flash('success', $stage_saisi . ' stages saisi(s) en attente de validation');
-		}
-		if ($convention_saisi != 0) {
-			Session::set_flash('error', $convention_saisi . ' convention(s) en attente de validation');
-		}
+		
 	}
 
 	public function action_import()
 	{
-
 		$data["subnav"] = array('import'=> 'active' );
 		$this->template->title = 'Admin &raquo; Générale';
 		$this->template->main_title = 'Applistage 2014';

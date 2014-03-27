@@ -1,43 +1,49 @@
+<?php
+	if((isset($stage_saisi)) AND ($stage_saisi!=0)) {
+		echo '<p><div class="alert alert-info"><strong>'. $stage_saisi .'</strong> stage(s) saisi(s) en attente de validation</div></p>';
+	}
+	if((isset($convention_saisi)) AND ($convention_saisi!=0)) {
+		echo '<p><div class="alert alert-warning"><strong>'. $convention_saisi .'</strong> convention(s) en attente de validation</div></p>';
+	}
+?>
 <div class="bs-callout bs-callout-warning">
 	<h2>Voir</h2>
-	<p>Chaque boutons vous renverra vers la liste en question sous forme de tableau. Vous pourrez alors, pour chaque entrée, afficher plus de détails, l'éditer ou la supprimer.</p>
+	<p>Chaque bouton vous conduira vers la liste en question sous forme de tableau. Vous pourrez alors, pour chaque entrée, afficher plus de détails, l'éditer ou la supprimer.</p>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<div class="row">
-				<div class="col-md-6">
-					<?php echo Html::anchor('admin/stage', 'Propositions affichées', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
-				</div>
-				<div class="col-md-6">
+				<div class="col-md-3">
 					<?php echo Html::anchor('admin/etudiant', 'Etudiants', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 				</div>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-3">
 					<?php echo Html::anchor('admin/enseignant', 'Enseignants', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 				</div>
-				<div class="col-md-6">
-					<?php echo Html::anchor('admin/contact', 'Professionnels', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+				<div class="col-md-3">
+					<?php echo Html::anchor('admin/contact', 'Contacts', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+				</div>
+				<div class="col-md-2">
+					<?php echo Html::anchor('admin/entreprise', 'Entreprises', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="bs-callout bs-callout-warning">
-	<h2>Gérer les propositions</h2>
+	<h2>Gérer les stages proposés</h2>
 	<div class="row">
 		<div class="col-md-4">
 			<p>Vous pouvez vous même saisir une proposition en passant par le formulaire.</p>
 			<?php echo Html::anchor('entreprise/formulaire', 'Saisir', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-4">
-			<p>Vous pouvez afficher l'ensemble des propositions actuelles et modifier chacune d'elles.</p>
-			<?php echo Html::anchor('admin/stage', 'Modifier et valider', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<p>En France :</p>
+			<?php echo Html::anchor('admin/stage', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-4">
-			<p>Vous trouverez ici l'ensemble des entreprises présentes dans la base de données.</p>
-			<?php echo Html::anchor('admin/entreprise', 'Entreprise, Mailings', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<p>A l'étranger :</p>
+			<?php echo Html::anchor('admin/stage', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 </div>
@@ -45,12 +51,12 @@
 	<h2>Gérer les conventions</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<p>Vous trouverez ici les listes des conventions des deux filiaires avec le status pour chacune d'entre elles.</p>
-			<?php echo Html::anchor('admin/convention', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<p>Vous trouverez ici les listes des conventions des deux filières avec le status pour chacune d'entre elles.</p>
+			<?php echo Html::anchor('admin/convention', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-6">
-			<p>Une fois les conventions validées et imprimées, vous pouvez attribuer les tuteurs pour chaque étudiant en stage.</p>
-			<?php echo Html::anchor('admin/convention', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin//#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<p>Une fois les conventions validées et imprimées, vous pouvez attribuer les tuteurs pour les étudiants en stage.</p>
+			<?php echo Html::anchor('admin/#', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin//#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 </div>
@@ -59,11 +65,11 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p>Suivi des étudiants</p>
-			<?php echo Html::anchor('admin/stage/suivi', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/stage/suivi', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/stage/suivi', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-6">
 			<p>Suivi des tuteurs</p>
-			<?php echo Html::anchor('admin/convention', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'Entreprise', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/#', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 </div>

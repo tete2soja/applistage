@@ -139,7 +139,7 @@ class Model_Fichestage extends \Model_Crud
 				if (!empty($value->stage)) {
 					$stage = DB::select('conditions')->from('stage')->where('id', $value->stage)->execute();
 					$stage_cond = $stage->get('conditions');
-		        	if(!empty($enseignant_np)) {
+		        	if(!empty($stage)) {
 		        		$value->set(array(
 					    	'stage_cond' => $stage_cond,
 							));

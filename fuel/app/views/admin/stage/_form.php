@@ -63,25 +63,25 @@ fieldset {
 		<div class="form-group">
 			<?php echo Form::label('Contexte', 'contexte', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('contexte', Input::post('contexte', isset($stage) ? $stage->contexte : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Contexte')); ?>
+				<?php echo Form::input('contexte', Input::post('contexte', isset($stage->contexte) ? $stage->contexte : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Contexte')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Resultats', 'resultats', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('resultats', Input::post('resultats', isset($stage) ? $stage->resultats : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Resultats')); ?>
+				<?php echo Form::input('resultats', Input::post('resultats', isset($stage-resultats) ? $stage->resultats : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Resultats')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Conditions', 'conditions', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('conditions', Input::post('conditions', isset($stage) ? $stage->conditions : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Conditions')); ?>
+				<?php echo Form::input('conditions', Input::post('conditions', isset($stage->conditions) ? $stage->conditions : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Conditions')); ?>
 
 		</div>
 		<div class="form-group">
 			<?php echo Form::label('Url doc', 'url_doc', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('url_doc', Input::post('url_doc', isset($stage) ? $stage->url_doc : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Url doc')); ?>
+				<?php echo Form::input('url_doc', Input::post('url_doc', isset($stage->url_doc) ? $stage->url_doc : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Url doc')); ?>
 
 		</div>
 		<div class="form-group">
