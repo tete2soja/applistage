@@ -1,5 +1,5 @@
 <?php
-
+include DOCROOT . 'array_column.php';
 class Controller_Entreprise extends Controller_Template
 {
 
@@ -120,7 +120,7 @@ class Controller_Entreprise extends Controller_Template
 
 			//Lien vers le document PDF si présent
 			$config = array(
-				'path' => DOCROOT.'assets\doc\PDF_ent',
+				'path' => DOCROOT.'assets/doc/PDF_en/',
 				'randomize' => true,
 				'ext_whitelist' => array('pdf', 'PDF'),
 			);
@@ -138,7 +138,7 @@ class Controller_Entreprise extends Controller_Template
 				print_r(Upload::get_files());
 				echo '<br>';
 				$tmp_name = current($filename);
-				File::rename(DOCROOT.'assets\doc\PDF_ent/' . $tmp_name, DOCROOT.'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']));
+				File::rename(DOCROOT.'assets/doc/PDF_ent/' . $tmp_name, DOCROOT.'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']));
 				$chemin_file = 'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']);
 			}
 
