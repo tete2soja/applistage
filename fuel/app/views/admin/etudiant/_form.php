@@ -9,7 +9,7 @@ fieldset {
 		<div class="form-group">
 			<?php echo Form::label('No etudiant', 'no_etudiant', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('no_etudiant', Input::post('no_etudiant', isset($etudiant) ? $etudiant->no_etudiant : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'No etudiant')); ?>
+				<?php echo Form::input('no_etudiant', Input::post('no_etudiant', isset($etudiant) ? $etudiant->no_etudiant : ''), array('class' => 'col-md-4 form-control', 'disabled', 'placeholder'=>'No etudiant')); ?>
 
 		</div>
 		<div class="form-group">

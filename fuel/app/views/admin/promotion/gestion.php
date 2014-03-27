@@ -14,6 +14,7 @@
 			<th>Nom</th>
 			<th>Prénom</th>
 			<th>Redoublement en 2A</th>
+			<th>Réorientation</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -31,6 +32,12 @@ if($etudiant->iut_annee==2) { ?>
 				</div>
 			</td>
 			<td>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="reorientation[]" value=<?php echo "\"" . $etudiant->no_etudiant . "\""; ?>>
+					</label>
+				</div>
+			</td>
 		</tr>
 <?php } endforeach; ?>	</tbody>
 </table>

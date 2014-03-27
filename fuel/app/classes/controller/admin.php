@@ -187,25 +187,32 @@ class Controller_Admin extends Controller_Template
 
 	public function action_gestion()
 	{
-		$data['etudiants'] = Model_Etudiant::find_all();
+		$data['etudiants'] = Model_Etudiant::find_by_iut_annee(2);
 		$data["subnav"] = array('valider'=> 'active' );
 		$this->template->title = 'Admin &raquo; Gestion';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/promotion/gestion', $data);
 		if (Input::method() == 'POST') {
-			if (Input::all() == 'redoublement') {
-				/*foreach (Input::post('redoublement'] as $value) {
-					print $value;
-				}*/
-			}
-			else {
-				$etudiants = DB::query('SELECT * FROM `etudiant` WHERE `iut_annee` = 2')->as_object('Model_Etudiant')->execute()->as_array();
-				foreach ($etudiants as $etudiant) {
-					DB::query('INSERT INTO `etudiant_diplome` SELECT * FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
-					DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
+			$etudiants = Model_Etudiant::find_by_iut_annee(2);
+			foreach ($etudiants as $etudiant) {
+				if (isset($_POST['reorientation'])) {
+					if (in_array($etudiant->no_etudiant, $_POST['reorientation'], true)) {
+						//$etudiant->delete();
+						echo 'suppr';
+					}
+				}
+				else if (isset($_POST['redoublement'])) {	
+					if (in_array($etudiant->no_etudiant, $_POST['redoublement'], true)) {
+						echo 'red';
+					}
+				}
+				else {
+					//DB::query('INSERT INTO `etudiant_diplome` SELECT * FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
+					//DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
+					echo 'pass';
 				}
 			}
-		}		
+		}
 	}
 }
