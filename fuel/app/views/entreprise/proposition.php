@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-md-12 center-button">
 				<p>
-				<?php echo Html::anchor('entreprise/proposition', 'Proposer un stage', array('class' => 'btn btn-success btn-lg')); ?>
+				<?php echo Html::anchor('entreprise/formulaire', 'Proposer un stage', array('class' => 'btn btn-success btn-lg')); ?>
 				</p>
 			</div>
 		</div>

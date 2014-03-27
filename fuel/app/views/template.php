@@ -51,13 +51,13 @@
 			<hr />
 			<footer>
 				<p class="pull-right">
-					<a href="/applistage/public/index" type="button" class="btn btn-link">Retour Accueil</a>
+					<?php echo Html::anchor('/', 'Retour Accueil', array('class' => 'btn btn-link')); ?>
 					<?php if (Auth::check())
-		{
-			echo '<a href="/applistage/public/util/compte" type="button" class="btn btn-default" style="padding-top: 5px;">Mon compte</a>';
-		}
+						{
+							echo Html::anchor('util/compte', 'Mon compte', array('class' => 'btn btn-default', 'style' => 'padding-top: 5px;'));
+						}
 					?>
-					<a href="/applistage/public/admin/" type="button" class="btn btn-danger">Admin</a></p>
+					<?php echo Html::anchor('admin/', 'Admin', array('class' => 'btn btn-danger')); ?></p>
 				<p>
 					<a href="http://www.iu-vannes.fr/" target="_blank">IUT Vannes</a><br>
 					<small>Propulsé par FuelPHP <?php echo Fuel::VERSION; ?></small>
