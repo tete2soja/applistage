@@ -59,7 +59,9 @@
 			<hr />
 			<footer>
 				<p class="pull-right">
-					<?php echo Html::anchor('/', 'Retour Accueil', array('class' => 'btn btn-link')); ?>
+					<?php if (!isset($index)) {
+						echo Html::anchor('/', 'Retour Accueil', array('class' => 'btn btn-link'));
+					} ?>
 					<?php if (Auth::check())
 						{							
 							echo Html::anchor('util/logout', 'Déconnexion', array('class' => 'btn btn-warning', 'style' => 'padding-top: 5px;'));
