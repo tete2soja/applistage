@@ -40,14 +40,64 @@ class Controller_Admin extends Controller_Template
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration générale';
 		$this->template->content = View::forge('admin/import', $data);
-		 if (isset($_POST['submit'])) {
+		if (isset($_POST['submit'])) {
 			//Import uploaded file to Database
 			$handle = fopen($_FILES['filename']['tmp_name'], "r");
 			while (($data = fgetcsv($handle, 1000, "\n")) !== FALSE) {
 				$num = count($data);
 				for ($i=0; $i < $num; $i++) {
 					$tmp = $data[$i];
-					list($null, $id, $nom, $prenom, $null2, $date_naissance, $sexe, $adresse1_1, $adresse1_2, $adresse1_3, $code_p1, $ville1, $null3, $null4, $telephone1, $adresse2_1, $adresse2_2, $adresse2_3, $code_p2, $ville2, $telephone2, $bac_annee, $bac, $bac_mention, $email) = explode(";", $tmp);
+
+				 	$array = Model_Admin_Config::find_by_pk(1)->to_array();
+				 	
+				 	$array[] = substr(array_search('code_etudiant', $array), 8);
+				 	$array[] = substr(array_search('nom', $array), 8);
+				 	$array[] = substr(array_search('prenom', $array), 8);
+				 	$array[] = substr(array_search('nom_usage', $array), 8);
+				 	$array[] = substr(array_search('date_naissance', $array), 8);
+				 	$array[] = substr(array_search('sexe', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_ligne1', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_ligne2', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_ligne3', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_code_postal', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_commune', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_etranger', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_pays', $array), 8);
+				 	$array[] = substr(array_search('adresse_fixe_telephone', $array), 8);
+				 	$array[] = substr(array_search('adresse_annuelle_ligne1', $array), 8);
+				 	$array[] = substr(array_search('adresse_annuelle_ligne2', $array), 8);
+				 	$array[] = substr(array_search('adresse_annuelle_ligne3', $array), 8);
+				 	$array[] = substr(array_search('adresse_annuelle_code_postal', $array), 8);
+				 	$array[] = substr(array_search('adresse_annuelle_commune', $array), 8);
+				 	$array[] = substr(array_search('adresse_annuelle_telephone', $array), 8);
+				 	$array[] = substr(array_search('bac_annee', $array), 8);
+				 	$array[] = substr(array_search('bac_equivalence', $array), 8);
+				 	$array[] = substr(array_search('bac_mention', $array), 8);
+				 	$array[] = substr(array_search('email', $array), 8);
+
+				 	$listing = explode(";", $tmp);
+
+				 	$id = $listing[$array[0]];
+				 	$nom = $listing[$array[1]];
+				 	$prenom = $listing[$array[2]];
+				 	$date_naissance = $listing[$array[4]];
+				 	$sexe = $listing[$array[5]];
+				 	$adresse1_1 = $listing[$array[6]];
+				 	$adresse1_2 = $listing[$array[7]];
+				 	$adresse1_3 = $listing[$array[8]];
+				 	$code_p1 = $listing[$array[9]];
+				 	$ville1 = $listing[$array[10]];
+				 	$telephone1 = $listing[$array[13]];
+				 	$adresse2_1 = $listing[$array[14]];
+				 	$adresse2_2 = $listing[$array[15]];
+				 	$adresse2_3 = $listing[$array[16]];
+				 	$code_p2 = $listing[$array[17]];
+				 	$ville2 = $listing[$array[18]];
+				 	$telephone2 = $listing[$array[19]];
+				 	$bac_annee = $listing[$array[20]];
+				 	$bac = $listing[$array[21]];
+				 	$bac_mention = $listing[$array[22]];
+				 	$email = $listing[$array[23]];
 					
 					//Récupération des clés étrangères
 					$ville1 = str_replace ( '-', ' ', $ville1);
@@ -84,7 +134,7 @@ class Controller_Admin extends Controller_Template
 			}
 			fclose($handle);
 			Session::set_flash('success', 'Import de la table `etudiant` avec succès !');
-			Response::redirect('admin/import');
+			//Response::redirect('admin/import');
 		}
 		elseif (isset($_POST['etudiant'])) {
 			$tmp = DB::query('SELECT * FROM `etudiant`')->execute()->as_array();
