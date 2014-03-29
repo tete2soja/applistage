@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <style type="text/css">
 	.row {
 		margin-right: 0px;
@@ -42,8 +43,9 @@
 				</form>
 			</div>
 			<div class="col-md-4">
-			<form enctype='multipart/form-data' action="" method="POST">
-				<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
+				<form enctype='multipart/form-data' action="" method="POST">
+					<button type="contact" name="contact" value="contact" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Contacts</button>
+				</form>
 			</div>
 		</div>
 	</div>
