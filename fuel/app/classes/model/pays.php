@@ -21,5 +21,11 @@ class Model_Pays extends \Model_Crud
 	);
 	
 	public static $_table_name = 'pays';
+	
+	protected static function pre_find(&$query)
+	{
+	    // alter the query
+	    $query->order_by('nom', 'asc');
+	}
 
 }

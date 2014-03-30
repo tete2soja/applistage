@@ -10,6 +10,7 @@
 					<th>Sujet</th>
 					<th>Ville</th>
 					<th>Pays</th>
+					<th>Public</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -22,6 +23,16 @@
 						<td><?php echo $stage->sujet; ?></td>
 						<td><?php echo $stage->ent_ville.' ('.$stage->ent_code.')'; ?></td>
 						<td><?php echo $stage->ent_pays; ?></td>
+						<td><?php
+									if ($stage->public == 0) {
+										echo "Tout public";
+									}
+									else if ($stage->public == 1) {
+										echo "DUT Info";
+									}
+									else
+										echo "Licence Pro";
+								?></td>
 						<td>
 							<?php echo Html::anchor('./entreprise/details/'.$stage->id, 'Voir'); ?>
 						</td>

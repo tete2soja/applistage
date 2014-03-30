@@ -86,6 +86,15 @@ class Controller_Etudiant extends Controller_Template
 
 	public function action_formulaire($id = null) {
 	
+		//Si utilisateur connecté = admin, on le redirige
+		$id_info = Auth::get_groups();
+			foreach ($id_info as $info) {
+				if (($info[1] != "2")&&($info[1] != "1")) {
+					Session::set_flash('error', 'En tant qu\'administrateur, vous ne pouvez pas remplir une fiche de stage à partir de cette page.');
+					Response::redirect('/etudiant/index');
+				}
+			}
+	
 		//Si l'étudiant a déjà rempli une fiche, on la récupère
 		$etudiant = Model_Etudiant::find_one_by('no_etudiant', Auth::get('username'));
 		if(!empty($etudiant)) {
@@ -94,11 +103,11 @@ class Controller_Etudiant extends Controller_Template
 				//Si état fiche = complète ou imprimée, on ne permet pas l'accès
 				if(!empty($fiche->etat)) {
 					if($fiche->etat==3) {
-						Session::set_flash('error', 'Fiche stage complète, pas d\'édition possible');
+						Session::set_flash('info', 'Fiche stage complète, pas d\'édition possible.');
 						Response::redirect('/etudiant/convention');
 					}
 					elseif ($fiche->etat==2) {
-						Session::set_flash('error', 'Convention déjà imprimée');
+						Session::set_flash('info', 'Convention déjà générée, vous ne pouvez plus accéder à cette page.');
 						Response::redirect('/etudiant/convention');
 					}
 				}
@@ -372,6 +381,11 @@ class Controller_Etudiant extends Controller_Template
 	}
 	
 	public function action_proposition() {
+		$id_info = Auth::get_groups();
+			foreach ($id_info as $info) {
+				$data["groupe"]=$info[1];
+			}
+		
 		$data['stages'] = Model_Stage::find_all();
 		$data["subnav"] = array('proposition'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Proposition de Stage';

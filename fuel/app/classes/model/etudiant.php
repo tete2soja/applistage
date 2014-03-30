@@ -57,6 +57,12 @@ class Model_Etudiant extends \Model_Crud
 		return $val;
 	}
 	
+	protected static function pre_find(&$query)
+	{
+	    // alter the query
+	    $query->order_by('nom', 'asc');
+	}
+	
 	public static function post_find($result)
 	{
 	    if($result !== null)

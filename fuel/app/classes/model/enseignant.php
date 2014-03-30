@@ -21,6 +21,12 @@ class Model_Enseignant extends \Model_Crud
 	);
 	protected static $_table_name = 'enseignant';
 	
+	protected static function pre_find(&$query)
+	{
+	    // alter the query
+	    $query->order_by('nom', 'asc');
+	}
+	
 	public static function validate($factory)
 	{
 		$val = Validation::forge($factory);
