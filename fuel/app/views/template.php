@@ -62,13 +62,15 @@
 					<?php if (!isset($index)) {
 						echo Html::anchor('/', 'Retour Accueil', array('class' => 'btn btn-link'));
 					} ?>
+				<p class="pull-right"><?php echo Html::anchor('admin/', 'Admin', array('class' => 'btn btn-danger', 'style' => 'padding-top: 5px;')); ?></p>				
 					<?php if (Auth::check())
 						{							
+							echo '<div class="btn-group pull-right" style="padding-right: 10px;">';
 							echo Html::anchor('util/logout', 'Déconnexion', array('class' => 'btn btn-warning', 'style' => 'padding-top: 5px;'));
-							echo Html::anchor('util/compte', 'Mon compte', array('class' => 'btn btn-default', 'style' => 'padding-top: 5px;'));
+							echo Html::anchor('util/compte', 'Mon compte', array('class' => 'btn btn-default', 'style' => 'padding-top: 4px;'));
+							echo '</div>';
 						}
 					?>
-					<?php echo Html::anchor('admin/', 'Admin', array('class' => 'btn btn-danger')); ?></p>
 				<p>
 					<a href="http://www.iu-vannes.fr/" target="_blank">IUT Vannes</a><br>
 					<small>Propulsé par FuelPHP <?php echo Fuel::VERSION; ?></small>

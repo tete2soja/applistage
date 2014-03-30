@@ -38,32 +38,40 @@ class Controller_Admin extends Controller_Template
 		$handle = fopen($filename, "r");
 		$data = fgetcsv($handle, 1000, "\n");
 		$tmp = $data[0];
+		$colonnes_nom = explode(";", $tmp);	
+		$colonnes_nom = array_values($colonnes_nom);	
+		$data = fgetcsv($handle, 1000, "\n");
+		$tmp = $data[0];
+
+		print_r($colonnes_nom);
+		echo '<br/>';
+		print_r($colonnes_nom[1]);
 
 		$array = Model_Admin_Config::find_by_pk(1)->to_array();
-	 	$array[] = substr(array_search('code_etudiant', $array), 8);
-	 	$array[] = substr(array_search('nom', $array), 8);
-	 	$array[] = substr(array_search('prenom', $array), 8);
-	 	$array[] = substr(array_search('nom_usage', $array), 8);
-	 	$array[] = substr(array_search('date_naissance', $array), 8);
-	 	$array[] = substr(array_search('sexe', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_ligne1', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_ligne2', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_ligne3', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_code_postal', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_commune', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_etranger', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_pays', $array), 8);
-	 	$array[] = substr(array_search('adresse_fixe_telephone', $array), 8);
-	 	$array[] = substr(array_search('adresse_annuelle_ligne1', $array), 8);
-	 	$array[] = substr(array_search('adresse_annuelle_ligne2', $array), 8);
-	 	$array[] = substr(array_search('adresse_annuelle_ligne3', $array), 8);
-	 	$array[] = substr(array_search('adresse_annuelle_code_postal', $array), 8);
-	 	$array[] = substr(array_search('adresse_annuelle_commune', $array), 8);
-	 	$array[] = substr(array_search('adresse_annuelle_telephone', $array), 8);
-	 	$array[] = substr(array_search('bac_annee', $array), 8);
-	 	$array[] = substr(array_search('bac_equivalence', $array), 8);
-	 	$array[] = substr(array_search('bac_mention', $array), 8);
-	 	$array[] = substr(array_search('email', $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[1], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[2], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[3], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[4], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[5], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[6], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[7], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[8], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[9], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[10], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[11], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[12], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[13], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[14], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[15], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[16], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[17], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[18], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[19], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[20], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[21], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[22], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[23], $array), 8);
+	 	$array[] = substr(array_search($colonnes_nom[24], $array), 8);
 
 	 	$listing = explode(";", $tmp);
 
@@ -399,6 +407,16 @@ class Controller_Admin extends Controller_Template
 					}
 				}
 				else {
+					$fiche = Model_Fichestage::find_one_by_etudiant($etudiant->id);
+					$stage = Model_Stage::find_one_by_etudiant($etudiant->id);
+					if (isset($fiche)) {
+						$fiche->etudiant = null;
+						$fiche->save();
+					}
+					if (isset($stage)) {
+						$stage->etudiant = null;
+						$stage->save();
+					}
 					//DB::query('INSERT INTO `etudiant_diplome` SELECT * FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
 					//DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
 					echo 'pass';
