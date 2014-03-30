@@ -10,8 +10,24 @@
 	$('.active a').tab('show');
   });
 </script>
+<?php
+	if ($promo==1) {
+		echo "<h2>Liste des stages proposés aux DUT Info</h2>";
+		$lp=1;
+		$dut=1;
+	}
+	elseif ($promo==2) {
+		echo "<h2>Liste des stages proposés aux LP S2IMa</h2>";
+		$lp=2;
+		$dut=2;
+	}
+	else {
+		echo "<h2>Liste de tous les stages proposés</h2>";
+		$lp=2;
+		$dut=1;
+	}
+?>
 
-<h2>Liste des stages proposés</h2>
 <br />
 <?php if ($stages): ?>
 	<div class="container-fluid">
@@ -43,7 +59,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($stages as $item): ?>
+						<?php foreach ($stages as $item):
+								if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {  ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -102,7 +119,7 @@
 													
 								</td>
 							</tr>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>

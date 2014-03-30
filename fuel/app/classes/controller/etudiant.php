@@ -12,7 +12,7 @@ class Controller_Etudiant extends Controller_Template
 		else {
 			$id_info = Auth::get_groups();
 			foreach ($id_info as $info) {
-				if (($info[1] != "2")&&($info[1] != "10")) {
+				if (($info[1] != "1")&&($info[1] != "2")&&($info[1] != "10")) {
 					Response::redirect('/util/connexion');
 					break;
 				}
@@ -385,7 +385,6 @@ class Controller_Etudiant extends Controller_Template
 			foreach ($id_info as $info) {
 				$data["groupe"]=$info[1];
 			}
-		
 		$data['stages'] = Model_Stage::find_all();
 		$data["subnav"] = array('proposition'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Proposition de Stage';

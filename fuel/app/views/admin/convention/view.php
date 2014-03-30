@@ -2,10 +2,10 @@
 
 <p>
 	<strong>Numéro Etudiant:</strong>
-	<?php echo Html::anchor('admin/etudiant/view/'.$convention->etudiant, $convention->no_etudiant); ?></p>
+	<?php if(isset($convention->etudiant)) echo Html::anchor('admin/etudiant/view/'.$convention->etudiant, $convention->no_etudiant); ?></p>
 <p>
 	<strong>Etudiant:</strong>
-	<?php echo $convention->etudiant_np; ?></p>
+	<?php if(isset($convention->etudiant_np)) echo $convention->etudiant_np; ?></p>
 <p>
 	<strong>Stage:</strong>
 	<?php echo Html::anchor('admin/stage/view/'.$convention->stage, $convention->stage); ?></p>

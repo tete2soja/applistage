@@ -20,8 +20,22 @@ class Controller_Admin_Stage extends Controller_Template{
 		}
 	}
 
-	public function action_index()
+	public function action_index($id = null)
 	{
+		if(!empty($id)) {
+			if($id=="dut") {
+				$promo = 1;
+			}
+			elseif($id=="lp") {
+				$promo = 2;
+			}
+			else {
+				$promo = 0;
+			}
+		} else {
+			$promo = 0; 
+		}
+		$data['promo'] = $promo;
 		$data['stages'] = Model_Stage::find_all();
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';

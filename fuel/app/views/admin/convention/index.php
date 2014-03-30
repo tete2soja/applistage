@@ -11,7 +11,23 @@
   });
 </script>
 
-<h2>Liste des conventions</h2>
+<?php
+	if ($promo==1) {
+		echo "<h2>Liste des conventions des DUT Info</h2>";
+		$lp=1;
+		$dut=1;
+	}
+	elseif ($promo==2) {
+		echo "<h2>Liste des conventions des LP S2IMa</h2>";
+		$lp=2;
+		$dut=2;
+	}
+	else {
+		echo "<h2>Liste de toutes les conventions</h2>";
+		$lp=2;
+		$dut=1;
+	}
+?>
 <br />
 <?php if ($conventions): ?>
 	<div class="container-fluid">
@@ -39,7 +55,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach ($conventions as $item): ?>
+						<?php foreach ($conventions as $item):
+							if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {  ?>
 							<tr>
 								<td><?php if(empty($item->etudiant))
 										echo 'aucun';
@@ -61,7 +78,7 @@
 										echo '<span class="label label-warning">Incomplète</span>';
 									}
 									else if ($item->etat == 2) {
-										echo '<span class="label label-success">Imprimée</span>';
+										echo '<span class="label label-success">Générée</span>';
 									}
 									else if ($item->etat == 3) {
 										echo '<span class="label label-primary">Complète</span>';
@@ -75,11 +92,11 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Imprimer</button>
+									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -119,7 +136,7 @@
 										echo '<span class="label label-warning">Incomplète</span>';
 									}
 									else if ($item->etat == 2) {
-										echo '<span class="label label-success">Imprimée</span>';
+										echo '<span class="label label-success">Générée</span>';
 									}
 									else if ($item->etat == 3) {
 										echo '<span class="label label-primary">Complète</span>';
@@ -133,7 +150,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Imprimer</button>
+									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -178,7 +195,7 @@
 										echo '<span class="label label-warning">Incomplète</span>';
 									}
 									else if ($item->etat == 2) {
-										echo '<span class="label label-success">Imprimée</span>';
+										echo '<span class="label label-success">Générée</span>';
 									}
 									else if ($item->etat == 3) {
 										echo '<span class="label label-primary">Complète</span>';
@@ -192,7 +209,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Imprimer</button>
+									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -237,7 +254,7 @@
 										echo '<span class="label label-warning">Incomplète</span>';
 									}
 									else if ($item->etat == 2) {
-										echo '<span class="label label-success">Imprimée</span>';
+										echo '<span class="label label-success">Générée</span>';
 									}
 									else if ($item->etat == 3) {
 										echo '<span class="label label-primary">Complète</span>';
@@ -251,7 +268,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Imprimer</button>
+									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -296,7 +313,7 @@
 										echo '<span class="label label-warning">Incomplète</span>';
 									}
 									else if ($item->etat == 2) {
-										echo '<span class="label label-success">Imprimée</span>';
+										echo '<span class="label label-success">Générée</span>';
 									}
 									else if ($item->etat == 3) {
 										echo '<span class="label label-primary">Complète</span>';
@@ -310,7 +327,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Imprimer</button>
+									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>

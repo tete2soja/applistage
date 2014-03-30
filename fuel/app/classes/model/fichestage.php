@@ -3,7 +3,6 @@
 class Model_Fichestage extends \Model_Crud
 {
 	protected static $_properties = array(
-		'id',
 		'etudiant',
 		'enseignant',
 		'stage',
@@ -139,11 +138,13 @@ class Model_Fichestage extends \Model_Crud
 					}
 				}
 				if (!empty($value->stage)) {
-					$stage = DB::select('conditions')->from('stage')->where('id', $value->stage)->execute();
+					$stage = DB::select('conditions', 'public')->from('stage')->where('id', $value->stage)->execute();
 					$stage_cond = $stage->get('conditions');
+					$stage_public = $stage->get('public');
 		        	if(!empty($stage)) {
 		        		$value->set(array(
 					    	'stage_cond' => $stage_cond,
+					    	'public' => $stage_public,
 							));
 					}
 				}

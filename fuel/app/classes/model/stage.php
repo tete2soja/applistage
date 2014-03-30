@@ -3,7 +3,6 @@
 class Model_Stage extends \Model_Crud
 {
 	protected static $_properties = array(
-		'id',
 		'etudiant',
 		'contact',
 		'enseignant',
@@ -128,5 +127,17 @@ class Model_Stage extends \Model_Crud
 		
 		// return the result
 	    return $result;
+	}
+	
+	public static function dut_find()
+	{
+		$result = DB::select('*')->from('stage')->where('public', 0)->or_where('public', 1)->as_object('Model_Stage')->execute();
+		return $result;
+	}
+	
+	public static function lp_find($result)
+	{
+		$result = DB::select('*')->from('stage')->where('public', 0)->or_where('public', 2)->as_object('Model_Stage')->execute();
+		return $result;
 	}
 }

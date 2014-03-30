@@ -31,19 +31,15 @@
 <div class="bs-callout bs-callout-warning">
 	<h2>Gérer les stages proposés</h2>
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<p>Vous pouvez vous même saisir une proposition en passant par le formulaire.</p>
 			<?php echo Html::anchor('entreprise/formulaire', 'Saisir', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
-		<div class="col-md-4">
-			<p>En France :</p>
-			<?php echo Html::anchor('admin/stage', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
-			<?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
-		</div>
-		<div class="col-md-4">
-			<p>A l'étranger :</p>
-			<?php echo Html::anchor('admin/stage', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
-			<?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+		<div class="col-md-6">
+			<p>Par filière :</p>
+			<?php echo Html::anchor('admin/stage/', 'Tous', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/stage/index/dut', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/stage/index/lp', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 </div>
@@ -52,10 +48,12 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p>Vous trouverez ici les listes des conventions des deux filières avec le status pour chacune d'entre elles.</p>
-			<?php echo Html::anchor('admin/convention', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/convention/', 'Toutes', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/convention/index/dut', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/convention/index/lp', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-6">
-			<p>Une fois les conventions validées et imprimées, vous pouvez attribuer les tuteurs pour les étudiants en stage.</p>
+			<p>Une fois les conventions validées et générées, vous pouvez attribuer les tuteurs pour les étudiants en stage.</p>
 			<?php echo Html::anchor('admin/#', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin//#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
