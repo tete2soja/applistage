@@ -23,16 +23,19 @@
 	echo '</div>';
 	if ($promo==1) {
 		echo "<h2>Liste des conventions des DUT Info</h2>";
+		$tous=1;
 		$lp=1;
 		$dut=1;
 	}
 	elseif ($promo==2) {
 		echo "<h2>Liste des conventions des LP S2IMa</h2>";
+		$tous=2;
 		$lp=2;
 		$dut=2;
 	}
 	else {
 		echo "<h2>Liste de toutes les conventions</h2>";
+		$tous=0;
 		$lp=2;
 		$dut=1;
 	}
@@ -65,7 +68,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($conventions as $item):
-							if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {  ?>
+							if(($item->public==$tous) OR ($item->public==$dut) OR ($item->public==$lp)) {  ?>
 							<tr>
 								<td><?php if(empty($item->etudiant))
 										echo 'aucun';
@@ -123,7 +126,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($conventions as $item): ?>
-						<?php if ($item->etat == 0) { ?>
+						<?php if(($item->public==$tous) OR ($item->public==$dut) OR ($item->public==$lp)) {
+								if ($item->etat == 0) { ?>
 							<tr>
 								<td><?php if(empty($item->etudiant))
 										echo 'aucun';
@@ -164,7 +168,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -182,7 +186,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($conventions as $item): ?>
-						<?php if ($item->etat == 3) { ?>
+						<?php if(($item->public==$tous) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 3) { ?>
 							<tr>
 								<td><?php if(empty($item->etudiant))
 										echo 'aucun';
@@ -223,7 +228,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -241,7 +246,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($conventions as $item): ?>
-						<?php if ($item->etat == 1) { ?>
+						<?php if(($item->public==$tous) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 1) { ?>
 							<tr>
 								<td><?php if(empty($item->etudiant))
 										echo 'aucun';
@@ -282,7 +288,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -300,7 +306,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($conventions as $item): ?>
-						<?php if ($item->etat == 2) { ?>
+						<?php if(($item->public==$tous) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 2) { ?>
 							<tr>
 								<td><?php if(empty($item->etudiant))
 										echo 'aucun';
@@ -341,7 +348,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
