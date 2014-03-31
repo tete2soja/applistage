@@ -145,18 +145,34 @@ class Controller_Entreprise extends Controller_Template
 
 			
 			//Création de la proposition de stage
-			$stage = Model_Stage::forge(array(
-				'contact' => $id_contact,
-				'entreprise' => $id_entreprise,
-				'sujet' => Input::post('sujet'),
-				'visibilite' => 1,
-				'contexte' => Input::post('contexte'),
-				'resultats' => Input::post('resultats_attendus'),
-				'conditions' => Input::post('conditions_part'),
-				'url_doc' => Input::post('url_doc_prez'),
-				'chemin_pdf' => $chemin_file,
-				'public' => 0,
-			));
+			if (isset($chemin_file)) {
+				$stage = Model_Stage::forge(array(
+					'contact' => $id_contact,
+					'entreprise' => $id_entreprise,
+					'sujet' => Input::post('sujet'),
+					'visibilite' => 1,
+					'contexte' => Input::post('contexte'),
+					'resultats' => Input::post('resultats_attendus'),
+					'conditions' => Input::post('conditions_part'),
+					'url_doc' => Input::post('url_doc_prez'),
+					'chemin_pdf' => $chemin_file,
+					'public' => 0,
+				));
+			}
+			else {
+				$stage = Model_Stage::forge(array(
+					'contact' => $id_contact,
+					'entreprise' => $id_entreprise,
+					'sujet' => Input::post('sujet'),
+					'visibilite' => 1,
+					'contexte' => Input::post('contexte'),
+					'resultats' => Input::post('resultats_attendus'),
+					'conditions' => Input::post('conditions_part'),
+					'url_doc' => Input::post('url_doc_prez'),
+					'public' => 0,
+				));
+			}
+			
 			
 			if ($stage and $stage->save())
 			{

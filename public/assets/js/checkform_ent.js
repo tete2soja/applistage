@@ -32,30 +32,6 @@ function checkform()
 			hideCheck("#contact_prenom_div");
 		}
 		//-----------------------------------
-		if (!$("#contact_codepostal").val()) {
-			showNull("#contact_codepostal_div");
-			ret = false;
-		}
-		else {
-			hideCheck("#contact_codepostal_div");
-		}
-		//-----------------------------------
-		if (!$("#contact_ville").val()) {
-			showNull("#contact_ville_div");
-			ret = false;
-		}
-		else {
-			hideCheck("#contact_ville_div");
-		}
-		//-----------------------------------
-		if (!$("#contact_pays").val()) {
-			showNull("#contact_pays_div");
-			ret = false;
-		}
-		else {
-			hideCheck("#contact_pays_div");
-		}
-		//-----------------------------------
 		if (!$("#contact_mail").val()) {
 			showNull("#contact_mail_div");
 			ret = false;
@@ -112,13 +88,6 @@ function checkform()
 		else {
 			hideCheck("#ent_pays_div");
 		}
-		//-----------------------------------
-		if ($("#ent_url").val()) {
-			if((!isValidURL($("#ent_url").val()))) {
-				showNullMulti("#ent_url_div","URL non valide");
-				ret = false;
-			}
-		}
 	//-----------------------------------
 	if (!$("#contexte").val()) {
 		showNull("#contexte_div");
@@ -143,12 +112,20 @@ function checkform()
 	else {
 		hideCheck("#conditions_part_div");
 	}
+
+	if ($("#ent_url").val()) {
+		if((!isValidURL($("#ent_url").val()))) {
+			showNullMulti("#ent_url_div","URL non valide");
+			ret = false;
+		}
+	}
 	if ($("#url_doc_prez").val()) {
 		if((!isValidURL($("#url_doc_prez").val()))) {
 			showNullMulti("#url_doc_prez_div","URL non valide");
 			ret = false;
 		}
 	}
+
 	// --------------------------------------------------------
 	//				EMAIL VALIDE (cf fonction)
 	// --------------------------------------------------------
@@ -173,14 +150,9 @@ function checkform()
 	else {
 		hideCheck("#contact_tel_div");
 	}
-	if (!$.isNumeric($("#contact_codepostal").val())) {
-		showNullMulti("#contact_codepostal_div","Code postal non valide");
-		ret = false;
-	}
-	else {
-		hideCheck("#contact_codepostal_div");
-	}
+	if (!ret) {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	};
 	//Permet de pas recharger la page si FALSE
-	$("html, body").animate({ scrollTop: 0 }, "slow");
 	return ret;
 }
