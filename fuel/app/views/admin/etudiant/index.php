@@ -24,7 +24,7 @@
 	if ($promo==1) {
 		echo "<h2>Liste des étudiants en 1ère année DUT Info</h2>";
 	}
-	if ($promo==2) {
+	elseif ($promo==2) {
 		echo "<h2>Liste des étudiants en 2ème année DUT Info</h2>";
 	}
 	elseif ($promo==3) {
@@ -161,7 +161,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($etudiants as $item):
-								if ((empty($item->stage)) OR !empty($item->stage_etat) AND ($item->stage_etat<=1)) {?>
+								if ((empty($item->stage)) OR (!empty($item->stage_etat) AND ($item->stage_etat<=1))) {?>
 									<tr>
 										<td><?php echo $item->no_etudiant; ?></td>
 										<td><?php echo $item->nom; ?></td>

@@ -17,7 +17,7 @@
 	echo '</div>';
 	echo '<div class="btn-group">';
 	echo Html::anchor('/admin/stage/index/dut', 'DUT Info', array('class' => 'btn btn-primary'));
-	echo Html::anchor('/admin/etudiant/index/lp', 'LP S2Ima', array('class' => 'btn btn-primary'));
+	echo Html::anchor('/admin/stage/index/lp', 'LP S2Ima', array('class' => 'btn btn-primary'));
 	echo '</div>';
 	echo '</div>';
 	if ($promo==1) {
@@ -150,7 +150,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 0)) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 0) {?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -210,7 +211,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php }endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -232,7 +233,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 1)) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 1) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -292,7 +294,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -314,7 +316,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 2)) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 2) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -374,7 +377,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>
@@ -396,7 +399,8 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 3)) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp)) {
+							if ($item->etat == 3) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -456,7 +460,7 @@
 								</td>
 							</tr>
 						<?php } ?>
-						<?php endforeach; ?>
+						<?php } endforeach; ?>
 					</tbody>
 				</table>
 			</div>

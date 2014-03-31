@@ -14,7 +14,7 @@
 <?php
 	echo '<div class="btn-toolbar">';
 	echo '<div class="btn-group">';
-	echo Html::anchor('/admin/etudiant/', 'Tous', array('class' => 'btn btn-primary'));
+	echo Html::anchor('/admin/convention/', 'Tous', array('class' => 'btn btn-primary'));
 	echo '</div>';
 	echo '<div class="btn-group">';
 	echo Html::anchor('/admin/convention/index/dut', 'DUT Info', array('class' => 'btn btn-primary'));

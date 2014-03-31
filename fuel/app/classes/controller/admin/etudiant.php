@@ -27,7 +27,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 				$etudiants = Model_Etudiant::find_by('iut_annee', '1');
 				$promo = 1;
 			}
-			if($id=="annee2") {
+			elseif($id=="annee2") {
 				$etudiants = Model_Etudiant::find_by('iut_annee', '2');
 				$promo = 2;
 			}
