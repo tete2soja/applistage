@@ -11,6 +11,15 @@
   });
 </script>
 <?php
+	echo '<div class="btn-toolbar">';
+	echo '<div class="btn-group">';
+	echo Html::anchor('/admin/stage/', 'Tous', array('class' => 'btn btn-primary'));
+	echo '</div>';
+	echo '<div class="btn-group">';
+	echo Html::anchor('/admin/stage/index/dut', 'DUT Info', array('class' => 'btn btn-primary'));
+	echo Html::anchor('/admin/etudiant/index/lp', 'LP S2Ima', array('class' => 'btn btn-primary'));
+	echo '</div>';
+	echo '</div>';
 	if ($promo==1) {
 		echo "<h2>Liste des stages proposés aux DUT Info</h2>";
 		$lp=1;
@@ -141,7 +150,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if ($item->etat == 0) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 0)) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -223,7 +232,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if ($item->etat == 1) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 1)) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -305,7 +314,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if ($item->etat == 2) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 2)) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>
@@ -387,7 +396,7 @@
 					</thead>
 					<tbody>
 						<?php foreach ($stages as $item): ?>
-						<?php if ($item->etat == 3) { ?>
+						<?php if(($item->public==0) OR ($item->public==$dut) OR ($item->public==$lp) AND ($item->etat == 3)) { ?>
 							<tr>
 								<td><?php $date = new DateTime($item->date); echo $date->format('d/m/Y'); ?></td>
 								<td>

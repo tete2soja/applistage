@@ -86,11 +86,22 @@ class Model_Etudiant extends \Model_Crud
 				    	'code_postal2' => $code_postal2,
 						));
 				}*/
-				$etud = DB::select('id')->from('fichestages')->where('etudiant', $value->id)->execute();
+				$etud = DB::select('id', 'etat')->from('fichestages')->where('etudiant', $value->id)->execute();
 				$stage_id = $etud->get('id');
-				$value->set(array(
-				    	'stage' => $stage_id,
-						));
+				$stage_etat = $etud->get('etat');
+				if (!empty($etud)) {
+					$value->set(array(
+					    	'stage' => $stage_id,
+					    	'stage_etat' => $stage_etat,
+							));
+				}
+				$res = DB::select('id')->from('stage')->where('etudiant', $value->id)->execute();
+				$stage_id = $res->get('id');
+				if (!empty($res)) {
+					$value->set(array(
+					    	'stage_id' => $stage_id,
+							));
+				}
 			}
 	    }
 	    

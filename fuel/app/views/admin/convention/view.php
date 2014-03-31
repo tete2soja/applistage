@@ -91,7 +91,7 @@
 			echo '<span class="label label-warning">Incomplète</span>';
 		}
 		else if ($convention->etat == 2) {
-			echo '<span class="label label-success">Imprimée</span>';
+			echo '<span class="label label-success">Générée</span>';
 		}
 		else if ($convention->etat == 3) {
 			echo '<span class="label label-primary">Complète</span>';
@@ -103,7 +103,7 @@
 		<button type="submit" name="complete" class="btn btn-primary" value=<?php echo "\"" . $convention->id . "\""; ?> >Complète</button>
 		<button type="submit" name="incomplete" class="btn btn-warning" value=<?php echo "\"" . $convention->id . "\""; ?> >Incomplète</button>
     </div>
-    <button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimer</button>
+    <button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Générer</button>
 </form>
 <br />
 <?php echo Html::anchor('admin/convention/edit/'.$convention->id, 'Editer'); ?> |

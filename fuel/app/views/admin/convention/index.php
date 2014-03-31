@@ -12,6 +12,15 @@
 </script>
 
 <?php
+	echo '<div class="btn-toolbar">';
+	echo '<div class="btn-group">';
+	echo Html::anchor('/admin/etudiant/', 'Tous', array('class' => 'btn btn-primary'));
+	echo '</div>';
+	echo '<div class="btn-group">';
+	echo Html::anchor('/admin/convention/index/dut', 'DUT Info', array('class' => 'btn btn-primary'));
+	echo Html::anchor('/admin/convention/index/lp', 'LP S2Ima', array('class' => 'btn btn-primary'));
+	echo '</div>';
+	echo '</div>';
 	if ($promo==1) {
 		echo "<h2>Liste des conventions des DUT Info</h2>";
 		$lp=1;
@@ -38,7 +47,7 @@
 		  <li><a href="#tabs-2">Saisies</a></li>
 		  <li><a href="#tabs-3">Complètes</a></li>
 		  <li><a href="#tabs-4">Incomplètes</a></li>
-		  <li><a href="#tabs-5">Imprimées</a></li>
+		  <li><a href="#tabs-5">Générées</a></li>
 		</ul>
 		<br />
 		<div class="tab-content">
@@ -92,7 +101,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -150,7 +159,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -209,7 +218,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -268,7 +277,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>
@@ -327,7 +336,7 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 									    </div>
-									    <button type="submit" name="imprime" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
 								</td>
 							</tr>

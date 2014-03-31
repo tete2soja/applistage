@@ -58,7 +58,7 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->execute();
 			Response::redirect('admin/convention/');
 		}
-		else if (isset($_POST['imprime'])) {
+		else if (isset($_POST['generee'])) {
 			$id = $_POST['imprime'];
 			$query = DB::update('fichestages');
 			$query->value('etat', '2');

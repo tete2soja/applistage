@@ -20,9 +20,31 @@ class Controller_Admin_Etudiant extends Controller_Template{
 		}
 	}
 
-	public function action_index()
+	public function action_index($id = null)
 	{
-		$data['etudiants'] = Model_Etudiant::find_all();
+		if(!empty($id)) {
+			if($id=="annee1") {
+				$etudiants = Model_Etudiant::find_by('iut_annee', '1');
+				$promo = 1;
+			}
+			if($id=="annee2") {
+				$etudiants = Model_Etudiant::find_by('iut_annee', '2');
+				$promo = 2;
+			}
+			elseif($id=="lp") {
+				$etudiants = Model_Etudiant::find_by('iut_annee', '3');
+				$promo = 3;
+			}
+			else {
+				$etudiants = Model_Etudiant::find_all();
+				$promo = 0;
+			}
+		} else {
+			$etudiants = Model_Etudiant::find_all();
+			$promo = 0; 
+		}
+		$data['promo'] = $promo;
+		$data['etudiants'] = $etudiants;
 		$this->template->title = "Etudiants &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiants';

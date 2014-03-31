@@ -10,6 +10,9 @@
 	<strong>Prénom:</strong>
 	<?php echo $etudiant->prenom; ?></p>
 <p>
+	<strong>Stage:</strong>
+	<?php if(isset($etudiant->stage_id)) echo Html::anchor('admin/stage/view/'.$etudiant->stage_id, $etudiant->stage_id); ?></p>
+<p>
 	<strong>Date de naissance:</strong>
 	<?php echo $etudiant->datenaissance; ?></p>
 <p>
