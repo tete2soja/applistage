@@ -1,4 +1,4 @@
-<h2>Viewing #<?php echo $user->id; ?></h2>
+<h2>Voir #<?php echo $user->id; ?></h2>
 
 <p>
 	<strong>Username:</strong>

@@ -1,4 +1,4 @@
-<h2>Editing User</h2>
+<h2>Editer l'utilisateur</h2>
 <br>
 
 <?php echo render('admin/users/_form'); ?>

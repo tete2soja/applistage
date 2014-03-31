@@ -1,10 +1,39 @@
 <?php
 class Controller_Admin_Users extends Controller_Template{
 
-	public function action_index()
+	public function action_index($id = null)
 	{
-		$data['users'] = Model_Admin_User::find_all();
-		$this->template->title = "Users";
+		if(!empty($id)) {
+			if($id=="admin") {
+				$users = Model_Admin_User::find_by('group', '10');
+				$promo = 10;
+			}
+			elseif($id=="enseignant") {
+				$users = Model_Admin_User::find_by('group', '3');
+				$promo = 3;
+			}
+			elseif($id=="lp") {
+				$users = Model_Admin_User::find_by('group', '1');
+				$promo = 1;
+			}
+			elseif($id=="dut") {
+				$users = Model_Admin_User::find_by('group', '2');
+				$promo = 2;
+			}
+			else {
+				$users = Model_Admin_User::find_all();
+				$promo = 0;
+			}
+		} else {
+			$users = Model_Admin_User::find_all();
+			$promo = 0;
+		}
+		$data['promo'] = $promo;
+		$data['users'] = $users;
+		$this->template->link_header = 'admin/index';
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/users/index', $data);
 
 	}
@@ -15,7 +44,10 @@ class Controller_Admin_Users extends Controller_Template{
 
 		$data['user'] = Model_Admin_User::find_by_pk($id);
 
-		$this->template->title = "User";
+		$this->template->link_header = 'admin/index';
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/users/view', $data);
 
 	}
@@ -24,40 +56,20 @@ class Controller_Admin_Users extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_User::validate('create');
-			
-			if ($val->run())
-			{
-				$user = Model_Admin_User::forge(array(
-					'username' => Input::post('username'),
-					'email' => Input::post('email'),
-					'password' => Input::post('password'),
-					'telephone' => Input::post('telephone'),
-					'group' => Input::post('group'),
-					'last_login' => Input::post('last_login'),
-					'login_hash' => Input::post('login_hash'),
-					'updated_at' => Input::post('updated_at'),
-					'profile_fields' => Input::post('profile_fields'),
-					'created_at' => Input::post('created_at'),
-				));
-
-				if ($user and $user->save())
-				{
-					Session::set_flash('success', 'Added user #'.$user->id.'.');
-					Response::redirect('admin/users');
-				}
-				else
-				{
-					Session::set_flash('error', 'Could not save user.');
-				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
+			Auth::create_user(
+				Input::post('username'),
+				$password_to_db,
+				Input::post('email'),
+				Input::post('group')
+			);
+			Session::set_flash('success', 'Added user #'.$user->id.'.');
+			Response::redirect('admin/users');
 		}
 
-		$this->template->title = "Users";
+		$this->template->link_header = 'admin/index';
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/users/create');
 
 	}
@@ -102,7 +114,10 @@ class Controller_Admin_Users extends Controller_Template{
 		}
 
 		$this->template->set_global('user', $user, false);
-		$this->template->title = "Users";
+		$this->template->link_header = 'admin/index';
+		$this->template->title = "Stage &raquo; Gestion";
+		$this->template->main_title = 'Applistage 2014';
+		$this->template->sub_title = 'Stage';
 		$this->template->content = View::forge('admin/users/edit');
 
 	}

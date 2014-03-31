@@ -56,8 +56,6 @@ class Controller_Util extends Controller_Template
 				}
 			}
 			else {
-				$password_to_db = Auth::instance()->hash_password($pass);
-				print $password_to_db;
 				Session::set_flash('error', 'Les informations rentrées ne correspondent pas à un utilisateur valide.');
 			}
 		}

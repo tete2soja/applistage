@@ -1,4 +1,4 @@
-<h2>New User</h2>
+<h2>Nouvel utilisateur</h2>
 <br>
 
 <?php echo render('admin/users/_form'); ?>

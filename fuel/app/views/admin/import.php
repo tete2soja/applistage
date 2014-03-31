@@ -11,8 +11,8 @@
 	rémunération minimale au minimum.</p>
 	<div class="row">
 		<div class="col-md-6">
-			<a href="config/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `config`</a>
-			<a href="enseignant/" class="btn btn-danger" style="padding-top:3px;">Modifer la table `enseignant`</a>
+			<?php echo Html::anchor('admin/config', 'Modifer la table `config`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
+			<?php echo Html::anchor('admin/users', 'Modifer la table `users`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
 		</div>
 	</div>
 </div>
@@ -55,11 +55,11 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p>Vous permez de gérer les étudiants en deuxième année d'IUT concernant l'année <?php echo date("Y")-1; ?></p>
-			<a href="gestion" type="button" class="btn btn-danger">Deuxième année DUT info</a>
+			<?php echo Html::anchor('admin/gestion', 'Deuxième année DUT info', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
 		</div>
 		<div class="col-md-6">
 			<p>Vous permez de gérer les étudiants en première année pour leur passage en deuxième année concernant l'année <?php echo date("Y")-1; ?></p>
-			<a href="passage" type="button" class="btn btn-danger">Passage en DUT info 2</a>
+			<?php echo Html::anchor('admin/passage', 'Passage en DUT info 2`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
 		</div>
 	</div>
 </div>
@@ -68,7 +68,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p>Cela entrainera la sauvegarde des espaces de rendus (suivi de stage) et de toutes les conventions de stages dans une archive ZIP.</p>
-			<a href="" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir archiver ?')">Archivage</a>
+			<?php echo Html::anchor('', 'Archivage', array('type' => 'button', 'class' => 'btn btn-danger', 'onclick' => 'return confirm(\'Etes-vous sur de vouloir archiver ?\')')); ?>
 		</div>
 		<div class="col-md-6">
 			<p>
