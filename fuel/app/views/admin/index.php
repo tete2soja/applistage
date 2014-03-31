@@ -7,7 +7,7 @@
 	}
 ?>
 <div class="bs-callout bs-callout-warning">
-	<h2>Voir</h2>
+	<h2>Gestion</h2>
 	<p>Chaque bouton vous conduira vers la liste en question sous forme de tableau. Vous pourrez alors, pour chaque entrée, afficher plus de détails, l'éditer ou la supprimer.</p>
 	<div class="row">
 		<div class="col-md-12">

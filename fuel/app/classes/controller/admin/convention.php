@@ -49,7 +49,7 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->value('etat', '3');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect_back('admin/convention/', 'refresh');
+			Response::redirect(Uri::current(), 'refresh');
 		}
 		elseif (isset($_POST['incomplete'])) {
 			$id = $_POST['incomplete'];
@@ -57,7 +57,7 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->value('etat', '1');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect_back('admin/convention/', 'refresh');
+			Response::redirect(Uri::current(), 'refresh');
 		}
 		else if (isset($_POST['generee'])) {
 			$id = $_POST['imprime'];
@@ -585,7 +585,7 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->value('etat', '1');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect_back('admin/convention/', 'refresh');
+			Response::redirect(Uri::current(), 'refresh');
 		}
 		else if (isset($_POST['generee'])) {
 			$id = $_POST['imprime'];
@@ -611,7 +611,7 @@ class Controller_Admin_Convention extends Controller_Template{
 			$pdf->writeHTML($html2, true, false, true, false, 'center');
 			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 			$pdf->Output();*/
-			Response::redirect_back('admin/convention/', 'refresh');
+			Response::redirect(Uri::current(), 'refresh');
 		}
 		elseif (isset($_POST['uploader'])) {
 			$id_etudiant = $_POST['uploader'];
