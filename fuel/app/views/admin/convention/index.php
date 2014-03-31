@@ -98,8 +98,8 @@
 									<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?>
 									<form method="POST">
 										<div class="btn-group">
-											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
+											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
@@ -156,8 +156,8 @@
 									<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?>
 									<form method="POST">
 										<div class="btn-group">
-											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
+											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
@@ -215,8 +215,8 @@
 									<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?>
 									<form method="POST">
 										<div class="btn-group">
-											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
+											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
@@ -274,8 +274,8 @@
 									<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?>
 									<form method="POST">
 										<div class="btn-group">
-											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
+											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
@@ -333,8 +333,8 @@
 									<?php echo Html::anchor('admin/convention/edit/'.$item->id, 'Editer'); ?>
 									<form method="POST">
 										<div class="btn-group">
-											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
+											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>

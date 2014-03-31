@@ -108,12 +108,12 @@
 <br />
 <form method="POST">
 	<div class="btn-group">
-		<button type="submit" name="complete" class="btn btn-primary" value=<?php echo "\"" . $convention->id . "\""; ?> >Complète</button>
 		<button type="submit" name="incomplete" class="btn btn-warning" value=<?php echo "\"" . $convention->id . "\""; ?> >Incomplète</button>
+		<button type="submit" name="complete" class="btn btn-primary" value=<?php echo "\"" . $convention->id . "\""; ?> >Complète</button>
 	</div>
 	<div class="btn-group">
 		<button class="btn btn-primary" data-toggle="modal" data-target="#modalUp" value=<?php echo "\"" . $convention->id . "\""; ?> >Uploader</button>
-		<button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimer</button>
+		<button type="submit" name="generee" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Générer</button>
 	</div>
 </form>
 <br />
