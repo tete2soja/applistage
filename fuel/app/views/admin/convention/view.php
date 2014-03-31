@@ -7,6 +7,16 @@
 	<strong>Etudiant:</strong>
 	<?php if(isset($convention->etudiant_np)) echo $convention->etudiant_np; ?></p>
 <p>
+	<strong>Filière:</strong>
+	<?php if(isset($convention->etudiant_promo)) {
+		if (($convention->etudiant_promo == 1) OR ($convention->etudiant_promo == 2)) {
+			echo '<span class="label label-info">DUT</span>';
+		}
+		else if ($convention->etudiant_promo == 3) {
+			echo '<span class="label label-default">LP</span>';
+		}
+	} ?></p>
+<p>
 	<strong>Stage:</strong>
 	<?php echo Html::anchor('admin/stage/view/'.$convention->stage, $convention->stage); ?></p>
 <p>

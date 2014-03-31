@@ -127,8 +127,9 @@ class Model_Fichestage extends \Model_Crud
 					}
 				}
 				if (!empty($value->etudiant)) {
-					$etudiant = DB::select('no_etudiant', 'nom', 'prenom', 'adresse1', 'ville1')->from('etudiant')->where('id', $value->etudiant)->execute();
+					$etudiant = DB::select('no_etudiant', 'nom', 'prenom', 'adresse1', 'ville1', 'iut_annee')->from('etudiant')->where('id', $value->etudiant)->execute();
 					$no_etudiant = $etudiant->get('no_etudiant');
+					$promo = $etudiant->get('iut_annee');
 					$etudiant_np = $etudiant->get('prenom')." ".$etudiant->get('nom');
 					$etudiant_adr = $etudiant->get('adresse1')." ".$etudiant->get('ville1');
 		        	if(!empty($no_etudiant)) {
@@ -136,6 +137,7 @@ class Model_Fichestage extends \Model_Crud
 					    	'no_etudiant' => $no_etudiant,
 					    	'etudiant_np' => $etudiant_np,
 					    	'etudiant_adr' => $etudiant_adr,
+					    	'etudiant_promo' => $promo,
 							));
 					}
 				}

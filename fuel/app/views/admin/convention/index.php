@@ -62,6 +62,7 @@
 							<th>Enseignant</th>
 							<th>Sujet</th>
 							<th>Entreprise</th>
+							<th>Filière</th>
 							<th>Etat</th>
 							<th></th>
 						</tr>
@@ -82,6 +83,14 @@
 									?></td>
 								<td><?php echo $item->sujet; ?></td>
 								<td><?php echo Html::anchor('admin/entreprise/view/'.$item->entreprise, $item->ent_nom); ?></td>
+								<td><?php
+									if (($item->etudiant_promo == 1) OR ($item->etudiant_promo == 2)) {
+										echo '<span class="label label-info">DUT</span>';
+									}
+									else if ($item->etudiant_promo == 3) {
+										echo '<span class="label label-default">LP</span>';
+									}
+								?></td>
 								<td><?php
 									if ($item->etat == 0) {
 										echo '<span class="label label-info">Saisie</span>';

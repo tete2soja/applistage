@@ -56,7 +56,7 @@ class Controller_Util extends Controller_Template
 				}
 			}
 			else {
-				Session::set_flash('error', 'Les informations rentrées ne correspondent pas à un utilisateur valide.');
+				Session::set_flash('error', 'Les informations saisies ne correspondent pas à un utilisateur valide.');
 			}
 		}
 	}
