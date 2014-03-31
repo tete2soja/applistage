@@ -613,6 +613,35 @@ class Controller_Admin_Convention extends Controller_Template{
 			$pdf->Output();*/
 			Response::redirect('admin/convention/');
 		}
+		elseif (isset($_POST['uploader'])) {
+			$id_etudiant = $_POST['uploader'];
+			//Import uploaded file to Database
+			$config = array(
+				'path' => DOCROOT.'assets/doc/convention/',
+				'randomize' => true,
+				'ext_whitelist' => array('pdf', 'odt', 'doc', 'docx', 'PDF', 'ODT', 'DOC', 'DOCX'),
+			);
+
+			// process the uploaded files in $_FILES
+			Upload::process($config);
+
+			// if there are any valid files
+			if (Upload::is_valid())
+			{
+				// save them according to the config
+				Upload::save();
+				$filename = array_column(Upload::get_files(), 'saved_as');
+				$tmp_name = current($filename);
+				//move_uploaded_file($_FILES["filename"]["tmp_name"], DOCROOT.'assets/tmp/' . $filename);
+				list($null, $ext) = explode('.', basename($_FILES['filename']['name']));
+				File::rename(DOCROOT.'assets/doc/convention/' . $tmp_name, DOCROOT.'assets/doc/convention/' . $id_etudiant . '.' . $ext);				
+				$chemin_file = 'assets/doc/convention/' . $id_etudiant . '.' . $ext;
+				$query = DB::update('fichestages');
+				$query->value('chemin_file', $chemin_file);				
+				$query->where('id', $id);
+				$query->execute();
+			}
+		}
 
 	}
 

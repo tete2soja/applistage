@@ -15,24 +15,33 @@ class Controller_Util extends Controller_Template
 			$name = $_POST['id'];
 			$pass = $_POST['password'];
 			if (Auth::login($name, $pass)) {
-				if (isset($_POST['remember'])) {
-					Auth::remember_me();
-				}
 				$id_info = Auth::get_groups();
 				foreach ($id_info as $info) {
 					if ($info[1] == "10") {
+						if (isset($_POST['remember'])) {
+							Auth::remember_me();
+						}
 						Response::redirect('/admin/');
 						break;
 					}
 					else if ($info[1] == "11") {
+						if (isset($_POST['remember'])) {
+							Auth::remember_me();
+						}
 						Response::redirect('/admin/import');
 						break;						
 					}
 					else if ($info[1] == "2") {
+						if (isset($_POST['remember'])) {
+							Auth::remember_me();
+						}
 						Response::redirect('/etudiant/');
 						break;
 					}					
 					else if ($info[1] == "3") {
+						if (isset($_POST['remember'])) {
+							Auth::remember_me();
+						}
 						Response::redirect('/enseignant/');
 						break;
 					}

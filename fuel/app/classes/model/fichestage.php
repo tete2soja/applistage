@@ -32,6 +32,7 @@ class Model_Fichestage extends \Model_Crud
 		'nature',
 		'etat',
 		'last_edit',
+		'chemin_file',
 	);
 
 	protected static $_observers = array(
@@ -78,6 +79,7 @@ class Model_Fichestage extends \Model_Crud
 		$val->add_field('nature', 'Nature', 'max_length[255]');
 		$val->add_field('etat', 'Etat', 'valid_string[numeric]');
 		$val->add_field('last_edit', 'Last Edit', 'date');
+		$val->add_field('chemin_file', 'Chemin convention', 'max_length[255]');
 
 		return $val;
 	}

@@ -97,14 +97,45 @@
 			echo '<span class="label label-primary">Complète</span>';
 		}
 	?></p>
+<p>
+	<strong>Fichier :</strong>
+	<?php
+		if(isset($convention->chemin_file))
+			echo Html::anchor($convention->chemin_file, $convention->chemin_file);
+		else
+			echo 'Aucun';
+	?></p>
 <br />
 <form method="POST">
 	<div class="btn-group">
 		<button type="submit" name="complete" class="btn btn-primary" value=<?php echo "\"" . $convention->id . "\""; ?> >Complète</button>
 		<button type="submit" name="incomplete" class="btn btn-warning" value=<?php echo "\"" . $convention->id . "\""; ?> >Incomplète</button>
-    </div>
-    <button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Générer</button>
+	</div>
+	<div class="btn-group">
+		<button class="btn btn-primary" data-toggle="modal" data-target="#modalUp" value=<?php echo "\"" . $convention->id . "\""; ?> >Uploader</button>
+		<button type="submit" name="imprime" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Imprimer</button>
+	</div>
 </form>
 <br />
 <?php echo Html::anchor('admin/convention/edit/'.$convention->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/convention', 'Retour'); ?>
+
+<div class="modal fade" id="modalUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">Upload de la convention</h4>
+			</div>
+			<div class="modal-body">
+				<form enctype='multipart/form-data' action="" method="POST">
+					<input size='50' type='file' name='filename' /><br />
+					<button type="submit" name="uploader" value=<?php echo "\"" . $convention->no_etudiant . "\""; ?> class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Envoyer</button>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
