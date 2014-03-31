@@ -35,7 +35,7 @@ if($etudiant->iut_annee==1) { ?>
 			<td>
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" name="suppresion[]" value=<?php echo "\"" . $etudiant->no_etudiant . "\""; ?> />
+						<input type="checkbox" name="suppression[]" value=<?php echo "\"" . $etudiant->no_etudiant . "\""; ?> />
 					</label>
 				</div>
 			</td>

@@ -345,8 +345,8 @@ class Controller_Admin extends Controller_Template
 		$this->template->sub_title = 'Administration';
 		$this->template->content = View::forge('admin/proposition/valider', $data);
 		if (Input::method() == 'POST') {
-			if (Input::all() == 'suppresion') {
-				foreach (Input::post('suppresion') as $value) {
+			if (Input::all() == 'suppression') {
+				foreach (Input::post('suppression') as $value) {
 					/*$etudiants = DB::query('SELECT * FROM `etudiant` WHERE `iut_annee` = 2')->as_object('Model_Etudiant')->execute()->as_array();
 					foreach ($etudiants as $etudiant) {
 						DB::query('DELETE FROM `etudiant` WHERE `no_etudiant` = ' .$etudiant->no_etudiant . '')->execute();
