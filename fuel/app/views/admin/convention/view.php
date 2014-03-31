@@ -112,7 +112,7 @@
 		<button type="submit" name="complete" class="btn btn-primary" value=<?php echo "\"" . $convention->id . "\""; ?> >Complète</button>
 	</div>
 	<div class="btn-group">
-		<button class="btn btn-primary" data-toggle="modal" data-target="#modalUp" value=<?php echo "\"" . $convention->id . "\""; ?> >Uploader</button>
+		<button class="btn btn-info" data-toggle="modal" data-target="#modalUp" value=<?php echo "\"" . $convention->id . "\""; ?> >Uploader</button>
 		<button type="submit" name="generee" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Générer</button>
 	</div>
 </form>
@@ -134,7 +134,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
 			</div>
 		</div>
 	</div>
