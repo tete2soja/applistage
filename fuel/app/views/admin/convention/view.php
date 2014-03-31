@@ -50,15 +50,25 @@
 	<?php echo $convention->rpz_tel; ?></p>
 <p>
 	<strong>Origine offre:</strong>
-	<?php echo $convention->origine_offre; ?></p>
+	<?php
+		if ($convention->origine_offre == 0)
+			echo "IUT";
+		else
+			echo "Etudiant";
+	?></p>
 <p>
 	<strong>Type:</strong>
 	<?php echo $convention->type; ?></p>
 <p>
 	<strong>Langue:</strong>
-	<?php echo $convention->langue; ?></p>
+	<?php
+		if ($convention->langue == 0)
+			echo "Français";
+		else
+			echo "Anglais";
+	?></p>
 <p>
-	<strong>Durée:</strong>
+	<strong>Durée (semaines):</strong>
 	<?php echo $convention->duree; ?></p>
 <p>
 	<strong>Date de debut:</strong>
@@ -68,7 +78,12 @@
 	<?php echo $convention->date_fin; ?></p>
 <p>
 	<strong>Durée allongée :</strong>
-	<?php echo $convention->allongee; ?></p>
+	<?php
+		if ($convention->allongee == 0)
+			echo "Non";
+		else
+			echo "Oui";
+	?></p>
 <p>
 	<strong>Nombre jour/semaine:</strong>
 	<?php echo $convention->nb_jour_semaine; ?></p>
