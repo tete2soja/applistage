@@ -15,6 +15,9 @@ class Controller_Util extends Controller_Template
 			$name = $_POST['id'];
 			$pass = $_POST['password'];
 			if (Auth::login($name, $pass)) {
+				if (isset($_POST['remember'])) {
+					Auth::remember_me();
+				}
 				$id_info = Auth::get_groups();
 				foreach ($id_info as $info) {
 					if ($info[1] == "10") {
