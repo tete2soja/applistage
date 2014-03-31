@@ -47,7 +47,7 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->value('etat', '1');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect('admin/stage');
+			Response::redirect_back('admin/stage/', 'refresh');
 		}
 		else if (isset($_POST['refus'])) {
 			$id = $_POST['refus'];
@@ -55,7 +55,7 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->value('etat', '2');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect('admin/stage');
+			Response::redirect_back('admin/stage/', 'refresh');
 		}
 		else if (isset($_POST['clos'])) {
 			$id = $_POST['clos'];
@@ -63,7 +63,7 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->value('etat', '3');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect('admin/stage');
+			Response::redirect_back('admin/stage/', 'refresh');
 		}
 	}
 
@@ -83,7 +83,7 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->value('etat', '1');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect('admin/stage');
+			Response::redirect_back('admin/stage/', 'refresh');
 		}
 		else if (isset($_POST['refus'])) {
 			$id = $_POST['refus'];
@@ -91,7 +91,7 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->value('etat', '2');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect('admin/stage');
+			Response::redirect_back('admin/stage/', 'refresh');
 		}
 		else if (isset($_POST['clos'])) {
 			$id = $_POST['clos'];
@@ -99,7 +99,7 @@ class Controller_Admin_Stage extends Controller_Template{
 			$query->value('etat', '3');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect('admin/stage');
+			Response::redirect_back('admin/stage/', 'refresh');
 		}
 		else if (isset($_POST['doc'])) {
 			File::download(DOCROOT. $_POST['doc'] , 'doc.pdf');
