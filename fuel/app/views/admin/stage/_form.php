@@ -5,7 +5,7 @@ fieldset {
     margin-left: 15px;
 }
 </style>
-	<div class="row">
+	<fieldset>
 		<div class="form-group">
 			<?php echo Form::label('Etudiant', 'etudiant', array('class'=>'control-label')); ?>
 
@@ -69,7 +69,7 @@ fieldset {
 		<div class="form-group">
 			<?php echo Form::label('Resultats', 'resultats', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('resultats', Input::post('resultats', isset($stage-resultats) ? $stage->resultats : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Resultats')); ?>
+				<?php echo Form::input('resultats', Input::post('resultats', isset($stage->resultats) ? $stage->resultats : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Resultats')); ?>
 
 		</div>
 		<div class="form-group">
@@ -105,5 +105,5 @@ fieldset {
 		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
 			<?php echo Form::submit('submit', 'Sauver', array('class' => 'btn btn-primary')); ?>		</div>
-	</div>
+	</fieldset>
 <?php echo Form::close(); ?>

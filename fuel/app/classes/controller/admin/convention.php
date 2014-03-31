@@ -37,6 +37,7 @@ class Controller_Admin_Convention extends Controller_Template{
 		}
 		$data['promo'] = $promo;
 		$data['conventions'] = Model_Fichestage::find_all();
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
@@ -571,9 +572,8 @@ class Controller_Admin_Convention extends Controller_Template{
 	public function action_view($id = null)
 	{
 		is_null($id) and Response::redirect('admin/convention');
-
 		$data['convention'] = Model_Fichestage::find_by_pk($id);
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
@@ -696,7 +696,7 @@ class Controller_Admin_Convention extends Controller_Template{
 				Session::set_flash('error', $val->error());
 			}
 		}
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';
@@ -758,6 +758,7 @@ class Controller_Admin_Convention extends Controller_Template{
 			}
 		}
 		$this->template->set_global('convention', $convention, false);
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Convention &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Convention';

@@ -23,6 +23,7 @@ class Controller_Admin_Contact extends Controller_Template{
 	public function action_index()
 	{
 		$data['contacts'] = Model_Contact::find_all();
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Contact';
@@ -35,7 +36,7 @@ class Controller_Admin_Contact extends Controller_Template{
 		is_null($id) and Response::redirect('admin/contact');
 
 		$data['contact'] = Model_Contact::find_by_pk($id);
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Contact';
@@ -79,7 +80,7 @@ class Controller_Admin_Contact extends Controller_Template{
 				Session::set_flash('error', $val->error());
 			}
 		}
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Contact';
@@ -127,6 +128,7 @@ class Controller_Admin_Contact extends Controller_Template{
 		}
 
 		$this->template->set_global('contact', $contact, false);
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Contact &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Contact';

@@ -37,6 +37,7 @@ class Controller_Admin_Stage extends Controller_Template{
 		}
 		$data['promo'] = $promo;
 		$data['stages'] = Model_Stage::find_all();
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
@@ -70,9 +71,8 @@ class Controller_Admin_Stage extends Controller_Template{
 	public function action_view($id = null)
 	{
 		is_null($id) and Response::redirect('admin/stage');
-
 		$data['stage'] = Model_Stage::find_by_pk($id);
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
@@ -110,7 +110,7 @@ class Controller_Admin_Stage extends Controller_Template{
 	public function action_suivi()
 	{
 		$data['stages'] = Model_Stage::find_all();
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
@@ -157,7 +157,7 @@ class Controller_Admin_Stage extends Controller_Template{
 				Session::set_flash('error', $val->error());
 			}
 		}
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Stage';
@@ -206,7 +206,7 @@ class Controller_Admin_Stage extends Controller_Template{
 				Session::set_flash('error', $val->error());
 			}
 		}
-
+		$this->template->link_header = 'admin/index';
 		$this->template->set_global('stage', $stage, false);
 		$this->template->title = "Stage &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';

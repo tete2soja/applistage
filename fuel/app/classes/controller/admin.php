@@ -26,6 +26,7 @@ class Controller_Admin extends Controller_Template
 		$data["stage_saisi"] = Model_Stage::count('id', true, array('etat' => 0));
 		$data["convention_saisi"] = Model_Fichestage::count('id', true, array('etat' => 0));
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'admin/index';
 		$this->template->title = 'Admin &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
@@ -254,6 +255,7 @@ class Controller_Admin extends Controller_Template
 	public function action_import()
 	{
 		$data["subnav"] = array('import'=> 'active' );
+		$this->template->link_header = 'admin/index';
 		$this->template->title = 'Admin &raquo; Générale';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration générale';
@@ -326,6 +328,7 @@ class Controller_Admin extends Controller_Template
 	public function action_modifier()
 	{
 		$data["subnav"] = array('modifier'=> 'active' );
+		$this->template->link_header = 'admin/index';
 		$this->template->title = 'Admin &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
@@ -336,6 +339,7 @@ class Controller_Admin extends Controller_Template
 	{
 		$data['stages'] = Model_Stage::find_all();
 		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->link_header = 'admin/index';
 		$this->template->title = 'Admin &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
@@ -362,6 +366,7 @@ class Controller_Admin extends Controller_Template
 	{
 		$data['etudiants'] = DB::query('SELECT * FROM `etudiant`')->as_object('Model_Etudiant')->execute()->as_array();
 		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->link_header = 'admin/import';
 		$this->template->title = 'Admin &raquo; Passage';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';
@@ -388,6 +393,7 @@ class Controller_Admin extends Controller_Template
 	{
 		$data['etudiants'] = Model_Etudiant::find_by_iut_annee(2);
 		$data["subnav"] = array('valider'=> 'active' );
+		$this->template->link_header = 'admin/import';
 		$this->template->title = 'Admin &raquo; Gestion';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Administration';

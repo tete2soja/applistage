@@ -23,6 +23,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 	public function action_index()
 	{
 		$data['enseignants'] = Model_Enseignant::find_all();
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -35,7 +36,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 		is_null($id) and Response::redirect('admin/enseignant');
 
 		$data['enseignant'] = Model_Enseignant::find_by_pk($id);
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -72,7 +73,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 				Session::set_flash('error', $val->error());
 			}
 		}
-
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -113,6 +114,7 @@ class Controller_Admin_Enseignant extends Controller_Template{
 		}
 
 		$this->template->set_global('enseignant', $enseignant, false);
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Enseignant &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';

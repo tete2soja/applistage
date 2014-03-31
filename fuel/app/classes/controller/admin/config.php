@@ -23,6 +23,7 @@ class Controller_Admin_Config extends Controller_Template{
 	public function action_index()
 	{
 		$data['configs'] = Model_Admin_Config::find_all();
+		$this->template->link_header = 'admin/import';
 		$this->template->title = "Configuration &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Configuration';
@@ -35,7 +36,7 @@ class Controller_Admin_Config extends Controller_Template{
 		is_null($id) and Response::redirect('admin/config');
 
 		$data['config'] = Model_Admin_Config::find_by_pk($id);
-
+		$this->template->link_header = 'admin/import';
 		$this->template->title = "Configuration &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Configuration';
@@ -99,6 +100,7 @@ class Controller_Admin_Config extends Controller_Template{
 		}
 
 		$this->template->set_global('config', $config, false);
+		$this->template->link_header = 'admin/import';
 		$this->template->title = "Configuration &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Configuration';

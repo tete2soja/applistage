@@ -28,7 +28,9 @@
 	<body>
 		<div class="container">
 			<div class="jumbotron">
-				<h1 style="margin-top: -20px;"><a style="text-decoration: none;color:black;"href="./index"><?php echo $main_title; ?></a></h1>
+				<h1 style="margin-top: -20px;">
+				<?php echo Html::anchor($link_header, $main_title, array('style' => 'text-decoration: none;color:black;'));?>
+				</h1>
 				<p><?php echo $sub_title; ?></p>
 			</div>
 			<?php if (Session::get_flash('success')): ?>

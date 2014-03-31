@@ -6,6 +6,7 @@ class Controller_Util extends Controller_Template
 	public function action_connexion()
 	{
 		$data["subnav"] = array('connexion'=> 'active' );
+		$this->template->link_header = '/';
 		$this->template->title = 'Connexion';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Connexion';
@@ -69,6 +70,7 @@ class Controller_Util extends Controller_Template
 		    Response::redirect('/util/connexion');
 		}
 		$data["subnav"] = array('Changer mon mot de passe'=> 'active' );
+		$this->template->link_header = 'util/compte';
 		$this->template->title = 'Changer mon mot de passe';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Changer mon mot de passe';
@@ -91,6 +93,7 @@ class Controller_Util extends Controller_Template
 		    Response::redirect('/util/connexion');
 		}
 		$data["subnav"] = array('Mon compte'=> 'active' );
+		$this->template->link_header = 'util/compte';
 		$this->template->title = 'Mon compte';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Mon compte';
@@ -152,6 +155,7 @@ class Controller_Util extends Controller_Template
 		$last = Auth::get('last_login');
 		$data["datetime"] = date('H:i:s d-m-Y', $last);
 		$data["subnav"] = array('Mon compte'=> 'active' );
+		$this->template->link_header = 'util/compte';
 		$this->template->title = 'Mon compte';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Mon compte';
@@ -177,6 +181,7 @@ class Controller_Util extends Controller_Template
 	{
 		Auth::logout();
 		$data["subnav"] = array('Mon compte'=> 'active' );
+		$this->template->link_header = '/';
 		$this->template->title = 'Mon compte';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Mon compte';
@@ -185,6 +190,6 @@ class Controller_Util extends Controller_Template
 
 	public function action_index()
 	{
-		Response::redirect('/index');
+		Response::redirect('/');
 	}
 }

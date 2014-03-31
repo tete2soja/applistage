@@ -7,6 +7,7 @@ class Controller_Entreprise extends Controller_Template
 	public function action_index()
 	{
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'entreprise/index';
 		$this->template->title = 'Entreprise &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Entreprise';
@@ -17,6 +18,7 @@ class Controller_Entreprise extends Controller_Template
 	public function action_proposition()
 	{
 		$data["subnav"] = array('proposition'=> 'active' );
+		$this->template->link_header = 'entreprise/index';
 		$this->template->title = 'Entreprise &raquo; Proposition';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Entreprise';
@@ -183,6 +185,7 @@ class Controller_Entreprise extends Controller_Template
 		$data["liste_ent"] = Format::forge($entreprises)->to_json();
 		
 		$data["subnav"] = array('formulaire'=> 'active' );
+		$this->template->link_header = 'entreprise/index';
 		$this->template->title = 'Entreprise &raquo; Formulaire';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Entreprise';
@@ -193,6 +196,7 @@ class Controller_Entreprise extends Controller_Template
 	{
 		$data['stages'] = Model_Stage::find_all();
 		$data["subnav"] = array('liste'=> 'active' );
+		$this->template->link_header = 'entreprise/index';
 		$this->template->title = 'Entreprise &raquo; Proposition de Stage';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Entreprise';
@@ -202,9 +206,8 @@ class Controller_Entreprise extends Controller_Template
 	public function action_details($id = null)
 	{
 		is_null($id) and Response::redirect('entreprise/liste');
-
 		$data['stage'] = Model_Stage::find_by_pk($id);
-
+		$this->template->link_header = 'entreprise/index';
 		$this->template->title = "Stage &raquo; Détails";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Entreprise';

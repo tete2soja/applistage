@@ -22,6 +22,7 @@ class Controller_Enseignant extends Controller_Template
 
 	public function action_index() {
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Enseignant &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -30,6 +31,7 @@ class Controller_Enseignant extends Controller_Template
 
 	public function action_suivi() {	
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Enseignant &raquo; Suivi';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -38,6 +40,7 @@ class Controller_Enseignant extends Controller_Template
 
 	public function action_espace() {	
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Enseignant &raquo; Documents';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -51,6 +54,7 @@ class Controller_Enseignant extends Controller_Template
 		$data['voeux_2'] = $enseignant->get('voeux_2');
 		$data['voeux_3'] = $enseignant->get('voeux_3');
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Enseignant &raquo; Voeux';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';
@@ -115,6 +119,7 @@ class Controller_Enseignant extends Controller_Template
 
 	public function action_stagiaires() {	
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Enseignant &raquo; Stagiaires';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Enseignant';

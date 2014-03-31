@@ -45,6 +45,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 		}
 		$data['promo'] = $promo;
 		$data['etudiants'] = $etudiants;
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Etudiants &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiants';
@@ -58,7 +59,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 
 		$data['etudiant'] = Model_Etudiant::find_by_pk($id);
 
-		
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Etudiants &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiants';
@@ -109,7 +110,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 			}
 		}
 
-		
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Etudiants &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiants';
@@ -163,7 +164,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 		}
 
 		$this->template->set_global('etudiant', $etudiant, false);
-		
+		$this->template->link_header = 'admin/index';
 		$this->template->title = "Etudiants &raquo; Gestion";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiants';

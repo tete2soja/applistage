@@ -22,6 +22,7 @@ class Controller_Etudiant extends Controller_Template
 
 	public function action_index() {
 		$data["subnav"] = array('index'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Etudiant &raquo; Index';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
@@ -32,28 +33,9 @@ class Controller_Etudiant extends Controller_Template
 		}
 	}
 
-	public function action_connexion() {
-		$data["subnav"] = array('connexion'=> 'active' );
-		$this->template->title = 'Admin &raquo; Connexion';
-		$this->template->main_title = 'Applistage 2014';
-		$this->template->sub_title = 'Administration';
-		$this->template->content = View::forge('etudiant/connexion', $data);
-		if (isset($_POST['submit'])) {
-			// validate the a username and password
-			$name = $_POST['id'];
-			$pass = $_POST['password'];
-			if (Auth::login($name, $pass)) {
-				Response::redirect('/etudiant/');
-			}
-			else {
-				$password_to_db = Auth::instance()->hash_password($pass);
-				print $password_to_db;
-			}
-		}
-	}
-
 	public function action_convention() {
 		$data["subnav"] = array('convention'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Etudiant &raquo; Convention';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
@@ -62,6 +44,7 @@ class Controller_Etudiant extends Controller_Template
 
 	public function action_realisation() {
 		$data["subnav"] = array('realisation'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Etudiant &raquo; Realisation';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
@@ -70,6 +53,7 @@ class Controller_Etudiant extends Controller_Template
 
 	public function action_recherche() {
 		$data["subnav"] = array('recherche'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Etudiant &raquo; Recherche';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
@@ -78,6 +62,7 @@ class Controller_Etudiant extends Controller_Template
 
 	public function action_soutenance() {
 		$data["subnav"] = array('soutenance'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Etudiant &raquo; Soutenance';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
@@ -373,6 +358,7 @@ class Controller_Etudiant extends Controller_Template
 		}
 		
 		$data["subnav"] = array('formulaire'=> 'active' );
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = 'Etudiant &raquo; Formulaire';
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
@@ -386,6 +372,7 @@ class Controller_Etudiant extends Controller_Template
 				$data["groupe"]=$info[1];
 			}
 		$data['stages'] = Model_Stage::find_all();
+		$this->template->link_header = 'etudiant/index';
 		$data["subnav"] = array('proposition'=> 'active' );
 		$this->template->title = 'Etudiant &raquo; Proposition de Stage';
 		$this->template->main_title = 'Applistage 2014';
@@ -396,9 +383,8 @@ class Controller_Etudiant extends Controller_Template
 	public function action_details($id = null)
 	{
 		is_null($id) and Response::redirect('etudiant/proposition');
-
 		$data['stage'] = Model_Stage::find_by_pk($id);
-
+		$this->template->link_header = 'etudiant/index';
 		$this->template->title = "Stage &raquo; Détails";
 		$this->template->main_title = 'Applistage 2014';
 		$this->template->sub_title = 'Etudiant';
