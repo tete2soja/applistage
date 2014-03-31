@@ -365,12 +365,6 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="valideCheckbox1" class="col-sm-2 control-label">Stage accepté</label>
-			<div class="col-sm-10">
-				<input type="checkbox" id="valideCheckbox1" name="valideCheckbox1" value="1" disabled>
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="observations" class="col-sm-2 control-label">Observations du responsable</label>
 			<div class="col-sm-10">
 				<textarea id="observations" name="observations" class="form-control" rows="3" disabled><?php if(isset($fiche->observations_resp)) echo $fiche->observations_resp; ?>

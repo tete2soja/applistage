@@ -113,12 +113,11 @@ function checkform()
 			hideCheck("#ent_pays_div");
 		}
 		//-----------------------------------
-		if (!$("#ent_url").val()) {
-			showNull("#ent_url_div");
-			ret = false;
-		}
-		else {
-			hideCheck("#ent_url_div");
+		if ($("#ent_url").val()) {
+			if((!isValidURL($("#ent_url").val()))) {
+				showNullMulti("#ent_url_div","URL non valide");
+				ret = false;
+			}
 		}
 	//-----------------------------------
 	if (!$("#contexte").val()) {
@@ -144,30 +143,17 @@ function checkform()
 	else {
 		hideCheck("#conditions_part_div");
 	}
-	//-----------------------------------
-	if (!$("#url_doc_prez").val()) {
-		showNull("#url_doc_prez_div");
-		ret = false;
-	}
-	else {
-		hideCheck("#url_doc_prez_div");
+	if ($("#url_doc_prez").val()) {
+		if((!isValidURL($("#url_doc_prez").val()))) {
+			showNullMulti("#url_doc_prez_div","URL non valide");
+			ret = false;
+		}
 	}
 	// --------------------------------------------------------
 	//				EMAIL VALIDE (cf fonction)
 	// --------------------------------------------------------
 	if(!isValidEmailAddress($("#contact_mail").val())) {
 		showNullMulti("#contact_mail_div","Email non valide");
-		ret = false;
-	}
-	// --------------------------------------------------------
-	//				URL VALIDE (cf fonction)
-	// --------------------------------------------------------
-	if((!isValidURL($("#ent_url").val()))) {
-		showNullMulti("#ent_url_div","URL non valide");
-		ret = false;
-	}
-	if((!isValidURL($("#url_doc_prez").val()))) {
-		showNullMulti("#url_doc_prez_div","URL non valide");
 		ret = false;
 	}
 	// --------------------------------------------------------
@@ -195,5 +181,6 @@ function checkform()
 		hideCheck("#contact_codepostal_div");
 	}
 	//Permet de pas recharger la page si FALSE
+	$("html, body").animate({ scrollTop: 0 }, "slow");
 	return ret;
 }

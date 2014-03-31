@@ -94,6 +94,14 @@ function checkform()
 			hideCheck("#ent_codepostal_div");
 		}
 		//-----------------------------------
+		if (!$("#ent_ville").val()) {
+			showNull("#ent_ville_div");
+			ret = false;
+		}
+		else {
+			hideCheck("#ent_ville_div");
+		}
+		//-----------------------------------
 		if (!$("#ent_pays").val()) {
 			showNull("#ent_pays_div");
 			ret = false;
@@ -119,6 +127,14 @@ function checkform()
 			hideCheck("#resT_nom_div");
 		}
 		//-----------------------------------
+		if (!$("#resT_prenom").val()) {
+			showNull("#resT_prenom_div");
+			ret = false;
+		}
+		else {
+			hideCheck("#resT_prenom_div");
+		}
+		//-----------------------------------
 		if (!$("#resT_email").val()) {
 			showNull("#resT_email_div");
 			ret = false;
@@ -142,6 +158,14 @@ function checkform()
 		}
 		else {
 			hideCheck("#resA_nom_div");
+		}
+		//-----------------------------------
+		if (!$("#resA_prenom").val()) {
+			showNull("#resA_prenom_div");
+			ret = false;
+		}
+		else {
+			hideCheck("#resA_prenom_div");
 		}
 		//-----------------------------------
 		if (!$("#resA_email").val()) {

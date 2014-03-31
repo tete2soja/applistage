@@ -31,6 +31,13 @@ class Controller_Util extends Controller_Template
 						Response::redirect('/admin/import');
 						break;						
 					}
+					else if ($info[1] == "1") {
+						if (isset($_POST['remember'])) {
+							Auth::remember_me();
+						}
+						Response::redirect('/etudiant/');
+						break;
+					}
 					else if ($info[1] == "2") {
 						if (isset($_POST['remember'])) {
 							Auth::remember_me();
