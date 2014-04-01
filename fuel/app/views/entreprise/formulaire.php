@@ -57,16 +57,16 @@ $(function() {
 				<div class="form-group">
 				    <label for="public" class="col-sm-2 control-label">Montrer cette offre au public</label>
 				    <div class="col-sm-10">
-				      <input type="checkbox" id="public" name="public" value="option1" checked="true">
+				      <input type="checkbox" id="public" name="public" value="1" checked="true">
 				    </div>
 				</div>
 				<div class="form-group">
 				    <label for="" class="col-sm-2 control-label">Public visé</label>
 				    <div class="col-sm-10">
-				      	<select class="form-control">
-						  <option>Indifférent</option>
-						  <option>DUT Avril-Juin</option>
-						  <option>LP Février-Juin</option>
+				      	<select class="form-control" name="promo" name="promo">
+						  <option value="0">Indifférent</option>
+						  <option value="1">DUT Avril-Juin</option>
+						  <option value="2">LP Février-Juin</option>
 						</select>
 				    </div>
 				    </div>

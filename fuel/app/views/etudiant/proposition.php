@@ -16,7 +16,6 @@
 			</thead>
 			<tbody>
 				<?php
-				$group=false;
 				//On vérifie que l'étudiant est en DUT
 				if ($groupe==2)
 					{

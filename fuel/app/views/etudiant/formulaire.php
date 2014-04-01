@@ -67,7 +67,7 @@ $(function() {
 			<label for="contact_urgence" class="col-sm-2 control-label">Contact en cas d'urgence</label>
 			<div class="col-sm-10">
 				<div id="contact_urgence_div">
-					<input type="text" class="form-control" id="contact_urgence" name="contact_urgence" placeholder="Nom et Prénom" value=<?php 
+					<input type="text" class="form-control" id="contact_urgence" name="contact_urgence" placeholder="Nom, Prénom et Téléphone" value=<?php 
 						if(isset($fiche->contact_urgence))
 							echo '"' . $fiche->contact_urgence . '"';
 						?>>
@@ -113,7 +113,7 @@ $(function() {
 		<div class="form-group">
 			<label for="" class="col-sm-2 control-label">Origine de l'offre</label>
 			<div class="col-sm-10">
-				<select class="form-control">
+				<select name="origine" id="origine" class="form-control">
 					<?php 
 						if(isset($stage->origine_offre))
 							echo '<option value="0">offre_iut</option>';
@@ -233,7 +233,7 @@ $(function() {
 		<div class="form-group">
 			<label for="" class="col-sm-2 control-label">Langue de la convention</label>
 			<div class="col-sm-10">
-				<select id="langue_conv"  name="langue_conv" class="form-control">
+				<select id="langue_conv" name="langue_conv" class="form-control">
 					<option value="0">Français</option>
 					<option value="1">Anglais</option>
 				</select>
@@ -283,12 +283,6 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="" class="col-sm-2 control-label">Stage à durée allongée</label>
-			<div class="col-sm-10">
-				<input type="checkbox" id="duree_allongee" name="duree_allongee" value="option1">
-			</div>
-		</div>
-		<div class="form-group">
 			<label for="nb_jour_travailles" class="col-sm-2 control-label">Nombre de jours travaillés par semaine</label>
 			<div class="col-sm-10">
 				<div id="nb_jour_travailles_div"><input type="number" class="form-control" id="nb_jour_travailles" name="nb_jour_travailles" placeholder="" value=<?php 
@@ -310,28 +304,31 @@ $(function() {
 				</div>
 			</div>
 		</div>
+		<p>Soit salaire mensuel brut soit indémnité mensuelle net<?php if (isset($remuneration)) echo ' (minimum : '.$remuneration.'€)';?></p>
 		<div class="form-group">
 			<label for="retribution" class="col-sm-2 control-label">Salaire mensuel brut</label>
 			<div class="col-sm-10">
 				<div id="retribution_div"><input type="number" class="form-control" id="retribution" name="retribution" placeholder="" value=<?php 
 						if(isset($fiche->retribution))
 							echo '"' . $fiche->retribution . '"';
+						else echo "0";
 						?>>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="montant" class="col-sm-2 control-label">Indémnité mensuel net</label>
+			<label for="montant" class="col-sm-2 control-label">Indémnité mensuelle net</label>
 			<div class="col-sm-10" id="montant_div">
 				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($remuneration)) echo '"' . $remuneration .'"'; ?>></div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="nature" class="col-sm-2 control-label">En nature</label>
+			<label for="nature" class="col-sm-2 control-label">Avantage en nature</label>
 			<div class="col-sm-10">
 				<div id="nature_div"><input type="text" class="form-control" id="nature" name="nature" placeholder="" value=<?php 
 						if(isset($fiche->nature))
 							echo '"' . $fiche->nature . '"';
+						else echo "rien";
 						?>>
 				</div>
 			</div>
@@ -348,11 +345,11 @@ $(function() {
 		<div class="form-group">
 			<label for="" class="col-sm-2 control-label">Votre mission</label>
 			<div class="col-sm-10">
-				<input type="checkbox" id="inlineCheckbox1" name="inlineCheckbox1" value="option1"><label for="inlineCheckbox1">Analyse</label>
-				<input type="checkbox" id="inlineCheckbox2" name="inlineCheckbox2" value="option2"><label for="inlineCheckbox2">Conception</label>
-				<input type="checkbox" id="inlineCheckbox3" name="inlineCheckbox3" value="option3"><label for="inlineCheckbox3">Réalisation</label>
-				<input type="checkbox" id="inlineCheckbox4" name="inlineCheckbox4" value="option4"><label for="inlineCheckbox4">Test</label>
-				<input type="checkbox" id="inlineCheckbox5" name="inlineCheckbox5" value="option5"><label for="inlineCheckbox5">Mise en production</label>	
+				<input type="checkbox" id="inlineCheckbox1" name="inlineCheckbox1" value="1"><label for="inlineCheckbox1">Analyse</label>
+				<input type="checkbox" id="inlineCheckbox2" name="inlineCheckbox2" value="2"><label for="inlineCheckbox2">Conception</label>
+				<input type="checkbox" id="inlineCheckbox3" name="inlineCheckbox3" value="3"><label for="inlineCheckbox3">Réalisation</label>
+				<input type="checkbox" id="inlineCheckbox4" name="inlineCheckbox4" value="4"><label for="inlineCheckbox4">Test</label>
+				<input type="checkbox" id="inlineCheckbox5" name="inlineCheckbox5" value="5"><label for="inlineCheckbox5">Mise en production</label>	
 			</div>
 		</div>
 		<div class="form-group">
@@ -373,8 +370,8 @@ $(function() {
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-6">
-				<button type="submit" class="btn btn-default" onclick="return effacer('#formulaire_etudiant')">RAZ</button>
-				<button id="valider" type="submit" class="btn btn-default">Valider</button>
+				<button type="submit" class="btn btn-danger" onclick="return effacer('#formulaire_etudiant')">RAZ</button>
+				<button id="valider" type="submit" class="btn btn-success">Valider</button>
 			</div>
 		</div>
 	</form>
