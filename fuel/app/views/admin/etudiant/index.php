@@ -187,7 +187,6 @@
 										</td>
 										<td>
 											<?php echo Html::anchor('admin/etudiant/view/'.$item->id, 'Voir'); ?> |
-											<?php echo Html::anchor('admin/etudiant/edit/'.$item->id, 'Editer'); ?> |
 											<?php echo Html::anchor('admin/etudiant/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Etes-vous sur ?')")); ?>
 										</td>
 									</tr>
@@ -199,5 +198,3 @@
 <p>Au Etudiant.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/etudiant/create', 'Ajouter un Etudiant', array('class' => 'btn btn-success')); ?>
-</p>

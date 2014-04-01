@@ -23,5 +23,4 @@
 					echo 'Aucun';
 				} else { echo $entreprise->stagiaire; } ?></p>
 
-<?php echo Html::anchor('admin/entreprise/edit/'.$entreprise->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/entreprise', 'Retour'); ?>

@@ -63,7 +63,7 @@
 							<th>Ville</th>
 							<th>Pays</th>
 							<th>Public</th>
-							<th>Status</th>
+							<th>Statut</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -116,7 +116,6 @@
 								?></td>
 								<td style="width:170px;text-align:center;">
 									<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-									<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
 									<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
 									<form method="POST">
 									<div class="btn-group">
@@ -198,7 +197,6 @@
 								?></td>
 								<td style="width:170px;text-align:center;">
 									<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-									<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
 									<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
 									<form method="POST">
 									<div class="btn-group">
@@ -281,7 +279,6 @@
 								?></td>
 								<td style="width:170px;text-align:center;">
 									<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-									<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
 									<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
 									<form method="POST">
 									<div class="btn-group">
@@ -364,7 +361,6 @@
 								?></td>
 								<td style="width:170px;text-align:center;">
 									<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-									<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
 									<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
 									<form method="POST">
 									<div class="btn-group">
@@ -447,7 +443,6 @@
 								?></td>
 								<td style="width:170px;text-align:center;">
 									<?php echo Html::anchor('admin/stage/view/'.$item->id, 'Voir'); ?> |
-									<?php echo Html::anchor('admin/stage/edit/'.$item->id, 'Editer'); ?> |
 									<?php echo Html::anchor('admin/stage/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes vous sûr ?')")); ?>
 									<form method="POST">
 									<div class="btn-group">
@@ -470,5 +465,3 @@
 	<p>Aucun stage.</p>
 <?php endif; ?>
 <p>
-	<?php echo Html::anchor('admin/stage/create', 'Ajouter un stage', array('class' => 'btn btn-success')); ?>
-</p>

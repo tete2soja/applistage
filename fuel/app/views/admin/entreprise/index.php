@@ -20,7 +20,6 @@
 			<td><?php echo $item->pays; ?></td>
 			<td>
 				<?php echo Html::anchor('admin/entreprise/view/'.$item->id, 'Voir'); ?> |
-				<?php echo Html::anchor('admin/entreprise/edit/'.$item->id, 'Editer'); ?> |
 				<?php echo Html::anchor('admin/entreprise/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
 
 			</td>
@@ -32,6 +31,3 @@
 <p>Aucune Entreprise.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/entreprise/create', 'Ajouter une entreprise', array('class' => 'btn btn-success')); ?>
-
-</p>

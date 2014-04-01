@@ -38,7 +38,6 @@
 			</td>
 			<td>
 				<?php echo Html::anchor('admin/contact/view/'.$item->id, 'Voir'); ?> |
-				<?php echo Html::anchor('admin/contact/edit/'.$item->id, 'Editer'); ?> |
 				<?php echo Html::anchor('admin/contact/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Êtes-vous sur ?')")); ?>
 
 			</td>
@@ -50,6 +49,3 @@
 <p>Aucun contact.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('admin/contact/create', 'Ajouter un contact', array('class' => 'btn btn-success')); ?>
-
-</p>

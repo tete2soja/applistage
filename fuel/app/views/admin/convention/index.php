@@ -367,5 +367,3 @@
 	<p>Aucune convention.</p>
 <?php endif; ?>
 <p>
-	<?php echo Html::anchor('admin/convention/create', 'Ajouter une convention', array('class' => 'btn btn-success')); ?>
-</p>

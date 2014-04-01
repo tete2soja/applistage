@@ -59,5 +59,4 @@
 			echo '<span class="label label-default">LP</span>';
 	?></p>
 
-<?php echo Html::anchor('admin/etudiant/edit/'.$etudiant->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/etudiant', 'Retour'); ?>

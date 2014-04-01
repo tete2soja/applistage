@@ -25,5 +25,4 @@
 	<strong>Propose:</strong>
 	<?php echo $contact->propose; ?></p>
 
-<?php echo Html::anchor('admin/contact/edit/'.$contact->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/contact', 'Retour'); ?>

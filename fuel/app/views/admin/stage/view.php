@@ -82,5 +82,4 @@
 	</div>
 </form>
 <br />
-<?php echo Html::anchor('admin/stage/edit/'.$stage->id, 'Editer'); ?> |
 <?php echo Html::anchor('admin/stage', 'Retour'); ?>
