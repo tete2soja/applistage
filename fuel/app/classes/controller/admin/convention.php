@@ -561,10 +561,9 @@ class Controller_Admin_Convention extends Controller_Template{
 			$pdf->MultiCell(50, 5, $convention->etudiant_np, 0, '', 0, 0, '', '', true);
 			$pdf->MultiCell(70, 5, 'Patrice Kermorvant', 0, '', 0, 0, '', '', true);
 			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-			//$pdf->Output();
 			$pdf->Output(DOCROOT . 'assets/doc/convention-' . $convention->no_etudiant . '.pdf', 'F');
-			//File::download(DOCROOT . 'assets/doc/convention-' . $id . '.pdf', 'convention-' . $id . '.pdf', 'application/pdf');
-			//Response::redirect('admin/convention/');
+			File::download(DOCROOT . 'assets/doc/convention-' . $id . '.pdf', 'convention-' . $id . '.pdf', 'application/pdf');
+			Response::redirect('admin/convention/');
 		}
 
 	}
