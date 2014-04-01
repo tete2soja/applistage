@@ -116,10 +116,10 @@ $(function() {
 				<select name="origine" id="origine" class="form-control">
 					<?php 
 						if(isset($stage->origine_offre))
-							echo '<option value="0">offre_iut</option>';
+							echo '<option value="0">offre iut</option>';
 						else {
-					 		echo '<option value="0">offre_iut</option>';
-							echo '<option value="1">etudiant</option>';
+					 		echo '<option value="0">offre iut</option>';
+							echo '<option value="1">étudiant</option>';
 						}
 					?>
 				</select>

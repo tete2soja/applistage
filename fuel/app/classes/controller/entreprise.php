@@ -142,6 +142,10 @@ class Controller_Entreprise extends Controller_Template
 				File::rename(DOCROOT.'assets/doc/PDF_ent/' . $tmp_name, DOCROOT.'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']));
 				$chemin_file = 'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']);
 			}
+			
+			if(isset($_POST('public'))) {
+				$public = 0;
+			} else $public = 1;
 
 			
 			//Création de la proposition de stage
@@ -164,12 +168,12 @@ class Controller_Entreprise extends Controller_Template
 					'contact' => $id_contact,
 					'entreprise' => $id_entreprise,
 					'sujet' => Input::post('sujet'),
-					'visibilite' => 1,
+					'visibilite' => $public,
 					'contexte' => Input::post('contexte'),
 					'resultats' => Input::post('resultats_attendus'),
 					'conditions' => Input::post('conditions_part'),
 					'url_doc' => Input::post('url_doc_prez'),
-					'public' => 0,
+					'public' => Input::post('promo'),
 				));
 			}
 			

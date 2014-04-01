@@ -262,6 +262,10 @@ class Controller_Etudiant extends Controller_Template
 				Session::set_flash('error', $val2 = $val2 . 'Stage déjà existant. ');
 			}
 			
+			if(Input::post('duree_stage')>10) {
+				$allongee = 1;
+			} else $allongee = 0;
+			
 			//Si l'étudiant n'a pas déjà de fiche de stage, on la crée, sinon on l'update
 			if(empty($fiche)) {
             	$fichestage = Model_Fichestage::forge(array(
@@ -278,13 +282,13 @@ class Controller_Etudiant extends Controller_Template
 	                'rpz_np' => Input::post('rep_nom'),
 					'rpz_adresse' => Input::post('rep_adresse'),
 					'rpz_tel' => Input::post('rep_tel'),
-					'origine_offre' => 0,
-					'type' => 0,
-					'langue' => 0,
+					'origine_offre' => Input::post('origine'),
+					'type' => Input::post('type_conv'),
+					'langue' => Input::post('langue_conv'),
 					'duree' => Input::post('duree_stage'),
 					'date_debut' => Input::post('date_debut'),
 					'date_fin' => Input::post('date_fin'),
-					'allongee' => 0,
+					'allongee' => $allongee,
 					'nb_jour_semaine' => Input::post('nb_jour_travailles'),
 					'horaire_hebdo' => Input::post('horaire_hebdo'),
 					'retribution' => Input::post('retribution'),
