@@ -31,3 +31,10 @@ UTILISATION
 		- utilisateur : admin
 		- mot de passe : Admin
  
+----------------------
+CHANGER URL
+
+	Si vous ne souhaitez pas utiliser http://URL_SERVEUR/applistage/public
+	mais http://URL_SERVEUR/, il faut changer dans la configuration du
+	serveur web le document.root vers le dossier où se situe le dossier
+	d'applistage (/var/www/applistage/public).
