@@ -50,6 +50,14 @@
 					</p>
 				</div>
 	<?php endif; ?>
+	<?php if (Session::get_flash('warning')): ?>
+				<div class="alert alert-warning">
+					<strong>Erreur</strong>
+					<p>
+					<?php echo implode('</p><p>', e((array) Session::get_flash('warning'))); ?>
+					</p>
+				</div>
+	<?php endif; ?>
 	<?php if (Session::get_flash('info')): ?>
 				<div class="alert alert-info">
 					<strong>Information</strong>
