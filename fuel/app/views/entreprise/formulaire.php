@@ -1,4 +1,4 @@
-<?php echo Asset::js('checkform_ent.js'); ?>
+<?php //echo Asset::js('checkform_ent.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
 	var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
@@ -63,7 +63,7 @@ $(function() {
 				<div class="form-group">
 				    <label for="" class="col-sm-2 control-label">Public visé</label>
 				    <div class="col-sm-10">
-				      	<select class="form-control" name="promo">
+				      	<select class="form-control" id="promo" name="promo">
 						  <option value="0" selected="selected">Indifférent</option>
 						  <option value="1">DUT Avril-Juin</option>
 						  <option value="2">Licence Pro Février-Juin</option>

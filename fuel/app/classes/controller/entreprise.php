@@ -146,7 +146,7 @@ class Controller_Entreprise extends Controller_Template
 					'conditions' => Input::post('conditions_part'),
 					'url_doc' => Input::post('url_doc_prez'),
 					'chemin_pdf' => $chemin_file,
-					'public' => 0,
+					'public' => $_POST['promo'],
 				));
 			}
 			else {
@@ -159,7 +159,7 @@ class Controller_Entreprise extends Controller_Template
 					'resultats' => Input::post('resultats_attendus'),
 					'conditions' => Input::post('conditions_part'),
 					'url_doc' => Input::post('url_doc_prez'),
-					'public' => Input::post('promo'),
+					'public' => $_POST['promo'],
 				));
 			}
 			
