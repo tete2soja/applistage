@@ -3,9 +3,9 @@
 		</p>
 		<h2>Informations principales</h2><hr/>
 		<p>
-			Pour l'année universitaire 2013-2014 les dates de stages sont :<br />
-			du 07/04/2014 au 13/06/2014 pour le DUT,<br />
-			du 17/02/2014 au 06/06/2014 pour la Licence Professionnelle S2IMa.
+			Pour l'année universitaire <?php echo $annee-1 . "-" . $annee; ?> les dates de stages sont :<br />
+			du <?php echo $date_debut; ?> au <?php echo $date_fin; ?> pour le DUT,<br />
+			du <?php echo $date_debut_lp; ?> au <?php echo $date_fin_lp; ?> pour la Licence Professionnelle S2IMa.
 		</p>
 		<p><u>Les stages de DUT effectués en France doivent être rémunéré.</u></p>
 		<h2>Introduction</h2><hr/>

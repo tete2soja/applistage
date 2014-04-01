@@ -1,1 +1,0 @@
-<h1>Espace de partage</h1>

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title><?php echo $title; ?></title>
-		<?php echo Asset::css('bootstrap.css'); ?>
+		<?php echo Asset::css('bootstrap.min.css'); ?>
 		<?php echo Asset::css('docs.min.css'); ?>
 		<style>
 			#logo{
@@ -19,10 +19,10 @@
 				margin-top: 10px;
 			}
 		</style>
-		<link rel="icon" href="assets/img/favicone.jpg" />
+		<link rel="icon" href="http://imagecurl.org/images/46388187639097628604.jpg" />
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.11.0.js"></script>
-		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 		<?php echo Asset::js('bootstrap.min.js'); ?>
 		<?php echo Asset::js('common.js'); ?>
 	</head>

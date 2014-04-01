@@ -87,7 +87,6 @@
 									</td>
 									<td>
 										<?php echo Html::anchor('admin/etudiant/view/'.$item->id, 'Voir'); ?> |
-										<?php echo Html::anchor('admin/etudiant/edit/'.$item->id, 'Editer'); ?> |
 										<?php echo Html::anchor('admin/etudiant/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Etes-vous sur ?')")); ?>
 									</td>
 								</tr>
@@ -137,7 +136,6 @@
 										</td>
 										<td>
 											<?php echo Html::anchor('admin/etudiant/view/'.$item->id, 'Voir'); ?> |
-											<?php echo Html::anchor('admin/etudiant/edit/'.$item->id, 'Editer'); ?> |
 											<?php echo Html::anchor('admin/etudiant/delete/'.$item->id, 'Supprimer', array('onclick' => "return confirm('Etes-vous sur ?')")); ?>
 										</td>
 									</tr>
