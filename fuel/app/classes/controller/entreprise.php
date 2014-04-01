@@ -164,7 +164,7 @@ class Controller_Entreprise extends Controller_Template
 			}
 			
 			
-			/*if ($stage and $stage->save())
+			if ($stage and $stage->save())
 			{
 				Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. En attente de validation.');
 				Response::redirect('entreprise/liste');
@@ -173,7 +173,7 @@ class Controller_Entreprise extends Controller_Template
 			else
 			{
 				Session::set_flash('error', $val2 = $val2 . 'Ajout du stage impossible.');
-			}*/
+			}
 		}
 		
 		//A réactiver quand table ville vidée
