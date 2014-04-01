@@ -138,7 +138,6 @@
 	</div>
 	<div class="btn-group">
 		<button class="btn btn-info" data-toggle="modal" data-target="#modalUp" value=<?php echo "\"" . $convention->id . "\""; ?> >Uploader</button>
-		<button type="submit" name="generee" class="btn btn-success" value=<?php echo "\"" . $convention->id . "\""; ?> >Générer</button>
 	</div>
 </form>
 <br />

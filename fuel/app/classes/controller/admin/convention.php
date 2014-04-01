@@ -60,12 +60,12 @@ class Controller_Admin_Convention extends Controller_Template{
 			Response::redirect(Uri::current(), 'refresh');
 		}
 		else if (isset($_POST['generee'])) {
-			$id = $_POST['imprime'];
-			$query = DB::update('fichestages');
-			$query->value('etat', '2');
-			$query->where('id', $id);
-			$query->execute();
-			$convention = Model_Fichestage::find_one_by_id($id);
+			$id = $_POST['generee'];
+			$convention = Model_Fichestage::find_one_by_id($id);			
+			if ($convention->etudiant_promo == 3)
+				$etudes = "Licence professionnelle";
+			else
+				$etudes = "DUT informatique";
 			$pdf = \Pdf::factory('tcpdf')->init();
 			$pdf->setPrintHeader(false);
 			$pdf->AddPage();
@@ -95,7 +95,7 @@ class Controller_Admin_Convention extends Controller_Template{
 							Représenté(e) par ' . $convention->responsable_adm_np . ' ' . $convention->responsable_adm_tel . ' ' . $convention->responsable_adm_email . '</p>
 						<li>L\' étudiant(e) :</li>
 							<p style="font-weight:normal;text-align:justify;">
-								Niveau d\'études : <br/>
+								Niveau d\'études : ' . $etudes . '<br/>
 								Domicile: ' . $convention->etudiant_adr . '<br/>
 								Personne à contacter en cas d\'urgence : ' . $convention->contact_urgence .'
 							</p>
@@ -561,8 +561,12 @@ class Controller_Admin_Convention extends Controller_Template{
 			$pdf->MultiCell(50, 5, $convention->etudiant_np, 0, '', 0, 0, '', '', true);
 			$pdf->MultiCell(70, 5, 'Patrice Kermorvant', 0, '', 0, 0, '', '', true);
 			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-			$pdf->Output(DOCROOT . 'assets/doc/convention-' . $convention->no_etudiant . '.pdf', 'F');
-			File::download(DOCROOT . 'assets/doc/convention-' . $id . '.pdf', 'convention-' . $id . '.pdf', 'application/pdf');
+			$pdf->Output(DOCROOT . 'assets/doc/convention/convention-' . $convention->no_etudiant . '.pdf', 'F');			
+			$query = DB::update('fichestages');
+			$query->value('etat', '2');
+			$query->where('id', $id);
+			$query->execute();
+			File::download(DOCROOT . 'assets/doc/convention/convention-' . $convention->no_etudiant . '.pdf', 'convention-' . $convention->no_etudiant . '.pdf', 'application/pdf');
 			Response::redirect('admin/convention/');
 		}
 
@@ -584,32 +588,6 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->value('etat', '1');
 			$query->where('id', $id);
 			$query->execute();
-			Response::redirect(Uri::current(), 'refresh');
-		}
-		else if (isset($_POST['generee'])) {
-			$id = $_POST['imprime'];
-			$query = DB::update('fichestages');
-			$query->value('etat', '2');
-			$query->where('id', $id);
-			$query->execute();
-			/*$pdf = \Pdf::factory('tcpdf')->init();
-			$pdf->AddPage();
-			$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-			$pdf->SetFont('bookos', '', 10, '', 'false');
-			$html = '
-			<img src="http://i61.tinypic.com/29gofp1.jpg" alt="" style="height:86px;width:62px;"/>
-			<img src="http://i59.tinypic.com/keub1l.png" alt="" align="right" style="height:45px;width:228px;"/>
-			<h1 style="text-align:center;">CONVENTION DE STAGE</h1>
-			<p style="text-align:center;font-weight:bold;">Stage se déroulant en entreprise publique ou privée, en association, en établissement public à caractère industriel et commercial</p>
-			<p>Les parties conviennent d\'organiser le stage de DUT INFORMATIQUE conformément à la charte des stages étudiants en entreprise signée le 26 avril 2006 (annexe 1), au décret n°2006-1093 modifié du 29 août 2006 pris pour l’application de l’article 9 de la loi n°2006-396 modifiée du 31 mars 2006 pour l’égalité des chances et aux engagements fixés ci-dessous :</p>';
-			$pdf->writeHTML($html, true, false, true, false, 'center');
-			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-			$pdf->AddPage();
-			$html2 = '<p>Les horaires de travail sont ceux pratiqués au sein de l’organisme. L’étudiant est présent dans l’organisme {stgjheb} jours et {stghheb} heures au maximum par semaine. Pendant la durée du stage, l’étudiant stagiaire peut être autorisé à revenir à l’Université pour y suivre certains cours. Le calendrier est porté à la connaissance du tuteur de l’organisme avant le début du stage. Toute modification substantielle de l’organisation du stage dans le temps donne lieu à un avenant à la présente convention.</p>';
-			$pdf->writeHTML($html2, true, false, true, false, 'center');
-			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-			$pdf->Output();*/
 			Response::redirect(Uri::current(), 'refresh');
 		}
 		elseif (isset($_POST['uploader'])) {
@@ -711,35 +689,7 @@ class Controller_Admin_Convention extends Controller_Template{
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Fichestage::validate('edit');
-
-			if ($val->run())
-			{
-				$convention->etudiant = Input::post('etudiant');
-				$convention->sujet = Input::post('sujet');
-				$convention->description_stage = Input::post('description_stage');
-				$convention->environnement_dev = Input::post('environnement_dev');
 				$convention->observations_resp = Input::post('observations_resp');
-				$convention->indemnite = Input::post('indemnite');
-				$convention->entreprise = Input::post('entreprise');
-				$convention->responsable_legal = Input::post('responsable_legal');
-				$convention->responsable_adm = Input::post('responsable_adm');
-				$convention->contact_urgence = Input::post('contact_urgence');
-				$convention->rpz_np = Input::post('rpz_np');
-				$convention->rpz_adresse = Input::post('rpz_adresse');
-				$convention->rpz_tel = Input::post('rpz_tel');
-				$convention->origine_offre = Input::post('origine_offre');
-				$convention->type = Input::post('type');
-				$convention->langue = Input::post('langue');
-				$convention->duree = Input::post('duree');
-				$convention->date_debut = Input::post('date_debut');
-				$convention->date_fin = Input::post('date_fin');
-				$convention->allongee = Input::post('allongee');
-				$convention->nb_jour_semaine = Input::post('nb_jour_semaine');
-				$convention->horaire_hebdo = Input::post('horaire_hebdo');
-				$convention->retribution = Input::post('retribution');
-				$convention->nature = Input::post('nature');
-				$convention->etat = Input::post('etat');
 
 				if ($convention->save())
 				{
@@ -750,11 +700,6 @@ class Controller_Admin_Convention extends Controller_Template{
 				{
 					Session::set_flash('error', 'Nothing updated.');
 				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
 		}
 		$this->template->set_global('convention', $convention, false);
 		$this->template->link_header = 'admin/index';

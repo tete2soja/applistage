@@ -114,6 +114,10 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									<?php
+									if ($item->etat == 2)
+										echo Html::anchor('assets/doc/convention/convention-' . $item->no_etudiant . '.pdf', 'PDF', array('class' => 'glyphicon glyphicon-save',));
+									?>
 									</form>
 								</td>
 							</tr>
@@ -173,6 +177,10 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									<?php
+									if ($item->etat == 2)
+										echo Html::anchor('assets/doc/convention/convention-' . $item->no_etudiant . '.pdf', 'PDF', array('class' => 'glyphicon glyphicon-save',));
+									?>
 									</form>
 								</td>
 							</tr>
@@ -233,6 +241,10 @@
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									<?php
+									if ($item->etat == 2)
+										echo Html::anchor('assets/doc/convention/convention-' . $item->no_etudiant . '.pdf', 'PDF', array('class' => 'glyphicon glyphicon-save',));
+									?>
 									</form>
 								</td>
 							</tr>
@@ -294,6 +306,11 @@
 									    </div>
 									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
+									<button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									<?php
+									if ($item->etat == 2)
+										echo Html::anchor('assets/doc/convention/convention-' . $item->no_etudiant . '.pdf', 'PDF', array('class' => 'glyphicon glyphicon-save',));
+									?>
 								</td>
 							</tr>
 						<?php } ?>
@@ -352,8 +369,12 @@
 											<button type="submit" name="incomplete" class="btn btn-warning btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Incomplète</button>
 											<button type="submit" name="complete" class="btn btn-primary btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Complète</button>
 									    </div>
-									    <button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
 									</form>
+									<button type="submit" name="generee" class="btn btn-success btn-xs" value=<?php echo "\"" . $item->id . "\""; ?> >Générer</button>
+									<?php
+									if ($item->etat == 2)
+										echo Html::anchor('assets/doc/convention/convention-' . $item->no_etudiant . '.pdf', 'PDF', array('class' => 'glyphicon glyphicon-save',));
+									?>
 								</td>
 							</tr>
 						<?php } ?>
