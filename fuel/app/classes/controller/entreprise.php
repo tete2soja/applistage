@@ -143,7 +143,7 @@ class Controller_Entreprise extends Controller_Template
 				$chemin_file = 'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']);
 			}
 			
-			if(isset($_POST('public'))) {
+			if(empty(Input::post('public'))) {
 				$public = 0;
 			} else $public = 1;
 

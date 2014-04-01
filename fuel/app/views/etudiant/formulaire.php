@@ -42,15 +42,7 @@ $(function() {
 		<div class="form-group">
 			<label for="idEtudiant" class="col-sm-2 control-label" >N° Etudiant</label>
 			<div class="col-sm-10">
-					<input type="text" class="form-control" id="idEtudiant" name="idEtudiant" placeholder="" disabled value=<?php
-					$id_info = Auth::get_groups();
-					foreach ($id_info as $info) {
-						if ($info[1] == "2") {
-							echo '"' . Auth::get('username') . '"';
-							break;
-						}
-					}
-				?>>
+					<input type="text" class="form-control" id="idEtudiant" name="idEtudiant" placeholder="" disabled value=<?php echo '"' . Auth::get('username') . '"';?>>
 			</div>
 		</div>
 		<div class="form-group">
@@ -370,8 +362,8 @@ $(function() {
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-6">
-				<button type="submit" class="btn btn-danger" onclick="return effacer('#formulaire_etudiant')">RAZ</button>
 				<button id="valider" type="submit" class="btn btn-success">Valider</button>
+				<button type="submit" class="btn btn-danger" onclick="return effacer('#formulaire_etudiant')">RAZ</button>
 			</div>
 		</div>
 	</form>
