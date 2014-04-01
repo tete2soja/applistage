@@ -1,9 +1,8 @@
 <h2>Modifier la configuration</h2>
 <hr>
 <p>
-	Vous pourrez ici modifier les informations concernant la structure du fichier CSV contenant la liste des étudiants afin de faire correspondre l'ordre des colonnes lors de l'importation dans la base
-	de données.<br />
-	Vous pouvez également modifier les informations concernant les conventions.
+	Ici vous pouvez modifier les informations concernant la structure du fichier CSV contenant la liste des étudiants afin de faire correspondre le nom des colonnes lors de l'importation dans la base de données.<br />
+	Vous pouvez également modifier les informations concernant les stages et les mots de passes utilisateurs par défaut.
 </p>
 <?php if ($configs): ?>
 <h3>Partie import des étudiants</h3>
@@ -103,10 +102,10 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>Date debut IUT</th>
-			<th>Date fin IUT</th>
-			<th>Date debut LP</th>
-			<th>Date fin LP</th>
+			<th>Date debut stage DUT</th>
+			<th>Date fin stage DUT</th>
+			<th>Date debut stage LP</th>
+			<th>Date fin stage LP</th>
 			<th>Année du stage</th>
 			<th>Remuneration</th>
 		</tr>
@@ -129,16 +128,18 @@
 	<thead>
 		<tr>
 			<th>Mot de passe par défaut pour les étudiants</th>
+			<th>Mot de passe par défaut pour les enseignants</th>
 		</tr>
 	</thead>
 		<tbody>
 <?php foreach ($configs as $item): ?>		<tr>
 
 			<td><?php echo $item->password; ?></td>
+			<td><?php echo $item->password_en; ?></td>
 		</tr>
 <?php endforeach; ?>	</tbody>
 </table>
-<?php echo Html::anchor('admin/config/edit/'.$item->id, 'Modifier', array('class' => 'btn btn-primary', 'style' => 'margin-left: 50%;')); ?>
+<?php echo Html::anchor('admin/config/edit/'.$item->id, 'Modifier', array('class' => 'btn btn-primary')); ?>
 
 <?php else: ?>
 <p>No Configs.</p>
