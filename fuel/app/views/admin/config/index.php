@@ -103,8 +103,10 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>Date debut</th>
-			<th>Date fin</th>
+			<th>Date debut IUT</th>
+			<th>Date fin IUT</th>
+			<th>Date debut LP</th>
+			<th>Date fin LP</th>
 			<th>Année du stage</th>
 			<th>Remuneration</th>
 		</tr>
@@ -114,6 +116,8 @@
 
 			<td><?php echo $item->date_debut; ?></td>
 			<td><?php echo $item->date_fin; ?></td>
+			<td><?php echo $item->date_debut_lp; ?></td>
+			<td><?php echo $item->date_fin_lp; ?></td>
 			<td><?php echo $item->annee_courante; ?></td>
 			<td><?php echo $item->remuneration; ?></td>
 		</tr>

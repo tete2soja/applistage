@@ -6,6 +6,16 @@ class Controller_Entreprise extends Controller_Template
 	//Contrôleur de la page index.php
 	public function action_index()
 	{
+		$annee = Model_Admin_Config::find_one_by_id(1)->annee_courante;
+		$date_debut = Model_Admin_Config::find_one_by_id(1)->date_debut;
+		$date_fin = Model_Admin_Config::find_one_by_id(1)->date_fin;
+		$date_debut_lp = Model_Admin_Config::find_one_by_id(1)->date_debut_lp;
+		$date_fin_lp = Model_Admin_Config::find_one_by_id(1)->date_fin_lp;
+		$data["annee"] = $annee;
+		$data["date_debut"] = date("d-m-Y", strtotime($date_debut));
+		$data["date_fin"] = date("d-m-Y", strtotime($date_fin));
+		$data["date_debut_lp"] = date("d-m-Y", strtotime($date_debut_lp));
+		$data["date_fin_lp"] = date("d-m-Y", strtotime($date_fin_lp));
 		$data["subnav"] = array('index'=> 'active' );
 		$this->template->link_header = 'entreprise/index';
 		$this->template->title = 'Entreprise &raquo; Index';
