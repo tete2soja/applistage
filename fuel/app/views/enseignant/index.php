@@ -11,7 +11,7 @@
 		<a href="voeux" type="button" class="btn btn2 btn-accueil btn-success"><p>Mes voeux</p></a>
 	</div>
 	<div class="col-md-3">
-		<a href="stagiaires" type="button" class="btn btn2 btn-accueil btn-info"><p>Suivis de mes stagiaires</p></a>
+		<a href="stagiaires" type="button" class="btn btn2 btn-accueil btn-info"><p>Suivi de mes stagiaires</p></a>
 	</div>
 	<div class="col-md-3">
 		<a href="suivi" type="button" class="btn btn2 btn-accueil btn-warning"><p>Suivi</p></a>
