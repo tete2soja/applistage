@@ -12,7 +12,7 @@
 INSTALLATION
 
 	- Récupérer l'archive ou cloner le dépôt GIT
-	- Renomer le dossier en 'applistage'
+	- Renommer le dossier en 'applistage'
 	- L'uploader sur le serveur dans l'enplacement désiré
 	- Modifier les droits en 777 sur les dossiers :
 		- fuel/app/logs
@@ -30,3 +30,4 @@ UTILISATION
 	- Par défaut, le compte admin est le suivant :
 		- utilisateur : admin
 		- mot de passe : Admin
+ 
