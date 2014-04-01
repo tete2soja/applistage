@@ -68,7 +68,7 @@
 			echo '<span class="label label-info">DUT Info</span>';
 		}
 		else {
-			echo '<span class="label label-success">License Pro</span>';
+			echo '<span class="label label-success">Licence Pro</span>';
 		}
 	?></p>
 <p>

@@ -63,10 +63,10 @@ $(function() {
 				<div class="form-group">
 				    <label for="" class="col-sm-2 control-label">Public visé</label>
 				    <div class="col-sm-10">
-				      	<select class="form-control" name="promo" name="promo">
-						  <option value="0">Indifférent</option>
+				      	<select class="form-control" name="promo">
+						  <option value="0" selected="selected">Indifférent</option>
 						  <option value="1">DUT Avril-Juin</option>
-						  <option value="2">LP Février-Juin</option>
+						  <option value="2">Licence Pro Février-Juin</option>
 						</select>
 				    </div>
 				    </div>

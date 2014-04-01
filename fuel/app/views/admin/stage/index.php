@@ -183,7 +183,7 @@
 								?></td>
 								<td><?php
 									if ($item->etat == 0) {
-										echo '<span class="label">Saisi</span>';
+										echo '<span class="label label-info">Saisi</span>';
 									}
 									else if ($item->etat == 1) {
 										echo '<span class="label label-success">Validé</span>';
@@ -265,7 +265,7 @@
 								?></td>
 								<td><?php
 									if ($item->etat == 0) {
-										echo '<span class="label">Saisi</span>';
+										echo '<span class="label label-info">Saisi</span>';
 									}
 									else if ($item->etat == 1) {
 										echo '<span class="label label-success">Validé</span>';
@@ -347,7 +347,7 @@
 								?></td>
 								<td><?php
 									if ($item->etat == 0) {
-										echo '<span class="label">Saisi</span>';
+										echo '<span class="label label-info">Saisi</span>';
 									}
 									else if ($item->etat == 1) {
 										echo '<span class="label label-success">Validé</span>';
@@ -429,7 +429,7 @@
 								?></td>
 								<td><?php
 									if ($item->etat == 0) {
-										echo '<span class="label">Saisi</span>';
+										echo '<span class="label label-info">Saisi</span>';
 									}
 									else if ($item->etat == 1) {
 										echo '<span class="label label-success">Validé</span>';

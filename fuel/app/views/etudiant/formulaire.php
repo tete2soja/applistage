@@ -106,10 +106,10 @@ $(function() {
 				<select name="origine" id="origine" class="form-control">
 					<?php 
 						if(isset($stage->origine_offre))
-							echo '<option value="0">offre iut</option>';
+							echo '<option value="0" selected="selected">Offre IUT</option>';
 						else {
-					 		echo '<option value="0">offre iut</option>';
-							echo '<option value="1">étudiant</option>';
+					 		echo '<option value="0" selected="selected">Offre IUT</option>';
+							echo '<option value="1">Etudiant</option>';
 						}
 					?>
 				</select>
@@ -224,7 +224,7 @@ $(function() {
 			<label for="" class="col-sm-2 control-label">Langue de la convention</label>
 			<div class="col-sm-10">
 				<select id="langue_conv" name="langue_conv" class="form-control">
-					<option value="0">Français</option>
+					<option value="0" selected="selected">Français</option>
 					<option value="1">Anglais</option>
 				</select>
 			</div>
@@ -233,8 +233,8 @@ $(function() {
 			<label for="" class="col-sm-2 control-label">Type de convention</label>
 			<div class="col-sm-10">
 				<select id="type_conv" name="type_conv"class="form-control">
-					<option value="0">entreprise</option>
-					<option value="1">secteur-public</option>
+					<option value="0" selected="selected">Entreprise</option>
+					<option value="1">Secteur-public</option>
 				</select>
 			</div>
 		</div>
@@ -298,7 +298,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="montant" class="col-sm-2 control-label">Indémnité mensuelle net</label>
+			<label for="montant" class="col-sm-2 control-label">Indémnité mensuelle nette</label>
 			<div class="col-sm-10" id="montant_div">
 				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($remuneration)) echo '"' . $remuneration .'"'; ?>></div>
 			</div>

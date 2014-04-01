@@ -56,7 +56,7 @@
 		else if ($etudiant->iut_annee == 2)
 			echo '<span class="label label-info">DUT 2ème année</span>';
 		else if ($etudiant->iut_annee == 3)
-			echo '<span class="label label-default">License Pro</span>';
+			echo '<span class="label label-default">Licence Pro</span>';
 	?></p>
 
 <?php echo Html::anchor('admin/etudiant', 'Retour'); ?>
