@@ -169,6 +169,12 @@ fieldset {
 
 		</div>
 		<div class="form-group">
+			<?php echo Form::label('Mot de passe', 'password', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('password', Input::post('password', isset($config) ? $config->password : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Mot de passe')); ?>
+
+		</div>
+		<div class="form-group">
 			<label class='control-label'>&nbsp;</label>
 			<?php echo Form::submit('submit', 'Sauver', array('class' => 'btn btn-primary')); ?>		</div>
 	</fieldset>

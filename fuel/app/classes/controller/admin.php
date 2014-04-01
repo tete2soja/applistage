@@ -238,7 +238,8 @@ class Controller_Admin extends Controller_Template
 
 					// Insertion dans la table avec les clés étrangères pour les villes
 					$query = DB::query('INSERT INTO `etudiant` VALUES (NULL, "' . $id . '","' . $nom . '","' . $prenom . '","' . $date_naissance .  '","' . $sexe .  '","' . $bac .  '","' . $bac_mention .  '","' . $bac_annee .  '","' . $email .  '","' . $adresse1 .  '","' . $id_ville1 .  '","' . $adresse2 .  '","' . $id_ville2 .  '","' . $telephone1 .  '","' . $telephone2 . '", "1")')->execute();
-					//Auth::create_user($id, $id, $email, 2);
+					$password = DB::select('password')->from('config')->where('id', 1)->execute()->get('password');
+					//Auth::create_user($id, $password, $email, 2);
 				}
 			}			
 			fclose($handle);

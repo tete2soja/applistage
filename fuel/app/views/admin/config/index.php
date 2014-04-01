@@ -119,6 +119,21 @@
 		</tr>
 <?php endforeach; ?>	</tbody>
 </table>
+<hr>
+<h3>Partie utilisateur</h3>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Mot de passe</th>
+		</tr>
+	</thead>
+		<tbody>
+<?php foreach ($configs as $item): ?>		<tr>
+
+			<td><?php echo $item->password; ?></td>
+		</tr>
+<?php endforeach; ?>	</tbody>
+</table>
 <?php echo Html::anchor('admin/config/edit/'.$item->id, 'Modifier', array('class' => 'btn btn-primary', 'style' => 'margin-left: 50%;')); ?>
 
 <?php else: ?>

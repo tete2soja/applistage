@@ -82,6 +82,7 @@ class Controller_Admin_Config extends Controller_Template{
 				$config->date_debut = Input::post('date_debut');
 				$config->date_fin = Input::post('date_fin');
 				$config->annee_courante = Input::post('annee_courante');
+				$config->password = Input::post('password');
 
 				if ($config->save())
 				{
