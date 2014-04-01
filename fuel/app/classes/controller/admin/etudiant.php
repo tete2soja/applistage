@@ -189,6 +189,4 @@ class Controller_Admin_Etudiant extends Controller_Template{
 		Response::redirect('admin/etudiant');
 
 	}
-
-
 }

@@ -1,9 +1,8 @@
 <?php
 class Controller_Admin_Config extends Controller_Template{
 
-	public function before()
-	{
-		// check for admin
+	public function before() {
+		// Vérifie si un utilisateur est loggué
 		parent::before();
 		if ( ! Auth::check())
 		{
@@ -12,7 +11,7 @@ class Controller_Admin_Config extends Controller_Template{
 		else {
 			$id_info = Auth::get_groups();
     		foreach ($id_info as $info)	{
-			    if (($info[1] != "10")&&($info[1] != "11")) {
+			    if ($info[1] != "10") { // Si un utilisatuer est loggué mais pas 'admin', on redirige
 			    	Response::redirect('/util/connexion');
 			    	break;
 			    }

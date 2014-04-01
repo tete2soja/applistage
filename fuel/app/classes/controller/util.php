@@ -12,10 +12,10 @@ class Controller_Util extends Controller_Template
 		$this->template->sub_title = 'Connexion';
 		$this->template->content = View::forge('util/connexion', $data);
 		if (isset($_POST['submit'])) {
-			// validate the a username and password
+			// On récupère l'id et le password rentrés
 			$name = $_POST['id'];
 			$pass = $_POST['password'];
-			if (Auth::login($name, $pass)) {
+			if (Auth::login($name, $pass)) { // Si ils correspondent à un utilisateur valide
 				$id_info = Auth::get_groups();
 				foreach ($id_info as $info) {
 					if ($info[1] == "10") {

@@ -3,15 +3,15 @@
 class Controller_Etudiant extends Controller_Template
 {
 	public function before() {
-		// check for admin
+		// Vérifie si un utilisateur est loggué
 		parent::before();
-		if ( ! Auth::check())
+		if ( ! Auth::check()) // Si faux, redirige vers la page de connexion
 		{
 			Response::redirect('/util/connexion');
 		}
 		else {
 			$id_info = Auth::get_groups();
-			foreach ($id_info as $info) {
+			foreach ($id_info as $info) { // Si un utilisatuer est loggué mais pas 'enseignant' ou 'admin', on redirige
 				if (($info[1] != "1")&&($info[1] != "2")&&($info[1] != "10")) {
 					Response::redirect('/util/connexion');
 					break;
@@ -391,5 +391,4 @@ class Controller_Etudiant extends Controller_Template
 		$this->template->content = View::forge('etudiant/details', $data);
 
 	}
-
 }

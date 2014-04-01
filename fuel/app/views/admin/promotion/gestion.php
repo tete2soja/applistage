@@ -1,7 +1,8 @@
 <h2>Gestion des INFO2</h2>
 <br>
 <p>
-	Vous devez ici coché les cases qui correpondent au élèves de deuxième année qui redoublent. Dans le cas échéant, ils seront supprimés de la base de données.
+	Vous devez ici coché les cases qui correpondent au élèves de deuxième année qui redoublent ou qui se sont réorientés en cours d'année. Si aucune case n'est cochée, les étudiants seront déplacés vers la table `etudiant_diplome`.
+	La case 'reboublement' maintient l'étudiant dans la table tant dis que la deuxième le supprime sans le déplacer dans la table `etudiant_diplome`.
 </p>
 <br />
 <?php if ($etudiants): ?>

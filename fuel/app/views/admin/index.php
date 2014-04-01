@@ -32,7 +32,7 @@
 	<h2>Gérer les stages proposés</h2>
 	<div class="row">
 		<div class="col-md-6">
-			<p>Vous pouvez vous même saisir une proposition en passant par le formulaire.</p>
+			<p>Vous pouvez vous même saisir une proposition en passant par le formulaire utilisé par les entreprise.</p>
 			<?php echo Html::anchor('entreprise/formulaire', 'Saisir', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 		<div class="col-md-6">

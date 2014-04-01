@@ -153,6 +153,4 @@ class Controller_Admin_Contact extends Controller_Template{
 		Response::redirect('admin/contact');
 
 	}
-
-
 }

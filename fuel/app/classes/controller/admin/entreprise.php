@@ -145,6 +145,4 @@ class Controller_Admin_Entreprise extends Controller_Template{
 		Response::redirect('admin/entreprise');
 
 	}
-
-
 }

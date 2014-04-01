@@ -18,18 +18,19 @@
 	</div>
 </div>
 <div class="row" style="margin-top: -20px;margin-bottom: -20px;">
-	<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;">
+	<div class="col-md-6 bs-callout bs-callout-info" style="height: 350px;width: 49%;">
 		<h2>Importation des étudiants</h2>
 		<p>Sélectionnez d'abord le fichier CSV contenant les étudiants de premières années. Vous l'obtiendrez en l'exportant du fichier Excel fourmit chaque année par la
 		scolarité.<br />
-		Veuillez cependant à respecter les règles concernant la strucute de ce fichier.</p>
+		Vous devrez avant de faire ceci, modifier la table `config` afin de rentrer dans l'ordre, les noms des colonnes du fichier CSV.<br />
+		Vous aurez ensuite, un aperçu des données avant de valider l'insertion du fichier dans la base de données.</p>
 		<form enctype='multipart/form-data' action="" method="POST">
 			<input size='50' type='file' name='filename' /><br />
 			<button type="submit" name="submit" value="submit" class="btn btn-default btn-danger" style="padding-top:8px;font-size:15px;width:auto;">Envoyer</button>
 		</form>
 	</div>
 	<div class="row">
-		<div class="col-md-6 bs-callout bs-callout-info" style="height: 300px;width: 49%;float: right;">
+		<div class="col-md-6 bs-callout bs-callout-info" style="height: 350px;width: 49%;float: right;">
 			<h2>Exportations</h2>
 			<p>Pour chacun des exports, l'application récupérera l'ensemble des données de la table séléectionnée (le nom des collones compris).<br />
 			Il vous sera ensuite proposer de le télécharger via	une fenêtre de dialogue qui apparaitra alors.</p>
@@ -60,7 +61,7 @@
 		</div>
 		<div class="col-md-6">
 			<p>Vous permez de gérer les étudiants en première année pour leur passage en deuxième année concernant l'année <?php echo date("Y")-1; ?></p>
-			<?php echo Html::anchor('admin/passage', 'Passage en DUT info 2`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
+			<?php echo Html::anchor('admin/passage', 'Passage en DUT info 2', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
 		</div>
 	</div>
 </div>

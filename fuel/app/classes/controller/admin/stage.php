@@ -232,6 +232,4 @@ class Controller_Admin_Stage extends Controller_Template{
 		Response::redirect('admin/stage');
 
 	}
-
-
 }

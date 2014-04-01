@@ -311,7 +311,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="retribution" class="col-sm-2 control-label">Rétribution proposée</label>
+			<label for="retribution" class="col-sm-2 control-label">Salaire mensuel brut</label>
 			<div class="col-sm-10">
 				<div id="retribution_div"><input type="number" class="form-control" id="retribution" name="retribution" placeholder="" value=<?php 
 						if(isset($fiche->retribution))
@@ -321,7 +321,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="montant" class="col-sm-2 control-label">Montant mensuel prévu</label>
+			<label for="montant" class="col-sm-2 control-label">Indémnité mensuel net</label>
 			<div class="col-sm-10" id="montant_div">
 				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($remuneration)) echo '"' . $remuneration .'"'; ?>></div>
 			</div>

@@ -3,15 +3,15 @@
 class Controller_Enseignant extends Controller_Template
 {
 	public function before() {
-		// check for admin
+		// Vérifie si un utilisateur est loggué
 		parent::before();
-		if ( ! Auth::check())
+		if ( ! Auth::check()) // Si faux, redirige vers la page de connexion
 		{
 			Response::redirect('/util/connexion');
 		}
 		else {
 			$id_info = Auth::get_groups();
-			foreach ($id_info as $info) {
+			foreach ($id_info as $info) { // Si un utilisatuer est loggué mais pas 'enseignant' ou 'admin', on redirige
 				if (($info[1] != "3")&&($info[1] != "10")) {
 					Response::redirect('/util/connexion');
 					break;
@@ -48,7 +48,8 @@ class Controller_Enseignant extends Controller_Template
 	}
 
 	public function action_voeux() {
-		$data['stages'] = Model_Stage::find_all();		
+		$data['stages'] = Model_Stage::find_all(); // On récupère l'ensemble des stages
+		// On récupère les trois voeux que l'enseignant a pu faire (via son mail)
 		$enseignant = DB::select('voeux_1', 'voeux_2', 'voeux_3')->from('enseignant')->where('email', Auth::get('username'))->execute();
 		$data['voeux_1'] = $enseignant->get('voeux_1');
 		$data['voeux_2'] = $enseignant->get('voeux_2');
@@ -60,54 +61,54 @@ class Controller_Enseignant extends Controller_Template
 		$this->template->sub_title = 'Enseignant';
 		$this->template->content = View::forge('enseignant/voeux', $data);
 		if (isset($_POST['postuler'])) {
-			$id = $_POST['postuler'];
+			$id = $_POST['postuler']; // On récupère l'id du voeu souhaité
 			$enseignant = DB::select('voeux_1', 'voeux_2', 'voeux_3')->from('enseignant')->where('email', Auth::get('username'))->execute();
 			$voeux_1 = $enseignant->get('voeux_1');
 			$voeux_2 = $enseignant->get('voeux_2');
 			$voeux_3 = $enseignant->get('voeux_3');
-			if ($voeux_1 == null) {
+			if ($voeux_1 == null) { // Si le voeu 1 est null
 				$query = DB::update('enseignant');
 				$query->value('voeux_1', $id);
 				$query->where('email', Auth::get('username'));
 				$query->execute();
 			}
-			else if ($voeux_2 == null) {
+			else if ($voeux_2 == null) { // Si le voeu 2 est null
 				$query = DB::update('enseignant');
 				$query->value('voeux_2', $id);
 				$query->where('email', Auth::get('username'));
 				$query->execute();
 			}
-			else if ($voeux_3 == null) {
+			else if ($voeux_3 == null) { // Si le veux 3 est null
 				$query = DB::update('enseignant');
 				$query->value('voeux_3', $id);
 				$query->where('email', Auth::get('username'));
 				$query->execute();
 			}
-			else
+			else // Si tout les voeux sont déjà pris
 				Session::set_flash('error', 'Vosu avez déjà fait vos trois voeux.');
 			Response::redirect('enseignant/voeux');
 		}
 		else if (isset($_POST['supprimer'])) {
-			$id = $_POST['supprimer'];
+			$id = $_POST['supprimer']; // On récupère l'id du voeu souhaité
 			$enseignant = DB::select('voeux_1', 'voeux_2', 'voeux_3')->from('enseignant')->where('email', Auth::get('username'))->execute();
 			$voeux_1 = $enseignant->get('voeux_1');
 			$voeux_2 = $enseignant->get('voeux_2');
 			$voeux_3 = $enseignant->get('voeux_3');
-			if ($voeux_1 == $id) {
+			if ($voeux_1 == $id) { // Si c'est le voeu 1
 				$query = DB::update('enseignant');
-				$query->value('voeux_1', null);
+				$query->value('voeux_1', null); // On le met a 'null'
 				$query->where('email', Auth::get('username'));
 				$query->execute();
 			}
-			else if ($voeux_2 == $id) {
+			else if ($voeux_2 == $id) { // Si c'est le voeu 2
 				$query = DB::update('enseignant');
-				$query->value('voeux_2', null);
+				$query->value('voeux_2', null); // On le met a 'null'
 				$query->where('email', Auth::get('username'));
 				$query->execute();
 			}
-			else if ($voeux_3 == $id) {
+			else if ($voeux_3 == $id) { // Si c'est le voeu 3
 				$query = DB::update('enseignant');
-				$query->value('voeux_3', null);
+				$query->value('voeux_3', null); // On le met a 'null'
 				$query->where('email', Auth::get('username'));
 				$query->execute();
 			}

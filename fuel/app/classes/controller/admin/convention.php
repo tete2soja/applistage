@@ -780,6 +780,5 @@ class Controller_Admin_Convention extends Controller_Template{
 		}
 
 		Response::redirect('admin/convention');
-
 	}
 }

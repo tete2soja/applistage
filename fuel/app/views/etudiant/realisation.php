@@ -1,5 +1,5 @@
 <h2>La réalisation du stage</h2>
-CADRE
+<h4>CADRE</h4>
 <p>
 Ma page de suivi personnelle
 <a href="https://extranet.iut-info-vannes.net/etud/stages/page_suivi_2a">2A</a>
@@ -38,7 +38,7 @@ Ma page de suivi personnelle
 </p>
 <h3>Rendus et suivi de stage</h3>
 <p>Pour permettre un suivi simplifié du stage et un rendu facile à faire et à contrôler, une zone de rendu a été aménagée sur l'extranet, il s'agit d'un espace wiki personnel pour chaque étudiant.</p>
-CADRE
+<h4>CADRE</h4>
 <p>
 Espaces de suivi de stage<br />
 Sur le serveur de projets<br />
@@ -52,5 +52,5 @@ http://projets.iut-info-vannes.net/wiki/rendus/etud/<votre_login>/stage/
 </p>
 <h3>Contacts avec le professeur-tuteur</h3>
 <p>Dès le début de stage, prenez l'habitude de transmettre régulièrement de vos nouvelles à votre professeur-tuteur. C'est à vous de prendre l'initiative des contacts.</p>
-CADRE
+<h4>CADRE</h4>
 <p>N'attendez pas systématiquement une réponse : elle est rarement nécessaire. Ainsi, n'harcelez pas votre professeur-tuteur, cela sera interprété comme un manque d'autonomie et de maturité professionnelle.</p>

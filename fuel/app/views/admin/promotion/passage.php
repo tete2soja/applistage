@@ -2,7 +2,7 @@
 <br>
 <p>
 	Par défaut, la case validant le changement d'années pour les étudiants est cochée. Vous devez donc seulement décocher les cases concernant les élèves redoublant leur première année.<br />
-	Une seconde case peut-être coché pour les étudiants se réorientant ou démissionnaires afin de les supprimer de la base de données.
+	Une seconde case peut-être coché pour les étudiants se réorientant ou démissionnaires afin de les supprimer de la base de données. vous devrez alors décocher la première avant de cocher la deuxième.
 </p>
 <br />
 <?php if ($etudiants): ?>

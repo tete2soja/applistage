@@ -139,6 +139,4 @@ class Controller_Admin_Users extends Controller_Template{
 		Response::redirect('admin/users');
 
 	}
-
-
 }
