@@ -126,18 +126,9 @@ class Controller_Etudiant extends Controller_Template
 
 	            if ($ville_ent and $ville_ent->save())
 	            {
-	            	$id_ville_ent = $ville_ent->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Ville entreprise ajoutée #'.$ville_ent->id.'. ');
-	            }
-	
-	            else
-	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save ville_ent. ');
-	            }
+	            	$id_ville_ent = $ville_ent->id;	            }
             } else {
-	            $id_ville_ent = $tmp->id;
-	            Session::set_flash('error', $val2 = $val2 . 'Ville Entreprise déjà existante. ');
-            }
+	            $id_ville_ent = $tmp->id;            }
             
             //On regarde si l'entreprise existe en bdd
             $tmp = Model_Entreprise::find_one_by('nom', Input::post('ent_nom'));
@@ -155,16 +146,9 @@ class Controller_Etudiant extends Controller_Template
 	            if ($entreprise and $entreprise->save())
 	            {
 	            	$id_entreprise = $entreprise->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Entreprise ajoutée #'.$entreprise->id.'. ');
-	            }
-	
-	            else
-	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save entreprise. ');
 	            }
 			} else {
 				$id_entreprise = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Entreprise déjà existante. ');
 			}
 			
 			//On regarde si le responsable technique existe en bdd
@@ -186,16 +170,9 @@ class Controller_Etudiant extends Controller_Template
 	            if ($contact and $contact->save())
 	            {
 	            	$id_contact1 = $contact->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Responsable tech ajouté #'.$contact->id.'. ');
-	            }	
-	
-	            else
-	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save responsable tech. ');
 	            }
 			} else {
 				$id_contact1 = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Responsable tech déjà existant. ');
 			}
 			
 			//On regarde si le responsable administratif existe en bdd
@@ -216,17 +193,9 @@ class Controller_Etudiant extends Controller_Template
 	            
 	            if ($contact2 and $contact2->save())
 	            {
-	            	$id_contact2 = $contact2->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Responsable adm ajouté #'.$contact2->id.'. ');
-	            }	
-	
-	            else
-	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save responsable adm. ');
-	            }
+	            	$id_contact2 = $contact2->id;	            }
 			} else {
 				$id_contact2 = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Responsable adm déjà existant. ');
 			}
 			
 			//On regarde si le stage existe en bdd
@@ -250,16 +219,9 @@ class Controller_Etudiant extends Controller_Template
 	            if ($stage and $stage->save())
 	            {
 	            	$id_stage = $stage->id;
-	                Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. ');
-	            }
-	
-	            else
-	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save stage. ');
 	            }
 	        } else {
 				$id_stage = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Stage déjà existant. ');
 			}
 			
 			if(Input::post('duree_stage')>10) {
@@ -297,13 +259,13 @@ class Controller_Etudiant extends Controller_Template
 	            
 	            if ($fichestage and $fichestage->save())
 	            {
-	                Session::set_flash('success', $val1 = $val1 . 'Fiche stage ajoutée #'.$fichestage->id.'. ');
+	                Session::set_flash('success', $val1 = $val1 . 'Fiche de stage ajoutée #'.$fichestage->id.', en attente de validation.');
 	                Response::redirect('etudiant/convention');
 	            }
 	
 	            else
 	            {
-	                Session::set_flash('error', $val2 = $val2 . 'Could not save fichestage. ');
+	                Session::set_flash('error', $val2 = $val2 . 'Enregistrement de la fiche de stage impossible. ');
 	            }
 	        } else {
 	        	$fichestage = Model_Fichestage::find_by_pk($fiche->id);
@@ -341,7 +303,7 @@ class Controller_Etudiant extends Controller_Template
 		                Response::redirect('etudiant/convention');
 	                }
 	                else {
-		                Session::set_flash('error', $val2 = $val2 . 'Mise à jour de la fiche de stage impossible.  ');
+		                Session::set_flash('error', $val2 = $val2 . 'Mise à jour de la fiche de stage impossible.');
 		                Response::redirect('etudiant/formulaire');
 	                }
 	        	}

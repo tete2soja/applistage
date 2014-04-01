@@ -6,6 +6,16 @@ class Controller_Entreprise extends Controller_Template
 	//Contrôleur de la page index.php
 	public function action_index()
 	{
+		$annee = Model_Admin_Config::find_one_by_id(1)->annee_courante;
+		$date_debut = Model_Admin_Config::find_one_by_id(1)->date_debut;
+		$date_fin = Model_Admin_Config::find_one_by_id(1)->date_fin;
+		$date_debut_lp = Model_Admin_Config::find_one_by_id(1)->date_debut_lp;
+		$date_fin_lp = Model_Admin_Config::find_one_by_id(1)->date_fin_lp;
+		$data["annee"] = $annee;
+		$data["date_debut"] = date("d-m-Y", strtotime($date_debut));
+		$data["date_fin"] = date("d-m-Y", strtotime($date_fin));
+		$data["date_debut_lp"] = date("d-m-Y", strtotime($date_debut_lp));
+		$data["date_fin_lp"] = date("d-m-Y", strtotime($date_fin_lp));
 		$data["subnav"] = array('index'=> 'active' );
 		$this->template->link_header = 'entreprise/index';
 		$this->template->title = 'Entreprise &raquo; Index';
@@ -48,16 +58,9 @@ class Controller_Entreprise extends Controller_Template
 				if ($ville_ent and $ville_ent->save())
 				{
 					$id_ville_ent = $ville_ent->id;
-					Session::set_flash('success', $val1 = $val1 . 'Ville entreprise ajoutée #'.$ville_ent->id.'. ');
-				}
-	
-				else
-				{
-					Session::set_flash('error', $val2 = $val2 . 'Could not save ville_ent. ');
 				}
 			} else {
 				$id_ville_ent = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Ville Entreprise déjà existante. ');
 			}
 			
 			//On récupère l'id du pays de l'entreprise en bdd
@@ -79,16 +82,9 @@ class Controller_Entreprise extends Controller_Template
 				if ($entreprise and $entreprise->save())
 				{
 					$id_entreprise = $entreprise->id;
-					Session::set_flash('success', $val1 = $val1 . 'Entreprise ajoutée #'.$entreprise->id.'. ');
-				}
-	
-				else
-				{
-					Session::set_flash('error', $val2 = $val2 . 'Could not save entreprise. ');
 				}
 			} else {
 				$id_entreprise = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Entreprise déjà existante. ');
 			}
 			
 			//On regarde si le contact existe en bdd
@@ -108,16 +104,9 @@ class Controller_Entreprise extends Controller_Template
 				if ($contact and $contact->save())
 				{
 					$id_contact = $contact->id;
-					Session::set_flash('success', $val1 = $val1 . 'Contact ajouté #'.$contact->id.'. ');
-				}
-	
-				else
-				{
-					Session::set_flash('error', $val2 = $val2 . 'Could not save contact. ');
 				}
 			} else {
 				$id_contact = $tmp->id;
-				Session::set_flash('error', $val2 = $val2 . 'Contact déjà existant. ');
 			}
 
 			//Lien vers le document PDF si présent
@@ -180,13 +169,13 @@ class Controller_Entreprise extends Controller_Template
 			
 			if ($stage and $stage->save())
 			{
-				Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. ');
+				Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. En attente de validation.');
 				Response::redirect('entreprise/liste');
 			}
 
 			else
 			{
-				Session::set_flash('error', $val2 = $val2 . 'Could not save stage. ');
+				Session::set_flash('error', $val2 = $val2 . 'Ajout du stage impossible.');
 			}
 		}
 		
