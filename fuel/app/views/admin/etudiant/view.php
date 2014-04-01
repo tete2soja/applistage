@@ -35,13 +35,13 @@
 	<?php echo $etudiant->adresse1; ?></p>
 <p>
 	<strong>Ville1:</strong>
-	<?php echo $etudiant->ville1; ?></p>
+	<?php echo $etudiant->ville1.' ('.$etudiant->code_postal1.')'; ?></p>
 <p>
 	<strong>Adresse2:</strong>
 	<?php echo $etudiant->adresse2; ?></p>
 <p>
 	<strong>Ville2:</strong>
-	<?php echo $etudiant->ville2; ?></p>
+	<?php echo $etudiant->ville2.' ('.$etudiant->code_postal2.')'; ?></p>
 <p>
 	<strong>Telephone1:</strong>
 	<?php echo $etudiant->telephone1; ?></p>
@@ -56,7 +56,7 @@
 		else if ($etudiant->iut_annee == 2)
 			echo '<span class="label label-info">DUT 2ème année</span>';
 		else if ($etudiant->iut_annee == 3)
-			echo '<span class="label label-default">LP</span>';
+			echo '<span class="label label-default">License Pro</span>';
 	?></p>
 
 <?php echo Html::anchor('admin/etudiant', 'Retour'); ?>

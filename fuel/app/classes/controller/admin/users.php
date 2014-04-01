@@ -82,20 +82,10 @@ class Controller_Admin_Users extends Controller_Template{
 
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Admin_User::validate('edit');
-
-			if ($val->run())
-			{
 				$user->username = Input::post('username');
 				$user->email = Input::post('email');
 				$user->password = Input::post('password');
-				$user->telephone = Input::post('telephone');
 				$user->group = Input::post('group');
-				$user->last_login = Input::post('last_login');
-				$user->login_hash = Input::post('login_hash');
-				$user->updated_at = Input::post('updated_at');
-				$user->profile_fields = Input::post('profile_fields');
-				$user->created_at = Input::post('created_at');
 
 				if ($user->save())
 				{
@@ -106,11 +96,6 @@ class Controller_Admin_Users extends Controller_Template{
 				{
 					Session::set_flash('error', 'Nothing updated.');
 				}
-			}
-			else
-			{
-				Session::set_flash('error', $val->error());
-			}
 		}
 
 		$this->template->set_global('user', $user, false);

@@ -99,9 +99,9 @@ $(function() {
 					<input size='50' type='file' accept="application/pdf" name='filename' style="margin-left:40%;"/><br />
 				</div>
 			  <div class="form-group">
-			    <div class="col-sm-offset-2 col-sm-10">
-			      <button type="reset" class="btn btn-default" onclick="return effacer('#formulaire_entreprise')">RAZ</button>
-			      <button type="submit" name="submit" value="submit" class="btn btn-default">Valider</button>
+			    <div class="col-sm-offset-2 col-sm-8">
+			    	<button id="valider" type="submit" class="btn btn-success">Valider</button>
+					<button type="reset" class="btn btn-danger" onclick="return effacer('#formulaire_entreprise')">RAZ</button>
 			    </div>
 			  </div>
 			</form>

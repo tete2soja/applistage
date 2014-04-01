@@ -350,7 +350,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-6">
+			<div class="col-sm-offset-2 col-sm-8">
 				<button id="valider" type="submit" class="btn btn-success">Valider</button>
 				<button type="submit" class="btn btn-danger" onclick="return effacer('#formulaire_etudiant')">RAZ</button>
 			</div>

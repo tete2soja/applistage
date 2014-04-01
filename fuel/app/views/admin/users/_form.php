@@ -25,7 +25,7 @@ fieldset {
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Group', 'group', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Groupe (10 = admin ; 1 = LP ; 2 = DUT ; 3 = enseignant)', 'group', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('group', Input::post('group', isset($user) ? $user->group : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Group')); ?>
 

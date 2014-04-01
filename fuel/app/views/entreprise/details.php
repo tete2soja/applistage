@@ -23,14 +23,31 @@
 <p>
 	<strong>Conditions:</strong>
 	<?php if(empty($stage->conditions)) {
-					echo 'aucun';
+					echo 'aucune';
 				} else { echo $stage->conditions; } ?></p>
 <p>
 	<strong>Url doc:</strong><?php if(empty($stage->url_doc)) {
-					echo ' aucun';
-				} else { echo ' ' . Html::anchor($stage->url_doc, $stage->url_doc); } ?>
+					echo ' aucune';
+				} else { echo ' ' . Html::anchor($stage->url_doc, $stage->url_doc); } ?></p>
 <p>
-	<strong>Date:</strong>
+	<strong>Doc joint:</strong><?php if(empty($stage->chemin_pdf)) {
+					echo ' aucun';
+				} else { echo ' ' . '<form method="POST"><button type="submit" name="doc" class="btn btn-success" value=' . "\"" . $stage->chemin_pdf . "\">Voir</button></form>"; } ?></p>
+<p>
+	<strong>Public:</strong>
+	<?php
+		if ($stage->public == 0) {
+			echo '<span class="label label-default">Tout public</span>';
+		}
+		elseif ($stage->public == 1) {
+			echo '<span class="label label-info">DUT Info</span>';
+		}
+		else {
+			echo '<span class="label label-success">License Pro</span>';
+		}
+	?></p>
+<p>
+	<strong>Date d'ajout:</strong>
 	<?php echo $stage->date; ?></p>
 <br />
 <?php echo Html::anchor('entreprise/liste', 'Retour'); ?>

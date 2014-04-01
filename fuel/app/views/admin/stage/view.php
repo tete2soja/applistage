@@ -31,7 +31,14 @@
 	<?php echo $stage->sujet; ?></p>
 <p>
 	<strong>Visibilité:</strong>
-	<?php echo $stage->visibilite; ?></p>
+	<?php
+		if ($stage->visibilite == 0) {
+			echo 'non visible pour les entreprises';
+		}
+		else {
+			echo 'visible par tous (entreprises et étudiants)';
+		}
+	?></p>
 <p>
 	<strong>Contexte:</strong>
 	<?php echo $stage->contexte; ?></p>
@@ -53,7 +60,17 @@
 				} else { echo ' ' . '<form method="POST"><button type="submit" name="doc" class="btn btn-success" value=' . "\"" . $stage->chemin_pdf . "\">Voir</button></form>"; } ?></p>
 <p>
 	<strong>Public:</strong>
-	<?php echo $stage->public; ?></p>
+	<?php
+		if ($stage->public == 0) {
+			echo '<span class="label label-default">Tout public</span>';
+		}
+		elseif ($stage->public == 1) {
+			echo '<span class="label label-info">DUT Info</span>';
+		}
+		else {
+			echo '<span class="label label-success">License Pro</span>';
+		}
+	?></p>
 <p>
 	<strong>Etat:</strong>
 	<?php
@@ -71,7 +88,7 @@
 		}
 	?></p>
 <p>
-	<strong>Date:</strong>
+	<strong>Date d'ajout:</strong>
 	<?php echo $stage->date; ?></p>
 <br />
 <form method="POST">

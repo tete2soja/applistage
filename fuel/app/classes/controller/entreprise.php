@@ -73,7 +73,7 @@ class Controller_Entreprise extends Controller_Template
 				$entreprise = Model_Entreprise::forge(array(
 					'nom' => Input::post('ent_nom'),
 					'adresse' => Input::post('ent_adresse'),
-					'ville' => $id_ville_contact,
+					'ville' => $id_ville_ent,
 					'pays' => $id_pays,
 					'url_entreprise' => Input::post('ent_url'),
 				));
