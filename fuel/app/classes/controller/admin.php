@@ -323,6 +323,41 @@ class Controller_Admin extends Controller_Template
 		    }
 			File::download(DOCROOT . 'assets/doc/contact.csv', 'contacts.csv', 'text/csv');
 		}
+		elseif (isset($_POST['archivage'])) {
+			$zip = new ZipArchive(); 
+			if($zip->open(DOCROOT . 'archive.zip', ZipArchive::CREATE) === true)
+			{
+				$fichiers = scandir(DOCROOT . 'assets/doc/convention');
+				unset($fichiers[0], $fichiers[1]);
+				foreach($fichiers as $f)
+				{
+					$zip->addEmptyDir('convention');
+					$zip->addFile(DOCROOT . 'assets/doc/convention/'.$f, 'convention/'.$f);
+				}
+				$fichiers = scandir(DOCROOT . 'assets/doc/rendus');
+				unset($fichiers[0], $fichiers[1]);
+				foreach($fichiers as $f)
+				{
+					$zip->addEmptyDir('rendus');
+					$zip->addFile(DOCROOT . 'assets/doc/rendus/'.$f, 'rendus/'.$f);
+				}				
+				$zip->close();
+
+				File::delete_dir(DOCROOT.'assets/doc/convention');
+				File::delete_dir(DOCROOT.'assets/doc/rendus');
+
+				File::create_dir(DOCROOT.'assets/doc/', 'convention', 0777);
+				File::create_dir(DOCROOT.'assets/doc/', 'rendus', 0777);
+				Session::set_flash('success', 'Import de la table `etudiant` avec succès !');
+			}
+			else
+			{
+				Session::set_flash('warning', 'Import de la table `etudiant` avec succès !');
+			}
+		}
+		elseif (isset($_POST['raz'])) {
+
+		}
 	}
 
 	public function action_modifier()

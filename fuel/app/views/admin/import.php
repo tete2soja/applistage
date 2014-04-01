@@ -68,7 +68,9 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p>Cela entrainera la sauvegarde des espaces de rendus (suivi de stage) et de toutes les conventions de stages dans une archive ZIP.</p>
-			<?php echo Html::anchor('', 'Archivage', array('type' => 'button', 'class' => 'btn btn-danger', 'onclick' => 'return confirm(\'Etes-vous sur de vouloir archiver ?\')')); ?>
+			<form action="" method="POST">
+				<button type="submit" name="archivage" value="archivage" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir archiver ?')">Archivage</button>
+			</form>
 		</div>
 		<div class="col-md-6">
 			<p>
@@ -76,7 +78,8 @@
 				La fiche personnelle de stage sera mise à jour avec les nouvelles données de l'année à venir (date de début et de fin et rénumération).
 				Enfin, cela entrainera également le lancement de la fonction pour la gestion des promotions.
 			</p>
-			<button type="button" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir remettre applistage à zéro ?')">Remise à zéro</button>
+			<form action="" method="POST">
+				<button type="submit" name="raz" value="raz" class="btn btn-danger" onclick="return confirm('Etes-vous sur de vouloir remettre applistage à zéro ?')">Remise à zéro</button>
 		</div>
 	</div>
 </div>
