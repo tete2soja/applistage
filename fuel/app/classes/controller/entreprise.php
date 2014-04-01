@@ -123,9 +123,8 @@ class Controller_Entreprise extends Controller_Template
 				// save them according to the config
 				Upload::save();
 				$filename = array_column(Upload::get_files(), 'saved_as');
-				print_r(Upload::get_files());
 				$tmp_name = current($filename);
-				move_uploaded_file($_FILES["filename"]["tmp_name"], DOCROOT.'assets/doc/PDF_ent/' . $filename);
+				move_uploaded_file($_FILES["filename"]["tmp_name"], DOCROOT.'assets/doc/PDF_ent/' . $tmp_name);
 				File::rename(DOCROOT.'assets/doc/PDF_ent/' . $tmp_name, DOCROOT.'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']));
 				$chemin_file = 'assets/doc/PDF_ent/' . basename($_FILES['filename']['name']);
 			}
@@ -165,7 +164,7 @@ class Controller_Entreprise extends Controller_Template
 			}
 			
 			
-			if ($stage and $stage->save())
+			/*if ($stage and $stage->save())
 			{
 				Session::set_flash('success', $val1 = $val1 . 'Stage ajouté #'.$stage->id.'. En attente de validation.');
 				Response::redirect('entreprise/liste');
@@ -174,7 +173,7 @@ class Controller_Entreprise extends Controller_Template
 			else
 			{
 				Session::set_flash('error', $val2 = $val2 . 'Ajout du stage impossible.');
-			}
+			}*/
 		}
 		
 		//A réactiver quand table ville vidée
