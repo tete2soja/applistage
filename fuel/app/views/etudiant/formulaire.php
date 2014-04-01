@@ -1,5 +1,3 @@
-<?php echo Asset::js('bootstrap-datepicker.js'); ?>
-<?php echo Asset::css('datepicker.css'); ?>
 <?php echo Asset::js('checkform_etud.js'); ?>
 <script language="JavaScript" type="text/javascript">
 $(function() {
