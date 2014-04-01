@@ -13,7 +13,7 @@
 							<th>Ville</th>
 							<th>Pays</th>
 							<th>Public</th>
-							<th>Status</th>
+							<th>Statut</th>
 							<th></th>
 						</tr>
 					</thead>
