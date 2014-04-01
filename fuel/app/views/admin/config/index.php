@@ -124,7 +124,7 @@
 <table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>Mot de passe</th>
+			<th>Mot de passe par défaut pour les étudiants</th>
 		</tr>
 	</thead>
 		<tbody>
