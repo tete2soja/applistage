@@ -112,7 +112,7 @@ function checkform()
 		//-----------------------------------
 		if ($("#ent_url").val()) {
 			if((!isValidURL($("#ent_url").val()))) {
-				showNullMulti("#ent_div","URL non valide");
+				showNullMulti("#ent_url_div","URL non valide");
 				ret = false;
 			}
 		}
@@ -182,14 +182,6 @@ function checkform()
 		else {
 			hideCheck("#resA_tel_div");;
 		}
-	//-----------------------------------
-	if (!$("#adresse_stage").val()) {
-		showNull("#adresse_stage_div");
-		ret = false;
-	}
-	else {
-		hideCheck("#adresse_stage_div");
-	}
 	//-----------------------------------
 	if (!$("#duree_stage").val()) {
 		showNull("#duree_stage_div");
