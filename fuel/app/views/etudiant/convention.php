@@ -23,19 +23,3 @@
 			<div class="bs-callout bs-callout-info">
 				<p>Il est rappelé que vous devez être identifié (bouton «Connexion» en haut à droite de la page) pour pouvoir accéder à la modification de votre fiche individuelle.</p>
 			</div>
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<div class="table-responsive">
-					<table class="table table-bordered">
-						<tr>
-							<th>Stages de seconde année</th>
-							<td><a href="proposition">Liste des stages</a></td>
-						</tr>
-						<tr>
-							<th>Stages Licence S2IM</th>
-							<td><a href="proposition">Liste des stages</a></td>
-						</tr>
-					</table>
-				</div>
-				</div>
-			</div>

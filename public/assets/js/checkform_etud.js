@@ -110,12 +110,11 @@ function checkform()
 			hideCheck("#ent_pays_div");
 		}
 		//-----------------------------------
-		if (!$("#ent_url").val()) {
-			showNull("#ent_div");
-			ret = false;
-		}
-		else {
-			hideCheck("#ent_div");
+		if ($("#ent_url").val()) {
+			if((!isValidURL($("#ent_url").val()))) {
+				showNullMulti("#ent_div","URL non valide");
+				ret = false;
+			}
 		}
 	//-----------------------------------
 	//				Responsable Technique
@@ -248,14 +247,6 @@ function checkform()
 		hideCheck("#montantdiv");
 	}
 	//-----------------------------------
-	if (!$("#nature").val()) {
-		showNull("#nature_div");
-		ret = false;
-	}
-	else {
-		hideCheck("#nature_div");
-	}
-	//-----------------------------------
 	if (!$("#description_sujet").val()) {
 		showNull("#description_sujet_div");
 		ret = false;
@@ -285,10 +276,7 @@ function checkform()
 	// --------------------------------------------------------
 	//				URL VALIDE (cf fonction)
 	// --------------------------------------------------------
-	if((!isValidURL($("#ent_url").val()))) {
-		showNullMulti("#ent_div","URL non valide");
-		ret = false;
-	}
+	
 	// --------------------------------------------------------
 	//				NOMBRES VALIDES (seulement des chiffres)
 	// --------------------------------------------------------
@@ -320,6 +308,9 @@ function checkform()
 	else {
 		hideCheck("#rep_tel_div");
 	}
+	if (!ret) {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	};
 
 	//Permet de pas recharger la page si FALSE
 	return ret;

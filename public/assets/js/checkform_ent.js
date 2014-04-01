@@ -104,15 +104,10 @@ function checkform()
 	else {
 		hideCheck("#resultats_attendus_div");
 	}
-	//-----------------------------------
-	if (!$("#conditions_part").val()) {
-		showNull("#conditions_part_div");
-		ret = false;
-	}
-	else {
-		hideCheck("#conditions_part_div");
-	}
 
+	// --------------------------------------------------------
+	//				URL VALIDE SI RENTRE
+	// --------------------------------------------------------
 	if ($("#ent_url").val()) {
 		if((!isValidURL($("#ent_url").val()))) {
 			showNullMulti("#ent_url_div","URL non valide");
