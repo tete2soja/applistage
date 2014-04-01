@@ -1,6 +1,32 @@
-APPLISTAGE
+---------------------------------------------------------------------
+|																	|
+|							APPLISTAGE								|
+|																	|
+|--------------------------------------------------------------------
 
-Quand le projet est déplacé sur un ftp, il faut faire les choses suivantes après le transfert :
+				Auteurs : Etienne DEBOST & Nicolas LE GALL
+					  Yoann GUYADER & Valentin DUPAS
+							Version : 1
 
-- chmod 777 sur fuel/app/logs public/assets/doc fuel/packages/pdf/lib/tcpdf/cache
-- url_rewrite et fileinfo doivent être activés dans la configuration du serveur web
+----------------------
+INSTALLATION
+
+	- Récupérer l'archive ou cloner le dépôt GIT
+	- Renomer le dossier en 'applistage'
+	- L'uploader sur le serveur dans l'enplacement désiré
+	- Modifier les droits en 777 sur les dossiers :
+		- fuel/app/logs
+		- public/
+		- fuel/packages/pdf/lib/tcpdf/cache
+	- Activer dans la configuration du serveur web :
+		- url_rewrite (Apache)
+		- fileinfo (php.ini)
+	- Importer le script dans la base de données via PhpMyAdmin
+
+----------------------
+UTILISATION
+
+	- URL du site : http://URL_SERVEUR/applistage/public
+	- Par défaut, le compte admin est le suivant :
+		- utilisateur : admin
+		- mot de passe : Admin
