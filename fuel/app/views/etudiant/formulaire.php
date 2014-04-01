@@ -252,26 +252,17 @@ $(function() {
 				</div>
 			</div>
 		</div>
+		<p>Les dates doivent être au format suivant : AAAA-MM-JJ (ex : 2014-04-07)</p>
 		<div class="form-group">
 			<label for="date_debut" class="col-sm-2 control-label">Date de début de stage</label>
 			<div class="col-sm-10">
-				<div class="input-append date" id="date_debut_div" data-date=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?> data-date-format="yyyy-mm-dd">
-					<input id="date_debut" name="date_debut" class="span2" size="16" type="text" value=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?> disabled>
-					<span class="add-on">
-						<i class="glyphicon glyphicon-th"></i>
-					</span>
-				</div>
+					<input id="date_debut" name="date_debut" class="span2" size="16" type="date" value=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?>>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="date_fin" class="col-sm-2 control-label">Date de fin de stage</label>
 			<div class="col-sm-10">
-				<div class="input-append date" id="date_fin_div" data-date=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?> data-date-format="yyyy-mm-dd">
-					<input id="date_fin" name="date_fin" class="span2" size="16" type="text" value=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?> disabled>
-					<span class="add-on">
-						<i class="glyphicon glyphicon-th"></i>
-					</span>
-				</div>
+					<input id="date_fin" name="date_fin" class="span2" size="16" type="date" value=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?>>
 			</div>
 		</div>
 		<div class="form-group">
