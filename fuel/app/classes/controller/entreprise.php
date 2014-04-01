@@ -54,7 +54,6 @@ class Controller_Entreprise extends Controller_Template
 					'code_postal' => Input::post('contact_codepostal'),
 					'pays' => $id_pays,
 				));
-
 				if ($ville_ent and $ville_ent->save())
 				{
 					$id_ville_ent = $ville_ent->id;
@@ -100,7 +99,6 @@ class Controller_Entreprise extends Controller_Template
 					'entreprise' => $id_entreprise,
 					'propose' => 1,
 				));
-				
 				if ($contact and $contact->save())
 				{
 					$id_contact = $contact->id;
