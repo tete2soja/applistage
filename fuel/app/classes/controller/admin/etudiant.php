@@ -12,7 +12,7 @@ class Controller_Admin_Etudiant extends Controller_Template{
 		else {
 			$id_info = Auth::get_groups();
     		foreach ($id_info as $info)	{
-			    if (($info[1] != "10")&&($info[1] != "11")) {
+			    if ($info[1] != "10") {
 			    	Response::redirect('/util/connexion');
 			    	break;
 			    }

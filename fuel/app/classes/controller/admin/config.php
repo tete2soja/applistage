@@ -80,12 +80,15 @@ class Controller_Admin_Config extends Controller_Template{
 				$config->remuneration = Input::post('remuneration');
 				$config->date_debut = Input::post('date_debut');
 				$config->date_fin = Input::post('date_fin');
+				$config->date_debut_lp = Input::post('date_debut_lp');
+				$config->date_fin_lp = Input::post('date_fin_lp');
 				$config->annee_courante = Input::post('annee_courante');
 				$config->password = Input::post('password');
+				$config->password_en = Input::post('password_en');
 
 				if ($config->save())
 				{
-					Session::set_flash('success', 'Mise à jour de la configuration avec suucès'.$id);
+					Session::set_flash('success', 'Mise à jour de la configuration avec succès');
 					Response::redirect('admin/config');
 				}
 				else

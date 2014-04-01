@@ -3,14 +3,19 @@
 $(function() {
 	var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
     var availableEnt = <?php echo str_replace('&quot;', '"', $liste_ent) ?>;
+    var availableVille = <?php echo str_replace('&quot;', '"', $liste_ville) ?>;
+    var availableCode = <?php echo str_replace('&quot;', '"', $liste_code) ?>;
     $( "#ent_pays" ).autocomplete({
-    source: availablePays
-    });
-    $( "#contact_pays" ).autocomplete({
     source: availablePays
     });
     $( "#ent_nom" ).autocomplete({
     source: availableEnt
+    });
+    $( "#ent_ville" ).autocomplete({
+    source: availableVille
+    });
+    $( "#ent_codepostal" ).autocomplete({
+    source: availableCode
     });
     
   });

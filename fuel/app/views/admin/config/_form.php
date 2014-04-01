@@ -151,15 +151,27 @@ fieldset {
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Date debut', 'date_debut', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Date debut stage DUT', 'date_debut', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('date_debut', Input::post('date_debut', isset($config) ? $config->date_debut : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Date debut')); ?>
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Date fin', 'date_fin', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Date fin stage DUT', 'date_fin', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('date_fin', Input::post('date_fin', isset($config) ? $config->date_fin : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Date fin')); ?>
+
+		</div>
+				<div class="form-group">
+			<?php echo Form::label('Date debut stage LP', 'date_debut_lp', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('date_debut_lp', Input::post('date_debut_lp', isset($config) ? $config->date_debut_lp : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Date debut')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Date fin stage LP', 'date_fin_lp', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('date_fin_lp', Input::post('date_fin_lp', isset($config) ? $config->date_fin_lp : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Date fin')); ?>
 
 		</div>
 		<div class="form-group">
@@ -169,9 +181,15 @@ fieldset {
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Mot de passe', 'password', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Mot de passe par défaut des étudiants', 'password', array('class'=>'control-label')); ?>
 
 				<?php echo Form::input('password', Input::post('password', isset($config) ? $config->password : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Mot de passe')); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo Form::label('Mot de passe par défaut des enseignants', 'password_en', array('class'=>'control-label')); ?>
+
+				<?php echo Form::input('password_en', Input::post('password_en', isset($config) ? $config->password_en : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Mot de passe')); ?>
 
 		</div>
 		<div class="form-group">

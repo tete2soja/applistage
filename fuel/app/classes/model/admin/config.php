@@ -36,6 +36,7 @@ class Model_Admin_Config extends Model_Crud
 		$val->add_field('date_fin_lp', 'Date Fin', 'required');
 		$val->add_field('annee_courante', 'Annee Courante', 'required');
 		$val->add_field('password', 'Mot de passe', 'required|max_length[255]');
+		$val->add_field('password_en', 'Mot de passe', 'required|max_length[255]');
 
 		return $val;
 	}
