@@ -22,6 +22,13 @@ INSTALLATION
 		- url_rewrite (Apache)
 		- fileinfo (php.ini)
 	- Importer le script dans la base de données via PhpMyAdmin
+	- Vous devez également modifier les valeurs d'accès à la base de 
+	données dans les fichiers de configuration suivant :
+		- fuel/app/config/db.php
+		- fuel/app/config/development/db.php
+		- fuel/app/config/production/db.php
+	Vous aurez à renseigner le serveur SQL ainsi que les identifiants
+	pour s'y connecter.
 
 ----------------------
 UTILISATION
