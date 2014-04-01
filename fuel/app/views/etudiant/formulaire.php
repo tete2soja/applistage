@@ -4,6 +4,8 @@ $(function() {
     var availablePays = <?php echo str_replace('&quot;', '"', $liste_pays) ?>;
     var availableEnt = <?php echo str_replace('&quot;', '"', $liste_ent) ?>;
     var availableSujet = <?php echo str_replace('&quot;', '"', $liste_sujet) ?>;
+    var availableVille = <?php echo str_replace('&quot;', '"', $liste_ville) ?>;
+    var availableCode = <?php echo str_replace('&quot;', '"', $liste_code) ?>;
     $( "#ent_pays" ).autocomplete({
     source: availablePays
     });
@@ -12,6 +14,12 @@ $(function() {
     });
     $( "#sujetStage" ).autocomplete({
     source: availableSujet
+    });
+    $( "#ent_ville" ).autocomplete({
+    source: availableVille
+    });
+    $( "#ent_codepostal" ).autocomplete({
+    source: availableCode
     });
   });
 </script>

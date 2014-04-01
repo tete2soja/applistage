@@ -176,13 +176,12 @@ class Controller_Entreprise extends Controller_Template
 			}
 		}
 		
-		//A réactiver quand table ville vidée
-		/*$tab_ville = DB::select('nom')->from('ville')->order_by('nom', 'asc')->execute()->as_array();
+		$tab_ville = DB::select('nom')->from('ville')->order_by('nom', 'asc')->execute()->as_array();
 		$villes = \Arr::pluck($tab_ville, 'nom');
 		$data["liste_ville"] = Format::forge($villes)->to_json();
 		$tab_code = DB::select('code_postal')->from('ville')->order_by('nom', 'asc')->execute()->as_array();
 		$codes = \Arr::pluck($tab_code, 'code_postal');
-		$data["liste_code"] = Format::forge($codes)->to_json();*/
+		$data["liste_code"] = Format::forge($codes)->to_json();
 		$tab_pays = DB::select('nom')->from('pays')->execute()->as_array();
 		$pays = \Arr::pluck($tab_pays, 'nom');
 		$data["liste_pays"] = Format::forge($pays)->to_json();
