@@ -10,8 +10,9 @@
 	<p>Avant de continuer à utiliser Applistage ou d'importer les données des étudiants, vous devez éditer la configuration. Vous devrez faire cela pour chaque nouvelle année : les dates et la 
 	rémunération minimale au minimum.</p>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-12">
 			<?php echo Html::anchor('admin/config', 'Modifer la table `config`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
+			<?php echo Html::anchor('admin/enseignant', 'Modifer la table `enseignants`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
 			<?php echo Html::anchor('admin/users', 'Modifer la table `users`', array('type' => 'button', 'class' => 'btn btn-danger')); ?>
 		</div>
 	</div>

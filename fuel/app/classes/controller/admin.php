@@ -325,7 +325,7 @@ class Controller_Admin extends Controller_Template
 		}
 		elseif (isset($_POST['archivage'])) {
 			$zip = new ZipArchive(); 
-			if($zip->open(DOCROOT . 'archive.zip', ZipArchive::CREATE) === true)
+			if($zip->open(DOCROOT . 'archive-' . date("Y") . '.zip', ZipArchive::CREATE) === true)
 			{
 				$fichiers = scandir(DOCROOT . 'assets/doc/convention');
 				unset($fichiers[0], $fichiers[1]);
@@ -348,15 +348,24 @@ class Controller_Admin extends Controller_Template
 
 				File::create_dir(DOCROOT.'assets/doc/', 'convention', 0777);
 				File::create_dir(DOCROOT.'assets/doc/', 'rendus', 0777);
-				Session::set_flash('success', 'Import de la table `etudiant` avec succès !');
+				Session::set_flash('success', 'Archivage avec succès !');
 			}
 			else
 			{
-				Session::set_flash('warning', 'Import de la table `etudiant` avec succès !');
+				Session::set_flash('warning', 'L\'archive n\'a pas pu être créée.');
 			}
 		}
 		elseif (isset($_POST['raz'])) {
+			DBUtil::truncate_table('stage');
 
+			File::delete_dir(DOCROOT.'assets/doc/PDF_ent');
+			File::delete_dir(DOCROOT.'assets/doc/convention');
+			File::delete_dir(DOCROOT.'assets/doc/rendus');
+		
+			File::create_dir(DOCROOT.'assets/doc/', 'PDF_ent', 0777);
+			File::create_dir(DOCROOT.'assets/doc/', 'convention', 0777);
+			File::create_dir(DOCROOT.'assets/doc/', 'rendus', 0777);
+			Session::set_flash('success', 'Remise à zéro avec succès !');
 		}
 	}
 
