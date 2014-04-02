@@ -78,15 +78,37 @@
 							echo '</div>';
 						}
 					?>
-				<p class="pull-right">
+				<p class="pull-right">					
 					<?php if (!isset($index)) {
 						echo Html::anchor('/', 'Retour Accueil', array('class' => 'btn btn-link'));
 					} ?>
 				<p>
+					<div class="btn-group btn-group-xs">
+						<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+							Crédit
+						</button>
+					</div>
 					<a href="http://www.iu-vannes.fr/" target="_blank">IUT Vannes</a><br>
 					<small>Propulsé par FuelPHP <?php echo Fuel::VERSION; ?></small>
 				</p>
 			</footer>
+		</div>
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Crédit</h4>
+					</div>
+					<div class="modal-body">
+						Réalisation : DEBOST Etienne - LE GALL Nicolas - DUPAS Valentin - GUYADER Yoann
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
