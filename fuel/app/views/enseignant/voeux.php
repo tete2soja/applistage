@@ -2,6 +2,7 @@
 <hr/>
 <p>Vous pouvez ici choisir trois stages qui constituront alors vos voeux.</p>
 <hr/>
+<?php if ($stages): ?>
 <table class="table table-bordered">
 					<thead>
 						<tr>
@@ -68,3 +69,8 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
+
+<?php else: ?>
+<p>Aucun voeux possibles.</p>
+
+<?php endif; ?><p>
