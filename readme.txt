@@ -39,6 +39,14 @@ UTILISATION
 		- mot de passe : Admin
  
 ----------------------
+CONFIGURATION
+
+	- Se rendre dans le panel d'admin
+	- Cliquer sur "Modifier la configuration" en bas de page
+	- Paramêtrer la table config avant import fichier csv des étudiants
+	- Importer csv étudiant
+
+----------------------
 CHANGER URL
 
 	Si vous ne souhaitez pas utiliser http://URL_SERVEUR/applistage/public
