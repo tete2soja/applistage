@@ -77,11 +77,11 @@ class Controller_Admin_Users extends Controller_Template{
 		{
 			Auth::create_user(
 				Input::post('username'),
-				$password_to_db,
+				Input::post('password'),
 				Input::post('email'),
 				Input::post('group')
 			);
-			Session::set_flash('success', 'Added user #'.$user->id.'.');
+			Session::set_flash('success', 'Utilisateur ajouté.');
 			Response::redirect('admin/users');
 		}
 

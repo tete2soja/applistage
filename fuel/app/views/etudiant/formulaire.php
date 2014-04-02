@@ -103,7 +103,6 @@ $(function() {
 							echo '"' . $fiche->sujet . '"';
 					elseif(isset($stage)) {
 						echo '"' . $stage->sujet . '"';
-						echo ' disabled ';
 					}?>>
 				</div>
 			</div>
