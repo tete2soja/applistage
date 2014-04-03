@@ -104,13 +104,14 @@ class Controller_Etudiant extends Controller_Template
 		}
 		
 		if ($id != null) {
-			$stage_data =
+			$stage_data = Model_Stage::find_by_pk($id);
 			if (empty($stage_data)) {
 				Session::set_flash('error', 'Il n\'existe pas de stage avec cet id.');
 				Response::redirect('etudiant/proposition');
+			} else {
+				$data['stage'] = $stage_data;
+				$id_stage = $id;
 			}
-			$data['stage'] = Model_Stage::find_by_pk($id);
-			$id_stage = $id;
 		}
 		
 		//Si formulaire soumis on entre
