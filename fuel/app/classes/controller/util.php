@@ -120,7 +120,8 @@ class Controller_Util extends Controller_Template
 					break;
 				}
 			}
-		$telephone = Auth::get_profile_fields()['telephone'];
+		$telephone = Auth::get_profile_fields();
+		$telephone = $telephone['telephone'];
 		$data["nom"] = $nom;
 		$data["prenom"] = $prenom;
 		$data["phone"] = $telephone;
