@@ -44,6 +44,15 @@ class Controller_Entreprise extends Controller_Template
 			$val1 = '';
 			$val2 = '';
 			
+			//On récupère l'id du pays de la ville en bdd
+			$pays = Model_Pays::find_one_by('nom', Input::post('ent_pays'));
+			
+			//Si le pays n'existe pas on redirige vers le formulaire avec une erreur
+			if(empty($pays)) {
+				Session::set_flash('error', 'Ce pays n\'éxiste pas dans la base de données.');
+                                Response::redirect('entreprise/formulaire');
+			} else $id_pays = $pays->id;
+
 			//On regarde si la ville de l'entreprise existe en bdd
 			$tmp = Model_Ville::find_one_by(array('nom' => Input::post('ent_ville'), 'code_postal' => Input::post('ent_codepostal')));
 			
@@ -61,9 +70,6 @@ class Controller_Entreprise extends Controller_Template
 			} else {
 				$id_ville_ent = $tmp->id;
 			}
-			
-			//On récupère l'id du pays de l'entreprise en bdd
-			$id_pays = Model_Pays::find_one_by('nom', Input::post('ent_pays'))->id;
 			
 			//On regarde si l'entreprise existe en bdd
 			$tmp = Model_Entreprise::find_one_by('nom', Input::post('ent_nom'));

@@ -193,6 +193,6 @@
 				</table>
 			</div>
 <?php else: ?>
-<p>Au Etudiant.</p>
+<p>Aucun Etudiant.</p>
 
 <?php endif; ?><p>

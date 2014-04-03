@@ -31,16 +31,16 @@ $(function() {
 			overflow: hidden;
 			text-align:center;">
 			<h2>Formulaire de saisie d'une proposition de stage</h2>
-			<br />
+			<p><font color="red"><b>*</b></font> : Champs obligatoires</p>
 			<form class="form-horizontal" id="formulaire_entreprise" enctype="multipart/form-data" role="form" method="POST" action="" onsubmit="return checkform();">
 				<div class="form-group">
-					<label for="sujet" class="col-sm-2 control-label" >Sujet</label>
+					<label for="sujet" class="col-sm-2 control-label" >Sujet<font color="red">*</font></label>
 					<div class="col-sm-10">
 						<div id="sujet_div"><input type="text" class="form-control" id="sujet" name="sujet" placeholder=""></div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="contact_nom" class="col-sm-2 control-label" >Contact</label>
+					<label for="contact_nom" class="col-sm-2 control-label" >Contact<font color="red">*</font></label>
 					<div class="col-sm-10">
 						<div id="contact_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_nom" name="contact_nom" placeholder="Nom"></div>
 						<div id="contact_prenom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="contact_prenom" name="contact_prenom" placeholder="Prénom"></div>
@@ -49,7 +49,7 @@ $(function() {
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
+					<label for="ent_nom" class="col-sm-2 control-label" >Entreprise<font color="red">*</font></label>
 					<div class="col-sm-10">
 						<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" name="ent_nom" placeholder="Nom"></div>
 						<div id="ent_adresse_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_adresse" name="ent_adresse" placeholder="Adresse"></div>
@@ -76,13 +76,13 @@ $(function() {
 				    </div>
 				    </div>
 			  <div class="form-group">
-			    <label for="contexte" class="col-sm-2 control-label">Contexte du stage</label>
+			    <label for="contexte" class="col-sm-2 control-label">Contexte du stage<font color="red">*</font></label>
 			    <div class="col-sm-10">
 			      <div id="contexte_div"><textarea id="contexte" name="contexte" class="form-control" rows="3"></textarea></div>
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="resultats_attendus" class="col-sm-2 control-label">Résultats attendus</label>
+			    <label for="resultats_attendus" class="col-sm-2 control-label">Résultats attendus<font color="red">*</font></label>
 			    <div class="col-sm-10">
 			      <div id="resultats_attendus_div"><textarea id="resultats_attendus" name="resultats_attendus" class="form-control" rows="3"></textarea></div>
 			    </div>

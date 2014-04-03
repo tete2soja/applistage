@@ -45,6 +45,7 @@ $(function() {
 	<button type="button" class="btn btn-success" onclick="byEnt()">Entreprise</button>
 	<hr />
 	<form class="form-horizontal" id="formulaire_etudiant" name="formulaire_etudiant" role="form" method="POST" action="" value="submit" onsubmit="return checkform();">
+	<p><font color="red"><b>*</b></font> : Champs obligatoires</p>
 		<div class="form-group">
 			<label for="idEtudiant" class="col-sm-2 control-label" >N° Etudiant</label>
 			<div class="col-sm-10">
@@ -62,7 +63,7 @@ $(function() {
 		</div>
 		<hr />
 		<div class="form-group">
-			<label for="contact_urgence" class="col-sm-2 control-label">Contact en cas d'urgence</label>
+			<label for="contact_urgence" class="col-sm-2 control-label">Contact en cas d'urgence<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="contact_urgence_div">
 					<input type="text" class="form-control" id="contact_urgence" name="contact_urgence" placeholder="Nom, Prénom et Téléphone" value=<?php 
@@ -73,7 +74,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="rep_nom" class="col-sm-2 control-label" >Représentant légal</label>
+			<label for="rep_nom" class="col-sm-2 control-label" >Représentant légal<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="rep_nom_div" style="margin-bottom:9px;">
 					<input type="text" class="form-control" id="rep_nom" name="rep_nom" placeholder="Nom et Prénom" value=<?php 
@@ -96,7 +97,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="sujetStage" class="col-sm-2 control-label">Sujet du stage</label>
+			<label for="sujetStage" class="col-sm-2 control-label">Sujet du stage<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="sujetStage_div"><input type="text" class="form-control" id="sujetStage" name="sujetStage" placeholder="" value=<?php 
 					if(isset($fiche->sujet))
@@ -108,7 +109,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="" class="col-sm-2 control-label">Origine de l'offre</label>
+			<label for="" class="col-sm-2 control-label">Origine de l'offre<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<select name="origine" id="origine" class="form-control">
 					<?php 
@@ -123,7 +124,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="ent_nom" class="col-sm-2 control-label" >Entreprise</label>
+			<label for="ent_nom" class="col-sm-2 control-label" >Entreprise<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="ent_nom_div" style="margin-bottom:9px;"><input type="text" class="form-control" id="ent_nom" name="ent_nom" placeholder="Nom" value=<?php 
 					if(isset($fiche->ent_nom))
@@ -170,7 +171,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="resT_nom" class="col-sm-2 control-label" >Responsable technique</label>
+			<label for="resT_nom" class="col-sm-2 control-label" >Responsable technique<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="resT_nom_div" style="margin-bottom:9px;">
 					<input type="text" class="form-control" id="resT_nom" name="resT_nom" placeholder="Nom" value=<?php 
@@ -199,7 +200,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="resA_nom" class="col-sm-2 control-label" >Responsable administratif</label>
+			<label for="resA_nom" class="col-sm-2 control-label" >Responsable administratif<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="resA_nom_div" style="margin-bottom:9px;">
 					<input type="text" class="form-control" id="resA_nom" name="resA_nom" placeholder="Nom" value=<?php 
@@ -228,7 +229,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="" class="col-sm-2 control-label">Langue de la convention</label>
+			<label for="" class="col-sm-2 control-label">Langue de la convention<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<select id="langue_conv" name="langue_conv" class="form-control">
 					<option value="0" selected="selected">Français</option>
@@ -237,7 +238,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="" class="col-sm-2 control-label">Type de convention</label>
+			<label for="" class="col-sm-2 control-label">Type de convention<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<select id="type_conv" name="type_conv"class="form-control">
 					<option value="0" selected="selected">Entreprise</option>
@@ -246,7 +247,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="duree_stage" class="col-sm-2 control-label">Durée du stage en semaines</label>
+			<label for="duree_stage" class="col-sm-2 control-label">Durée du stage en semaines<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="duree_stage_div">
 					<input type="number" class="form-control" id="duree_stage" name="duree_stage" placeholder="10" value=<?php 
@@ -259,19 +260,19 @@ $(function() {
 		</div>
 		<p>Les dates doivent être au format suivant : AAAA-MM-JJ (ex : 2014-04-07)</p>
 		<div class="form-group">
-			<label for="date_debut" class="col-sm-2 control-label">Date de début de stage</label>
+			<label for="date_debut" class="col-sm-2 control-label">Date de début de stage<font color="red">*</font></label>
 			<div class="col-sm-10">
 					<input id="date_debut" name="date_debut" class="span2" size="16" type="date" value=<?php if(isset($fiche->date_debut)) echo '"' . $fiche->date_debut . '"'; elseif (isset($date_debut)) echo '"' . $date_debut .'"'; ?>>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="date_fin" class="col-sm-2 control-label">Date de fin de stage</label>
+			<label for="date_fin" class="col-sm-2 control-label">Date de fin de stage<font color="red">*</font></label>
 			<div class="col-sm-10">
 					<input id="date_fin" name="date_fin" class="span2" size="16" type="date" value=<?php if(isset($fiche->date_fin)) echo '"' . $fiche->date_fin . '"'; elseif (isset($date_fin)) echo '"' . $date_fin .'"'; ?>>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="nb_jour_travailles" class="col-sm-2 control-label">Nombre de jours travaillés par semaine</label>
+			<label for="nb_jour_travailles" class="col-sm-2 control-label">Nombre de jours travaillés par semaine<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="nb_jour_travailles_div"><input type="number" class="form-control" id="nb_jour_travailles" name="nb_jour_travailles" placeholder="" value=<?php 
 						if(isset($fiche->nb_jour_semaine))
@@ -282,7 +283,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="horaire_hebdo" class="col-sm-2 control-label">Horaire hebdomadaire maximum</label>
+			<label for="horaire_hebdo" class="col-sm-2 control-label">Horaire hebdomadaire maximum<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="horaire_hebdo_div"><input type="number" class="form-control" id="horaire_hebdo" name="horaire_hebdo" value=<?php 
 						if(isset($fiche->horaire_hebdo))
@@ -294,7 +295,7 @@ $(function() {
 		</div>
 		<p>Soit salaire mensuel brut soit indémnité mensuelle net<?php if (isset($remuneration)) echo ' (minimum : '.$remuneration.'€)';?></p>
 		<div class="form-group">
-			<label for="retribution" class="col-sm-2 control-label">Salaire mensuel brut</label>
+			<label for="retribution" class="col-sm-2 control-label">Salaire mensuel brut<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="retribution_div"><input type="number" class="form-control" id="retribution" name="retribution" placeholder="" value=<?php 
 						if(isset($fiche->retribution))
@@ -305,24 +306,24 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="montant" class="col-sm-2 control-label">Indémnité mensuelle nette</label>
+			<label for="montant" class="col-sm-2 control-label">Indémnité mensuelle nette<font color="red">*</font></label>
 			<div class="col-sm-10" id="montant_div">
 				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($remuneration)) echo '"' . $remuneration .'"'; ?>></div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="nature" class="col-sm-2 control-label">Avantage en nature</label>
+			<label for="nature" class="col-sm-2 control-label">Avantage en nature<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="nature_div"><input type="text" class="form-control" id="nature" name="nature" placeholder="" value=<?php 
 						if(isset($fiche->nature))
 							echo '"' . $fiche->nature . '"';
-						else echo "rien";
+						else echo "aucun";
 						?>>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage</label>
+			<label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="description_sujet_div">
 					<textarea id="description_sujet" name="description_sujet" class="form-control" rows="3"><?php if(isset($fiche->description_stage)) echo $fiche->description_stage; elseif((isset($stage->contexte)) AND (isset($stage->resultats))) echo $stage->contexte .'\n'. $stage->resultats; ?>
@@ -341,7 +342,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="environnement" class="col-sm-2 control-label">Environnement de développement</label>
+			<label for="environnement" class="col-sm-2 control-label">Environnement de développement<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="environnement_div">
 					<textarea id="environnement" name="environnement" class="form-control" rows="3" value="Outils et Langages"><?php if(isset($fiche->environnement_dev)) echo $fiche->environnement_dev; elseif(isset($stage->conditions)) echo $stage->conditions; ?>
