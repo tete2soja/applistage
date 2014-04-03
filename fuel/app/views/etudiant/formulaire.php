@@ -293,7 +293,7 @@ $(function() {
 				</div>
 			</div>
 		</div>
-		<p>Soit salaire mensuel brut soit indémnité mensuelle net<?php if (isset($remuneration)) echo ' (minimum : '.$remuneration.'€)';?></p>
+		<p>Soit salaire mensuel brut soit indémnité mensuelle nette<?php if (isset($remuneration)) echo ' (minimum : '.$remuneration.'€)';?></p>
 		<div class="form-group">
 			<label for="retribution" class="col-sm-2 control-label">Salaire mensuel brut<font color="red">*</font></label>
 			<div class="col-sm-10">

@@ -85,7 +85,7 @@
 				<p>
 					<div class="btn-group btn-group-xs">
 						<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-							Crédit
+							Crédits
 						</button>
 					</div>
 					<a href="http://www.iu-vannes.fr/" target="_blank">IUT Vannes</a><br>
@@ -99,10 +99,11 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="myModalLabel">Crédit</h4>
+						<h4 class="modal-title" id="myModalLabel">Crédits</h4>
 					</div>
 					<div class="modal-body">
-						Réalisation : DEBOST Etienne - LE GALL Nicolas - DUPAS Valentin - GUYADER Yoann
+						Réalisation : DEBOST Etienne - LE GALL Nicolas - DUPAS Valentin - GUYADER Yoann<br /><br />
+						Application développée dans le cadre du projet de synthèse 2014.
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>

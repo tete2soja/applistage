@@ -54,7 +54,7 @@
 		</div>
 		<div class="col-md-6">
 			<p>Une fois les conventions validées et générées, vous pouvez attribuer les tuteurs pour les étudiants en stage.</p>
-			<?php echo Html::anchor('admin/#', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin//#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
+			<?php echo Html::anchor('admin/#', '2ème année DUT info', array('type' => 'button', 'class' => 'btn btn-primary')); ?> <?php echo Html::anchor('admin/#', 'LP S2IMa', array('type' => 'button', 'class' => 'btn btn-primary')); ?>
 		</div>
 	</div>
 </div>
