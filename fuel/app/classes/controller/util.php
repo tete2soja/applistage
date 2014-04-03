@@ -105,51 +105,26 @@ class Controller_Util extends Controller_Template
 		    Response::redirect('/util/connexion');
 		}
 
-		$email = Auth::get_email();
+		$no_etudiant = Auth::get('username');
+		$email = Auth::get('email');
 		$id_info = Auth::get_groups();
-		try {
 			foreach ($id_info as $info) {
 				if ($info[1] == "2") {
+					$nom = Model_Etudiant::find_one_by('no_etudiant', $no_etudiant)->nom;
+					$prenom = Model_Etudiant::find_one_by('no_etudiant', $no_etudiant)->prenom;
 					break;
 				}
 				else if ($info[1] == "3") {
+					$nom = Model_Enseignant::find_one_by('email', $email)->nom;
+					$prenom = Model_Enseignant::find_one_by('email', $email)->prenom;
 					break;
 				}
 			}
-			$tmp = serialize($query);
-			list($null, $tmp) = explode(';s:', $tmp, 2);
-			list($null, $tmp) = explode(':"', $tmp, 2);
-			list($tmp, $null) = explode('";', $tmp, 2);
-			foreach ($id_info as $info) {
-				if ($info[1] == "2") {
-					$query = DB::query('SELECT `nom` FROM `etudiant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();
-					$query2 = DB::query('SELECT `prenom` FROM `etudiant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();
-					$tmp = serialize($query);
-					$tmp2 = serialize($query2);
-					break;
-				}
-				else if ($info[1] == "3") {
-					$query = DB::query('SELECT `nom` FROM `enseignant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();
-					$query2 = DB::query('SELECT `prenom` FROM `enseignant` WHERE ' . '`email` = \''. $email . '\'')->execute()->as_array();			
-					$tmp = serialize($query);
-					$tmp2 = serialize($query2);
-					break;
-				}
-			}
-			list($null, $tmp) = explode(';s:', $tmp, 2);
-			list($null, $tmp) = explode(':"', $tmp, 2);
-			list($tmp, $null) = explode('";', $tmp, 2);
-			list($null, $tmp2) = explode(';s:', $tmp2, 2);
-			list($null, $tmp2) = explode(':"', $tmp2, 2);
-			list($tmp2, $null) = explode('";', $tmp2, 2);
-		} catch (Exception $e) {
-			$tmp = "";
-			$tmp2 = "";
-		}
-		$data["nom"] = $tmp;
-		$data["prenom"] = $tmp2;
-		$data["phone"] = Auth::get('telephone');
-		$data["email"] = Auth::get_email();
+		$telephone = Auth::get_profile_fields()['telephone'];
+		$data["nom"] = $nom;
+		$data["prenom"] = $prenom;
+		$data["phone"] = $telephone;
+		$data["email"] = $email;
 		$last = Auth::get('last_login');
 		$data["datetime"] = date('H:i:s d-m-Y', $last);
 		$data["subnav"] = array('Mon compte'=> 'active' );
@@ -159,19 +134,30 @@ class Controller_Util extends Controller_Template
 		$this->template->sub_title = 'Mon compte';
 		$this->template->content = View::forge('util/information', $data);
 		if (isset($_POST['submit'])) {
-			$nom = $_POST['nom'];
-			$prenom = $_POST['prenom'];
-			$email = $_POST['email'];
-			$telephone = $_POST['telephone'];
+			$tmp = Auth::get_groups();
+			if (($tmp[0][1] == 1) OR ($tmp[0][1] == 2)) {
+				$query = DB::update('etudiant');
+				$query->value('nom', Input::post('nom'));
+				$query->value('prenom', Input::post('prenom'));
+				$query->value('email', Input::post('email'));
+				$query->where('no_etudiant', Auth::get('username'));
+				$query->execute();
+			}
+			else if ($tmp[0][1] == 3) {
+				$query = DB::update('enseignant');
+				$query->value('nom', Input::post('nom'));
+				$query->value('prenom', Input::post('prenom'));
+				$query->where('email', Auth::get('email'));
+				$query->execute();
+			}
 			Auth::update_user(
 				array(
-					'nom'		=>	$nom,
-					'prenom'	=>	$prenom,
-					'email'     => $email,
-					'telephone'	=> $telephone,
+					'email'     => Input::post('email'),
+					'telephone'	=> Input::post('telephone'),
 				)
 			);
 			Session::set_flash('success', 'Mise à jour de vos informations avec succès');
+			Response::redirect('/util/compte');
 		}
 	}
 
