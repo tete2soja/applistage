@@ -76,7 +76,7 @@ class Controller_Etudiant extends Controller_Template
 			foreach ($id_info as $info) {
 				if (($info[1] != "2")&&($info[1] != "1")) {
 					Session::set_flash('error', 'En tant qu\'administrateur, vous ne pouvez pas remplir une fiche de stage à partir de cette page.');
-					Response::redirect('/etudiant/index');
+					Response::redirect('etudiant/index');
 				}
 			}
 	
@@ -89,18 +89,26 @@ class Controller_Etudiant extends Controller_Template
 				if(!empty($fiche->etat)) {
 					if($fiche->etat==3) {
 						Session::set_flash('info', 'Fiche stage complète, pas d\'édition possible.');
-						Response::redirect('/etudiant/convention');
+						Response::redirect('etudiant/convention');
 					}
 					elseif ($fiche->etat==2) {
 						Session::set_flash('info', 'Convention déjà générée, vous ne pouvez plus accéder à cette page.');
-						Response::redirect('/etudiant/convention');
+						Response::redirect('etudiant/convention');
 					}
 				}
 				$data["fiche"] = $fiche;
 			}
+		} else {
+			Session::set_flash('error', 'Il n\'existe pas d\'étudiant correspondant à l\'id '.Auth::get('username').'. Merci d\'en avertir l\'administrateur.');
+			Response::redirect('etudiant/convention');
 		}
 		
 		if ($id != null) {
+			$stage_data =
+			if (empty($stage_data)) {
+				Session::set_flash('error', 'Il n\'existe pas de stage avec cet id.');
+				Response::redirect('etudiant/proposition');
+			}
 			$data['stage'] = Model_Stage::find_by_pk($id);
 			$id_stage = $id;
 		}
@@ -111,7 +119,14 @@ class Controller_Etudiant extends Controller_Template
         	$val2 = '';
         	
         	//On récupère l'id du pays de l'entreprise en bdd
-            $id_pays = Model_Pays::find_one_by('nom', Input::post('ent_pays'))->id;
+            $pays = Model_Pays::find_one_by('nom', Input::post('ent_pays'));
+            
+            //Si le pays n'existe pas on redirige vers le formulaire avec une erreur
+			if(empty($pays)) {
+				Session::set_flash('error', 'Ce pays n\'existe pas dans la base de données.');
+				Response::redirect('entreprise/formulaire');
+			} else $id_pays = $pays->id;
+
             
             //On regarde si la ville de l'entreprise existe en bdd
             $tmp = Model_Ville::find_one_by(array('nom' => Input::post('ent_ville'), 'code_postal' => Input::post('ent_codepostal')));
@@ -126,9 +141,11 @@ class Controller_Etudiant extends Controller_Template
 
 	            if ($ville_ent and $ville_ent->save())
 	            {
-	            	$id_ville_ent = $ville_ent->id;	            }
+	            	$id_ville_ent = $ville_ent->id;
+	            }
             } else {
-	            $id_ville_ent = $tmp->id;            }
+	            $id_ville_ent = $tmp->id;
+            }
             
             //On regarde si l'entreprise existe en bdd
             $tmp = Model_Entreprise::find_one_by('nom', Input::post('ent_nom'));
@@ -193,36 +210,41 @@ class Controller_Etudiant extends Controller_Template
 	            
 	            if ($contact2 and $contact2->save())
 	            {
-	            	$id_contact2 = $contact2->id;	            }
+	            	$id_contact2 = $contact2->id;
+	            }
 			} else {
 				$id_contact2 = $tmp->id;
 			}
 			
-			//On regarde si le stage existe en bdd
-            $tmp = Model_Stage::find_one_by(array('sujet' => Input::post('sujetStage'), 'entreprise' => $id_entreprise));
-            
-            //Si il n'existe pas, on le crée
-            if(empty($tmp)) {
-	            $stage = Model_Stage::forge(array(
-	            	'etudiant' => $etudiant->id,
-	                'contact' => $id_contact1,
-	                'entreprise' => $id_entreprise,
-	                'sujet' => Input::post('sujetStage'),
-	                'visibilite' => 1,
-	                'contexte' => Input::post('description_sujet'),
-	                'resultats' => Input::post('description_sujet'),
-	                'conditions' => Input::post('environnement'),
-	                'public' => 0,
-	                'etat' => 3,
-	            ));
-	            
-	            if ($stage and $stage->save())
-	            {
-	            	$id_stage = $stage->id;
-	            }
-	        } else {
-				$id_stage = $tmp->id;
+			//Si l'étudiant n'est pas passer par la liste des stages et le bouton "Prendre ce stage"
+			if(empty($id_stage)) {
+				//On regarde si le stage existe en bdd
+				$tmp = Model_Stage::find_one_by(array('sujet' => Input::post('sujetStage'), 'entreprise' => $id_entreprise));
+				
+				//Si il n'existe pas, on le crée
+	            if(empty($tmp)) {
+		            $stage = Model_Stage::forge(array(
+		            	'etudiant' => $etudiant->id,
+		                'contact' => $id_contact1,
+		                'entreprise' => $id_entreprise,
+		                'sujet' => Input::post('sujetStage'),
+		                'visibilite' => 1,
+		                'contexte' => Input::post('description_sujet'),
+		                'resultats' => Input::post('description_sujet'),
+		                'conditions' => Input::post('environnement'),
+		                'public' => 0,
+		                'etat' => 3,
+		            ));
+		            
+		            if ($stage and $stage->save())
+		            {
+		            	$id_stage = $stage->id;
+		            }
+		        } else {
+					$id_stage = $tmp->id;
+				}
 			}
+            
 			
 			if(Input::post('duree_stage')>10) {
 				$allongee = 1;
@@ -245,8 +267,8 @@ class Controller_Etudiant extends Controller_Template
 					'rpz_adresse' => Input::post('rep_adresse'),
 					'rpz_tel' => Input::post('rep_tel'),
 					'origine_offre' => $_POST['origine'],
-					'type' => Input::post('type_conv'),
-					'langue' => Input::post('langue_conv'),
+					'type' => $_POST['type_conv'],
+					'langue' => $_POST['langue_conv'],
 					'duree' => Input::post('duree_stage'),
 					'date_debut' => Input::post('date_debut'),
 					'date_fin' => Input::post('date_fin'),

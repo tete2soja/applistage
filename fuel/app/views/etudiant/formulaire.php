@@ -116,8 +116,10 @@ $(function() {
 						if(isset($stage->origine_offre))
 							echo '<option value="0" selected="selected">Offre IUT</option>';
 						else {
-					 		echo '<option value="0" selected="selected">Offre IUT</option>';
-							echo '<option value="1">Etudiant</option>';
+							if (isset($fiche->origine_offre)) {
+								if ($fiche->origine_offre==0) echo '<option value="0" selected="selected">Offre IUT</option><option value="1">Etudiant</option>';
+								else echo '<option value="0">Offre IUT</option><option value="1" selected="selected">Etudiant</option>';
+							}
 						}
 					?>
 				</select>
@@ -232,8 +234,10 @@ $(function() {
 			<label for="" class="col-sm-2 control-label">Langue de la convention<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<select id="langue_conv" name="langue_conv" class="form-control">
-					<option value="0" selected="selected">Français</option>
-					<option value="1">Anglais</option>
+					<?php if(isset($fiche->langue)) {
+						if ($fiche->langue==0) echo '<option value="0" selected="selected">Français</option><option value="1">Anglais</option>';
+						else echo '<option value="0">Français</option><option value="1" selected="selected">Anglais</option>';
+					}?>
 				</select>
 			</div>
 		</div>
@@ -241,8 +245,10 @@ $(function() {
 			<label for="" class="col-sm-2 control-label">Type de convention<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<select id="type_conv" name="type_conv"class="form-control">
-					<option value="0" selected="selected">Entreprise</option>
-					<option value="1">Secteur-public</option>
+					<?php if(isset($fiche->type)) {
+						if ($fiche->type==0) echo '<option value="0" selected="selected">Entreprise</option><option value="1">Secteur public</option>';
+						else echo '<option value="0">Entreprise</option><option value="1" selected="selected">Secteur public</option>';
+					}?>
 				</select>
 			</div>
 		</div>
@@ -293,7 +299,7 @@ $(function() {
 				</div>
 			</div>
 		</div>
-		<p>Soit salaire mensuel brut soit indémnité mensuelle nette<?php if (isset($remuneration)) echo ' (minimum : '.$remuneration.'€)';?></p>
+		<p>Soit salaire mensuel brut soit indemnité mensuelle nette<?php if (isset($remuneration)) echo ' (minimum : '.$remuneration.'€)';?></p>
 		<div class="form-group">
 			<label for="retribution" class="col-sm-2 control-label">Salaire mensuel brut<font color="red">*</font></label>
 			<div class="col-sm-10">
@@ -306,7 +312,7 @@ $(function() {
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="montant" class="col-sm-2 control-label">Indémnité mensuelle nette<font color="red">*</font></label>
+			<label for="montant" class="col-sm-2 control-label">Indemnité mensuelle nette<font color="red">*</font></label>
 			<div class="col-sm-10" id="montant_div">
 				<div id="montantdiv"><input type="number" class="form-control" id="montant" name="montant" placeholder="" value=<?php if(isset($fiche->indemnite)) echo '"' . $fiche->indemnite . '"'; elseif (isset($remuneration)) echo '"' . $remuneration .'"'; ?>></div>
 			</div>
@@ -326,8 +332,7 @@ $(function() {
 			<label for="description_sujet" class="col-sm-2 control-label">Description détaillée du sujet de stage<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="description_sujet_div">
-					<textarea id="description_sujet" name="description_sujet" class="form-control" rows="3"><?php if(isset($fiche->description_stage)) echo $fiche->description_stage; elseif((isset($stage->contexte)) AND (isset($stage->resultats))) echo $stage->contexte .'\n'. $stage->resultats; ?>
-					</textarea>
+					<textarea id="description_sujet" name="description_sujet" class="form-control" rows="3"><?php if(isset($fiche->description_stage)) echo $fiche->description_stage; elseif((isset($stage->contexte)) AND (isset($stage->resultats))) echo $stage->contexte .'\n'. $stage->resultats; ?></textarea>
 				</div>
 			</div>
 		</div>
@@ -345,16 +350,14 @@ $(function() {
 			<label for="environnement" class="col-sm-2 control-label">Environnement de développement<font color="red">*</font></label>
 			<div class="col-sm-10">
 				<div id="environnement_div">
-					<textarea id="environnement" name="environnement" class="form-control" rows="3" value="Outils et Langages"><?php if(isset($fiche->environnement_dev)) echo $fiche->environnement_dev; elseif(isset($stage->conditions)) echo $stage->conditions; ?>
-					</textarea>
+					<textarea id="environnement" name="environnement" class="form-control" rows="3" value="Outils et Langages"><?php if(isset($fiche->environnement_dev)) echo $fiche->environnement_dev; elseif(isset($stage->conditions)) echo $stage->conditions; ?></textarea>
 				</div>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="observations" class="col-sm-2 control-label">Observations du responsable</label>
 			<div class="col-sm-10">
-				<textarea id="observations" name="observations" class="form-control" rows="3" disabled><?php if(isset($fiche->observations_resp)) echo $fiche->observations_resp; ?>
-				</textarea>
+				<textarea id="observations" name="observations" class="form-control" rows="3" disabled><?php if(isset($fiche->observations_resp)) echo $fiche->observations_resp; ?></textarea>
 			</div>
 		</div>
 		<div class="form-group">
