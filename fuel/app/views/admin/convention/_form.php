@@ -9,7 +9,7 @@ fieldset {
 		<div class="form-group">
 			<?php echo Form::label('Observations resp', 'observations_resp', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('observations_resp', Input::post('observations_resp', isset($convention) ? $convention->observations_resp : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Observations resp')); ?>
+				<?php echo Form::input('observations_resp', Input::post('observations_resp', isset($convention->observations_resp) ? $convention->observations_resp : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'Observations resp')); ?>
 
 		</div>
 		<div class="form-group">
