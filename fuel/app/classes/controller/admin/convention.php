@@ -1,4 +1,5 @@
 <?php
+include 'CloudConvert.class.php';
 class Controller_Admin_Convention extends Controller_Template{
 
 	public function before()
@@ -566,6 +567,16 @@ class Controller_Admin_Convention extends Controller_Template{
 			$query->value('etat', '2');
 			$query->where('id', $id);
 			$query->execute();
+			$apikey = 'DKaXRGlQRt10tEO0y1etNYK-f9BcY1I_bPeUJRcIgG1IaqMx0y3U4tYavT5Q2earQNo1W05Ez9n19cuSa5lEmw';
+			$process = CloudConvert::createProcess("html", "odt", $apikey);
+			$process-> upload(DOCROOT . 'assets/doc/convention/convention-' . $convention->no_etudiant . '.pdf', "odt" );
+
+			if ($process-> waitForConversion()) {
+			   $process -> download("output.odt");
+			    echo "Conversion done :-)";
+			} else {
+			    echo "Something went wrong :-(";
+			}
 			File::download(DOCROOT . 'assets/doc/convention/convention-' . $convention->no_etudiant . '.pdf', 'convention-' . $convention->no_etudiant . '.pdf', 'application/pdf');
 			Response::redirect('admin/convention/');
 		}
