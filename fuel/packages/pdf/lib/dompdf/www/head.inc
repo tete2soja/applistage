@@ -12,7 +12,7 @@ function li_star() {
   <title>dompdf - The PHP 5 HTML to PDF Converter</title>
   <link rel="stylesheet" href="style.css" type="text/css"/>
   <link rel="SHORTCUT ICON" href="images/favicon.ico"/>
-  <script type="text/javascript" src="jquery-1.4.2.js"></script>
+  <script type="text/javascript" src="jquery-1.12.4.js"></script>
 </head>
 
 <body>
